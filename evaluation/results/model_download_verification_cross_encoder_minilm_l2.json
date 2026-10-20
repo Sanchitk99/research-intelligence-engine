@@ -1,0 +1,63 @@
+{
+  "status": "blocked_no_download_attempted",
+  "repository": "cross-encoder/ms-marco-MiniLM-L2-v2",
+  "download_succeeded": false,
+  "download_attempted": false,
+  "reason": [
+    "The expected Hugging Face cache entry was already present before download.",
+    "Available physical RAM was 2.35 GB, below the required 3 GB minimum."
+  ],
+  "preflight": {
+    "cache_entry_preexisting": true,
+    "cache_path": "C:\\Users\\sanch\\.cache\\huggingface\\hub\\models--cross-encoder--ms-marco-MiniLM-L2-v2",
+    "hf_cache_location": "C:\\Users\\sanch\\.cache\\huggingface\\hub",
+    "huggingface_hub_available": true,
+    "huggingface_hub_version": "1.33.0",
+    "hf_cli_available": true,
+    "available_ram_gb": 2.35,
+    "required_minimum_ram_gb": 3.0,
+    "free_disk_gb": 21.92,
+    "disk_space_blocker": false
+  },
+  "cached_model_verification": {
+    "located_by": "huggingface_hub.scan_cache_dir",
+    "revision": "1b5cd67b15209f24824c50370e0397743aa9b787",
+    "snapshot_path": "C:\\Users\\sanch\\.cache\\huggingface\\hub\\models--cross-encoder--ms-marco-MiniLM-L2-v2\\snapshots\\1b5cd67b15209f24824c50370e0397743aa9b787",
+    "snapshot_file_count": 6,
+    "snapshot_footprint_bytes": 63416932,
+    "snapshot_footprint_gb": 0.0591,
+    "configuration": {
+      "path": "config.json",
+      "present": true,
+      "model_type": "bert",
+      "architecture": "BertForSequenceClassification",
+      "hidden_size": 384,
+      "num_hidden_layers": 2
+    },
+    "tokenizer_files": [
+      "tokenizer_config.json",
+      "tokenizer.json",
+      "special_tokens_map.json",
+      "vocab.txt"
+    ],
+    "weight_files": [
+      "model.safetensors"
+    ],
+    "all_required_files_present": true
+  },
+  "safety_confirmation": {
+    "model_loaded": false,
+    "inference_run": false,
+    "reranking_evaluation_run": false,
+    "gemma_evaluation_resumed": false,
+    "hosted_inference_called": false,
+    "env_modified": false,
+    "dependencies_modified": false,
+    "source_code_modified": false,
+    "retrieval_settings_modified": false,
+    "checkpoints_modified": false,
+    "historical_artifacts_modified": false,
+    "existing_blocked_preflight_artifact_preserved": true
+  },
+  "report_scope": "Preflight and cache verification only; no model download or model loading was performed."
+}

@@ -1,0 +1,14 @@
+{
+  "status": "blocked_before_inference",
+  "model": "cross-encoder/ms-marco-MiniLM-L2-v2",
+  "device": "cpu",
+  "candidate_k_per_retriever": 50,
+  "final_top_k": 5,
+  "output_json": "evaluation\\results\\reranking_evaluation_cpu_minilm_l2.json",
+  "output_report": "evaluation\\results\\reranking_evaluation_cpu_minilm_l2.md",
+  "model_cache_directory": "C:\\Users\\sanch\\.cache\\huggingface\\hub\\models--cross-encoder--ms-marco-MiniLM-L2-v2",
+  "model_cached": false,
+  "available_ram_mb": 3581.16796875,
+  "ollama_loaded_models": [],
+  "reason": "Model 'cross-encoder/ms-marco-MiniLM-L2-v2' is not available in the local Hugging Face cache; no download attempted"
+}

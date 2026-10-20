@@ -1,0 +1,72 @@
+[
+  {
+    "id": "OOS01",
+    "question": "What is the computational cost in GPU-hours of training a Self-RAG model from scratch?",
+    "type": "out_of_scope",
+    "expected_outcome": "abstain",
+    "reason": "P4 describes the training procedure and mentions GPT-4 annotation costs, but the corpus does not contain specific GPU-hour measurements for end-to-end Self-RAG training."
+  },
+  {
+    "id": "OOS02",
+    "question": "How does ColBERT's late interaction retrieval compare to DPR's bi-encoder approach?",
+    "type": "out_of_scope",
+    "expected_outcome": "abstain",
+    "reason": "ColBERT is not included in the corpus. No paper in the collection describes late interaction retrieval."
+  },
+  {
+    "id": "OOS03",
+    "question": "What is the carbon footprint of running RAGAS evaluations at scale?",
+    "type": "out_of_scope",
+    "expected_outcome": "abstain",
+    "reason": "None of the papers discuss environmental impact or carbon costs."
+  },
+  {
+    "id": "OOS04",
+    "question": "How do RAG systems perform on non-English languages?",
+    "type": "out_of_scope",
+    "expected_outcome": "abstain",
+    "reason": "All five papers focus exclusively on English. No multilingual evaluation results exist in this corpus."
+  },
+  {
+    "id": "OOS05",
+    "question": "What is the effect of using instruction-tuned models as the generator in standard RAG?",
+    "type": "out_of_scope",
+    "expected_outcome": "abstain",
+    "reason": "P1 uses BART-large (not instruction-tuned). P4 uses Llama 2 but with its own training procedure. No paper in the corpus studies the specific effect of instruction tuning on standard RAG."
+  },
+  {
+    "id": "OOS06",
+    "question": "How does retrieval-augmented generation perform on code generation tasks?",
+    "type": "out_of_scope",
+    "expected_outcome": "abstain",
+    "reason": "All papers focus on QA, fact verification, or text generation. No code generation evaluation exists in the corpus."
+  },
+  {
+    "id": "OOS07",
+    "question": "What privacy risks arise from retrieval-augmented systems accessing sensitive documents?",
+    "type": "out_of_scope",
+    "expected_outcome": "abstain",
+    "reason": "None of the papers discuss privacy, data security, or access control."
+  },
+  {
+    "id": "OOS08",
+    "question": "How do RAGAS metrics perform when applied to medical or legal domain RAG systems?",
+    "type": "out_of_scope",
+    "expected_outcome": "abstain",
+    "reason": "P5 validates only on WikiEval (general domain). No domain-specific validation is in the corpus."
+  },
+  {
+    "id": "OOS09",
+    "question": "What is the optimal chunk size for indexing research papers in a RAG system?",
+    "type": "out_of_scope",
+    "expected_outcome": "abstain",
+    "reason": "The papers discuss chunk sizes for Wikipedia (100 words in P1, ~288 wordpieces in P3), but none study optimal chunking for research paper PDFs specifically."
+  },
+  {
+    "id": "OOS10",
+    "question": "How do RAG systems handle contradictory evidence across retrieved passages?",
+    "type": "out_of_scope",
+    "expected_outcome": "abstain",
+    "reason": "While the system specification requires this capability, none of the five papers explicitly study or propose methods for handling contradictory evidence within retrieved passages."
+  }
+]

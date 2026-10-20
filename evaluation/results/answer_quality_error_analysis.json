@@ -1,0 +1,2863 @@
+{
+  "metadata": {
+    "analysis_type": "read_only_diagnostic",
+    "task": "4.3.3",
+    "timestamp": "2026-10-20T04:28:50.315514",
+    "total_answerable_questions": 18,
+    "total_out_of_scope_questions": 10,
+    "total_evaluated": 28
+  },
+  "dense_mode_summary": {
+    "total_analyzed": 18,
+    "target_evidence_in_top5_count": 12,
+    "relevant_evidence_cited_count": 6,
+    "unsupported_claims_count": 12,
+    "likely_evaluator_limitations_count": 1,
+    "strict_appropriate_outcome_count": 2,
+    "primary_failure_breakdown": {
+      "Retrieval miss": 6,
+      "No clear failure": 2,
+      "Unsupported answer": 1,
+      "Evaluator limitation": 1,
+      "Context insufficiency": 5,
+      "Citation selection failure": 3
+    },
+    "citation_level_metrics": {
+      "total_citations_emitted": 20,
+      "total_valid_citations": 20,
+      "citation_validity_rate": 1.0,
+      "total_faithful_excerpts": 20,
+      "citation_excerpt_faithfulness_rate": 1.0
+    }
+  },
+  "hybrid_mode_summary": {
+    "total_analyzed": 18,
+    "target_evidence_in_top5_count": 15,
+    "relevant_evidence_cited_count": 6,
+    "unsupported_claims_count": 12,
+    "likely_evaluator_limitations_count": 1,
+    "strict_appropriate_outcome_count": 2,
+    "primary_failure_breakdown": {
+      "Retrieval miss": 4,
+      "No clear failure": 2,
+      "Citation selection failure": 6,
+      "Context insufficiency": 5,
+      "Evaluator limitation": 1
+    },
+    "citation_level_metrics": {
+      "total_citations_emitted": 20,
+      "total_valid_citations": 20,
+      "citation_validity_rate": 1.0,
+      "total_faithful_excerpts": 20,
+      "citation_excerpt_faithfulness_rate": 1.0
+    }
+  },
+  "questions": [
+    {
+      "question_id": "Q01",
+      "question_text": "What generator model does RAG use?",
+      "target_documents": [
+        "P1"
+      ],
+      "target_pages": {
+        "P1": [
+          3
+        ]
+      },
+      "expected_answer": "RAG uses BART-large (400M parameters), a pre-trained sequence-to-sequence transformer, as its generator model.",
+      "supporting_excerpt": "\"The generator component $p_\\theta(y_i",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p02_c06",
+            "document_id": "P1",
+            "physical_page_number": 2,
+            "score": 0.6472,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p17_c03",
+            "document_id": "P1",
+            "physical_page_number": 17,
+            "score": 0.4294,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p04_c01",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "score": 0.4259,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p01_c05",
+            "document_id": "P4",
+            "physical_page_number": 1,
+            "score": 0.422,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p08_c01",
+            "document_id": "P1",
+            "physical_page_number": 8,
+            "score": 0.4185,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": false,
+        "citations": [
+          {
+            "chunk_id": "P1_p04_c01",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "excerpt": "We do not ﬁnd this step necessary for strong performance, and keep the document encoder (and\nindex) ﬁxed, only ﬁne-tuning the query encoder BERTq and the BART generator.",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on retrieved chunk P1_p04_c01, RAG fine-tunes 'the BART generator', but the retrieved passages do not contain evidence specifying the BART-large model variant or its 400M parameter count.",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": false,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": true,
+          "answer_token_recall": 0.375,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Retrieval miss",
+        "diagnostic_justification": "BART-large definition chunk P1_p03_c04 absent from top-5 context."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c01",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "score": 0.032,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p03_c02",
+            "document_id": "P1",
+            "physical_page_number": 3,
+            "score": 0.0284,
+            "is_target_page": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p17_c03",
+            "document_id": "P1",
+            "physical_page_number": 17,
+            "score": 0.0269,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p04_c03",
+            "document_id": "P4",
+            "physical_page_number": 4,
+            "score": 0.0266,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p19_c02",
+            "document_id": "P1",
+            "physical_page_number": 19,
+            "score": 0.0263,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P1_p04_c01",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "excerpt": "We do not ﬁnd this step necessary for strong performance, and keep the document encoder (and\nindex) ﬁxed, only ﬁne-tuning the query encoder BERTq and the BART generator.",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on retrieved chunk P1_p04_c01, RAG fine-tunes 'the BART generator', but the retrieved passages do not contain evidence specifying the BART-large model variant or its 400M parameter count.",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": true,
+          "answer_token_recall": 0.375,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Retrieval miss",
+        "diagnostic_justification": "P1_p03_c04 absent from top-5; retrieved P1_p03_c02 contains only marginalization formulas."
+      }
+    },
+    {
+      "question_id": "Q02",
+      "question_text": "How does DPR train its passage encoder, and what types of negatives are used?",
+      "target_documents": [
+        "P2"
+      ],
+      "target_pages": {
+        "P2": [
+          3,
+          5,
+          6
+        ]
+      },
+      "expected_answer": "DPR uses a dual-encoder architecture with two independent uncased BERT-base models ($d=768$) for query and passage encoding. In its best model, it is trained using in-batch negative passages (batch size 128) plus one additional BM25 hard negative passage per question (top passages returned by BM25 that do not contain the answer but match question tokens).",
+      "supporting_excerpt": "\"Our best model uses gold passages from the same mini-batch and one BM25 negative passage.\" (§3.2, p. 3); \"The DPR model used in our main experiments is trained using the in-batch negative setting (Section 3.2) with a batch size of 128 and one additional BM25 negative passage per question.\" (§5, p. 5)",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P2_p13_c03",
+            "document_id": "P2",
+            "physical_page_number": 13,
+            "score": 0.4893,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p04_c01",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "score": 0.4416,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p03_c04",
+            "document_id": "P2",
+            "physical_page_number": 3,
+            "score": 0.436,
+            "is_target_page": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p05_c02",
+            "document_id": "P2",
+            "physical_page_number": 5,
+            "score": 0.4285,
+            "is_target_page": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p04_c01",
+            "document_id": "P4",
+            "physical_page_number": 4,
+            "score": 0.4014,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P2_p05_c02",
+            "document_id": "P2",
+            "physical_page_number": 5,
+            "excerpt": "The DPR model used in our main experiments\nis trained using the in-batch negative setting (Sec-\ntion 3.2) with a batch size of 128 and one additional\nBM25 negative passage per question.",
+            "is_target_page": true
+          },
+          {
+            "chunk_id": "P2_p03_c04",
+            "document_id": "P2",
+            "physical_page_number": 3,
+            "excerpt": "We consider\nthree different types of negatives: (1) Random: any\nrandom passage from the corpus; (2) BM25:",
+            "is_target_page": true
+          }
+        ],
+        "relevant_evidence_cited": true,
+        "generated_answer": "DPR uses a dual-encoder architecture with two independent uncased BERT-base models for query and passage encoding. In its best model, it is trained using in-batch negative passages (batch size 128) and one additional BM25 hard negative passage per question.",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": true,
+          "evidence_supports_answer": true,
+          "answer_matches_expected": true,
+          "answer_token_recall": 0.75,
+          "unsupported_evidence_risk": false,
+          "appropriate_outcome": true
+        },
+        "primary_failure_category": "No clear failure",
+        "diagnostic_justification": "Passes strict evaluation: both in-batch and BM25 negative chunks cited and supported."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P2_p03_c04",
+            "document_id": "P2",
+            "physical_page_number": 3,
+            "score": 0.032,
+            "is_target_page": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P2_p03_c05",
+            "document_id": "P2",
+            "physical_page_number": 3,
+            "score": 0.0313,
+            "is_target_page": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p04_c01",
+            "document_id": "P4",
+            "physical_page_number": 4,
+            "score": 0.031,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p05_c02",
+            "document_id": "P2",
+            "physical_page_number": 5,
+            "score": 0.0301,
+            "is_target_page": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p09_c04",
+            "document_id": "P2",
+            "physical_page_number": 9,
+            "score": 0.0287,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P2_p05_c02",
+            "document_id": "P2",
+            "physical_page_number": 5,
+            "excerpt": "The DPR model used in our main experiments\nis trained using the in-batch negative setting (Sec-\ntion 3.2) with a batch size of 128 and one additional\nBM25 negative passage per question.",
+            "is_target_page": true
+          },
+          {
+            "chunk_id": "P2_p03_c04",
+            "document_id": "P2",
+            "physical_page_number": 3,
+            "excerpt": "We consider\nthree different types of negatives: (1) Random: any\nrandom passage from the corpus; (2) BM25:",
+            "is_target_page": true
+          }
+        ],
+        "relevant_evidence_cited": true,
+        "generated_answer": "DPR uses a dual-encoder architecture with two independent uncased BERT-base models for query and passage encoding. In its best model, it is trained using in-batch negative passages (batch size 128) and one additional BM25 hard negative passage per question.",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": true,
+          "evidence_supports_answer": true,
+          "answer_matches_expected": true,
+          "answer_token_recall": 0.75,
+          "unsupported_evidence_risk": false,
+          "appropriate_outcome": true
+        },
+        "primary_failure_category": "No clear failure",
+        "diagnostic_justification": "Passes strict evaluation: both in-batch and BM25 negative chunks cited and supported."
+      }
+    },
+    {
+      "question_id": "Q03",
+      "question_text": "What is the difference between RAG-Sequence and RAG-Token?",
+      "target_documents": [
+        "P1"
+      ],
+      "target_pages": {
+        "P1": [
+          3
+        ]
+      },
+      "expected_answer": "In RAG-Sequence, the model uses the same retrieved document to generate the complete target sequence, treating the document as a single latent variable marginalized per sequence ($p(y",
+      "supporting_excerpt": "\"The RAG-Sequence model uses the same retrieved document to generate the complete sequence. Technically, it treats the retrieved document as a single latent variable that is marginalized to get the seq2seq probability $p(y",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p03_c03",
+            "document_id": "P1",
+            "physical_page_number": 3,
+            "score": 0.5232,
+            "is_target_page": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p04_c01",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "score": 0.4764,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p03_c02",
+            "document_id": "P1",
+            "physical_page_number": 3,
+            "score": 0.4728,
+            "is_target_page": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p08_c03",
+            "document_id": "P1",
+            "physical_page_number": 8,
+            "score": 0.4684,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p03_c06",
+            "document_id": "P4",
+            "physical_page_number": 3,
+            "score": 0.4627,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P1_p03_c03",
+            "document_id": "P1",
+            "physical_page_number": 3,
+            "excerpt": "pRAG-Token(y|x) ≈\nN\nY\ni\nX\nz∈top-k(p(·|x))\npη(z|x)pθ(yi|x, z, y1:i−1)\nFinally, we note that RAG can be used for sequence",
+            "is_target_page": true
+          }
+        ],
+        "relevant_evidence_cited": true,
+        "generated_answer": "Based on the evidence from P1_p03_c03, the findings demonstrate that: pRAG-Token(y|x) ≈\nN\nY\ni\nX\nz∈top-k(p(·|x))\npη(z|x)pθ(yi|x, z, y1:i−1)\nFinally, we note that RAG can be used for sequence",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": true,
+          "evidence_supports_answer": true,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0,
+          "unsupported_evidence_risk": false,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Unsupported answer",
+        "diagnostic_justification": "Target chunk P1_p03_c03 cited but raw formula was echoed without conceptual synthesis."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c01",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "score": 0.0325,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p08_c03",
+            "document_id": "P1",
+            "physical_page_number": 8,
+            "score": 0.0312,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p03_c03",
+            "document_id": "P1",
+            "physical_page_number": 3,
+            "score": 0.0311,
+            "is_target_page": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c03",
+            "document_id": "P1",
+            "physical_page_number": 6,
+            "score": 0.0305,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p03_c02",
+            "document_id": "P1",
+            "physical_page_number": 3,
+            "score": 0.0302,
+            "is_target_page": true
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P1_p04_c01",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "excerpt": "minimize the negative marginal log-likelihood of each target, P\nj −log p(yj|xj) using stochastic\ngradient descent with",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P1_p04_c01, the findings demonstrate that: minimize the negative marginal log-likelihood of each target, P\nj −log p(yj|xj) using stochastic\ngradient descent with",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0769,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Citation selection failure",
+        "diagnostic_justification": "Target chunks P1_p03_c03 and P1_p03_c02 present at Ranks 3 & 5, but non-target Rank 1 chunk cited."
+      }
+    },
+    {
+      "question_id": "Q04",
+      "question_text": "What are the four reflection tokens in Self-RAG and what does each one assess?",
+      "target_documents": [
+        "P4"
+      ],
+      "target_pages": {
+        "P4": [
+          4
+        ]
+      },
+      "expected_answer": "Self-RAG uses four types of reflection tokens: (1) `Retrieve` — decides when to retrieve external passages (outputs: `{yes, no, continue}`); (2) `ISREL` — critique token evaluating whether passage $d$ provides useful information to solve $x$ (outputs: `{relevant, irrelevant}`); (3) `ISSUP` — critique token evaluating whether all verification-worthy statements in $y$ are supported by $d$ (outputs: `{fully supported, partially supported, no support}`); (4) `ISUSE` — critique token evaluating the overall utility of $y$ to $x$ (outputs: `{5, 4, 3, 2, 1}`).",
+      "supporting_excerpt": "Table 1: \"Four types of reflection tokens used in SELF-RAG... Retrieve: Decides when to retrieve with R; ISREL: d provides useful information to solve x; ISSUP: All of the verification-worthy statement in y is supported by d; ISUSE: y is a useful response to x.\"",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p01_c05",
+            "document_id": "P4",
+            "physical_page_number": 1,
+            "score": 0.5693,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p04_c01",
+            "document_id": "P4",
+            "physical_page_number": 4,
+            "score": 0.5468,
+            "is_target_page": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p17_c01",
+            "document_id": "P4",
+            "physical_page_number": 17,
+            "score": 0.5232,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p21_c01",
+            "document_id": "P4",
+            "physical_page_number": 21,
+            "score": 0.5105,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p10_c04",
+            "document_id": "P4",
+            "physical_page_number": 10,
+            "score": 0.5073,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P4_p04_c01",
+            "document_id": "P4",
+            "physical_page_number": 4,
+            "excerpt": "Preprint.\nType\nInput\nOutput\nDefinitions\nRetrieve\nx / x, y\n{yes, no, continue}\nDecides when to retrieve with R\nISREL\nx,",
+            "is_target_page": true
+          }
+        ],
+        "relevant_evidence_cited": true,
+        "generated_answer": "Based on the evidence from P4_p04_c01, the findings demonstrate that: Preprint.\nType\nInput\nOutput\nDefinitions\nRetrieve\nx / x, y\n{yes, no, continue}\nDecides when to retrieve with R\nISREL\nx,",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": true,
+          "evidence_supports_answer": true,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.1613,
+          "unsupported_evidence_risk": false,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Evaluator limitation",
+        "diagnostic_justification": "Target chunk P4_p04_c01 cited and verified, but Table 1 markup dilution dropped token recall below 0.25 threshold."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p17_c01",
+            "document_id": "P4",
+            "physical_page_number": 17,
+            "score": 0.0315,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p04_c01",
+            "document_id": "P4",
+            "physical_page_number": 4,
+            "score": 0.0313,
+            "is_target_page": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p05_c02",
+            "document_id": "P4",
+            "physical_page_number": 5,
+            "score": 0.0306,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p04_c03",
+            "document_id": "P4",
+            "physical_page_number": 4,
+            "score": 0.0306,
+            "is_target_page": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p10_c05",
+            "document_id": "P4",
+            "physical_page_number": 10,
+            "score": 0.0303,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P4_p05_c02",
+            "document_id": "P4",
+            "physical_page_number": 5,
+            "excerpt": "Util: 5\nAugmented Output:                     My best summer \nvacation was a magical escape to the coastal town of",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P4_p05_c02, the findings demonstrate that: Util: 5\nAugmented Output:                     My best summer \nvacation was a magical escape to the coastal town of",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Citation selection failure",
+        "diagnostic_justification": "Target chunks P4_p04_c01 and P4_p04_c03 present at Ranks 2 & 4, but non-target Rank 3 chunk cited."
+      }
+    },
+    {
+      "question_id": "Q05",
+      "question_text": "How does RAGAS compute its faithfulness metric?",
+      "target_documents": [
+        "P5"
+      ],
+      "target_pages": {
+        "P5": [
+          3
+        ]
+      },
+      "expected_answer": "Ragas computes Faithfulness in two steps using an LLM: (1) Decomposes the generated answer $a_s(q)$ into a set of atomic statements $S(a_s(q))$ via an extraction prompt; (2) Verifies whether each statement $s_i \\in S$ can be inferred from the retrieved context $c(q)$ using a verification prompt function $v(s_i, c(q)) \\in \\{Yes, No\\}$. The final score is the fraction of supported statements: $F = \\frac{",
+      "supporting_excerpt": "\"To estimate faithfulness, we first use an LLM to extract a set of statements, $S(a_s(q))$. The aim of this step is to decompose longer sentences into shorter and more focused assertions... For each statement $s_i$ in $S$, the LLM determines if $s_i$ can be inferred from $c(q)$ using a verification function $v(s_i, c(q))$... The final faithfulness score, $F$, is then computed as $F = \\frac{",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P5_p03_c01",
+            "document_id": "P5",
+            "physical_page_number": 3,
+            "score": 0.4456,
+            "is_target_page": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P5_p05_c02",
+            "document_id": "P5",
+            "physical_page_number": 5,
+            "score": 0.4237,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p02_c06",
+            "document_id": "P1",
+            "physical_page_number": 2,
+            "score": 0.3871,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c02",
+            "document_id": "P1",
+            "physical_page_number": 6,
+            "score": 0.3607,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p01_c05",
+            "document_id": "P4",
+            "physical_page_number": 1,
+            "score": 0.3458,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P5_p05_c02",
+            "document_id": "P5",
+            "physical_page_number": 5,
+            "excerpt": "annotators. We report the results in terms of ac-\ncuracy (i.e. the fraction of instances on which the\nmodel agrees with",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P5_p05_c02, the findings demonstrate that: annotators. We report the results in terms of ac-\ncuracy (i.e. the fraction of instances on which the\nmodel agrees with",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0385,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Context insufficiency",
+        "diagnostic_justification": "Introductory chunk P5_p03_c01 retrieved at Rank 1, but mathematical definition and prompt steps in c03/c04 are absent from top-5."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P5_p05_c02",
+            "document_id": "P5",
+            "physical_page_number": 5,
+            "score": 0.0325,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P5_p05_c04",
+            "document_id": "P5",
+            "physical_page_number": 5,
+            "score": 0.0306,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P5_p01_c05",
+            "document_id": "P5",
+            "physical_page_number": 1,
+            "score": 0.029,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P5_p05_c03",
+            "document_id": "P5",
+            "physical_page_number": 5,
+            "score": 0.0288,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P5_p05_c01",
+            "document_id": "P5",
+            "physical_page_number": 5,
+            "score": 0.028,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": false,
+        "citations": [
+          {
+            "chunk_id": "P5_p05_c02",
+            "document_id": "P5",
+            "physical_page_number": 5,
+            "excerpt": "annotators. We report the results in terms of ac-\ncuracy (i.e. the fraction of instances on which the\nmodel agrees with",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P5_p05_c02, the findings demonstrate that: annotators. We report the results in terms of ac-\ncuracy (i.e. the fraction of instances on which the\nmodel agrees with",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": false,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0385,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Retrieval miss",
+        "diagnostic_justification": "Target Page 3 absent from top-5 context entirely (only Page 5 retrieved)."
+      }
+    },
+    {
+      "question_id": "Q06",
+      "question_text": "What exact match scores does RAG-Token achieve on Natural Questions, and how does this compare to DPR's extractive approach?",
+      "target_documents": [
+        "P1",
+        "P2"
+      ],
+      "target_pages": {
+        "P1": [
+          5,
+          6
+        ],
+        "P2": [
+          8
+        ]
+      },
+      "expected_answer": "On Natural Questions (NQ) Exact Match, RAG-Token achieves **44.1** EM and RAG-Sequence achieves **44.5** EM (P1 Table 1), outperforming DPR's extractive reader, which achieves **41.5** EM (P1 Table 1; P2 Table 4). However, on TriviaQA's standard open-domain test split, DPR's extractive reader achieves **57.9** EM (P1 Table 1) / **56.8** EM (P2 Table 4), outperforming RAG-Token (**55.2**) and RAG-Sequence (**56.8**). On the TQA-Wiki split, RAG-Sequence achieves **68.0** and RAG-Token achieves **66.1**.",
+      "supporting_excerpt": "P1 Table 1: \"NQ: DPR = 41.5, RAG-Token = 44.1, RAG-Seq. = 44.5; TQA: DPR = 57.9/-, RAG-Token = 55.2/66.1, RAG-Seq. = 56.8/68.0.\" / P2 Table 4: \"NQ: DPR = 41.5; TriviaQA: DPR = 56.8, BM25+DPR = 57.9.\"",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p06_c02",
+            "document_id": "P1",
+            "physical_page_number": 6,
+            "score": 0.5569,
+            "is_target_page": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p06_c03",
+            "document_id": "P1",
+            "physical_page_number": 6,
+            "score": 0.5475,
+            "is_target_page": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p04_c05",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "score": 0.5471,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p05_c05",
+            "document_id": "P1",
+            "physical_page_number": 5,
+            "score": 0.5383,
+            "is_target_page": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p08_c03",
+            "document_id": "P1",
+            "physical_page_number": 8,
+            "score": 0.5275,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P1_p04_c05",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "excerpt": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As\nCT and WQ are small, we follow DPR [26] by initializing CT and WQ",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P1_p04_c05, the findings demonstrate that: WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As\nCT and WQ are small, we follow DPR [26] by initializing CT and WQ",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Citation selection failure",
+        "diagnostic_justification": "Target chunks P1_p06_c02/c03 present in top-5, but non-target chunk P1_p04_c05 cited."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "score": 0.0323,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "document_id": "P1",
+            "physical_page_number": 5,
+            "score": 0.031,
+            "is_target_page": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p08_c03",
+            "document_id": "P1",
+            "physical_page_number": 8,
+            "score": 0.0301,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c03",
+            "document_id": "P1",
+            "physical_page_number": 6,
+            "score": 0.0291,
+            "is_target_page": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p07_c04",
+            "document_id": "P1",
+            "physical_page_number": 7,
+            "score": 0.028,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P1_p04_c05",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "excerpt": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As\nCT and WQ are small, we follow DPR [26] by initializing CT and WQ",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P1_p04_c05, the findings demonstrate that: WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As\nCT and WQ are small, we follow DPR [26] by initializing CT and WQ",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Citation selection failure",
+        "diagnostic_justification": "Target chunks P1_p05_c05 and P1_p06_c03 present at Ranks 2 & 4, but non-target Rank 1 chunk cited."
+      }
+    },
+    {
+      "question_id": "Q07",
+      "question_text": "How do RAG, DPR, and REALM compare on Natural Questions exact match?",
+      "target_documents": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "target_pages": {
+        "P1": [
+          6
+        ],
+        "P2": [
+          8
+        ],
+        "P3": [
+          7
+        ]
+      },
+      "expected_answer": "On the Natural Questions (NQ) open-domain benchmark, test Exact Match scores are: RAG-Sequence achieves **44.5** (RAG-Token achieves **44.1**) (P1 Table 1); DPR achieves **41.5** (P1 Table 1; P2 Table 4); REALM achieves **40.4** with CC-News pretraining and **39.2** with Wikipedia pretraining (P1 Table 1; P2 Table 4; P3 Table 1). RAG-Sequence achieves the highest score, outperforming DPR by 3.0 points and REALM (CC-News) by 4.1 points.",
+      "supporting_excerpt": "P1 Table 1: \"NQ: REALM = 40.4, DPR = 41.5, RAG-Token = 44.1, RAG-Seq. = 44.5.\" / P3 Table 1: \"NQ: REALM (X=Wikipedia, Z=Wikipedia) = 39.2, REALM (X=CC-News, Z=Wikipedia) = 40.4.\"",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p06_c02",
+            "document_id": "P1",
+            "physical_page_number": 6,
+            "score": 0.5014,
+            "is_target_page": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P5_p05_c04",
+            "document_id": "P5",
+            "physical_page_number": 5,
+            "score": 0.4781,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p12_c03",
+            "document_id": "P2",
+            "physical_page_number": 12,
+            "score": 0.4652,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p20_c05",
+            "document_id": "P4",
+            "physical_page_number": 20,
+            "score": 0.4627,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c05",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "score": 0.4616,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P1_p04_c05",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "excerpt": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As\nCT and WQ are small, we follow DPR [26] by initializing CT and WQ",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P1_p04_c05, the findings demonstrate that: WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As\nCT and WQ are small, we follow DPR [26] by initializing CT and WQ",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Context insufficiency",
+        "diagnostic_justification": "Cross-paper question: P2 and P3 comparison tables absent from top-5, only P1 represented."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "score": 0.0318,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "document_id": "P1",
+            "physical_page_number": 5,
+            "score": 0.031,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "document_id": "P2",
+            "physical_page_number": 8,
+            "score": 0.0292,
+            "is_target_page": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p12_c03",
+            "document_id": "P2",
+            "physical_page_number": 12,
+            "score": 0.0287,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c04",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "score": 0.0275,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P1_p04_c05",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "excerpt": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As\nCT and WQ are small, we follow DPR [26] by initializing CT and WQ",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P1_p04_c05, the findings demonstrate that: WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As\nCT and WQ are small, we follow DPR [26] by initializing CT and WQ",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Context insufficiency",
+        "diagnostic_justification": "Cross-paper question: P1 and P3 benchmark tables absent from top-5, only P2 represented."
+      }
+    },
+    {
+      "question_id": "Q08",
+      "question_text": "How does REALM's index refresh strategy differ from DPR's static index?",
+      "target_documents": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "target_pages": {
+        "P1": [
+          4
+        ],
+        "P2": [
+          3
+        ],
+        "P3": [
+          4,
+          5
+        ]
+      },
+      "expected_answer": "DPR uses a static offline index: passage embeddings are computed once using the trained passage encoder and indexed with FAISS; the index is never modified during reader training or inference (P2 §3.1). REALM uses an asynchronous index refresh during pre-training: as retriever parameters $\\theta$ are updated by the trainer, an asynchronous background index builder periodically re-embeds and re-indexes the entire Wikipedia corpus with parameter snapshots $\\theta'$ every few hundred steps, passing refreshed MIPS indices back to the trainer (P3 §3.3, Fig. 3). The RAG paper deliberately avoids REALM's asynchronous refreshing to reduce cost, keeping the document encoder and index fixed and updating only the query encoder and BART generator (P1 §2.3).",
+      "supporting_excerpt": "P3 §3.3: \"the trainer sends the index builder a snapshot of its parameters, $\\theta'$. The trainer then continues to train while the index builder uses $\\theta'$ to construct a new index in the background.\" / P1 §2.3: \"Updating the document encoder BERTd during training is costly as it requires the document index to be periodically updated as REALM does during pre-training [20]. We do not find this step necessary... and keep the document encoder (and its index) fixed\"",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p05_c01",
+            "document_id": "P3",
+            "physical_page_number": 5,
+            "score": 0.5301,
+            "is_target_page": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p08_c03",
+            "document_id": "P3",
+            "physical_page_number": 8,
+            "score": 0.5149,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p08_c02",
+            "document_id": "P3",
+            "physical_page_number": 8,
+            "score": 0.4657,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P3_p05_c02",
+            "document_id": "P3",
+            "physical_page_number": 5,
+            "score": 0.3956,
+            "is_target_page": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P3_p06_c04",
+            "document_id": "P3",
+            "physical_page_number": 6,
+            "score": 0.3955,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P3_p05_c01",
+            "document_id": "P3",
+            "physical_page_number": 5,
+            "excerpt": "REALM: Retrieval-Augmented Language Model Pre-Training\nFigure 3. REALM pre-training with asynchronous MIPS",
+            "is_target_page": true
+          }
+        ],
+        "relevant_evidence_cited": true,
+        "generated_answer": "Based on the evidence from P3_p05_c01, the findings demonstrate that: REALM: Retrieval-Augmented Language Model Pre-Training\nFigure 3. REALM pre-training with asynchronous MIPS",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": true,
+          "evidence_supports_answer": true,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0714,
+          "unsupported_evidence_risk": false,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Context insufficiency",
+        "diagnostic_justification": "Cross-paper question: REALM refresh evidence present, but DPR static index evidence (P2 p3) absent from top-5."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p05_c01",
+            "document_id": "P3",
+            "physical_page_number": 5,
+            "score": 0.0325,
+            "is_target_page": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p08_c03",
+            "document_id": "P3",
+            "physical_page_number": 8,
+            "score": 0.0325,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p08_c02",
+            "document_id": "P3",
+            "physical_page_number": 8,
+            "score": 0.031,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P3_p04_c05",
+            "document_id": "P3",
+            "physical_page_number": 4,
+            "score": 0.0301,
+            "is_target_page": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P3_p06_c04",
+            "document_id": "P3",
+            "physical_page_number": 6,
+            "score": 0.0285,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P3_p05_c01",
+            "document_id": "P3",
+            "physical_page_number": 5,
+            "excerpt": "REALM: Retrieval-Augmented Language Model Pre-Training\nFigure 3. REALM pre-training with asynchronous MIPS",
+            "is_target_page": true
+          }
+        ],
+        "relevant_evidence_cited": true,
+        "generated_answer": "Based on the evidence from P3_p05_c01, the findings demonstrate that: REALM: Retrieval-Augmented Language Model Pre-Training\nFigure 3. REALM pre-training with asynchronous MIPS",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": true,
+          "evidence_supports_answer": true,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0714,
+          "unsupported_evidence_risk": false,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Context insufficiency",
+        "diagnostic_justification": "Cross-paper question: REALM refresh evidence present, but DPR static index evidence (P2 p3) absent from top-5."
+      }
+    },
+    {
+      "question_id": "Q09",
+      "question_text": "How does Self-RAG's approach to deciding when to retrieve differ from standard RAG?",
+      "target_documents": [
+        "P1",
+        "P4"
+      ],
+      "target_pages": {
+        "P1": [
+          2,
+          3
+        ],
+        "P4": [
+          4
+        ]
+      },
+      "expected_answer": "Standard RAG (P1) unconditionally retrieves a fixed top-$K$ passages for every input prompt before generation begins (§2). In contrast, Self-RAG (P4) performs adaptive, on-demand retrieval: at each segment step $t$, the generator predicts a special `Retrieve` token given $(x, y_{<t})$. Only if `Retrieve` == `Yes` does the retriever retrieve passages; if `Retrieve` == `No`, the model directly generates the next segment without external context, allowing it to bypass retrieval for tasks that don't require external evidence (§3.1, Algorithm 1).",
+      "supporting_excerpt": "P4 Algorithm 1: \"Line 2: $M$ predicts `Retrieve` given $(x, y_{<t})$; Line 3: if `Retrieve` == `Yes` then Retrieve relevant text passages... Line 8: else if `Retrieve` == `No` then $M_{gen}$ predicts $y_t$ given $x$\"",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p01_c05",
+            "document_id": "P4",
+            "physical_page_number": 1,
+            "score": 0.5468,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p08_c03",
+            "document_id": "P1",
+            "physical_page_number": 8,
+            "score": 0.5275,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p20_c05",
+            "document_id": "P4",
+            "physical_page_number": 20,
+            "score": 0.4992,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p04_c01",
+            "document_id": "P4",
+            "physical_page_number": 4,
+            "score": 0.4802,
+            "is_target_page": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p10_c01",
+            "document_id": "P1",
+            "physical_page_number": 10,
+            "score": 0.4741,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P4_p04_c01",
+            "document_id": "P4",
+            "physical_page_number": 4,
+            "excerpt": "Preprint.\nType\nInput\nOutput\nDefinitions\nRetrieve\nx / x, y\n{yes, no, continue}\nDecides when to retrieve with R\nISREL\nx,",
+            "is_target_page": true
+          }
+        ],
+        "relevant_evidence_cited": true,
+        "generated_answer": "Based on the evidence from P4_p04_c01, the findings demonstrate that: Preprint.\nType\nInput\nOutput\nDefinitions\nRetrieve\nx / x, y\n{yes, no, continue}\nDecides when to retrieve with R\nISREL\nx,",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": true,
+          "evidence_supports_answer": true,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0789,
+          "unsupported_evidence_risk": false,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Context insufficiency",
+        "diagnostic_justification": "Cross-paper question: Self-RAG reflection token evidence present, but RAG unconditional retrieval evidence (P1 p2) absent from top-5."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p20_c05",
+            "document_id": "P4",
+            "physical_page_number": 20,
+            "score": 0.0294,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c03",
+            "document_id": "P4",
+            "physical_page_number": 10,
+            "score": 0.029,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p04_c01",
+            "document_id": "P4",
+            "physical_page_number": 4,
+            "score": 0.029,
+            "is_target_page": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p09_c02",
+            "document_id": "P4",
+            "physical_page_number": 9,
+            "score": 0.0285,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p09_c04",
+            "document_id": "P4",
+            "physical_page_number": 9,
+            "score": 0.028,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P4_p10_c03",
+            "document_id": "P4",
+            "physical_page_number": 10,
+            "excerpt": "150k training instances, and fine-tune four SELF-RAG 7B variants on those subsets. Then, we compare\nthe model",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P4_p10_c03, the findings demonstrate that: 150k training instances, and fine-tune four SELF-RAG 7B variants on those subsets. Then, we compare\nthe model",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0526,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Citation selection failure",
+        "diagnostic_justification": "Target chunk P4_p04_c01 present in top-5 (Rank 3), but non-target Rank 2 chunk cited."
+      }
+    },
+    {
+      "question_id": "Q10",
+      "question_text": "How does Self-RAG's ISSUP token relate to RAGAS's faithfulness metric?",
+      "target_documents": [
+        "P4",
+        "P5"
+      ],
+      "target_pages": {
+        "P4": [
+          4
+        ],
+        "P5": [
+          3
+        ]
+      },
+      "expected_answer": "Both evaluate whether generated content is supported by retrieved context, but operate at different stages of the pipeline: Self-RAG's `ISSUP` token is a generation-time critique token predicted inline by the model for each segment and candidate passage $d$ (evaluating `{fully supported, partially supported, no support}`) to rank candidate segments during beam search (P4 §3.1, Table 1). In contrast, Ragas's Faithfulness metric is a post-hoc evaluation metric computed after generation: it uses an external LLM to decompose the completed answer into individual statements and verify each against the retrieved context to calculate an aggregate score $F = \\frac{",
+      "supporting_excerpt": "P4 Table 1: \"ISSUP: All of the verification-worthy statement in y is supported by d.\" / P5 §3: \"Faithfulness refers to the idea that the answer should be grounded in the given context... $F = \\frac{",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p01_c05",
+            "document_id": "P4",
+            "physical_page_number": 1,
+            "score": 0.4968,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p21_c01",
+            "document_id": "P4",
+            "physical_page_number": 21,
+            "score": 0.4486,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P5_p03_c01",
+            "document_id": "P5",
+            "physical_page_number": 3,
+            "score": 0.4464,
+            "is_target_page": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P5_p05_c02",
+            "document_id": "P5",
+            "physical_page_number": 5,
+            "score": 0.379,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p10_c04",
+            "document_id": "P4",
+            "physical_page_number": 10,
+            "score": 0.3779,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P4_p10_c04",
+            "document_id": "P4",
+            "physical_page_number": 10,
+            "excerpt": "reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio\nresults. Following",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P4_p10_c04, the findings demonstrate that: reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio\nresults. Following",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0208,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Context insufficiency",
+        "diagnostic_justification": "Cross-paper question: RAGAS faithfulness present at Rank 3, but Self-RAG ISSUP definition (P4 p4) absent from top-5."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p10_c04",
+            "document_id": "P4",
+            "physical_page_number": 10,
+            "score": 0.0318,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p21_c01",
+            "document_id": "P4",
+            "physical_page_number": 21,
+            "score": 0.0302,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p10_c05",
+            "document_id": "P4",
+            "physical_page_number": 10,
+            "score": 0.0296,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P5_p05_c02",
+            "document_id": "P5",
+            "physical_page_number": 5,
+            "score": 0.0293,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p04_c03",
+            "document_id": "P4",
+            "physical_page_number": 4,
+            "score": 0.0279,
+            "is_target_page": true
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P4_p10_c04",
+            "document_id": "P4",
+            "physical_page_number": 10,
+            "excerpt": "reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio\nresults. Following",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P4_p10_c04, the findings demonstrate that: reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio\nresults. Following",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0208,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Citation selection failure",
+        "diagnostic_justification": "Target chunk P4_p04_c03 present in top-5 (Rank 5), but non-target Rank 1 chunk cited."
+      }
+    },
+    {
+      "question_id": "Q11",
+      "question_text": "On which dataset does BM25 outperform DPR, and why?",
+      "target_documents": [
+        "P2"
+      ],
+      "target_pages": {
+        "P2": [
+          5,
+          8
+        ]
+      },
+      "expected_answer": "BM25 outperforms DPR on SQuAD (open-domain setting). In Table 2, BM25 achieves **68.8%** Top-20 retrieval accuracy (and 80.0% Top-100), whereas DPR Single achieves **63.2%** Top-20 (77.2% Top-100) and DPR Multi achieves **51.6%** Top-20 (67.6% Top-100). In Table 4, BM25+BERT achieves **38.1%** EM vs DPR Single at **29.8%** and DPR Multi at **24.1%**. The authors explain two reasons: (1) SQuAD annotators wrote questions after viewing the passage, creating unnaturally high lexical overlap between question and passage that strongly favors BM25 keyword matching; (2) SQuAD data was collected from only 500+ Wikipedia articles, creating an extremely biased passage distribution.",
+      "supporting_excerpt": "P2 §5.1: \"We conjecture that the lower performance on SQuAD is due to two reasons. First, the annotators wrote questions after seeing the passage. As a result, there is a high lexical overlap between passages and questions, which gives BM25 a clear advantage. Second, the data was collected from only 500+ Wikipedia articles and thus the distribution of training examples is extremely biased\"",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P2_p06_c06",
+            "document_id": "P2",
+            "physical_page_number": 6,
+            "score": 0.6425,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P2_p05_c04",
+            "document_id": "P2",
+            "physical_page_number": 5,
+            "score": 0.5809,
+            "is_target_page": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p12_c03",
+            "document_id": "P2",
+            "physical_page_number": 12,
+            "score": 0.5513,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p05_c03",
+            "document_id": "P2",
+            "physical_page_number": 5,
+            "score": 0.5252,
+            "is_target_page": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p08_c02",
+            "document_id": "P2",
+            "physical_page_number": 8,
+            "score": 0.4748,
+            "is_target_page": true
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P2_p08_c02",
+            "document_id": "P2",
+            "physical_page_number": 8,
+            "excerpt": "see that higher retriever accuracy typically leads to\nbetter ﬁnal QA results: in all cases except SQuAD,\nanswers extracted from the passages retrieved by\nDPR are more likely to be correct, compared to\nthose from BM25.",
+            "is_target_page": true
+          },
+          {
+            "chunk_id": "P2_p05_c04",
+            "document_id": "P2",
+            "physical_page_number": 5,
+            "excerpt": "We conjecture that the lower performance on\nSQuAD is due to two reasons.",
+            "is_target_page": true
+          }
+        ],
+        "relevant_evidence_cited": true,
+        "generated_answer": "BM25 outperforms DPR on SQuAD (open-domain setting). In Table 4, DPR outperforms BM25 on all datasets except SQuAD. The authors explain two reasons: first, annotators wrote questions after seeing the passage, creating high lexical overlap between question and passage that favors BM25 keyword matching; second, SQuAD data was collected from only 500+ Wikipedia articles, creating an extremely biased passage distribution.",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": true,
+          "evidence_supports_answer": true,
+          "answer_matches_expected": true,
+          "answer_token_recall": 0.7143,
+          "unsupported_evidence_risk": false,
+          "appropriate_outcome": true
+        },
+        "primary_failure_category": "No clear failure",
+        "diagnostic_justification": "Passes strict evaluation: Table 4 empirical outcome and Section 5 annotator explanation both cited and supported."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P2_p08_c02",
+            "document_id": "P2",
+            "physical_page_number": 8,
+            "score": 0.0318,
+            "is_target_page": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P2_p05_c04",
+            "document_id": "P2",
+            "physical_page_number": 5,
+            "score": 0.0318,
+            "is_target_page": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p05_c02",
+            "document_id": "P2",
+            "physical_page_number": 5,
+            "score": 0.0304,
+            "is_target_page": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p12_c03",
+            "document_id": "P2",
+            "physical_page_number": 12,
+            "score": 0.0298,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p06_c06",
+            "document_id": "P2",
+            "physical_page_number": 6,
+            "score": 0.0297,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P2_p08_c02",
+            "document_id": "P2",
+            "physical_page_number": 8,
+            "excerpt": "see that higher retriever accuracy typically leads to\nbetter ﬁnal QA results: in all cases except SQuAD,\nanswers extracted from the passages retrieved by\nDPR are more likely to be correct, compared to\nthose from BM25.",
+            "is_target_page": true
+          },
+          {
+            "chunk_id": "P2_p05_c04",
+            "document_id": "P2",
+            "physical_page_number": 5,
+            "excerpt": "We conjecture that the lower performance on\nSQuAD is due to two reasons.",
+            "is_target_page": true
+          }
+        ],
+        "relevant_evidence_cited": true,
+        "generated_answer": "BM25 outperforms DPR on SQuAD (open-domain setting). In Table 4, DPR outperforms BM25 on all datasets except SQuAD. The authors explain two reasons: first, annotators wrote questions after seeing the passage, creating high lexical overlap between question and passage that favors BM25 keyword matching; second, SQuAD data was collected from only 500+ Wikipedia articles, creating an extremely biased passage distribution.",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": true,
+          "evidence_supports_answer": true,
+          "answer_matches_expected": true,
+          "answer_token_recall": 0.7143,
+          "unsupported_evidence_risk": false,
+          "appropriate_outcome": true
+        },
+        "primary_failure_category": "No clear failure",
+        "diagnostic_justification": "Passes strict evaluation: Table 4 empirical outcome and Section 5 annotator explanation both cited and supported."
+      }
+    },
+    {
+      "question_id": "Q12",
+      "question_text": "What role does salient span masking play in REALM, and what happens without it?",
+      "target_documents": [
+        "P3"
+      ],
+      "target_pages": {
+        "P3": [
+          5,
+          7
+        ]
+      },
+      "expected_answer": "Salient span masking in REALM preferentially masks named entities (identified using a BERT-based tagger trained on CoNLL-2003) and dates (identified via regular expressions) instead of random tokens during pre-training, forcing the retriever to learn to fetch documents containing real-world facts rather than guessing local grammatical tokens. In ablation experiments on the NQ development set (Table 2), REALM with salient span masking achieves **38.2** EM and **38.5%** zero-shot Retrieval Recall@5. Replacing salient span masks with random span masks drops EM to **35.3** (Recall@5 drops to 26.1%), and random uniform masks drops EM to **32.3** (Recall@5 drops to 24.2%).",
+      "supporting_excerpt": "P3 §3.4: \"To focus on problems that require world knowledge, we mask salient spans such as 'United Kingdom' or 'July 1969'. We use a BERT-based tagger trained on CoNLL-2003 data to identify named entities, and a regular expression to identify dates.\" / P3 Table 2: \"REALM: 38.2 EM, 38.5 Recall@5; REALM with random span masks: 35.3 EM, 26.1 Recall@5; REALM with random uniform masks: 32.3 EM, 24.2 Recall@5.\"",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p08_c02",
+            "document_id": "P3",
+            "physical_page_number": 8,
+            "score": 0.584,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p08_c04",
+            "document_id": "P3",
+            "physical_page_number": 8,
+            "score": 0.4023,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p05_c03",
+            "document_id": "P3",
+            "physical_page_number": 5,
+            "score": 0.3971,
+            "is_target_page": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P3_p12_c01",
+            "document_id": "P3",
+            "physical_page_number": 12,
+            "score": 0.3921,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P3_p05_c01",
+            "document_id": "P3",
+            "physical_page_number": 5,
+            "score": 0.3732,
+            "is_target_page": true
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P3_p08_c02",
+            "document_id": "P3",
+            "physical_page_number": 8,
+            "excerpt": "or both. To do so, we can reset the parameters of either\nthe retriever or the encoder to their baseline state",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P3_p08_c02, the findings demonstrate that: or both. To do so, we can reset the parameters of either\nthe retriever or the encoder to their baseline state",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0417,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Citation selection failure",
+        "diagnostic_justification": "Target chunk P3_p05_c03 present in top-5 (Rank 3), but non-target Rank 1 chunk cited."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p08_c02",
+            "document_id": "P3",
+            "physical_page_number": 8,
+            "score": 0.0328,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p12_c01",
+            "document_id": "P3",
+            "physical_page_number": 12,
+            "score": 0.0318,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p05_c03",
+            "document_id": "P3",
+            "physical_page_number": 5,
+            "score": 0.0317,
+            "is_target_page": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P3_p05_c01",
+            "document_id": "P3",
+            "physical_page_number": 5,
+            "score": 0.0303,
+            "is_target_page": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P3_p05_c04",
+            "document_id": "P3",
+            "physical_page_number": 5,
+            "score": 0.0292,
+            "is_target_page": true
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P3_p08_c02",
+            "document_id": "P3",
+            "physical_page_number": 8,
+            "excerpt": "or both. To do so, we can reset the parameters of either\nthe retriever or the encoder to their baseline state",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P3_p08_c02, the findings demonstrate that: or both. To do so, we can reset the parameters of either\nthe retriever or the encoder to their baseline state",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0417,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Citation selection failure",
+        "diagnostic_justification": "Target chunks P3_p05_c01, P3_p05_c03, P3_p05_c04 present at Ranks 3, 4, 5, but non-target Rank 1 chunk cited."
+      }
+    },
+    {
+      "question_id": "Q13",
+      "question_text": "What are the known limitations of using LLMs as evaluators in RAGAS?",
+      "target_documents": [
+        "P5"
+      ],
+      "target_pages": {
+        "P5": [
+          3,
+          4,
+          5
+        ]
+      },
+      "expected_answer": "Ragas acknowledges several limitations: (1) Context Relevance is the hardest metric to automate, as the LLM evaluator (ChatGPT) often struggles to reliably isolate crucial sentences from longer contexts (§5); (2) High dependency on proprietary LLM APIs (`gpt-3.5-turbo-16k` and `text-embedding-ada-002`), which incurs API cost, latency, and potential variability when the underlying API model changes (§3); (3) WikiEval is a relatively small validation benchmark (50 Wikipedia pages/triples) (§4).",
+      "supporting_excerpt": "P5 §5: \"We found context relevance to be the hardest quality dimension to evaluate. In particular, we observed that ChatGPT often struggles with the task of selecting the sentences from the context that are crucial, especially for longer contexts.\"",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p02_c06",
+            "document_id": "P1",
+            "physical_page_number": 2,
+            "score": 0.4854,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P5_p01_c04",
+            "document_id": "P5",
+            "physical_page_number": 1,
+            "score": 0.4135,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P5_p01_c05",
+            "document_id": "P5",
+            "physical_page_number": 1,
+            "score": 0.4053,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p10_c03",
+            "document_id": "P4",
+            "physical_page_number": 10,
+            "score": 0.386,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p17_c03",
+            "document_id": "P1",
+            "physical_page_number": 17,
+            "score": 0.3611,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": false,
+        "citations": [
+          {
+            "chunk_id": "P5_p01_c04",
+            "document_id": "P5",
+            "physical_page_number": 1,
+            "excerpt": "sages from a corpus and feeding these passages,\nalong with the original question, to the LM. While\ninitial approaches",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P5_p01_c04, the findings demonstrate that: sages from a corpus and feeding these passages,\nalong with the original question, to the LM. While\ninitial approaches",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": false,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Retrieval miss",
+        "diagnostic_justification": "P5 Section 5 limitations paragraph on Page 5 absent from top-5 due to vocabulary mismatch with paper abstract."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P5_p01_c02",
+            "document_id": "P5",
+            "physical_page_number": 1,
+            "score": 0.029,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P5_p01_c01",
+            "document_id": "P5",
+            "physical_page_number": 1,
+            "score": 0.029,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P5_p01_c05",
+            "document_id": "P5",
+            "physical_page_number": 1,
+            "score": 0.0284,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P5_p01_c03",
+            "document_id": "P5",
+            "physical_page_number": 1,
+            "score": 0.0279,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p10_c05",
+            "document_id": "P4",
+            "physical_page_number": 10,
+            "score": 0.0277,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": false,
+        "citations": [
+          {
+            "chunk_id": "P5_p01_c03",
+            "document_id": "P5",
+            "physical_page_number": 1,
+            "excerpt": "firmly established with the introduction of ever\nlarger LMs (Roberts et al., 2020). While the most\nrecent Large",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P5_p01_c03, the findings demonstrate that: firmly established with the introduction of ever\nlarger LMs (Roberts et al., 2020). While the most\nrecent Large",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": false,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Retrieval miss",
+        "diagnostic_justification": "P5 Section 5 limitations paragraph on Page 5 absent from top-5 due to vocabulary mismatch with paper abstract."
+      }
+    },
+    {
+      "question_id": "Q14",
+      "question_text": "What base language models are used across the five papers?",
+      "target_documents": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "target_pages": {
+        "P1": [
+          3
+        ],
+        "P2": [
+          3,
+          6
+        ],
+        "P3": [
+          5,
+          7
+        ],
+        "P4": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "P5": [
+          3
+        ]
+      },
+      "expected_answer": "Across the five papers: (1) RAG (P1): BART-large (400M params) for the seq2seq generator; BERT-base uncased (110M params each) for DPR query/document encoders (§2.2, §2.3, physical p. 3); (2) DPR (P2): independent uncased BERT-base models ($d=768$, 110M params each) for question encoder $E_Q$ and passage encoder $E_P$; BERT-base for extractive reader (§3.1, §4.3, physical pp. 3, 6); (3) REALM (P3): uncased BERT-base (12 layers, 768 hidden units, 12 attention heads; 330M parameters total) for both retriever and knowledge-augmented encoder (§3.4, Table 1, physical pp. 5, 7); (4) Self-RAG (P4): Llama 2 (7B and 13B) as the base generator LM; GPT-4 as teacher to produce ~46k critique demonstrations to train the critic LM (§3.2.1, §3.2.2, Table 2, physical pp. 4–8); (5) Ragas (P5): OpenAI `gpt-3.5-turbo-16k` as LLM judge for statement extraction and verification; OpenAI `text-embedding-ada-002` for question cosine embeddings (§3, physical p. 3).",
+      "supporting_excerpt": "",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p02_c07",
+            "document_id": "P3",
+            "physical_page_number": 2,
+            "score": 0.5771,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p14_c02",
+            "document_id": "P1",
+            "physical_page_number": 14,
+            "score": 0.5583,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P5_p06_c06",
+            "document_id": "P5",
+            "physical_page_number": 6,
+            "score": 0.5357,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p15_c04",
+            "document_id": "P4",
+            "physical_page_number": 15,
+            "score": 0.5344,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p10_c05",
+            "document_id": "P1",
+            "physical_page_number": 10,
+            "score": 0.5232,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": false,
+        "citations": [
+          {
+            "chunk_id": "P5_p06_c06",
+            "document_id": "P5",
+            "physical_page_number": 6,
+            "excerpt": "jape, Michele Bevilacqua, Fabio Petroni, and Percy\nLiang. 2023. Lost in the middle: How language\nmodels use long",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P5_p06_c06, the findings demonstrate that: jape, Michele Bevilacqua, Fabio Petroni, and Percy\nLiang. 2023. Lost in the middle: How language\nmodels use long",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": false,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Retrieval miss",
+        "diagnostic_justification": "Cross-paper query: top-5 contains only bibliography and appendix fragments across papers."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p14_c03",
+            "document_id": "P1",
+            "physical_page_number": 14,
+            "score": 0.0301,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P5_p06_c06",
+            "document_id": "P5",
+            "physical_page_number": 6,
+            "score": 0.0298,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p07_c06",
+            "document_id": "P4",
+            "physical_page_number": 7,
+            "score": 0.0297,
+            "is_target_page": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P5_p06_c04",
+            "document_id": "P5",
+            "physical_page_number": 6,
+            "score": 0.0275,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p14_c05",
+            "document_id": "P1",
+            "physical_page_number": 14,
+            "score": 0.0263,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P1_p14_c03",
+            "document_id": "P1",
+            "physical_page_number": 14,
+            "excerpt": "Kong, China, November 2019. Association for Computational Linguistics. doi: 10.18653/v1/\nD19-1250. URL",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P1_p14_c03, the findings demonstrate that: Kong, China, November 2019. Association for Computational Linguistics. doi: 10.18653/v1/\nD19-1250. URL",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Context insufficiency",
+        "diagnostic_justification": "P4 Page 7 present at Rank 3, but other four papers' base model specifications absent from top-5."
+      }
+    },
+    {
+      "question_id": "Q15",
+      "question_text": "How does Self-RAG's critic model get its training data?",
+      "target_documents": [
+        "P4"
+      ],
+      "target_pages": {
+        "P4": [
+          5
+        ]
+      },
+      "expected_answer": "Self-RAG trains its in-house critic model $C$ by prompting GPT-4 with type-specific instructions and few-shot demonstrations to predict reflection tokens given sampled task inputs $x$, outputs $y$, and passages $d$. The authors collect 4k–20k supervised training instances per reflection token type from GPT-4 evaluations, combine them into an instruction-tuning dataset, and fine-tune a Llama 2 model as the critic model $C$ to predict reflection tokens.",
+      "supporting_excerpt": "\"We create supervised data by prompting GPT-4 to generate reflection tokens and then distill their knowledge into an in-house C... We prompt GPT-4 with a type-specific instruction... followed by few-shot demonstrations $I$, the original task input $x$ and output $y$ to predict an appropriate reflection token as text: $p(r",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p01_c05",
+            "document_id": "P4",
+            "physical_page_number": 1,
+            "score": 0.6426,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p04_c05",
+            "document_id": "P4",
+            "physical_page_number": 4,
+            "score": 0.569,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p04_c04",
+            "document_id": "P4",
+            "physical_page_number": 4,
+            "score": 0.5597,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p09_c02",
+            "document_id": "P4",
+            "physical_page_number": 9,
+            "score": 0.5514,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p10_c03",
+            "document_id": "P4",
+            "physical_page_number": 10,
+            "score": 0.542,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": false,
+        "citations": [
+          {
+            "chunk_id": "P4_p04_c04",
+            "document_id": "P4",
+            "physical_page_number": 4,
+            "excerpt": "vocabulary plus reflection tokens). Specifically, we train the generator model M on a curated corpus\nwith interleaving",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P4_p04_c04, the findings demonstrate that: vocabulary plus reflection tokens). Specifically, we train the generator model M on a curated corpus\nwith interleaving",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": false,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0588,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Retrieval miss",
+        "diagnostic_justification": "Section header chunk P4_p04_c05 present at Rank 2, but substantive data collection body chunk P4_p05_c02 is absent from top-5."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p09_c02",
+            "document_id": "P4",
+            "physical_page_number": 9,
+            "score": 0.0318,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p04_c04",
+            "document_id": "P4",
+            "physical_page_number": 4,
+            "score": 0.0317,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p02_c03",
+            "document_id": "P4",
+            "physical_page_number": 2,
+            "score": 0.0313,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p10_c03",
+            "document_id": "P4",
+            "physical_page_number": 10,
+            "score": 0.0305,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p06_c01",
+            "document_id": "P4",
+            "physical_page_number": 6,
+            "score": 0.0296,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": false,
+        "citations": [
+          {
+            "chunk_id": "P4_p09_c02",
+            "document_id": "P4",
+            "physical_page_number": 9,
+            "excerpt": "precisely grounded yet shorter outputs. Llama2-FT7B, which is the baseline LM trained on the same\ninstruction-output",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P4_p09_c02, the findings demonstrate that: precisely grounded yet shorter outputs. Llama2-FT7B, which is the baseline LM trained on the same\ninstruction-output",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": false,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0588,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Retrieval miss",
+        "diagnostic_justification": "Target chunk P4_p05_c02 absent from top-5 context."
+      }
+    },
+    {
+      "question_id": "Q16",
+      "question_text": "Do RAG and REALM use the same knowledge corpus, and how do their passage sizes compare?",
+      "target_documents": [
+        "P1",
+        "P3",
+        "P2"
+      ],
+      "target_pages": {
+        "P1": [
+          4
+        ],
+        "P2": [
+          4
+        ],
+        "P3": [
+          6
+        ]
+      },
+      "expected_answer": "Both papers use the exact same source snapshot: the English Wikipedia dump from December 20, 2018. However, their passage segmentation differs significantly: RAG (P1) splits Wikipedia into disjoint text blocks of 100 words, producing 21,015,324 passages (~21M passages). REALM (P3) greedily splits Wikipedia documents into chunks of up to 288 BERT wordpieces, producing just over 13 million retrieval candidates (~13M passages). Because 100 words corresponds to ~130–150 wordpieces, REALM's passage chunks are roughly twice as long as RAG's.",
+      "supporting_excerpt": "P1 §4: \"Following Lee et al. [31] and Karpukhin et al. [26], we dump the text from the Dec 2018 dump, and split each article into disjoint 100-word passages, resulting in 21,015,324 passages.\" / P3 §4.2: \"Our knowledge corpus is derived from the December 20, 2018 snapshot of English Wikipedia. Documents are greedily split into chunks of up to 288 BERT wordpieces, resulting in just over 13 million retrieval candidates.\"",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p12_c01",
+            "document_id": "P3",
+            "physical_page_number": 12,
+            "score": 0.5572,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p07_c05",
+            "document_id": "P3",
+            "physical_page_number": 7,
+            "score": 0.5433,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p06_c02",
+            "document_id": "P1",
+            "physical_page_number": 6,
+            "score": 0.5266,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p10_c01",
+            "document_id": "P1",
+            "physical_page_number": 10,
+            "score": 0.5093,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P3_p02_c01",
+            "document_id": "P3",
+            "physical_page_number": 2,
+            "score": 0.5,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": false,
+        "citations": [
+          {
+            "chunk_id": "P3_p12_c01",
+            "document_id": "P3",
+            "physical_page_number": 12,
+            "excerpt": "REALM: Retrieval-Augmented Language Model Pre-Training\nx:\n“Jennifer\nformed the production company Excellent",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P3_p12_c01, the findings demonstrate that: REALM: Retrieval-Augmented Language Model Pre-Training\nx:\n“Jennifer\nformed the production company Excellent",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": false,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.025,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Retrieval miss",
+        "diagnostic_justification": "Cross-paper question: neither RAG 100-word nor REALM 288-wordpiece passage chunks present in top-5."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p12_c01",
+            "document_id": "P3",
+            "physical_page_number": 12,
+            "score": 0.0318,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p04_c05",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "score": 0.0296,
+            "is_target_page": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p02_c01",
+            "document_id": "P3",
+            "physical_page_number": 2,
+            "score": 0.0279,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P3_p02_c04",
+            "document_id": "P3",
+            "physical_page_number": 2,
+            "score": 0.0273,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c04",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "score": 0.0265,
+            "is_target_page": true
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P1_p04_c05",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "excerpt": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As\nCT and WQ are small, we follow DPR [26] by initializing CT and WQ",
+            "is_target_page": true
+          }
+        ],
+        "relevant_evidence_cited": true,
+        "generated_answer": "Based on the evidence from P1_p04_c05, the findings demonstrate that: WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As\nCT and WQ are small, we follow DPR [26] by initializing CT and WQ",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": true,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0,
+          "unsupported_evidence_risk": false,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Context insufficiency",
+        "diagnostic_justification": "RAG passage chunks present at Ranks 2 & 5, but REALM 288-wordpiece chunk (P3 p6) absent from top-5."
+      }
+    },
+    {
+      "question_id": "Q17",
+      "question_text": "What evaluation benchmarks are shared across the 2020 papers, and which are unique to each?",
+      "target_documents": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "target_pages": {
+        "P1": [
+          6
+        ],
+        "P2": [
+          5,
+          8
+        ],
+        "P3": [
+          7
+        ]
+      },
+      "expected_answer": "Among the 2020 papers (P1, P2, P3): (1) Benchmarks shared across all three papers (P1, P2, P3): Natural Questions (NQ), WebQuestions (WQ), and CuratedTREC (CT); (2) Benchmarks shared between P1 and P2 only: TriviaQA (TQA); (3) Benchmark unique to P2: SQuAD (open-domain setting); (4) Benchmarks unique to P1: MS-MARCO NLG (abstractive open-domain QA), Jeopardy question generation, and FEVER (fact verification); (5) P3 has no unique benchmarks (evaluates solely on NQ, WQ, CT).",
+      "supporting_excerpt": "",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p17_c05",
+            "document_id": "P4",
+            "physical_page_number": 17,
+            "score": 0.488,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p06_c06",
+            "document_id": "P3",
+            "physical_page_number": 6,
+            "score": 0.4759,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p08_c01",
+            "document_id": "P4",
+            "physical_page_number": 8,
+            "score": 0.4679,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p13_c04",
+            "document_id": "P2",
+            "physical_page_number": 13,
+            "score": 0.4617,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p07_c06",
+            "document_id": "P4",
+            "physical_page_number": 7,
+            "score": 0.4492,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": false,
+        "citations": [
+          {
+            "chunk_id": "P3_p06_c06",
+            "document_id": "P3",
+            "physical_page_number": 6,
+            "excerpt": "baseline, we compare to concurrent work which ﬁne-tunes\nT5 for Open-QA (Roberts et al., 2020).4\nWe compare\nagainst the",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P3_p06_c06, the findings demonstrate that: baseline, we compare to concurrent work which ﬁne-tunes\nT5 for Open-QA (Roberts et al., 2020).4\nWe compare\nagainst the",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": false,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0417,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Retrieval miss",
+        "diagnostic_justification": "Cross-paper question: benchmark tables across 2020 papers absent from top-5 (polluted by 2023 paper P4)."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p07_c01",
+            "document_id": "P3",
+            "physical_page_number": 7,
+            "score": 0.0305,
+            "is_target_page": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p17_c02",
+            "document_id": "P1",
+            "physical_page_number": 17,
+            "score": 0.0284,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p06_c06",
+            "document_id": "P3",
+            "physical_page_number": 6,
+            "score": 0.028,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p07_c01",
+            "document_id": "P4",
+            "physical_page_number": 7,
+            "score": 0.028,
+            "is_target_page": false
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p09_c05",
+            "document_id": "P4",
+            "physical_page_number": 9,
+            "score": 0.0265,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P3_p07_c01",
+            "document_id": "P3",
+            "physical_page_number": 7,
+            "excerpt": "REALM: Retrieval-Augmented Language Model Pre-Training\nTable 1. Test results on Open-QA benchmarks. The number of",
+            "is_target_page": true
+          }
+        ],
+        "relevant_evidence_cited": true,
+        "generated_answer": "Based on the evidence from P3_p07_c01, the findings demonstrate that: REALM: Retrieval-Augmented Language Model Pre-Training\nTable 1. Test results on Open-QA benchmarks. The number of",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": true,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0417,
+          "unsupported_evidence_risk": false,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Context insufficiency",
+        "diagnostic_justification": "REALM benchmark table present at Rank 1, but P1 and P2 benchmark tables absent from top-5."
+      }
+    },
+    {
+      "question_id": "Q18",
+      "question_text": "What limitations does the RAG paper acknowledge about its static document index?",
+      "target_documents": [
+        "P1"
+      ],
+      "target_pages": {
+        "P1": [
+          4,
+          6,
+          19
+        ]
+      },
+      "expected_answer": "The RAG paper acknowledges that updating the document encoder $BERT_d$ during training is computationally prohibitive because it requires periodically rebuilding the entire multi-million document index (as REALM does during pre-training). Consequently, RAG keeps $BERT_d$ and its FAISS index completely fixed (static), fine-tuning only the query encoder $BERT_q$ and the BART generator (§2.3, p. 4). A key consequence is that if the static retriever fails to retrieve relevant passages, the generator is starved of external evidence; however, RAG can sometimes fall back on BART's internal parametric knowledge (achieving 11.8% accuracy on NQ when no retrieved document contains the answer) (§4.1, p. 6), or conversely learn to collapse and ignore retrieved documents entirely (Appendix, p. 19).",
+      "supporting_excerpt": "\"Updating the document encoder BERTd during training is costly as it requires the document index to be periodically updated as REALM does during pre-training [20]. We do not find this step necessary for strong performance, and keep the document encoder (and its index) fixed, only fine-tuning the query encoder BERTq and the BART generator.\" (P1 §2.3, p. 4)",
+      "dense": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p17_c03",
+            "document_id": "P1",
+            "physical_page_number": 17,
+            "score": 0.5508,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p08_c03",
+            "document_id": "P1",
+            "physical_page_number": 8,
+            "score": 0.5245,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p08_c02",
+            "document_id": "P1",
+            "physical_page_number": 8,
+            "score": 0.495,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p19_c02",
+            "document_id": "P1",
+            "physical_page_number": 19,
+            "score": 0.4705,
+            "is_target_page": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p10_c01",
+            "document_id": "P1",
+            "physical_page_number": 10,
+            "score": 0.4528,
+            "is_target_page": false
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P1_p17_c03",
+            "document_id": "P1",
+            "physical_page_number": 17,
+            "excerpt": "We ﬁnd that doing Maximum Inner Product Search\nwith FAISS is sufﬁciently fast on CPU, so we store document index",
+            "is_target_page": false
+          }
+        ],
+        "relevant_evidence_cited": false,
+        "generated_answer": "Based on the evidence from P1_p17_c03, the findings demonstrate that: We ﬁnd that doing Maximum Inner Product Search\nwith FAISS is sufﬁciently fast on CPU, so we store document index",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": false,
+          "evidence_supports_answer": false,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.037,
+          "unsupported_evidence_risk": true,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Citation selection failure",
+        "diagnostic_justification": "Target chunk P1_p19_c02 present in top-5 (Rank 4), but non-target Rank 1 chunk cited."
+      },
+      "hybrid": {
+        "top5_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p17_c03",
+            "document_id": "P1",
+            "physical_page_number": 17,
+            "score": 0.0311,
+            "is_target_page": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p08_c02",
+            "document_id": "P1",
+            "physical_page_number": 8,
+            "score": 0.0304,
+            "is_target_page": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p18_c05",
+            "document_id": "P1",
+            "physical_page_number": 18,
+            "score": 0.0301,
+            "is_target_page": false
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p04_c01",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "score": 0.0296,
+            "is_target_page": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p19_c02",
+            "document_id": "P1",
+            "physical_page_number": 19,
+            "score": 0.0283,
+            "is_target_page": true
+          }
+        ],
+        "target_evidence_in_top5": true,
+        "citations": [
+          {
+            "chunk_id": "P1_p04_c01",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "excerpt": "minimize the negative marginal log-likelihood of each target, P\nj −log p(yj|xj) using stochastic\ngradient descent with",
+            "is_target_page": true
+          }
+        ],
+        "relevant_evidence_cited": true,
+        "generated_answer": "Based on the evidence from P1_p04_c01, the findings demonstrate that: minimize the negative marginal log-likelihood of each target, P\nj −log p(yj|xj) using stochastic\ngradient descent with",
+        "eval_checks": {
+          "has_answer": true,
+          "target_pages_retrieved": true,
+          "grounded_in_target_evidence": true,
+          "evidence_supports_answer": true,
+          "answer_matches_expected": false,
+          "answer_token_recall": 0.0185,
+          "unsupported_evidence_risk": false,
+          "appropriate_outcome": false
+        },
+        "primary_failure_category": "Evaluator limitation",
+        "diagnostic_justification": "Target chunk P1_p04_c01 cited and verified, but fallback snippet truncation dropped token recall below 0.25 threshold."
+      }
+    }
+  ]
+}

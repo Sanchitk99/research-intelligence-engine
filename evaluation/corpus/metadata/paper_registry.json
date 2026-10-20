@@ -1,0 +1,121 @@
+[
+  {
+    "id": "P1",
+    "short_name": "RAG",
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "authors": [
+      "Patrick Lewis",
+      "Ethan Perez",
+      "Aleksandra Piktus",
+      "Fabio Petroni",
+      "Vladimir Karpukhin",
+      "Naman Goyal",
+      "Heinrich K\u00fcttler",
+      "Mike Lewis",
+      "Wen-tau Yih",
+      "Tim Rockt\u00e4schel",
+      "Sebastian Riedel",
+      "Douwe Kiela"
+    ],
+    "year": 2020,
+    "venue": "NeurIPS 2020 (pp. 9459-9474)",
+    "arxiv_id": "2005.11401",
+    "doi": "10.48550/arXiv.2005.11401",
+    "pdf_url": "https://arxiv.org/pdf/2005.11401",
+    "filename": "P1_RAG_Lewis_2020.pdf",
+    "total_pages": 19,
+    "pagination_mapping": "physical_index_i = printed_page_i_plus_1",
+    "downloaded": true,
+    "pages_verified": true
+  },
+  {
+    "id": "P2",
+    "short_name": "DPR",
+    "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+    "authors": [
+      "Vladimir Karpukhin",
+      "Barlas O\u011fuz",
+      "Sewon Min",
+      "Patrick Lewis",
+      "Ledell Wu",
+      "Sergey Edunov",
+      "Danqi Chen",
+      "Wen-tau Yih"
+    ],
+    "year": 2020,
+    "venue": "EMNLP 2020 (pp. 6769-6781)",
+    "arxiv_id": "2004.04906",
+    "doi": "10.18653/v1/2020.emnlp-main.550",
+    "pdf_url": "https://arxiv.org/pdf/2004.04906",
+    "filename": "P2_DPR_Karpukhin_2020.pdf",
+    "total_pages": 13,
+    "pagination_mapping": "physical_index_i = physical_page_i_plus_1 (preprint format)",
+    "downloaded": true,
+    "pages_verified": true
+  },
+  {
+    "id": "P3",
+    "short_name": "REALM",
+    "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+    "authors": [
+      "Kelvin Guu",
+      "Kenton Lee",
+      "Zora Tung",
+      "Panupong Pasupat",
+      "Ming-Wei Chang"
+    ],
+    "year": 2020,
+    "venue": "ICML 2020 (PMLR 119:3929-3938)",
+    "arxiv_id": "2002.08909",
+    "doi": "https://proceedings.mlr.press/v119/guu20a.html",
+    "pdf_url": "https://arxiv.org/pdf/2002.08909",
+    "filename": "P3_REALM_Guu_2020.pdf",
+    "total_pages": 12,
+    "pagination_mapping": "physical_index_i = physical_page_i_plus_1 (preprint format)",
+    "downloaded": true,
+    "pages_verified": true
+  },
+  {
+    "id": "P4",
+    "short_name": "Self-RAG",
+    "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+    "authors": [
+      "Akari Asai",
+      "Zeqiu Wu",
+      "Yizhong Wang",
+      "Avirup Sil",
+      "Hannaneh Hajishirzi"
+    ],
+    "year": 2023,
+    "venue": "ICLR 2024 Oral",
+    "arxiv_id": "2310.11511",
+    "doi": "https://openreview.net/forum?id=5vKx35783A",
+    "pdf_url": "https://arxiv.org/pdf/2310.11511",
+    "filename": "P4_SelfRAG_Asai_2023.pdf",
+    "total_pages": 30,
+    "pagination_mapping": "physical_index_i = printed_page_i_plus_1",
+    "downloaded": true,
+    "pages_verified": true
+  },
+  {
+    "id": "P5",
+    "short_name": "RAGAS",
+    "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+    "authors": [
+      "Shahul Es",
+      "Jithin James",
+      "Luis Espinosa-Anke",
+      "Steven Schockaert"
+    ],
+    "year": 2023,
+    "venue": "EACL 2024 (Demonstrations, pp. 150-158)",
+    "arxiv_id": "2309.15217",
+    "doi": "10.18653/v1/2024.eacl-demo.16",
+    "pdf_url": "https://arxiv.org/pdf/2309.15217",
+    "filename": "P5_RAGAS_Es_2023.pdf",
+    "total_pages": 8,
+    "pagination_mapping": "physical_index_i = physical_page_i_plus_1 (preprint format)",
+    "downloaded": true,
+    "pages_verified": true
+  }
+]

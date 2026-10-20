@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-10-20T02:30:01Z",
+  "question": "What are the four reflection tokens in Self-RAG and what does each one assess?",
+  "provider_name": "groq",
+  "model_name": "openai/gpt-oss-20b",
+  "retrieval_mode": "dense",
+  "answer_status": "error",
+  "answer_text": "LLM provider error encountered: Groq API returned error HTTP 400: {\"error\":{\"message\":\"Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.\",\"type\":\"invalid_request_error\",\"code\":\"json_validate_failed\",\"failed_generation\":\"\"}}\n",
+  "confidence_notes": "Groq API returned error HTTP 400: {\"error\":{\"message\":\"Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.\",\"type\":\"invalid_request_error\",\"code\":\"json_validate_failed\",\"failed_generation\":\"\"}}\n",
+  "latency_ms": 3139.9,
+  "prompt_tokens": null,
+  "completion_tokens": null,
+  "total_tokens": null,
+  "citations_count": 0,
+  "all_citations_in_context": true,
+  "citation_excerpt_verified_count": 0,
+  "citation_excerpts_all_verified": true,
+  "citation_excerpts_reconciled_count": 0,
+  "citations": [],
+  "evidence_claim_supported": false,
+  "claim_token_recall": 0.0,
+  "expected_answer_matched": false,
+  "answer_token_recall": 0.0,
+  "retrieved_chunk_ids": [
+    "P4_p01_c05",
+    "P4_p04_c01",
+    "P4_p17_c01",
+    "P4_p21_c01",
+    "P4_p10_c04"
+  ]
+}

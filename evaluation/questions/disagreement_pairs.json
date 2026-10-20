@@ -1,0 +1,62 @@
+[
+  {
+    "id": "DP01",
+    "papers": [
+      "P1",
+      "P2"
+    ],
+    "topic": "TriviaQA exact match performance: Extractive Reader vs. Generative RAG",
+    "status": "resolved_nuance",
+    "classification": "nuance_not_contradiction",
+    "verified_evidence": {
+      "P1": "RAG-Sequence achieves 56.8 EM on standard open-domain split, 68.0 EM on TQA-Wiki split (Table 1, Physical/Printed p. 6). Explicitly acknowledges DPR 57.9 in \u00a74.1.",
+      "P2": "DPR Multi achieves 57.9 EM (Single 56.8 EM) on TriviaQA test set (Table 4, Physical p. 8)."
+    },
+    "conclusion": "Extractive reader holds a modest 1.1-point advantage on standard open-domain split where answers are concise extractable spans, but RAG-Sequence dominates by +7.5 points on TQA-Wiki split.",
+    "page_references": {
+      "P1": "Physical/Printed p. 6, Table 1 & \u00a74.1",
+      "P2": "Physical p. 8, Table 4 & \u00a76"
+    },
+    "verified": true
+  },
+  {
+    "id": "DP02",
+    "papers": [
+      "P3",
+      "P1"
+    ],
+    "topic": "WebQuestions exact match: REALM (40.7) vs. T5-11B+SSM (44.7)",
+    "status": "resolved_nuance",
+    "classification": "non_comparable",
+    "verified_evidence": {
+      "P3": "REALM (330M parameters) achieves 40.7 EM on WebQuestions (Table 1, Physical p. 7).",
+      "P1": "T5-11B+SSM achieves 44.7 EM on WebQuestions (Table 1, Physical/Printed p. 6)."
+    },
+    "conclusion": "Non-comparable due to 34x parameter disparity (11.3B vs 330M), T5 supervised multi-task pre-training on 100k+ SQuAD reading comprehension examples, and entity-targeted Salient Span Masking (SSM).",
+    "page_references": {
+      "P3": "Physical p. 7, Table 1 & \u00a74.4",
+      "P1": "Physical/Printed p. 6, Table 1"
+    },
+    "verified": true
+  },
+  {
+    "id": "DP03",
+    "papers": [
+      "P4",
+      "P1"
+    ],
+    "topic": "Retrieval Frequency and Utility: Adaptive Retrieval vs. Unconditional Always-Retrieve",
+    "status": "resolved_nuance",
+    "classification": "architectural_tradeoff_with_empirical_validation",
+    "verified_evidence": {
+      "P1": "Standard RAG unconditionally retrieves top-k documents for every query (\u00a72.1, Physical/Printed p. 3).",
+      "P4": "Unconditional retrieval degrades Llama2-7B accuracy on PubHealth from 34.2% to 30.0% due to noisy context, whereas Self-RAG adaptive retrieval achieves 72.4% (+42.4 points) (Table 2, Physical/Printed p. 8)."
+    },
+    "conclusion": "Controlled ablations prove that always-retrieving hurts performance when retrieval is unnecessary or misleading, confirming the empirical advantage of selective, self-reflective retrieval.",
+    "page_references": {
+      "P4": "Physical/Printed pp. 8-9, Table 2, \u00a75.1-5.2, Figure 3",
+      "P1": "Physical/Printed p. 3, \u00a72.1"
+    },
+    "verified": true
+  }
+]

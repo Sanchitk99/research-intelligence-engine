@@ -1,0 +1,59 @@
+{
+  "timestamp": "2026-10-20T03:16:49Z",
+  "question": "What generator model does RAG use?",
+  "provider_name": "ollama",
+  "model_name": "gemma3:4b",
+  "retrieval_mode": "hybrid",
+  "answer_status": "answered",
+  "answer_text": "The RAG-Token model uses a standard, autoregressive seq2seq generator with transition probability: p\u2032\u03b8(yi|x, y1:i\u22121) = Pz\u2208top-k(p(\u00b7|x)) p\u03b7(zi|x)p\u03b8(yi|x, zi, y1:i\u22121). The RAG-Sequence model uses a top-K approximation to marginalize the likelihood. Both models utilize a BART generator.",
+  "confidence_notes": "The evidence primarily describes the architecture and training of the RAG-Token and RAG-Sequence models, detailing the use of a BART generator. (Citation excerpt for 'P1_p03_c02' was not found in passage text; using verified passage prefix.)",
+  "latency_ms": 11848.94,
+  "prompt_tokens": 2385,
+  "completion_tokens": 390,
+  "total_tokens": 2775,
+  "citations_count": 3,
+  "all_citations_in_context": true,
+  "citation_excerpt_verified_count": 3,
+  "citation_excerpts_all_verified": true,
+  "citation_excerpts_reconciled_count": 1,
+  "citations": [
+    {
+      "chunk_id": "P1_p03_c02",
+      "document_id": "P1",
+      "physical_page_number": 3,
+      "excerpt": "is marginalized to get the seq2seq probability p(y|x) via a top-K approximation. Concretely, the\ntop K documents are ret...",
+      "formatted": "[P1, p. 3 (printed p. 3), Chunk P1_p03_c02]",
+      "in_retrieved_context": true,
+      "excerpt_verified_in_chunk": true
+    },
+    {
+      "chunk_id": "P1_p04_c01",
+      "document_id": "P1",
+      "physical_page_number": 4,
+      "excerpt": "We do not \ufb01nd this step necessary for strong performance, and keep the document encoder (and index) \ufb01xed, only \ufb01ne-tuning the query encoder BERTq and the BART generator.",
+      "formatted": "[P1, p. 4 (printed p. 4), Chunk P1_p04_c01]",
+      "in_retrieved_context": true,
+      "excerpt_verified_in_chunk": true
+    },
+    {
+      "chunk_id": "P1_p19_c02",
+      "document_id": "P1",
+      "physical_page_number": 19,
+      "excerpt": "The non-parametric memory index does not consist of trainable parameters, but does consists of 21M 728 dimensional vectors, consisting of 15.3B values.",
+      "formatted": "[P1, p. 19 (printed p. 19), Chunk P1_p19_c02]",
+      "in_retrieved_context": true,
+      "excerpt_verified_in_chunk": true
+    }
+  ],
+  "evidence_claim_supported": true,
+  "claim_token_recall": 0.6,
+  "expected_answer_matched": true,
+  "answer_token_recall": 0.25,
+  "retrieved_chunk_ids": [
+    "P1_p04_c01",
+    "P1_p03_c02",
+    "P1_p17_c03",
+    "P4_p04_c03",
+    "P1_p19_c02"
+  ]
+}

@@ -1,0 +1,2116 @@
+{
+  "diagnostic": "dense and hybrid retrieval only; no generation/provider calls",
+  "top_k": 5,
+  "question_ids": [
+    "Q01",
+    "Q03",
+    "Q05",
+    "Q06"
+  ],
+  "questions": [
+    {
+      "id": "Q01",
+      "question": "What generator model does RAG use?",
+      "expected_answer": "RAG uses BART-large (400M parameters), a pre-trained sequence-to-sequence transformer, as its generator model.",
+      "source_papers": [
+        "P1"
+      ],
+      "page_references": "P1: Physical Page Index 2 (Printed Page 3), §2.3 (\"Generator: BART\")",
+      "required_fact_signals": [
+        [
+          "bart large",
+          "bart generator"
+        ],
+        [
+          "400m"
+        ],
+        [
+          "sequence to sequence",
+          "seq2seq"
+        ]
+      ],
+      "dense": {
+        "coverage": "partial",
+        "fact_signals": [
+          {
+            "alternatives": [
+              "bart large",
+              "bart generator"
+            ],
+            "supported": true,
+            "ranks": [
+              3
+            ]
+          },
+          {
+            "alternatives": [
+              "400m"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "sequence to sequence",
+              "seq2seq"
+            ],
+            "supported": true,
+            "ranks": [
+              3
+            ]
+          }
+        ],
+        "execution_time_ms": 20734.89,
+        "top_five": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p02_c06",
+            "document_id": "P1",
+            "physical_page_number": 2,
+            "printed_page_number": 2,
+            "score": 0.64715,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "1Code to run experiments with RAG has been open-sourced as part of the HuggingFace Transform-\ners Library [66] and can be found at https://github.com/huggingface/transformers/blob/master/\nexamples/rag/. An interactive demo of RAG models can be found at https://huggingface.co/rag/\n2"
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p17_c03",
+            "document_id": "P1",
+            "physical_page_number": 17,
+            "printed_page_number": 17,
+            "score": 0.42939,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "We ﬁnd that doing Maximum Inner Product Search\nwith FAISS is sufﬁciently fast on CPU, so we store document index vectors on CPU, requiring ∼100\nGB of CPU memory for all of Wikipedia. After submission, We have ported our code to HuggingFace\nTransformers [66]3, which achieves equivalent performance to the previous version but is a cleaner\nand easier to use implementation. This version is also open-sourced. We also compress the document\nindex using FAISS’s compression tools, reducing the CPU memory requirement to 36GB. Scripts to\nrun experiments with RAG can be found at https://github.com/huggingface/transformers/\nblob/master/examples/rag/README.md and an interactive demo of a RAG model can be found\nat https://huggingface.co/rag/\n2https://github.com/pytorch/fairseq\n3https://github.com/huggingface/transformers\n17"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p04_c01",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "printed_page_number": 4,
+            "score": 0.42593,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "minimize the negative marginal log-likelihood of each target, P\nj −log p(yj|xj) using stochastic\ngradient descent with Adam [28]. Updating the document encoder BERTd during training is costly as\nit requires the document index to be periodically updated as REALM does during pre-training [20].\nWe do not ﬁnd this step necessary for strong performance, and keep the document encoder (and\nindex) ﬁxed, only ﬁne-tuning the query encoder BERTq and the BART generator.\n2.5\nDecoding\nAt test time, RAG-Sequence and RAG-Token require different ways to approximate arg maxy p(y|x).\nRAG-Token\nThe RAG-Token model can be seen as a standard, autoregressive seq2seq genera-\ntor with transition probability: p′\nθ(yi|x, y1:i−1) = P\nz∈top-k(p(·|x)) pη(zi|x)pθ(yi|x, zi, y1:i−1) To\ndecode, we can plug p′\nθ(yi|x, y1:i−1) into a standard beam decoder.\nRAG-Sequence\nFor RAG-Sequence, the likelihood p(y|x) does not break into a conventional per-\ntoken likelihood, hence we cannot solve it with a single beam search."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p01_c05",
+            "document_id": "P4",
+            "physical_page_number": 1,
+            "printed_page_number": 1,
+            "score": 0.42201,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "If so, it outputs a retrieval token that\ncalls a retriever model on demand (Step 1). Subsequently, SELF-RAG concurrently processes multiple\nretrieved passages, evaluating their relevance and then generating corresponding task outputs (Step\n2). It then generates critique tokens to criticize its own output and choose best one (Step 3) in terms\nof factuality and overall quality. This process differs from conventional RAG (Figure 1 left), which\n1Our code and trained models are available at https://selfrag.github.io/.\n1\narXiv:2310.11511v1  [cs.CL]  17 Oct 2023"
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p08_c01",
+            "document_id": "P1",
+            "physical_page_number": 8,
+            "printed_page_number": 8,
+            "score": 0.41846,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "Table 4: Human assessments for the Jeopardy\nQuestion Generation Task.\nFactuality\nSpeciﬁcity\nBART better\n7.1%\n16.8%\nRAG better\n42.7%\n37.4%\nBoth good\n11.7%\n11.8%\nBoth poor\n17.7%\n6.9%\nNo majority\n20.8%\n20.1%\nTable 5: Ratio of distinct to total tri-grams for\ngeneration tasks.\nMSMARCO\nJeopardy QGen\nGold\n89.6%\n90.0%\nBART\n70.7%\n32.4%\nRAG-Token\n77.8%\n46.8%\nRAG-Seq.\n83.5%\n53.8%\nTable 6: Ablations on the dev set. As FEVER is a classiﬁcation task, both RAG models are equivalent.\nModel\nNQ\nTQA\nWQ\nCT\nJeopardy-QGen\nMSMarco\nFVR-3\nFVR-2\nExact Match\nB-1\nQB-1\nR-L\nB-1\nLabel Accuracy\nRAG-Token-BM25\n29.7\n41.5\n32.1\n33.1\n17.5\n22.3\n55.5\n48.4\n75.1\n91.6\nRAG-Sequence-BM25\n31.8\n44.1\n36.6\n33.8\n11.1\n19.5\n56.5\n46.9\nRAG-Token-Frozen\n37.8\n50.1\n37.1\n51.1\n16.7\n21.7\n55.9\n49.4\n72.9\n89.4\nRAG-Sequence-Frozen\n41.2\n52.1\n41.8\n52.6\n11.8\n19.6\n56.7\n47.3\nRAG-Token\n43.5\n54.8\n46.5\n51.9\n17.9\n22.6\n56.2\n49.4\n74.5\n90.6\nRAG-Sequence\n44.0\n55.8\n44.9\n53.4\n15.3\n21.5\n57.2\n47.5"
+          }
+        ]
+      },
+      "hybrid": {
+        "coverage": "partial",
+        "fact_signals": [
+          {
+            "alternatives": [
+              "bart large",
+              "bart generator"
+            ],
+            "supported": true,
+            "ranks": [
+              1
+            ]
+          },
+          {
+            "alternatives": [
+              "400m"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "sequence to sequence",
+              "seq2seq"
+            ],
+            "supported": true,
+            "ranks": [
+              1,
+              2
+            ]
+          }
+        ],
+        "execution_time_ms": 74.62,
+        "top_five": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c01",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "printed_page_number": 4,
+            "score": 0.032002,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 3,
+            "bm25_rank": 2,
+            "dense_score": 0.42593,
+            "bm25_score": 9.19616,
+            "text": "minimize the negative marginal log-likelihood of each target, P\nj −log p(yj|xj) using stochastic\ngradient descent with Adam [28]. Updating the document encoder BERTd during training is costly as\nit requires the document index to be periodically updated as REALM does during pre-training [20].\nWe do not ﬁnd this step necessary for strong performance, and keep the document encoder (and\nindex) ﬁxed, only ﬁne-tuning the query encoder BERTq and the BART generator.\n2.5\nDecoding\nAt test time, RAG-Sequence and RAG-Token require different ways to approximate arg maxy p(y|x).\nRAG-Token\nThe RAG-Token model can be seen as a standard, autoregressive seq2seq genera-\ntor with transition probability: p′\nθ(yi|x, y1:i−1) = P\nz∈top-k(p(·|x)) pη(zi|x)pθ(yi|x, zi, y1:i−1) To\ndecode, we can plug p′\nθ(yi|x, y1:i−1) into a standard beam decoder.\nRAG-Sequence\nFor RAG-Sequence, the likelihood p(y|x) does not break into a conventional per-\ntoken likelihood, hence we cannot solve it with a single beam search."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p03_c02",
+            "document_id": "P1",
+            "physical_page_number": 3,
+            "printed_page_number": 3,
+            "score": 0.028405,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 8,
+            "bm25_rank": 13,
+            "dense_score": 0.39202,
+            "bm25_score": 7.32562,
+            "text": "is marginalized to get the seq2seq probability p(y|x) via a top-K approximation. Concretely, the\ntop K documents are retrieved using the retriever, and the generator produces the output sequence\nprobability for each document, which are then marginalized,\npRAG-Sequence(y|x) ≈\nX\nz∈top-k(p(·|x))\npη(z|x)pθ(y|x, z) =\nX\nz∈top-k(p(·|x))\npη(z|x)\nN\nY\ni\npθ(yi|x, z, y1:i−1)\nRAG-Token Model\nIn the RAG-Token model we can draw a different latent document for each\ntarget token and marginalize accordingly. This allows the generator to choose content from several\ndocuments when producing an answer. Concretely, the top K documents are retrieved using the\nretriever, and then the generator produces a distribution for the next output token for each document,\nbefore marginalizing, and repeating the process with the following output token, Formally, we deﬁne:\npRAG-Token(y|x) ≈\nN\nY\ni\nX\nz∈top-k(p(·|x))\npη(z|x)pθ(yi|x, z, y1:i−1)"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p17_c03",
+            "document_id": "P1",
+            "physical_page_number": 17,
+            "printed_page_number": 17,
+            "score": 0.026882,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 2,
+            "bm25_rank": 33,
+            "dense_score": 0.42939,
+            "bm25_score": 4.97815,
+            "text": "We ﬁnd that doing Maximum Inner Product Search\nwith FAISS is sufﬁciently fast on CPU, so we store document index vectors on CPU, requiring ∼100\nGB of CPU memory for all of Wikipedia. After submission, We have ported our code to HuggingFace\nTransformers [66]3, which achieves equivalent performance to the previous version but is a cleaner\nand easier to use implementation. This version is also open-sourced. We also compress the document\nindex using FAISS’s compression tools, reducing the CPU memory requirement to 36GB. Scripts to\nrun experiments with RAG can be found at https://github.com/huggingface/transformers/\nblob/master/examples/rag/README.md and an interactive demo of a RAG model can be found\nat https://huggingface.co/rag/\n2https://github.com/pytorch/fairseq\n3https://github.com/huggingface/transformers\n17"
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p04_c03",
+            "document_id": "P4",
+            "physical_page_number": 4,
+            "printed_page_number": 4,
+            "score": 0.026646,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 27,
+            "bm25_rank": 6,
+            "dense_score": 0.32263,
+            "bm25_score": 8.34561,
+            "text": "passage’s relevance, the next response segment, and a critique token to evaluate if the information in\nthe response segment is supported by the passage. Finally, a new critique token evaluates the overall\nutility of the response.4 To generate each segment, SELF-RAG processes multiple passages in parallel\nand uses its own generated reflection tokens to enforce soft constraints (Section 3.3) or hard control\n(Algorithm 1) over the generated task output. For instance, in Figure 1 (right), the retrieved passages\nd1 is selected at the first time step since d2 does not provide direct evidence (\nISREL is Irrelevant)\nand d3 output is only partially supported while d1 are fully supported.\nTraining overview. SELF-RAG enables an arbitrary LM to generate text with reflection tokens\nby unifying them as next token predictions from the expanded model vocabulary (i.e., the original\nvocabulary plus reflection tokens). Specifically, we train the generator model M on a curated corpus"
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p19_c02",
+            "document_id": "P1",
+            "physical_page_number": 19,
+            "printed_page_number": 19,
+            "score": 0.026254,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 32,
+            "bm25_rank": 5,
+            "dense_score": 0.31163,
+            "bm25_score": 8.48751,
+            "text": "The non-parametric memory index does not consist of trainable parameters, but does consists of 21M\n728 dimensional vectors, consisting of 15.3B values. These can be easily be stored at 8-bit ﬂoating\npoint precision to manage memory and disk footprints.\nH\nRetrieval Collapse\nIn preliminary experiments, we observed that for some tasks such as story generation [11], the\nretrieval component would “collapse” and learn to retrieve the same documents regardless of the\ninput. In these cases, once retrieval had collapsed, the generator would learn to ignore the documents,\nand the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit\nrequirement for factual knowledge in some tasks, or the longer target sequences, which could result\nin less informative gradients for the retriever. Perez et al. [46] also found spurious retrieval results\nwhen optimizing a retrieval component in order to improve performance on downstream tasks.\nI\nNumber of instances per dataset"
+          }
+        ]
+      },
+      "dense_existing_diagnostic_target_hits_top100": [
+        {
+          "rank": 1,
+          "chunk_id": "P1_p02_c06",
+          "document_id": "P1",
+          "physical_page_number": 2,
+          "score": 0.64715
+        },
+        {
+          "rank": 2,
+          "chunk_id": "P1_p17_c03",
+          "document_id": "P1",
+          "physical_page_number": 17,
+          "score": 0.42939
+        },
+        {
+          "rank": 3,
+          "chunk_id": "P1_p04_c01",
+          "document_id": "P1",
+          "physical_page_number": 4,
+          "score": 0.42593
+        },
+        {
+          "rank": 5,
+          "chunk_id": "P1_p08_c01",
+          "document_id": "P1",
+          "physical_page_number": 8,
+          "score": 0.41846
+        },
+        {
+          "rank": 7,
+          "chunk_id": "P1_p06_c02",
+          "document_id": "P1",
+          "physical_page_number": 6,
+          "score": 0.39859
+        },
+        {
+          "rank": 8,
+          "chunk_id": "P1_p03_c02",
+          "document_id": "P1",
+          "physical_page_number": 3,
+          "score": 0.39202
+        },
+        {
+          "rank": 9,
+          "chunk_id": "P1_p06_c03",
+          "document_id": "P1",
+          "physical_page_number": 6,
+          "score": 0.37804
+        },
+        {
+          "rank": 11,
+          "chunk_id": "P1_p07_c04",
+          "document_id": "P1",
+          "physical_page_number": 7,
+          "score": 0.37214
+        },
+        {
+          "rank": 12,
+          "chunk_id": "P1_p03_c03",
+          "document_id": "P1",
+          "physical_page_number": 3,
+          "score": 0.37213
+        },
+        {
+          "rank": 22,
+          "chunk_id": "P1_p05_c05",
+          "document_id": "P1",
+          "physical_page_number": 5,
+          "score": 0.32782
+        },
+        {
+          "rank": 23,
+          "chunk_id": "P1_p09_c05",
+          "document_id": "P1",
+          "physical_page_number": 9,
+          "score": 0.32774
+        },
+        {
+          "rank": 24,
+          "chunk_id": "P1_p09_c04",
+          "document_id": "P1",
+          "physical_page_number": 9,
+          "score": 0.32693
+        },
+        {
+          "rank": 25,
+          "chunk_id": "P1_p04_c05",
+          "document_id": "P1",
+          "physical_page_number": 4,
+          "score": 0.32527
+        },
+        {
+          "rank": 28,
+          "chunk_id": "P1_p10_c01",
+          "document_id": "P1",
+          "physical_page_number": 10,
+          "score": 0.3206
+        },
+        {
+          "rank": 29,
+          "chunk_id": "P1_p06_c05",
+          "document_id": "P1",
+          "physical_page_number": 6,
+          "score": 0.31904
+        },
+        {
+          "rank": 30,
+          "chunk_id": "P1_p10_c02",
+          "document_id": "P1",
+          "physical_page_number": 10,
+          "score": 0.31684
+        },
+        {
+          "rank": 31,
+          "chunk_id": "P1_p08_c03",
+          "document_id": "P1",
+          "physical_page_number": 8,
+          "score": 0.31682
+        },
+        {
+          "rank": 32,
+          "chunk_id": "P1_p19_c02",
+          "document_id": "P1",
+          "physical_page_number": 19,
+          "score": 0.31163
+        },
+        {
+          "rank": 33,
+          "chunk_id": "P1_p07_c01",
+          "document_id": "P1",
+          "physical_page_number": 7,
+          "score": 0.31085
+        },
+        {
+          "rank": 36,
+          "chunk_id": "P1_p03_c01",
+          "document_id": "P1",
+          "physical_page_number": 3,
+          "score": 0.30845
+        },
+        {
+          "rank": 37,
+          "chunk_id": "P1_p08_c02",
+          "document_id": "P1",
+          "physical_page_number": 8,
+          "score": 0.3058
+        },
+        {
+          "rank": 39,
+          "chunk_id": "P1_p18_c05",
+          "document_id": "P1",
+          "physical_page_number": 18,
+          "score": 0.29845
+        },
+        {
+          "rank": 40,
+          "chunk_id": "P1_p02_c05",
+          "document_id": "P1",
+          "physical_page_number": 2,
+          "score": 0.29631
+        },
+        {
+          "rank": 43,
+          "chunk_id": "P1_p04_c02",
+          "document_id": "P1",
+          "physical_page_number": 4,
+          "score": 0.29021
+        },
+        {
+          "rank": 48,
+          "chunk_id": "P1_p05_c04",
+          "document_id": "P1",
+          "physical_page_number": 5,
+          "score": 0.27813
+        },
+        {
+          "rank": 50,
+          "chunk_id": "P1_p01_c02",
+          "document_id": "P1",
+          "physical_page_number": 1,
+          "score": 0.277
+        },
+        {
+          "rank": 51,
+          "chunk_id": "P1_p17_c01",
+          "document_id": "P1",
+          "physical_page_number": 17,
+          "score": 0.27645
+        },
+        {
+          "rank": 53,
+          "chunk_id": "P1_p07_c05",
+          "document_id": "P1",
+          "physical_page_number": 7,
+          "score": 0.27148
+        },
+        {
+          "rank": 55,
+          "chunk_id": "P1_p06_c01",
+          "document_id": "P1",
+          "physical_page_number": 6,
+          "score": 0.27044
+        },
+        {
+          "rank": 56,
+          "chunk_id": "P1_p19_c01",
+          "document_id": "P1",
+          "physical_page_number": 19,
+          "score": 0.26867
+        },
+        {
+          "rank": 62,
+          "chunk_id": "P1_p02_c04",
+          "document_id": "P1",
+          "physical_page_number": 2,
+          "score": 0.2585
+        },
+        {
+          "rank": 65,
+          "chunk_id": "P1_p03_c04",
+          "document_id": "P1",
+          "physical_page_number": 3,
+          "score": 0.25537
+        },
+        {
+          "rank": 67,
+          "chunk_id": "P1_p07_c03",
+          "document_id": "P1",
+          "physical_page_number": 7,
+          "score": 0.24433
+        },
+        {
+          "rank": 74,
+          "chunk_id": "P1_p03_c05",
+          "document_id": "P1",
+          "physical_page_number": 3,
+          "score": 0.23069
+        },
+        {
+          "rank": 76,
+          "chunk_id": "P1_p02_c02",
+          "document_id": "P1",
+          "physical_page_number": 2,
+          "score": 0.23035
+        },
+        {
+          "rank": 79,
+          "chunk_id": "P1_p01_c03",
+          "document_id": "P1",
+          "physical_page_number": 1,
+          "score": 0.22425
+        },
+        {
+          "rank": 87,
+          "chunk_id": "P1_p02_c03",
+          "document_id": "P1",
+          "physical_page_number": 2,
+          "score": 0.21339
+        },
+        {
+          "rank": 95,
+          "chunk_id": "P1_p11_c03",
+          "document_id": "P1",
+          "physical_page_number": 11,
+          "score": 0.20038
+        },
+        {
+          "rank": 97,
+          "chunk_id": "P1_p10_c04",
+          "document_id": "P1",
+          "physical_page_number": 10,
+          "score": 0.19772
+        }
+      ]
+    },
+    {
+      "id": "Q03",
+      "question": "What is the difference between RAG-Sequence and RAG-Token?",
+      "expected_answer": "In RAG-Sequence, the model uses the same retrieved document to generate the complete target sequence, treating the document as a single latent variable marginalized per sequence ($p(y",
+      "source_papers": [
+        "P1"
+      ],
+      "page_references": "P1: Physical Page Index 2 (Printed Page 3), §2.1 (\"Models: RAG-Sequence Model, RAG-Token Model\")",
+      "required_fact_signals": [
+        [
+          "same retrieved document",
+          "same document",
+          "sequence probability for each document"
+        ],
+        [
+          "single latent variable",
+          "latent document"
+        ],
+        [
+          "different latent document for each target token",
+          "different latent document",
+          "per token"
+        ]
+      ],
+      "dense": {
+        "coverage": "complete",
+        "fact_signals": [
+          {
+            "alternatives": [
+              "same retrieved document",
+              "same document",
+              "sequence probability for each document"
+            ],
+            "supported": true,
+            "ranks": [
+              3
+            ]
+          },
+          {
+            "alternatives": [
+              "single latent variable",
+              "latent document"
+            ],
+            "supported": true,
+            "ranks": [
+              3
+            ]
+          },
+          {
+            "alternatives": [
+              "different latent document for each target token",
+              "different latent document",
+              "per token"
+            ],
+            "supported": true,
+            "ranks": [
+              2,
+              3
+            ]
+          }
+        ],
+        "execution_time_ms": 9.62,
+        "top_five": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p03_c03",
+            "document_id": "P1",
+            "physical_page_number": 3,
+            "printed_page_number": 3,
+            "score": 0.52318,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "pRAG-Token(y|x) ≈\nN\nY\ni\nX\nz∈top-k(p(·|x))\npη(z|x)pθ(yi|x, z, y1:i−1)\nFinally, we note that RAG can be used for sequence classiﬁcation tasks by considering the target class\nas a target sequence of length one, in which case RAG-Sequence and RAG-Token are equivalent.\n2.2\nRetriever: DPR\nThe retrieval component pη(z|x) is based on DPR [26]. DPR follows a bi-encoder architecture:\npη(z|x) ∝exp\n\u0000d(z)⊤q(x)\n\u0001\nd(z) = BERTd(z), q(x) = BERTq(x)\nwhere d(z) is a dense representation of a document produced by a BERTBASE document encoder [8],\nand q(x) a query representation produced by a query encoder, also based on BERTBASE. Calculating\ntop-k(pη(·|x)), the list of k documents z with highest prior probability pη(z|x), is a Maximum Inner\nProduct Search (MIPS) problem, which can be approximately solved in sub-linear time [23]. We use\na pre-trained bi-encoder from DPR to initialize our retriever and to build the document index. This"
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p04_c01",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "printed_page_number": 4,
+            "score": 0.47645,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "minimize the negative marginal log-likelihood of each target, P\nj −log p(yj|xj) using stochastic\ngradient descent with Adam [28]. Updating the document encoder BERTd during training is costly as\nit requires the document index to be periodically updated as REALM does during pre-training [20].\nWe do not ﬁnd this step necessary for strong performance, and keep the document encoder (and\nindex) ﬁxed, only ﬁne-tuning the query encoder BERTq and the BART generator.\n2.5\nDecoding\nAt test time, RAG-Sequence and RAG-Token require different ways to approximate arg maxy p(y|x).\nRAG-Token\nThe RAG-Token model can be seen as a standard, autoregressive seq2seq genera-\ntor with transition probability: p′\nθ(yi|x, y1:i−1) = P\nz∈top-k(p(·|x)) pη(zi|x)pθ(yi|x, zi, y1:i−1) To\ndecode, we can plug p′\nθ(yi|x, y1:i−1) into a standard beam decoder.\nRAG-Sequence\nFor RAG-Sequence, the likelihood p(y|x) does not break into a conventional per-\ntoken likelihood, hence we cannot solve it with a single beam search."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p03_c02",
+            "document_id": "P1",
+            "physical_page_number": 3,
+            "printed_page_number": 3,
+            "score": 0.47281,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "is marginalized to get the seq2seq probability p(y|x) via a top-K approximation. Concretely, the\ntop K documents are retrieved using the retriever, and the generator produces the output sequence\nprobability for each document, which are then marginalized,\npRAG-Sequence(y|x) ≈\nX\nz∈top-k(p(·|x))\npη(z|x)pθ(y|x, z) =\nX\nz∈top-k(p(·|x))\npη(z|x)\nN\nY\ni\npθ(yi|x, z, y1:i−1)\nRAG-Token Model\nIn the RAG-Token model we can draw a different latent document for each\ntarget token and marginalize accordingly. This allows the generator to choose content from several\ndocuments when producing an answer. Concretely, the top K documents are retrieved using the\nretriever, and then the generator produces a distribution for the next output token for each document,\nbefore marginalizing, and repeating the process with the following output token, Formally, we deﬁne:\npRAG-Token(y|x) ≈\nN\nY\ni\nX\nz∈top-k(p(·|x))\npη(z|x)pθ(yi|x, z, y1:i−1)"
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p08_c03",
+            "document_id": "P1",
+            "physical_page_number": 8,
+            "printed_page_number": 8,
+            "score": 0.46844,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "We have the\nﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and\nruntime. Figure 3 (left) shows that retrieving more documents at test time monotonically improves\nOpen-domain QA results for RAG-Sequence, but performance peaks for RAG-Token at 10 retrieved\ndocuments. Figure 3 (right) shows that retrieving more documents leads to higher Rouge-L for\nRAG-Token at the expense of Bleu-1, but the effect is less pronounced for RAG-Sequence.\n10\n20\n30\n40\n50\nK Retrieved Docs\n39\n40\n41\n42\n43\n44\nNQ Exact Match\nRAG-Tok\nRAG-Seq\n10\n20\n30\n40\n50\nK Retrieved Docs\n40\n50\n60\n70\n80\nNQ Answer Recall @ K\nRAG-Tok\nRAG-Seq\nFixed DPR\nBM25\n10\n20\n30\n40\n50\nK Retrieved Docs\n48\n50\n52\n54\n56\nBleu-1 / Rouge-L score\nRAG-Tok R-L\nRAG-Tok B-1\nRAG-Seq R-L\nRAG-Seq B-1\nFigure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor-\nmance in NQ. Right: MS-MARCO Bleu-1 and Rouge-L as more documents are retrieved.\n5\nRelated Work\nSingle-Task Retrieval"
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p03_c06",
+            "document_id": "P4",
+            "physical_page_number": 3,
+            "printed_page_number": 3,
+            "score": 0.46275,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "In contrast, common RAG approaches\nretrieve passages indiscriminately, without ensuring complete support from cited sources.\n3.1\nPROBLEM FORMALIZATION AND OVERVIEW\nFormally, given input x, we train M to sequentially generate textual outputs y consisting of multiple\nsegments y = [y1, . . . , yT ], where yt indicates a sequence of tokens for the t-th segment.3 Generated\ntokens in yt include text from the original vocabulary as well as the reflection tokens (Table 1).\n2All work is arXived within a week of this preprint.\n3In this paper, we treat one sentence as a segment in our experiments, but our framework is applicable to any\nsegment unit (i.e., sub-sentence).\n3"
+          }
+        ]
+      },
+      "hybrid": {
+        "coverage": "complete",
+        "fact_signals": [
+          {
+            "alternatives": [
+              "same retrieved document",
+              "same document",
+              "sequence probability for each document"
+            ],
+            "supported": true,
+            "ranks": [
+              5
+            ]
+          },
+          {
+            "alternatives": [
+              "single latent variable",
+              "latent document"
+            ],
+            "supported": true,
+            "ranks": [
+              5
+            ]
+          },
+          {
+            "alternatives": [
+              "different latent document for each target token",
+              "different latent document",
+              "per token"
+            ],
+            "supported": true,
+            "ranks": [
+              1,
+              5
+            ]
+          }
+        ],
+        "execution_time_ms": 12.65,
+        "top_five": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c01",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "printed_page_number": 4,
+            "score": 0.032522,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 2,
+            "bm25_rank": 1,
+            "dense_score": 0.47645,
+            "bm25_score": 23.54866,
+            "text": "minimize the negative marginal log-likelihood of each target, P\nj −log p(yj|xj) using stochastic\ngradient descent with Adam [28]. Updating the document encoder BERTd during training is costly as\nit requires the document index to be periodically updated as REALM does during pre-training [20].\nWe do not ﬁnd this step necessary for strong performance, and keep the document encoder (and\nindex) ﬁxed, only ﬁne-tuning the query encoder BERTq and the BART generator.\n2.5\nDecoding\nAt test time, RAG-Sequence and RAG-Token require different ways to approximate arg maxy p(y|x).\nRAG-Token\nThe RAG-Token model can be seen as a standard, autoregressive seq2seq genera-\ntor with transition probability: p′\nθ(yi|x, y1:i−1) = P\nz∈top-k(p(·|x)) pη(zi|x)pθ(yi|x, zi, y1:i−1) To\ndecode, we can plug p′\nθ(yi|x, y1:i−1) into a standard beam decoder.\nRAG-Sequence\nFor RAG-Sequence, the likelihood p(y|x) does not break into a conventional per-\ntoken likelihood, hence we cannot solve it with a single beam search."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p08_c03",
+            "document_id": "P1",
+            "physical_page_number": 8,
+            "printed_page_number": 8,
+            "score": 0.03125,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 4,
+            "bm25_rank": 4,
+            "dense_score": 0.46844,
+            "bm25_score": 20.21186,
+            "text": "We have the\nﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and\nruntime. Figure 3 (left) shows that retrieving more documents at test time monotonically improves\nOpen-domain QA results for RAG-Sequence, but performance peaks for RAG-Token at 10 retrieved\ndocuments. Figure 3 (right) shows that retrieving more documents leads to higher Rouge-L for\nRAG-Token at the expense of Bleu-1, but the effect is less pronounced for RAG-Sequence.\n10\n20\n30\n40\n50\nK Retrieved Docs\n39\n40\n41\n42\n43\n44\nNQ Exact Match\nRAG-Tok\nRAG-Seq\n10\n20\n30\n40\n50\nK Retrieved Docs\n40\n50\n60\n70\n80\nNQ Answer Recall @ K\nRAG-Tok\nRAG-Seq\nFixed DPR\nBM25\n10\n20\n30\n40\n50\nK Retrieved Docs\n48\n50\n52\n54\n56\nBleu-1 / Rouge-L score\nRAG-Tok R-L\nRAG-Tok B-1\nRAG-Seq R-L\nRAG-Seq B-1\nFigure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor-\nmance in NQ. Right: MS-MARCO Bleu-1 and Rouge-L as more documents are retrieved.\n5\nRelated Work\nSingle-Task Retrieval"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p03_c03",
+            "document_id": "P1",
+            "physical_page_number": 3,
+            "printed_page_number": 3,
+            "score": 0.031099,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 1,
+            "bm25_rank": 8,
+            "dense_score": 0.52318,
+            "bm25_score": 17.52627,
+            "text": "pRAG-Token(y|x) ≈\nN\nY\ni\nX\nz∈top-k(p(·|x))\npη(z|x)pθ(yi|x, z, y1:i−1)\nFinally, we note that RAG can be used for sequence classiﬁcation tasks by considering the target class\nas a target sequence of length one, in which case RAG-Sequence and RAG-Token are equivalent.\n2.2\nRetriever: DPR\nThe retrieval component pη(z|x) is based on DPR [26]. DPR follows a bi-encoder architecture:\npη(z|x) ∝exp\n\u0000d(z)⊤q(x)\n\u0001\nd(z) = BERTd(z), q(x) = BERTq(x)\nwhere d(z) is a dense representation of a document produced by a BERTBASE document encoder [8],\nand q(x) a query representation produced by a query encoder, also based on BERTBASE. Calculating\ntop-k(pη(·|x)), the list of k documents z with highest prior probability pη(z|x), is a Maximum Inner\nProduct Search (MIPS) problem, which can be approximately solved in sub-linear time [23]. We use\na pre-trained bi-encoder from DPR to initialize our retriever and to build the document index. This"
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c03",
+            "document_id": "P1",
+            "physical_page_number": 6,
+            "printed_page_number": 6,
+            "score": 0.030536,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 6,
+            "bm25_rank": 5,
+            "dense_score": 0.44718,
+            "bm25_score": 20.00062,
+            "text": "Later, we also show that RAG generations are more diverse than\nBART generations (see §4.5).\n4.3\nJeopardy Question Generation\nTable 2 shows that RAG-Token performs better than RAG-Sequence on Jeopardy question generation,\nwith both models outperforming BART on Q-BLEU-1. 4 shows human evaluation results, over 452\npairs of generations from BART and RAG-Token. Evaluators indicated that BART was more factual\nthan RAG in only 7.1% of cases, while RAG was more factual in 42.7% of cases, and both RAG and\nBART were factual in a further 17% of cases, clearly demonstrating the effectiveness of RAG on\nthe task over a state-of-the-art generation model. Evaluators also ﬁnd RAG generations to be more\nspeciﬁc by a large margin. Table 3 shows typical generations from each model.\nJeopardy questions often contain two separate pieces of information, and RAG-Token may perform\nbest because it can generate responses that combine content from several documents. Figure 2 shows\nan example."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p03_c02",
+            "document_id": "P1",
+            "physical_page_number": 3,
+            "printed_page_number": 3,
+            "score": 0.030159,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 3,
+            "bm25_rank": 10,
+            "dense_score": 0.47281,
+            "bm25_score": 15.81158,
+            "text": "is marginalized to get the seq2seq probability p(y|x) via a top-K approximation. Concretely, the\ntop K documents are retrieved using the retriever, and the generator produces the output sequence\nprobability for each document, which are then marginalized,\npRAG-Sequence(y|x) ≈\nX\nz∈top-k(p(·|x))\npη(z|x)pθ(y|x, z) =\nX\nz∈top-k(p(·|x))\npη(z|x)\nN\nY\ni\npθ(yi|x, z, y1:i−1)\nRAG-Token Model\nIn the RAG-Token model we can draw a different latent document for each\ntarget token and marginalize accordingly. This allows the generator to choose content from several\ndocuments when producing an answer. Concretely, the top K documents are retrieved using the\nretriever, and then the generator produces a distribution for the next output token for each document,\nbefore marginalizing, and repeating the process with the following output token, Formally, we deﬁne:\npRAG-Token(y|x) ≈\nN\nY\ni\nX\nz∈top-k(p(·|x))\npη(z|x)pθ(yi|x, z, y1:i−1)"
+          }
+        ]
+      },
+      "dense_existing_diagnostic_target_hits_top100": [
+        {
+          "rank": 1,
+          "chunk_id": "P1_p03_c03",
+          "document_id": "P1",
+          "physical_page_number": 3,
+          "score": 0.52318
+        },
+        {
+          "rank": 2,
+          "chunk_id": "P1_p04_c01",
+          "document_id": "P1",
+          "physical_page_number": 4,
+          "score": 0.47645
+        },
+        {
+          "rank": 3,
+          "chunk_id": "P1_p03_c02",
+          "document_id": "P1",
+          "physical_page_number": 3,
+          "score": 0.47281
+        },
+        {
+          "rank": 4,
+          "chunk_id": "P1_p08_c03",
+          "document_id": "P1",
+          "physical_page_number": 8,
+          "score": 0.46844
+        },
+        {
+          "rank": 6,
+          "chunk_id": "P1_p06_c03",
+          "document_id": "P1",
+          "physical_page_number": 6,
+          "score": 0.44718
+        },
+        {
+          "rank": 7,
+          "chunk_id": "P1_p08_c01",
+          "document_id": "P1",
+          "physical_page_number": 8,
+          "score": 0.44525
+        },
+        {
+          "rank": 12,
+          "chunk_id": "P1_p02_c06",
+          "document_id": "P1",
+          "physical_page_number": 2,
+          "score": 0.38815
+        },
+        {
+          "rank": 13,
+          "chunk_id": "P1_p07_c04",
+          "document_id": "P1",
+          "physical_page_number": 7,
+          "score": 0.38615
+        },
+        {
+          "rank": 14,
+          "chunk_id": "P1_p06_c02",
+          "document_id": "P1",
+          "physical_page_number": 6,
+          "score": 0.3848
+        },
+        {
+          "rank": 16,
+          "chunk_id": "P1_p10_c01",
+          "document_id": "P1",
+          "physical_page_number": 10,
+          "score": 0.37736
+        },
+        {
+          "rank": 17,
+          "chunk_id": "P1_p03_c01",
+          "document_id": "P1",
+          "physical_page_number": 3,
+          "score": 0.37554
+        },
+        {
+          "rank": 20,
+          "chunk_id": "P1_p04_c02",
+          "document_id": "P1",
+          "physical_page_number": 4,
+          "score": 0.34904
+        },
+        {
+          "rank": 22,
+          "chunk_id": "P1_p07_c03",
+          "document_id": "P1",
+          "physical_page_number": 7,
+          "score": 0.33464
+        },
+        {
+          "rank": 24,
+          "chunk_id": "P1_p07_c01",
+          "document_id": "P1",
+          "physical_page_number": 7,
+          "score": 0.3323
+        },
+        {
+          "rank": 25,
+          "chunk_id": "P1_p05_c05",
+          "document_id": "P1",
+          "physical_page_number": 5,
+          "score": 0.3292
+        },
+        {
+          "rank": 27,
+          "chunk_id": "P1_p09_c05",
+          "document_id": "P1",
+          "physical_page_number": 9,
+          "score": 0.32313
+        },
+        {
+          "rank": 28,
+          "chunk_id": "P1_p17_c01",
+          "document_id": "P1",
+          "physical_page_number": 17,
+          "score": 0.32298
+        },
+        {
+          "rank": 29,
+          "chunk_id": "P1_p19_c02",
+          "document_id": "P1",
+          "physical_page_number": 19,
+          "score": 0.31906
+        },
+        {
+          "rank": 30,
+          "chunk_id": "P1_p06_c05",
+          "document_id": "P1",
+          "physical_page_number": 6,
+          "score": 0.31802
+        },
+        {
+          "rank": 33,
+          "chunk_id": "P1_p17_c03",
+          "document_id": "P1",
+          "physical_page_number": 17,
+          "score": 0.30859
+        },
+        {
+          "rank": 35,
+          "chunk_id": "P1_p04_c05",
+          "document_id": "P1",
+          "physical_page_number": 4,
+          "score": 0.30561
+        },
+        {
+          "rank": 46,
+          "chunk_id": "P1_p05_c04",
+          "document_id": "P1",
+          "physical_page_number": 5,
+          "score": 0.27442
+        },
+        {
+          "rank": 51,
+          "chunk_id": "P1_p08_c02",
+          "document_id": "P1",
+          "physical_page_number": 8,
+          "score": 0.2674
+        },
+        {
+          "rank": 52,
+          "chunk_id": "P1_p09_c04",
+          "document_id": "P1",
+          "physical_page_number": 9,
+          "score": 0.26575
+        },
+        {
+          "rank": 60,
+          "chunk_id": "P1_p10_c02",
+          "document_id": "P1",
+          "physical_page_number": 10,
+          "score": 0.24746
+        },
+        {
+          "rank": 61,
+          "chunk_id": "P1_p07_c05",
+          "document_id": "P1",
+          "physical_page_number": 7,
+          "score": 0.24737
+        },
+        {
+          "rank": 62,
+          "chunk_id": "P1_p06_c01",
+          "document_id": "P1",
+          "physical_page_number": 6,
+          "score": 0.24593
+        },
+        {
+          "rank": 66,
+          "chunk_id": "P1_p01_c02",
+          "document_id": "P1",
+          "physical_page_number": 1,
+          "score": 0.24296
+        },
+        {
+          "rank": 70,
+          "chunk_id": "P1_p18_c05",
+          "document_id": "P1",
+          "physical_page_number": 18,
+          "score": 0.24041
+        },
+        {
+          "rank": 73,
+          "chunk_id": "P1_p07_c02",
+          "document_id": "P1",
+          "physical_page_number": 7,
+          "score": 0.23777
+        },
+        {
+          "rank": 79,
+          "chunk_id": "P1_p13_c01",
+          "document_id": "P1",
+          "physical_page_number": 13,
+          "score": 0.23294
+        },
+        {
+          "rank": 84,
+          "chunk_id": "P1_p02_c05",
+          "document_id": "P1",
+          "physical_page_number": 2,
+          "score": 0.22518
+        },
+        {
+          "rank": 85,
+          "chunk_id": "P1_p10_c05",
+          "document_id": "P1",
+          "physical_page_number": 10,
+          "score": 0.22487
+        },
+        {
+          "rank": 87,
+          "chunk_id": "P1_p11_c03",
+          "document_id": "P1",
+          "physical_page_number": 11,
+          "score": 0.22362
+        },
+        {
+          "rank": 88,
+          "chunk_id": "P1_p18_c01",
+          "document_id": "P1",
+          "physical_page_number": 18,
+          "score": 0.22036
+        },
+        {
+          "rank": 90,
+          "chunk_id": "P1_p16_c01",
+          "document_id": "P1",
+          "physical_page_number": 16,
+          "score": 0.21745
+        },
+        {
+          "rank": 91,
+          "chunk_id": "P1_p11_c05",
+          "document_id": "P1",
+          "physical_page_number": 11,
+          "score": 0.21684
+        },
+        {
+          "rank": 92,
+          "chunk_id": "P1_p06_c04",
+          "document_id": "P1",
+          "physical_page_number": 6,
+          "score": 0.21682
+        },
+        {
+          "rank": 94,
+          "chunk_id": "P1_p14_c01",
+          "document_id": "P1",
+          "physical_page_number": 14,
+          "score": 0.21475
+        }
+      ]
+    },
+    {
+      "id": "Q05",
+      "question": "How does RAGAS compute its faithfulness metric?",
+      "expected_answer": "Ragas computes Faithfulness in two steps using an LLM: (1) Decomposes the generated answer $a_s(q)$ into a set of atomic statements $S(a_s(q))$ via an extraction prompt; (2) Verifies whether each statement $s_i \\in S$ can be inferred from the retrieved context $c(q)$ using a verification prompt function $v(s_i, c(q)) \\in \\{Yes, No\\}$. The final score is the fraction of supported statements: $F = \\frac{",
+      "source_papers": [
+        "P5"
+      ],
+      "page_references": "P5: Physical Page Index 2 (Page 3), §3 (\"Evaluation Strategies: Faithfulness\")",
+      "required_fact_signals": [
+        [
+          "extract a set of statements",
+          "decompose longer sentences",
+          "atomic statements"
+        ],
+        [
+          "verification function",
+          "inferred from",
+          "supported by the information"
+        ],
+        [
+          "final faithfulness score",
+          "fraction",
+          "|v|",
+          "|s|"
+        ]
+      ],
+      "dense": {
+        "coverage": "partial",
+        "fact_signals": [
+          {
+            "alternatives": [
+              "extract a set of statements",
+              "decompose longer sentences",
+              "atomic statements"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "verification function",
+              "inferred from",
+              "supported by the information"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "final faithfulness score",
+              "fraction",
+              "|v|",
+              "|s|"
+            ],
+            "supported": true,
+            "ranks": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ],
+        "execution_time_ms": 9.26,
+        "top_five": [
+          {
+            "rank": 1,
+            "chunk_id": "P5_p03_c01",
+            "document_id": "P5",
+            "physical_page_number": 3,
+            "printed_page_number": null,
+            "score": 0.44565,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "we usually do not have access to human-annotated\ndatasets or reference answers. We therefore fo-\ncus on metrics that are fully self-contained and\nreference-free. We focus in particular three quality\naspects, which we argue are of central importance.\nFirst, Faithfulness refers to the idea that the an-\nswer should be grounded in the given context. This\nis important to avoid hallucinations, and to ensure\nthat the retrieved context can act as a justification\nfor the generated answer. Indeed, RAG systems are\noften used in applications where the factual con-\nsistency of the generated text w.r.t. the grounded\nsources is highly important, e.g. in domains such as\nlaw, where information is constantly evolving. Sec-\nond, Answer Relevance refers to the idea that the\ngenerated answer should address the actual ques-\ntion that was provided. Finally, Context Relevance\nrefers to the idea that the retrieved context should\nbe focused, containing as little irrelevant informa-\ntion as possible."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P5_p05_c02",
+            "document_id": "P5",
+            "physical_page_number": 5,
+            "printed_page_number": null,
+            "score": 0.42368,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "annotators. We report the results in terms of ac-\ncuracy (i.e. the fraction of instances on which the\nmodel agrees with the annotators).\nTo put the results in context, we compare our\nproposed metrics (shown as Ragas in Table 1) with\ntwo baseline methods. For the first method, shown\nas GPT Score, we ask ChatGPT to assign a score\nbetween 0 and 10 for the three quality dimensions.\nTo this end, we use a prompt that describes the\nmeaning of the quality metric and then asks to\nscore the given answer/context in line with that\ndefinition. For instance, for evaluating faithfulness,\nwe used the following prompt:\nFaithfulness measures the information\nconsistency of the answer against the\ngiven context. Any claims that are made\nin the answer that cannot be deduced\nfrom context should be penalized.\nGiven an answer and context, assign a\nscore for faithfulness in the range 0-10.\ncontext: [context]\nanswer: [answer]\nTies, where the same score is assigned by the LLM"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p02_c06",
+            "document_id": "P1",
+            "physical_page_number": 2,
+            "printed_page_number": 2,
+            "score": 0.38709,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "1Code to run experiments with RAG has been open-sourced as part of the HuggingFace Transform-\ners Library [66] and can be found at https://github.com/huggingface/transformers/blob/master/\nexamples/rag/. An interactive demo of RAG models can be found at https://huggingface.co/rag/\n2"
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c02",
+            "document_id": "P1",
+            "physical_page_number": 6,
+            "printed_page_number": 6,
+            "score": 0.3607,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "Furthermore, RAG can generate correct answers\neven when the correct answer is not in any retrieved document, achieving 11.8% accuracy in such\ncases for NQ, where an extractive model would score 0%.\n4.2\nAbstractive Question Answering\nAs shown in Table 2, RAG-Sequence outperforms BART on Open MS-MARCO NLG by 2.6 Bleu\npoints and 2.6 Rouge-L points. RAG approaches state-of-the-art model performance, which is\nimpressive given that (i) those models access gold passages with speciﬁc information required to\ngenerate the reference answer , (ii) many questions are unanswerable without the gold passages, and\n(iii) not all questions are answerable from Wikipedia alone. Table 3 shows some generated answers\nfrom our models. Qualitatively, we ﬁnd that RAG models hallucinate less and generate factually\ncorrect text more often than BART. Later, we also show that RAG generations are more diverse than\nBART generations (see §4.5).\n4.3\nJeopardy Question Generation"
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p01_c05",
+            "document_id": "P4",
+            "physical_page_number": 1,
+            "printed_page_number": 1,
+            "score": 0.34578,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "If so, it outputs a retrieval token that\ncalls a retriever model on demand (Step 1). Subsequently, SELF-RAG concurrently processes multiple\nretrieved passages, evaluating their relevance and then generating corresponding task outputs (Step\n2). It then generates critique tokens to criticize its own output and choose best one (Step 3) in terms\nof factuality and overall quality. This process differs from conventional RAG (Figure 1 left), which\n1Our code and trained models are available at https://selfrag.github.io/.\n1\narXiv:2310.11511v1  [cs.CL]  17 Oct 2023"
+          }
+        ]
+      },
+      "hybrid": {
+        "coverage": "partial",
+        "fact_signals": [
+          {
+            "alternatives": [
+              "extract a set of statements",
+              "decompose longer sentences",
+              "atomic statements"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "verification function",
+              "inferred from",
+              "supported by the information"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "final faithfulness score",
+              "fraction",
+              "|v|",
+              "|s|"
+            ],
+            "supported": true,
+            "ranks": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ],
+        "execution_time_ms": 11.06,
+        "top_five": [
+          {
+            "rank": 1,
+            "chunk_id": "P5_p05_c02",
+            "document_id": "P5",
+            "physical_page_number": 5,
+            "printed_page_number": null,
+            "score": 0.032522,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 2,
+            "bm25_rank": 1,
+            "dense_score": 0.42368,
+            "bm25_score": 12.14227,
+            "text": "annotators. We report the results in terms of ac-\ncuracy (i.e. the fraction of instances on which the\nmodel agrees with the annotators).\nTo put the results in context, we compare our\nproposed metrics (shown as Ragas in Table 1) with\ntwo baseline methods. For the first method, shown\nas GPT Score, we ask ChatGPT to assign a score\nbetween 0 and 10 for the three quality dimensions.\nTo this end, we use a prompt that describes the\nmeaning of the quality metric and then asks to\nscore the given answer/context in line with that\ndefinition. For instance, for evaluating faithfulness,\nwe used the following prompt:\nFaithfulness measures the information\nconsistency of the answer against the\ngiven context. Any claims that are made\nin the answer that cannot be deduced\nfrom context should be penalized.\nGiven an answer and context, assign a\nscore for faithfulness in the range 0-10.\ncontext: [context]\nanswer: [answer]\nTies, where the same score is assigned by the LLM"
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P5_p05_c04",
+            "document_id": "P5",
+            "physical_page_number": 5,
+            "printed_page_number": null,
+            "score": 0.030579,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 8,
+            "bm25_rank": 3,
+            "dense_score": 0.32632,
+            "bm25_score": 10.52875,
+            "text": "metrics are much closer aligned with the human\njudgements than the predictions from the two base-\nlines. For faithfulness, the Ragas prediction are in\ngeneral highly accurate. For answer relevance, the\nagreement is lower, but this is largely due to the\nfact that the differences between the two candidate\nanswers are often very subtle. We found context\nrelevance to be the hardest quality dimension to\nevaluate. In particular, we observed that ChatGPT\noften struggles with the task of selecting the sen-\ntences from the context that are crucial, especially\nfor longer contexts.\n6\nConclusions\nWe have highlighted the need for automated\nreference-free evaluation of RAG systems. In par-\nticular, we have argued the need for an evaluation\nframework that can assess faithfulness (i.e. is the\nanswer grounded in the retrieved context), answer\nrelevance (i.e. does the answer address the ques-\ntion) and context relevance (i.e. is the retrieved\ncontext sufficiently focused). To support the devel-"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P5_p01_c05",
+            "document_id": "P5",
+            "physical_page_number": 1,
+            "printed_page_number": null,
+            "score": 0.028992,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 10,
+            "bm25_rank": 8,
+            "dense_score": 0.31414,
+            "bm25_score": 7.38693,
+            "text": "In\npractice, RAG systems are often evaluated in terms\nof the language modelling task itself, i.e. by mea-\nsuring perplexity on some reference corpus. How-\never, such evaluations are not always predictive\nof downstream performance (Wang et al., 2023c).\nMoreover, this evaluation strategy relies on the LM\nprobabilities, which are not accessible for some\nclosed models (e.g. ChatGPT and GPT-4). Ques-\ntion answering is another common evaluation task,\nbut usually only datasets with short extractive an-\nswers are considered, which may not be represen-\ntative of how the system will be used.\nTo address these issues, in this paper we present\nRagas1, a framework for the automated assessment\n1Ragas\nis\navailable\nat\nhttps://github.com/\nexplodinggradients/ragas.\narXiv:2309.15217v2  [cs.CL]  28 Apr 2025"
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P5_p05_c03",
+            "document_id": "P5",
+            "physical_page_number": 5,
+            "printed_page_number": null,
+            "score": 0.028787,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 19,
+            "bm25_rank": 2,
+            "dense_score": 0.2965,
+            "bm25_score": 11.59324,
+            "text": "score for faithfulness in the range 0-10.\ncontext: [context]\nanswer: [answer]\nTies, where the same score is assigned by the LLM\nto both answer candidates, were broken randomly.\nThe second baseline, shown as GPT Ranking, in-\nstead asks ChatGPT to select the preferred answer/-\ncontext. In this case, the prompt again includes\na definition of the considered quality metric. For\ninstance, for evaluating answer relevance, we used\nthe following prompt:\nAnswer Relevancy measures the degree\nto which a response directly addresses\nand is appropriate for a given question.\nIt penalizes the present of redundant in-\nformation or incomplete answers given a\nquestion. Given an question and answer,\nrank each answer based on Answer Rele-\nvancy.\nquestion: [question]\nanswer 1: [answer 1]\nanswer 2: [answer 2]\nThe results in Table 1 show that our proposed\nmetrics are much closer aligned with the human\njudgements than the predictions from the two base-\nlines. For faithfulness, the Ragas prediction are in"
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P5_p05_c01",
+            "document_id": "P5",
+            "physical_page_number": 5,
+            "printed_page_number": null,
+            "score": 0.027971,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 21,
+            "bm25_rank": 4,
+            "dense_score": 0.28521,
+            "bm25_score": 10.00827,
+            "text": "Faith.\nAns. Rel.\nCont. Rel.\nRagas\n0.95\n0.78\n0.70\nGPT Score\n0.72\n0.52\n0.63\nGPT Ranking\n0.54\n0.40\n0.52\nTable 1: Agreement with human annotators in pairwise\ncomparisons of faithfulness, answer relevance and con-\ntext relevance, using the WikEval dataset (accuracy).\nanswering the question. For the few pages with-\nout any back-links, we instead used ChatGPT to\ncomplete the given context.\n5\nExperiments\nTable 1 analyses the agreement between the met-\nrics proposed in Section 3 and the human assess-\nments from the proposed WikiEval dataset. Each\nWikiEval instance requires the model to compare\ntwo answers or two context fragments. We count\nhow often the answer/context preferred by the\nmodel (i.e. with highest estimated faithfulness, an-\nswer relevance, or context relevance) coincides\nwith the answer/context preferred by the human\nannotators. We report the results in terms of ac-\ncuracy (i.e. the fraction of instances on which the\nmodel agrees with the annotators)."
+          }
+        ]
+      },
+      "dense_existing_diagnostic_target_hits_top100": [
+        {
+          "rank": 1,
+          "chunk_id": "P5_p03_c01",
+          "document_id": "P5",
+          "physical_page_number": 3,
+          "score": 0.44565
+        },
+        {
+          "rank": 2,
+          "chunk_id": "P5_p05_c02",
+          "document_id": "P5",
+          "physical_page_number": 5,
+          "score": 0.42368
+        },
+        {
+          "rank": 8,
+          "chunk_id": "P5_p05_c04",
+          "document_id": "P5",
+          "physical_page_number": 5,
+          "score": 0.32632
+        },
+        {
+          "rank": 10,
+          "chunk_id": "P5_p01_c05",
+          "document_id": "P5",
+          "physical_page_number": 1,
+          "score": 0.31414
+        },
+        {
+          "rank": 15,
+          "chunk_id": "P5_p03_c03",
+          "document_id": "P5",
+          "physical_page_number": 3,
+          "score": 0.2996
+        },
+        {
+          "rank": 19,
+          "chunk_id": "P5_p05_c03",
+          "document_id": "P5",
+          "physical_page_number": 5,
+          "score": 0.2965
+        },
+        {
+          "rank": 21,
+          "chunk_id": "P5_p05_c01",
+          "document_id": "P5",
+          "physical_page_number": 5,
+          "score": 0.28521
+        },
+        {
+          "rank": 22,
+          "chunk_id": "P5_p05_c05",
+          "document_id": "P5",
+          "physical_page_number": 5,
+          "score": 0.28503
+        },
+        {
+          "rank": 24,
+          "chunk_id": "P5_p01_c02",
+          "document_id": "P5",
+          "physical_page_number": 1,
+          "score": 0.28383
+        },
+        {
+          "rank": 29,
+          "chunk_id": "P5_p02_c01",
+          "document_id": "P5",
+          "physical_page_number": 2,
+          "score": 0.26793
+        },
+        {
+          "rank": 33,
+          "chunk_id": "P5_p01_c04",
+          "document_id": "P5",
+          "physical_page_number": 1,
+          "score": 0.2636
+        },
+        {
+          "rank": 35,
+          "chunk_id": "P5_p02_c06",
+          "document_id": "P5",
+          "physical_page_number": 2,
+          "score": 0.26235
+        },
+        {
+          "rank": 36,
+          "chunk_id": "P5_p04_c04",
+          "document_id": "P5",
+          "physical_page_number": 4,
+          "score": 0.25034
+        },
+        {
+          "rank": 44,
+          "chunk_id": "P5_p03_c05",
+          "document_id": "P5",
+          "physical_page_number": 3,
+          "score": 0.22057
+        },
+        {
+          "rank": 48,
+          "chunk_id": "P5_p03_c04",
+          "document_id": "P5",
+          "physical_page_number": 3,
+          "score": 0.21835
+        },
+        {
+          "rank": 54,
+          "chunk_id": "P5_p03_c02",
+          "document_id": "P5",
+          "physical_page_number": 3,
+          "score": 0.21084
+        },
+        {
+          "rank": 64,
+          "chunk_id": "P5_p01_c01",
+          "document_id": "P5",
+          "physical_page_number": 1,
+          "score": 0.18993
+        },
+        {
+          "rank": 65,
+          "chunk_id": "P5_p06_c06",
+          "document_id": "P5",
+          "physical_page_number": 6,
+          "score": 0.18815
+        },
+        {
+          "rank": 84,
+          "chunk_id": "P5_p02_c02",
+          "document_id": "P5",
+          "physical_page_number": 2,
+          "score": 0.1741
+        },
+        {
+          "rank": 87,
+          "chunk_id": "P5_p06_c01",
+          "document_id": "P5",
+          "physical_page_number": 6,
+          "score": 0.17133
+        }
+      ]
+    },
+    {
+      "id": "Q06",
+      "question": "What exact match scores does RAG-Token achieve on Natural Questions, and how does this compare to DPR's extractive approach?",
+      "expected_answer": "On Natural Questions (NQ) Exact Match, RAG-Token achieves **44.1** EM and RAG-Sequence achieves **44.5** EM (P1 Table 1), outperforming DPR's extractive reader, which achieves **41.5** EM (P1 Table 1; P2 Table 4). However, on TriviaQA's standard open-domain test split, DPR's extractive reader achieves **57.9** EM (P1 Table 1) / **56.8** EM (P2 Table 4), outperforming RAG-Token (**55.2**) and RAG-Sequence (**56.8**). On the TQA-Wiki split, RAG-Sequence achieves **68.0** and RAG-Token achieves **66.1**.",
+      "source_papers": [
+        "P1",
+        "P2"
+      ],
+      "page_references": "P1: Physical Page Index 5 (Printed Page 6), Table 1; P1: Physical Page Index 4 (Printed Page 5), §4.1; P2: Physical Page Index 7 (Physical Page 8), Table 4",
+      "required_fact_signals": [
+        [
+          "44.1"
+        ],
+        [
+          "44.5"
+        ],
+        [
+          "41.5"
+        ],
+        [
+          "57.9"
+        ],
+        [
+          "55.2"
+        ],
+        [
+          "66.1"
+        ],
+        [
+          "68.0"
+        ]
+      ],
+      "dense": {
+        "coverage": "missing",
+        "fact_signals": [
+          {
+            "alternatives": [
+              "44.1"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "44.5"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "41.5"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "57.9"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "55.2"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "66.1"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "68.0"
+            ],
+            "supported": false,
+            "ranks": []
+          }
+        ],
+        "execution_time_ms": 11.43,
+        "top_five": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p06_c02",
+            "document_id": "P1",
+            "physical_page_number": 6,
+            "printed_page_number": 6,
+            "score": 0.55689,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "Furthermore, RAG can generate correct answers\neven when the correct answer is not in any retrieved document, achieving 11.8% accuracy in such\ncases for NQ, where an extractive model would score 0%.\n4.2\nAbstractive Question Answering\nAs shown in Table 2, RAG-Sequence outperforms BART on Open MS-MARCO NLG by 2.6 Bleu\npoints and 2.6 Rouge-L points. RAG approaches state-of-the-art model performance, which is\nimpressive given that (i) those models access gold passages with speciﬁc information required to\ngenerate the reference answer , (ii) many questions are unanswerable without the gold passages, and\n(iii) not all questions are answerable from Wikipedia alone. Table 3 shows some generated answers\nfrom our models. Qualitatively, we ﬁnd that RAG models hallucinate less and generate factually\ncorrect text more often than BART. Later, we also show that RAG generations are more diverse than\nBART generations (see §4.5).\n4.3\nJeopardy Question Generation"
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p06_c03",
+            "document_id": "P1",
+            "physical_page_number": 6,
+            "printed_page_number": 6,
+            "score": 0.54748,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "Later, we also show that RAG generations are more diverse than\nBART generations (see §4.5).\n4.3\nJeopardy Question Generation\nTable 2 shows that RAG-Token performs better than RAG-Sequence on Jeopardy question generation,\nwith both models outperforming BART on Q-BLEU-1. 4 shows human evaluation results, over 452\npairs of generations from BART and RAG-Token. Evaluators indicated that BART was more factual\nthan RAG in only 7.1% of cases, while RAG was more factual in 42.7% of cases, and both RAG and\nBART were factual in a further 17% of cases, clearly demonstrating the effectiveness of RAG on\nthe task over a state-of-the-art generation model. Evaluators also ﬁnd RAG generations to be more\nspeciﬁc by a large margin. Table 3 shows typical generations from each model.\nJeopardy questions often contain two separate pieces of information, and RAG-Token may perform\nbest because it can generate responses that combine content from several documents. Figure 2 shows\nan example."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p04_c05",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "printed_page_number": 4,
+            "score": 0.54707,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As\nCT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG\nmodel. We use the same train/dev/test splits as prior work [31, 26] and report Exact Match (EM)\nscores. For TQA, to compare with T5 [52], we also evaluate on the TQA Wiki test set.\n3.2\nAbstractive Question Answering\nRAG models can go beyond simple extractive QA and answer questions with free-form, abstractive\ntext generation. To test RAG’s natural language generation (NLG) in a knowledge-intensive setting,\nwe use the MSMARCO NLG task v2.1 [43]. The task consists of questions, ten gold passages\nretrieved from a search engine for each question, and a full sentence answer annotated from the\nretrieved passages. We do not use the supplied passages, only the questions and answers, to treat\n4"
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p05_c05",
+            "document_id": "P1",
+            "physical_page_number": 5,
+            "printed_page_number": 5,
+            "score": 0.5383,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "On all four open-domain QA\ntasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines\nthe generation ﬂexibility of the “closed-book” (parametric only) approaches and the performance of\n\"open-book\" retrieval-based approaches. Unlike REALM and T5+SSM, RAG enjoys strong results\nwithout expensive, specialized “salient span masking” pre-training [20]. It is worth noting that RAG’s\nretriever is initialized using DPR’s retriever, which uses retrieval supervision on Natural Questions\nand TriviaQA. RAG compares favourably to the DPR QA system, which uses a BERT-based “cross-\nencoder” to re-rank documents, along with an extractive reader. RAG demonstrates that neither a\nre-ranker nor extractive reader is necessary for state-of-the-art performance.\nThere are several advantages to generating answers even when it is possible to extract them. Docu-\nments with clues about the answer but do not contain the answer verbatim can still contribute towards"
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p08_c03",
+            "document_id": "P1",
+            "physical_page_number": 8,
+            "printed_page_number": 8,
+            "score": 0.52748,
+            "retrieval_method": null,
+            "dense_rank": null,
+            "bm25_rank": null,
+            "dense_score": null,
+            "bm25_score": null,
+            "text": "We have the\nﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and\nruntime. Figure 3 (left) shows that retrieving more documents at test time monotonically improves\nOpen-domain QA results for RAG-Sequence, but performance peaks for RAG-Token at 10 retrieved\ndocuments. Figure 3 (right) shows that retrieving more documents leads to higher Rouge-L for\nRAG-Token at the expense of Bleu-1, but the effect is less pronounced for RAG-Sequence.\n10\n20\n30\n40\n50\nK Retrieved Docs\n39\n40\n41\n42\n43\n44\nNQ Exact Match\nRAG-Tok\nRAG-Seq\n10\n20\n30\n40\n50\nK Retrieved Docs\n40\n50\n60\n70\n80\nNQ Answer Recall @ K\nRAG-Tok\nRAG-Seq\nFixed DPR\nBM25\n10\n20\n30\n40\n50\nK Retrieved Docs\n48\n50\n52\n54\n56\nBleu-1 / Rouge-L score\nRAG-Tok R-L\nRAG-Tok B-1\nRAG-Seq R-L\nRAG-Seq B-1\nFigure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor-\nmance in NQ. Right: MS-MARCO Bleu-1 and Rouge-L as more documents are retrieved.\n5\nRelated Work\nSingle-Task Retrieval"
+          }
+        ]
+      },
+      "hybrid": {
+        "coverage": "missing",
+        "fact_signals": [
+          {
+            "alternatives": [
+              "44.1"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "44.5"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "41.5"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "57.9"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "55.2"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "66.1"
+            ],
+            "supported": false,
+            "ranks": []
+          },
+          {
+            "alternatives": [
+              "68.0"
+            ],
+            "supported": false,
+            "ranks": []
+          }
+        ],
+        "execution_time_ms": 15.33,
+        "top_five": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "document_id": "P1",
+            "physical_page_number": 4,
+            "printed_page_number": 4,
+            "score": 0.032266,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 3,
+            "bm25_rank": 1,
+            "dense_score": 0.54707,
+            "bm25_score": 26.21674,
+            "text": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As\nCT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG\nmodel. We use the same train/dev/test splits as prior work [31, 26] and report Exact Match (EM)\nscores. For TQA, to compare with T5 [52], we also evaluate on the TQA Wiki test set.\n3.2\nAbstractive Question Answering\nRAG models can go beyond simple extractive QA and answer questions with free-form, abstractive\ntext generation. To test RAG’s natural language generation (NLG) in a knowledge-intensive setting,\nwe use the MSMARCO NLG task v2.1 [43]. The task consists of questions, ten gold passages\nretrieved from a search engine for each question, and a full sentence answer annotated from the\nretrieved passages. We do not use the supplied passages, only the questions and answers, to treat\n4"
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "document_id": "P1",
+            "physical_page_number": 5,
+            "printed_page_number": 5,
+            "score": 0.03101,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 4,
+            "bm25_rank": 5,
+            "dense_score": 0.5383,
+            "bm25_score": 17.13914,
+            "text": "On all four open-domain QA\ntasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines\nthe generation ﬂexibility of the “closed-book” (parametric only) approaches and the performance of\n\"open-book\" retrieval-based approaches. Unlike REALM and T5+SSM, RAG enjoys strong results\nwithout expensive, specialized “salient span masking” pre-training [20]. It is worth noting that RAG’s\nretriever is initialized using DPR’s retriever, which uses retrieval supervision on Natural Questions\nand TriviaQA. RAG compares favourably to the DPR QA system, which uses a BERT-based “cross-\nencoder” to re-rank documents, along with an extractive reader. RAG demonstrates that neither a\nre-ranker nor extractive reader is necessary for state-of-the-art performance.\nThere are several advantages to generating answers even when it is possible to extract them. Docu-\nments with clues about the answer but do not contain the answer verbatim can still contribute towards"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p08_c03",
+            "document_id": "P1",
+            "physical_page_number": 8,
+            "printed_page_number": 8,
+            "score": 0.03009,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 5,
+            "bm25_rank": 8,
+            "dense_score": 0.52748,
+            "bm25_score": 16.46121,
+            "text": "We have the\nﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and\nruntime. Figure 3 (left) shows that retrieving more documents at test time monotonically improves\nOpen-domain QA results for RAG-Sequence, but performance peaks for RAG-Token at 10 retrieved\ndocuments. Figure 3 (right) shows that retrieving more documents leads to higher Rouge-L for\nRAG-Token at the expense of Bleu-1, but the effect is less pronounced for RAG-Sequence.\n10\n20\n30\n40\n50\nK Retrieved Docs\n39\n40\n41\n42\n43\n44\nNQ Exact Match\nRAG-Tok\nRAG-Seq\n10\n20\n30\n40\n50\nK Retrieved Docs\n40\n50\n60\n70\n80\nNQ Answer Recall @ K\nRAG-Tok\nRAG-Seq\nFixed DPR\nBM25\n10\n20\n30\n40\n50\nK Retrieved Docs\n48\n50\n52\n54\n56\nBleu-1 / Rouge-L score\nRAG-Tok R-L\nRAG-Tok B-1\nRAG-Seq R-L\nRAG-Seq B-1\nFigure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor-\nmance in NQ. Right: MS-MARCO Bleu-1 and Rouge-L as more documents are retrieved.\n5\nRelated Work\nSingle-Task Retrieval"
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c03",
+            "document_id": "P1",
+            "physical_page_number": 6,
+            "printed_page_number": 6,
+            "score": 0.029116,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 2,
+            "bm25_rank": 17,
+            "dense_score": 0.54748,
+            "bm25_score": 14.13534,
+            "text": "Later, we also show that RAG generations are more diverse than\nBART generations (see §4.5).\n4.3\nJeopardy Question Generation\nTable 2 shows that RAG-Token performs better than RAG-Sequence on Jeopardy question generation,\nwith both models outperforming BART on Q-BLEU-1. 4 shows human evaluation results, over 452\npairs of generations from BART and RAG-Token. Evaluators indicated that BART was more factual\nthan RAG in only 7.1% of cases, while RAG was more factual in 42.7% of cases, and both RAG and\nBART were factual in a further 17% of cases, clearly demonstrating the effectiveness of RAG on\nthe task over a state-of-the-art generation model. Evaluators also ﬁnd RAG generations to be more\nspeciﬁc by a large margin. Table 3 shows typical generations from each model.\nJeopardy questions often contain two separate pieces of information, and RAG-Token may perform\nbest because it can generate responses that combine content from several documents. Figure 2 shows\nan example."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p07_c04",
+            "document_id": "P1",
+            "physical_page_number": 7,
+            "printed_page_number": 7,
+            "score": 0.027972,
+            "retrieval_method": "hybrid_rrf",
+            "dense_rank": 6,
+            "bm25_rank": 18,
+            "dense_score": 0.52436,
+            "bm25_score": 14.05325,
+            "text": "4.5\nAdditional Results\nGeneration Diversity\nSection 4.3 shows that RAG models are more factual and speciﬁc than\nBART for Jeopardy question generation. Following recent work on diversity-promoting decoding\n[33, 59, 39], we also investigate generation diversity by calculating the ratio of distinct ngrams to\ntotal ngrams generated by different models. Table 5 shows that RAG-Sequence’s generations are\nmore diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing\nany diversity-promoting decoding.\nRetrieval Ablations\nA key feature of RAG is learning to retrieve relevant information for the task.\nTo assess the effectiveness of the retrieval mechanism, we run ablations where we freeze the retriever\nduring training. As shown in Table 6, learned retrieval improves results for all tasks.\nWe compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace"
+          }
+        ]
+      },
+      "dense_existing_diagnostic_target_hits_top100": [
+        {
+          "rank": 1,
+          "chunk_id": "P1_p06_c02",
+          "document_id": "P1",
+          "physical_page_number": 6,
+          "score": 0.55689
+        },
+        {
+          "rank": 2,
+          "chunk_id": "P1_p06_c03",
+          "document_id": "P1",
+          "physical_page_number": 6,
+          "score": 0.54748
+        },
+        {
+          "rank": 3,
+          "chunk_id": "P1_p04_c05",
+          "document_id": "P1",
+          "physical_page_number": 4,
+          "score": 0.54707
+        },
+        {
+          "rank": 4,
+          "chunk_id": "P1_p05_c05",
+          "document_id": "P1",
+          "physical_page_number": 5,
+          "score": 0.5383
+        },
+        {
+          "rank": 5,
+          "chunk_id": "P1_p08_c03",
+          "document_id": "P1",
+          "physical_page_number": 8,
+          "score": 0.52748
+        },
+        {
+          "rank": 6,
+          "chunk_id": "P1_p07_c04",
+          "document_id": "P1",
+          "physical_page_number": 7,
+          "score": 0.52436
+        },
+        {
+          "rank": 8,
+          "chunk_id": "P1_p03_c03",
+          "document_id": "P1",
+          "physical_page_number": 3,
+          "score": 0.50538
+        },
+        {
+          "rank": 11,
+          "chunk_id": "P2_p04_c05",
+          "document_id": "P2",
+          "physical_page_number": 4,
+          "score": 0.49295
+        },
+        {
+          "rank": 14,
+          "chunk_id": "P1_p10_c01",
+          "document_id": "P1",
+          "physical_page_number": 10,
+          "score": 0.48949
+        },
+        {
+          "rank": 15,
+          "chunk_id": "P1_p08_c01",
+          "document_id": "P1",
+          "physical_page_number": 8,
+          "score": 0.48479
+        },
+        {
+          "rank": 16,
+          "chunk_id": "P1_p05_c01",
+          "document_id": "P1",
+          "physical_page_number": 5,
+          "score": 0.48255
+        },
+        {
+          "rank": 18,
+          "chunk_id": "P2_p12_c03",
+          "document_id": "P2",
+          "physical_page_number": 12,
+          "score": 0.47198
+        },
+        {
+          "rank": 21,
+          "chunk_id": "P1_p17_c01",
+          "document_id": "P1",
+          "physical_page_number": 17,
+          "score": 0.46004
+        },
+        {
+          "rank": 22,
+          "chunk_id": "P2_p08_c03",
+          "document_id": "P2",
+          "physical_page_number": 8,
+          "score": 0.45924
+        },
+        {
+          "rank": 24,
+          "chunk_id": "P2_p04_c02",
+          "document_id": "P2",
+          "physical_page_number": 4,
+          "score": 0.45646
+        },
+        {
+          "rank": 25,
+          "chunk_id": "P2_p12_c02",
+          "document_id": "P2",
+          "physical_page_number": 12,
+          "score": 0.4541
+        },
+        {
+          "rank": 26,
+          "chunk_id": "P1_p04_c01",
+          "document_id": "P1",
+          "physical_page_number": 4,
+          "score": 0.45317
+        },
+        {
+          "rank": 27,
+          "chunk_id": "P2_p06_c06",
+          "document_id": "P2",
+          "physical_page_number": 6,
+          "score": 0.45083
+        },
+        {
+          "rank": 28,
+          "chunk_id": "P2_p10_c05",
+          "document_id": "P2",
+          "physical_page_number": 10,
+          "score": 0.45017
+        },
+        {
+          "rank": 30,
+          "chunk_id": "P2_p04_c03",
+          "document_id": "P2",
+          "physical_page_number": 4,
+          "score": 0.44068
+        },
+        {
+          "rank": 32,
+          "chunk_id": "P2_p04_c04",
+          "document_id": "P2",
+          "physical_page_number": 4,
+          "score": 0.43716
+        },
+        {
+          "rank": 33,
+          "chunk_id": "P2_p12_c01",
+          "document_id": "P2",
+          "physical_page_number": 12,
+          "score": 0.43629
+        },
+        {
+          "rank": 37,
+          "chunk_id": "P1_p18_c01",
+          "document_id": "P1",
+          "physical_page_number": 18,
+          "score": 0.43179
+        },
+        {
+          "rank": 39,
+          "chunk_id": "P1_p16_c01",
+          "document_id": "P1",
+          "physical_page_number": 16,
+          "score": 0.42911
+        },
+        {
+          "rank": 40,
+          "chunk_id": "P1_p05_c04",
+          "document_id": "P1",
+          "physical_page_number": 5,
+          "score": 0.42762
+        },
+        {
+          "rank": 41,
+          "chunk_id": "P1_p05_c02",
+          "document_id": "P1",
+          "physical_page_number": 5,
+          "score": 0.42704
+        },
+        {
+          "rank": 42,
+          "chunk_id": "P1_p03_c02",
+          "document_id": "P1",
+          "physical_page_number": 3,
+          "score": 0.42615
+        },
+        {
+          "rank": 45,
+          "chunk_id": "P2_p07_c01",
+          "document_id": "P2",
+          "physical_page_number": 7,
+          "score": 0.42023
+        },
+        {
+          "rank": 46,
+          "chunk_id": "P1_p04_c02",
+          "document_id": "P1",
+          "physical_page_number": 4,
+          "score": 0.41919
+        },
+        {
+          "rank": 48,
+          "chunk_id": "P1_p07_c03",
+          "document_id": "P1",
+          "physical_page_number": 7,
+          "score": 0.41842
+        },
+        {
+          "rank": 49,
+          "chunk_id": "P2_p02_c05",
+          "document_id": "P2",
+          "physical_page_number": 2,
+          "score": 0.41762
+        },
+        {
+          "rank": 50,
+          "chunk_id": "P1_p06_c05",
+          "document_id": "P1",
+          "physical_page_number": 6,
+          "score": 0.41729
+        },
+        {
+          "rank": 52,
+          "chunk_id": "P1_p05_c03",
+          "document_id": "P1",
+          "physical_page_number": 5,
+          "score": 0.41646
+        },
+        {
+          "rank": 53,
+          "chunk_id": "P1_p18_c02",
+          "document_id": "P1",
+          "physical_page_number": 18,
+          "score": 0.41591
+        },
+        {
+          "rank": 54,
+          "chunk_id": "P1_p04_c04",
+          "document_id": "P1",
+          "physical_page_number": 4,
+          "score": 0.41468
+        },
+        {
+          "rank": 56,
+          "chunk_id": "P1_p09_c05",
+          "document_id": "P1",
+          "physical_page_number": 9,
+          "score": 0.41441
+        },
+        {
+          "rank": 57,
+          "chunk_id": "P2_p06_c04",
+          "document_id": "P2",
+          "physical_page_number": 6,
+          "score": 0.4126
+        },
+        {
+          "rank": 58,
+          "chunk_id": "P2_p06_c01",
+          "document_id": "P2",
+          "physical_page_number": 6,
+          "score": 0.41112
+        },
+        {
+          "rank": 59,
+          "chunk_id": "P1_p13_c04",
+          "document_id": "P1",
+          "physical_page_number": 13,
+          "score": 0.40999
+        },
+        {
+          "rank": 61,
+          "chunk_id": "P1_p06_c01",
+          "document_id": "P1",
+          "physical_page_number": 6,
+          "score": 0.40683
+        },
+        {
+          "rank": 62,
+          "chunk_id": "P1_p02_c04",
+          "document_id": "P1",
+          "physical_page_number": 2,
+          "score": 0.40647
+        },
+        {
+          "rank": 66,
+          "chunk_id": "P2_p05_c03",
+          "document_id": "P2",
+          "physical_page_number": 5,
+          "score": 0.40309
+        },
+        {
+          "rank": 71,
+          "chunk_id": "P2_p06_c05",
+          "document_id": "P2",
+          "physical_page_number": 6,
+          "score": 0.39455
+        },
+        {
+          "rank": 72,
+          "chunk_id": "P2_p13_c03",
+          "document_id": "P2",
+          "physical_page_number": 13,
+          "score": 0.39205
+        },
+        {
+          "rank": 73,
+          "chunk_id": "P2_p05_c04",
+          "document_id": "P2",
+          "physical_page_number": 5,
+          "score": 0.38986
+        },
+        {
+          "rank": 74,
+          "chunk_id": "P2_p08_c05",
+          "document_id": "P2",
+          "physical_page_number": 8,
+          "score": 0.38931
+        },
+        {
+          "rank": 79,
+          "chunk_id": "P2_p11_c02",
+          "document_id": "P2",
+          "physical_page_number": 11,
+          "score": 0.38673
+        },
+        {
+          "rank": 81,
+          "chunk_id": "P1_p08_c02",
+          "document_id": "P1",
+          "physical_page_number": 8,
+          "score": 0.38592
+        },
+        {
+          "rank": 83,
+          "chunk_id": "P2_p10_c01",
+          "document_id": "P2",
+          "physical_page_number": 10,
+          "score": 0.38149
+        },
+        {
+          "rank": 89,
+          "chunk_id": "P2_p02_c03",
+          "document_id": "P2",
+          "physical_page_number": 2,
+          "score": 0.37515
+        },
+        {
+          "rank": 92,
+          "chunk_id": "P2_p07_c04",
+          "document_id": "P2",
+          "physical_page_number": 7,
+          "score": 0.37338
+        },
+        {
+          "rank": 93,
+          "chunk_id": "P2_p11_c01",
+          "document_id": "P2",
+          "physical_page_number": 11,
+          "score": 0.37226
+        },
+        {
+          "rank": 94,
+          "chunk_id": "P2_p01_c03",
+          "document_id": "P2",
+          "physical_page_number": 1,
+          "score": 0.37197
+        },
+        {
+          "rank": 96,
+          "chunk_id": "P2_p07_c05",
+          "document_id": "P2",
+          "physical_page_number": 7,
+          "score": 0.37053
+        },
+        {
+          "rank": 97,
+          "chunk_id": "P1_p07_c05",
+          "document_id": "P1",
+          "physical_page_number": 7,
+          "score": 0.36934
+        },
+        {
+          "rank": 99,
+          "chunk_id": "P2_p02_c02",
+          "document_id": "P2",
+          "physical_page_number": 2,
+          "score": 0.36521
+        }
+      ]
+    }
+  ]
+}

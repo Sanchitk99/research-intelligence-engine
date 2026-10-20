@@ -1,0 +1,232 @@
+[
+  {
+    "id": "Q01",
+    "question": "What generator model does RAG use?",
+    "type": "F (Factual)",
+    "expected_answer": "RAG uses BART-large (400M parameters), a pre-trained sequence-to-sequence transformer, as its generator model.",
+    "source_papers": [
+      "P1"
+    ],
+    "page_references": "P1: Physical Page Index 2 (Printed Page 3), \u00a72.3 (\"Generator: BART\")",
+    "supporting_excerpt": "\"The generator component $p_\\theta(y_i",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q02",
+    "question": "How does DPR train its passage encoder, and what types of negatives are used?",
+    "type": "F (Factual)",
+    "expected_answer": "DPR uses a dual-encoder architecture with two independent uncased BERT-base models ($d=768$) for query and passage encoding. In its best model, it is trained using in-batch negative passages (batch size 128) plus one additional BM25 hard negative passage per question (top passages returned by BM25 that do not contain the answer but match question tokens).",
+    "source_papers": [
+      "P2"
+    ],
+    "page_references": "P2: Physical Page Index 2 (Physical Page 3), \u00a73.1 (\"Encoders\"), \u00a73.2 (\"Positive and negative passages\", \"In-batch negatives\"); Physical Page Index 4 (Physical Page 5), \u00a75; Physical Page Index 5 (Physical Page 6), Table 3",
+    "supporting_excerpt": "\"Our best model uses gold passages from the same mini-batch and one BM25 negative passage.\" (\u00a73.2, p. 3); \"The DPR model used in our main experiments is trained using the in-batch negative setting (Section 3.2) with a batch size of 128 and one additional BM25 negative passage per question.\" (\u00a75, p. 5)",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q03",
+    "question": "What is the difference between RAG-Sequence and RAG-Token?",
+    "type": "F (Factual)",
+    "expected_answer": "In RAG-Sequence, the model uses the same retrieved document to generate the complete target sequence, treating the document as a single latent variable marginalized per sequence ($p(y",
+    "source_papers": [
+      "P1"
+    ],
+    "page_references": "P1: Physical Page Index 2 (Printed Page 3), \u00a72.1 (\"Models: RAG-Sequence Model, RAG-Token Model\")",
+    "supporting_excerpt": "\"The RAG-Sequence model uses the same retrieved document to generate the complete sequence. Technically, it treats the retrieved document as a single latent variable that is marginalized to get the seq2seq probability $p(y",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q04",
+    "question": "What are the four reflection tokens in Self-RAG and what does each one assess?",
+    "type": "F (Factual)",
+    "expected_answer": "Self-RAG uses four types of reflection tokens: (1) `Retrieve` \u2014 decides when to retrieve external passages (outputs: `{yes, no, continue}`); (2) `ISREL` \u2014 critique token evaluating whether passage $d$ provides useful information to solve $x$ (outputs: `{relevant, irrelevant}`); (3) `ISSUP` \u2014 critique token evaluating whether all verification-worthy statements in $y$ are supported by $d$ (outputs: `{fully supported, partially supported, no support}`); (4) `ISUSE` \u2014 critique token evaluating the overall utility of $y$ to $x$ (outputs: `{5, 4, 3, 2, 1}`).",
+    "source_papers": [
+      "P4"
+    ],
+    "page_references": "P4: Physical Page Index 3 (Printed Page 4), \u00a73.1, Table 1, Algorithm 1",
+    "supporting_excerpt": "Table 1: \"Four types of reflection tokens used in SELF-RAG... Retrieve: Decides when to retrieve with R; ISREL: d provides useful information to solve x; ISSUP: All of the verification-worthy statement in y is supported by d; ISUSE: y is a useful response to x.\"",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q05",
+    "question": "How does RAGAS compute its faithfulness metric?",
+    "type": "F (Factual)",
+    "expected_answer": "Ragas computes Faithfulness in two steps using an LLM: (1) Decomposes the generated answer $a_s(q)$ into a set of atomic statements $S(a_s(q))$ via an extraction prompt; (2) Verifies whether each statement $s_i \\in S$ can be inferred from the retrieved context $c(q)$ using a verification prompt function $v(s_i, c(q)) \\in \\{Yes, No\\}$. The final score is the fraction of supported statements: $F = \\frac{",
+    "source_papers": [
+      "P5"
+    ],
+    "page_references": "P5: Physical Page Index 2 (Page 3), \u00a73 (\"Evaluation Strategies: Faithfulness\")",
+    "supporting_excerpt": "\"To estimate faithfulness, we first use an LLM to extract a set of statements, $S(a_s(q))$. The aim of this step is to decompose longer sentences into shorter and more focused assertions... For each statement $s_i$ in $S$, the LLM determines if $s_i$ can be inferred from $c(q)$ using a verification function $v(s_i, c(q))$... The final faithfulness score, $F$, is then computed as $F = \\frac{",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q06",
+    "question": "What exact match scores does RAG-Token achieve on Natural Questions, and how does this compare to DPR's extractive approach?",
+    "type": "M (Multi-paper)",
+    "expected_answer": "On Natural Questions (NQ) Exact Match, RAG-Token achieves **44.1** EM and RAG-Sequence achieves **44.5** EM (P1 Table 1), outperforming DPR's extractive reader, which achieves **41.5** EM (P1 Table 1; P2 Table 4). However, on TriviaQA's standard open-domain test split, DPR's extractive reader achieves **57.9** EM (P1 Table 1) / **56.8** EM (P2 Table 4), outperforming RAG-Token (**55.2**) and RAG-Sequence (**56.8**). On the TQA-Wiki split, RAG-Sequence achieves **68.0** and RAG-Token achieves **66.1**.",
+    "source_papers": [
+      "P1",
+      "P2"
+    ],
+    "page_references": "P1: Physical Page Index 5 (Printed Page 6), Table 1; P1: Physical Page Index 4 (Printed Page 5), \u00a74.1; P2: Physical Page Index 7 (Physical Page 8), Table 4",
+    "supporting_excerpt": "P1 Table 1: \"NQ: DPR = 41.5, RAG-Token = 44.1, RAG-Seq. = 44.5; TQA: DPR = 57.9/-, RAG-Token = 55.2/66.1, RAG-Seq. = 56.8/68.0.\" / P2 Table 4: \"NQ: DPR = 41.5; TriviaQA: DPR = 56.8, BM25+DPR = 57.9.\"",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q07",
+    "question": "How do RAG, DPR, and REALM compare on Natural Questions exact match?",
+    "type": "M (Multi-paper)",
+    "expected_answer": "On the Natural Questions (NQ) open-domain benchmark, test Exact Match scores are: RAG-Sequence achieves **44.5** (RAG-Token achieves **44.1**) (P1 Table 1); DPR achieves **41.5** (P1 Table 1; P2 Table 4); REALM achieves **40.4** with CC-News pretraining and **39.2** with Wikipedia pretraining (P1 Table 1; P2 Table 4; P3 Table 1). RAG-Sequence achieves the highest score, outperforming DPR by 3.0 points and REALM (CC-News) by 4.1 points.",
+    "source_papers": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "page_references": "P1: Physical Page Index 5 (Printed Page 6), Table 1; P2: Physical Page Index 7 (Physical Page 8), Table 4; P3: Physical Page Index 6 (Physical Page 7), Table 1",
+    "supporting_excerpt": "P1 Table 1: \"NQ: REALM = 40.4, DPR = 41.5, RAG-Token = 44.1, RAG-Seq. = 44.5.\" / P3 Table 1: \"NQ: REALM (X=Wikipedia, Z=Wikipedia) = 39.2, REALM (X=CC-News, Z=Wikipedia) = 40.4.\"",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q08",
+    "question": "How does REALM's index refresh strategy differ from DPR's static index?",
+    "type": "C (Comparison)",
+    "expected_answer": "DPR uses a static offline index: passage embeddings are computed once using the trained passage encoder and indexed with FAISS; the index is never modified during reader training or inference (P2 \u00a73.1). REALM uses an asynchronous index refresh during pre-training: as retriever parameters $\\theta$ are updated by the trainer, an asynchronous background index builder periodically re-embeds and re-indexes the entire Wikipedia corpus with parameter snapshots $\\theta'$ every few hundred steps, passing refreshed MIPS indices back to the trainer (P3 \u00a73.3, Fig. 3). The RAG paper deliberately avoids REALM's asynchronous refreshing to reduce cost, keeping the document encoder and index fixed and updating only the query encoder and BART generator (P1 \u00a72.3).",
+    "source_papers": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "page_references": "P1: Physical Page Index 3 (Printed Page 4), \u00a72.3; P2: Physical Page Index 2 (Physical Page 3), \u00a73.1; P3: Physical Page Index 3\u20134 (Physical Pages 4\u20135), \u00a73.3, Figure 3",
+    "supporting_excerpt": "P3 \u00a73.3: \"the trainer sends the index builder a snapshot of its parameters, $\\theta'$. The trainer then continues to train while the index builder uses $\\theta'$ to construct a new index in the background.\" / P1 \u00a72.3: \"Updating the document encoder BERTd during training is costly as it requires the document index to be periodically updated as REALM does during pre-training [20]. We do not find this step necessary... and keep the document encoder (and its index) fixed\"",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q09",
+    "question": "How does Self-RAG's approach to deciding when to retrieve differ from standard RAG?",
+    "type": "C (Comparison)",
+    "expected_answer": "Standard RAG (P1) unconditionally retrieves a fixed top-$K$ passages for every input prompt before generation begins (\u00a72). In contrast, Self-RAG (P4) performs adaptive, on-demand retrieval: at each segment step $t$, the generator predicts a special `Retrieve` token given $(x, y_{<t})$. Only if `Retrieve` == `Yes` does the retriever retrieve passages; if `Retrieve` == `No`, the model directly generates the next segment without external context, allowing it to bypass retrieval for tasks that don't require external evidence (\u00a73.1, Algorithm 1).",
+    "source_papers": [
+      "P1",
+      "P4"
+    ],
+    "page_references": "P1: Physical Page Index 1\u20132 (Printed Pages 2\u20133), \u00a72, \u00a72.1; P4: Physical Page Index 3 (Printed Page 4), \u00a73.1, Table 1, Algorithm 1",
+    "supporting_excerpt": "P4 Algorithm 1: \"Line 2: $M$ predicts `Retrieve` given $(x, y_{<t})$; Line 3: if `Retrieve` == `Yes` then Retrieve relevant text passages... Line 8: else if `Retrieve` == `No` then $M_{gen}$ predicts $y_t$ given $x$\"",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q10",
+    "question": "How does Self-RAG's ISSUP token relate to RAGAS's faithfulness metric?",
+    "type": "C (Comparison)",
+    "expected_answer": "Both evaluate whether generated content is supported by retrieved context, but operate at different stages of the pipeline: Self-RAG's `ISSUP` token is a generation-time critique token predicted inline by the model for each segment and candidate passage $d$ (evaluating `{fully supported, partially supported, no support}`) to rank candidate segments during beam search (P4 \u00a73.1, Table 1). In contrast, Ragas's Faithfulness metric is a post-hoc evaluation metric computed after generation: it uses an external LLM to decompose the completed answer into individual statements and verify each against the retrieved context to calculate an aggregate score $F = \\frac{",
+    "source_papers": [
+      "P4",
+      "P5"
+    ],
+    "page_references": "P4: Physical Page Index 3 (Printed Page 4), \u00a73.1, Table 1, Algorithm 1; P5: Physical Page Index 2 (Page 3), \u00a73",
+    "supporting_excerpt": "P4 Table 1: \"ISSUP: All of the verification-worthy statement in y is supported by d.\" / P5 \u00a73: \"Faithfulness refers to the idea that the answer should be grounded in the given context... $F = \\frac{",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q11",
+    "question": "On which dataset does BM25 outperform DPR, and why?",
+    "type": "F (Factual) + L (Limitations)",
+    "expected_answer": "BM25 outperforms DPR on SQuAD (open-domain setting). In Table 2, BM25 achieves **68.8%** Top-20 retrieval accuracy (and 80.0% Top-100), whereas DPR Single achieves **63.2%** Top-20 (77.2% Top-100) and DPR Multi achieves **51.6%** Top-20 (67.6% Top-100). In Table 4, BM25+BERT achieves **38.1%** EM vs DPR Single at **29.8%** and DPR Multi at **24.1%**. The authors explain two reasons: (1) SQuAD annotators wrote questions after viewing the passage, creating unnaturally high lexical overlap between question and passage that strongly favors BM25 keyword matching; (2) SQuAD data was collected from only 500+ Wikipedia articles, creating an extremely biased passage distribution.",
+    "source_papers": [
+      "P2"
+    ],
+    "page_references": "P2: Physical Page Index 4 (Physical Page 5), \u00a75.1, Table 2; P2: Physical Page Index 7 (Physical Page 8), Table 4",
+    "supporting_excerpt": "P2 \u00a75.1: \"We conjecture that the lower performance on SQuAD is due to two reasons. First, the annotators wrote questions after seeing the passage. As a result, there is a high lexical overlap between passages and questions, which gives BM25 a clear advantage. Second, the data was collected from only 500+ Wikipedia articles and thus the distribution of training examples is extremely biased\"",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q12",
+    "question": "What role does salient span masking play in REALM, and what happens without it?",
+    "type": "F (Factual)",
+    "expected_answer": "Salient span masking in REALM preferentially masks named entities (identified using a BERT-based tagger trained on CoNLL-2003) and dates (identified via regular expressions) instead of random tokens during pre-training, forcing the retriever to learn to fetch documents containing real-world facts rather than guessing local grammatical tokens. In ablation experiments on the NQ development set (Table 2), REALM with salient span masking achieves **38.2** EM and **38.5%** zero-shot Retrieval Recall@5. Replacing salient span masks with random span masks drops EM to **35.3** (Recall@5 drops to 26.1%), and random uniform masks drops EM to **32.3** (Recall@5 drops to 24.2%).",
+    "source_papers": [
+      "P3"
+    ],
+    "page_references": "P3: Physical Page Index 4 (Physical Page 5), \u00a73.4; P3: Physical Page Index 6 (Physical Page 7), \u00a74.5, Table 2",
+    "supporting_excerpt": "P3 \u00a73.4: \"To focus on problems that require world knowledge, we mask salient spans such as 'United Kingdom' or 'July 1969'. We use a BERT-based tagger trained on CoNLL-2003 data to identify named entities, and a regular expression to identify dates.\" / P3 Table 2: \"REALM: 38.2 EM, 38.5 Recall@5; REALM with random span masks: 35.3 EM, 26.1 Recall@5; REALM with random uniform masks: 32.3 EM, 24.2 Recall@5.\"",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q13",
+    "question": "What are the known limitations of using LLMs as evaluators in RAGAS?",
+    "type": "L (Limitations)",
+    "expected_answer": "Ragas acknowledges several limitations: (1) Context Relevance is the hardest metric to automate, as the LLM evaluator (ChatGPT) often struggles to reliably isolate crucial sentences from longer contexts (\u00a75); (2) High dependency on proprietary LLM APIs (`gpt-3.5-turbo-16k` and `text-embedding-ada-002`), which incurs API cost, latency, and potential variability when the underlying API model changes (\u00a73); (3) WikiEval is a relatively small validation benchmark (50 Wikipedia pages/triples) (\u00a74).",
+    "source_papers": [
+      "P5"
+    ],
+    "page_references": "P5: Physical Page Index 2 (Page 3), \u00a73; P5: Physical Page Index 3 (Page 4), \u00a74; P5: Physical Page Index 4 (Page 5), \u00a75",
+    "supporting_excerpt": "P5 \u00a75: \"We found context relevance to be the hardest quality dimension to evaluate. In particular, we observed that ChatGPT often struggles with the task of selecting the sentences from the context that are crucial, especially for longer contexts.\"",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q14",
+    "question": "What base language models are used across the five papers?",
+    "type": "M (Multi-paper)",
+    "expected_answer": "Across the five papers: (1) RAG (P1): BART-large (400M params) for the seq2seq generator; BERT-base uncased (110M params each) for DPR query/document encoders (\u00a72.2, \u00a72.3, physical p. 3); (2) DPR (P2): independent uncased BERT-base models ($d=768$, 110M params each) for question encoder $E_Q$ and passage encoder $E_P$; BERT-base for extractive reader (\u00a73.1, \u00a74.3, physical pp. 3, 6); (3) REALM (P3): uncased BERT-base (12 layers, 768 hidden units, 12 attention heads; 330M parameters total) for both retriever and knowledge-augmented encoder (\u00a73.4, Table 1, physical pp. 5, 7); (4) Self-RAG (P4): Llama 2 (7B and 13B) as the base generator LM; GPT-4 as teacher to produce ~46k critique demonstrations to train the critic LM (\u00a73.2.1, \u00a73.2.2, Table 2, physical pp. 4\u20138); (5) Ragas (P5): OpenAI `gpt-3.5-turbo-16k` as LLM judge for statement extraction and verification; OpenAI `text-embedding-ada-002` for question cosine embeddings (\u00a73, physical p. 3).",
+    "source_papers": [
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5"
+    ],
+    "page_references": "P1 Physical Page Index 2 (Printed Page 3); P2 Physical Page Index 2, 5 (Physical Pages 3, 6); P3 Physical Page Index 4, 6 (Physical Pages 5, 7); P4 Physical Page Index 3\u20137 (Printed Pages 4\u20138); P5 Physical Page Index 2 (Page 3)",
+    "supporting_excerpt": "",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q15",
+    "question": "How does Self-RAG's critic model get its training data?",
+    "type": "F (Factual)",
+    "expected_answer": "Self-RAG trains its in-house critic model $C$ by prompting GPT-4 with type-specific instructions and few-shot demonstrations to predict reflection tokens given sampled task inputs $x$, outputs $y$, and passages $d$. The authors collect 4k\u201320k supervised training instances per reflection token type from GPT-4 evaluations, combine them into an instruction-tuning dataset, and fine-tune a Llama 2 model as the critic model $C$ to predict reflection tokens.",
+    "source_papers": [
+      "P4"
+    ],
+    "page_references": "P4: Physical Page Index 4 (Printed Page 5), \u00a73.2.1 (\"Training the Critic Model\")",
+    "supporting_excerpt": "\"We create supervised data by prompting GPT-4 to generate reflection tokens and then distill their knowledge into an in-house C... We prompt GPT-4 with a type-specific instruction... followed by few-shot demonstrations $I$, the original task input $x$ and output $y$ to predict an appropriate reflection token as text: $p(r",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q16",
+    "question": "Do RAG and REALM use the same knowledge corpus, and how do their passage sizes compare?",
+    "type": "C (Comparison)",
+    "expected_answer": "Both papers use the exact same source snapshot: the English Wikipedia dump from December 20, 2018. However, their passage segmentation differs significantly: RAG (P1) splits Wikipedia into disjoint text blocks of 100 words, producing 21,015,324 passages (~21M passages). REALM (P3) greedily splits Wikipedia documents into chunks of up to 288 BERT wordpieces, producing just over 13 million retrieval candidates (~13M passages). Because 100 words corresponds to ~130\u2013150 wordpieces, REALM's passage chunks are roughly twice as long as RAG's.",
+    "source_papers": [
+      "P1",
+      "P3 (and P2)"
+    ],
+    "page_references": "P1: Physical Page Index 3 (Printed Page 4), \u00a72.2, \u00a74; P2: Physical Page Index 3 (Physical Page 4), \u00a74.1; P3: Physical Page Index 5 (Physical Page 6), \u00a74.2",
+    "supporting_excerpt": "P1 \u00a74: \"Following Lee et al. [31] and Karpukhin et al. [26], we dump the text from the Dec 2018 dump, and split each article into disjoint 100-word passages, resulting in 21,015,324 passages.\" / P3 \u00a74.2: \"Our knowledge corpus is derived from the December 20, 2018 snapshot of English Wikipedia. Documents are greedily split into chunks of up to 288 BERT wordpieces, resulting in just over 13 million retrieval candidates.\"",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q17",
+    "question": "What evaluation benchmarks are shared across the 2020 papers, and which are unique to each?",
+    "type": "M (Multi-paper)",
+    "expected_answer": "Among the 2020 papers (P1, P2, P3): (1) Benchmarks shared across all three papers (P1, P2, P3): Natural Questions (NQ), WebQuestions (WQ), and CuratedTREC (CT); (2) Benchmarks shared between P1 and P2 only: TriviaQA (TQA); (3) Benchmark unique to P2: SQuAD (open-domain setting); (4) Benchmarks unique to P1: MS-MARCO NLG (abstractive open-domain QA), Jeopardy question generation, and FEVER (fact verification); (5) P3 has no unique benchmarks (evaluates solely on NQ, WQ, CT).",
+    "source_papers": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "page_references": "P1: Physical Page Index 5 (Printed Page 6), Table 1, Table 2; P2: Physical Page Index 4, 7 (Physical Pages 5, 8), Table 2, Table 4; P3: Physical Page Index 6 (Physical Page 7), Table 1",
+    "supporting_excerpt": "",
+    "verification_status": "verified"
+  },
+  {
+    "id": "Q18",
+    "question": "What limitations does the RAG paper acknowledge about its static document index?",
+    "type": "L (Limitations)",
+    "expected_answer": "The RAG paper acknowledges that updating the document encoder $BERT_d$ during training is computationally prohibitive because it requires periodically rebuilding the entire multi-million document index (as REALM does during pre-training). Consequently, RAG keeps $BERT_d$ and its FAISS index completely fixed (static), fine-tuning only the query encoder $BERT_q$ and the BART generator (\u00a72.3, p. 4). A key consequence is that if the static retriever fails to retrieve relevant passages, the generator is starved of external evidence; however, RAG can sometimes fall back on BART's internal parametric knowledge (achieving 11.8% accuracy on NQ when no retrieved document contains the answer) (\u00a74.1, p. 6), or conversely learn to collapse and ignore retrieved documents entirely (Appendix, p. 19).",
+    "source_papers": [
+      "P1"
+    ],
+    "page_references": "P1: Physical Page Index 3 (Printed Page 4), \u00a72.3; Physical Page Index 5 (Printed Page 6), \u00a74.1; Physical Page Index 18 (Printed Page 19), Appendix",
+    "supporting_excerpt": "\"Updating the document encoder BERTd during training is costly as it requires the document index to be periodically updated as REALM does during pre-training [20]. We do not find this step necessary for strong performance, and keep the document encoder (and its index) fixed, only fine-tuning the query encoder BERTq and the BART generator.\" (P1 \u00a72.3, p. 4)",
+    "verification_status": "verified"
+  }
+]
