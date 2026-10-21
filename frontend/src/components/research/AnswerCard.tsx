@@ -161,7 +161,7 @@ export const AnswerCard: React.FC<AnswerCardProps> = ({ data, onRetry }) => {
         </div>
 
         <div className="flex items-center gap-3">
-          {data.total_tokens && (
+          {Boolean(data.total_tokens) && (
             <span className="text-[#64748b] font-mono">
               Tokens: Prompt {data.prompt_tokens || 0} / Comp {data.completion_tokens || 0} ({data.total_tokens})
             </span>

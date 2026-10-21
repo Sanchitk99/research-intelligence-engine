@@ -18,11 +18,9 @@ export const QueryComposer: React.FC<QueryComposerProps> = ({
   const textareaRef = React.useRef<HTMLTextAreaElement>(null);
 
   React.useEffect(() => {
-    if (initialValue) {
-      setQuery(initialValue);
-      if (textareaRef.current) {
-        textareaRef.current.focus();
-      }
+    setQuery(initialValue);
+    if (initialValue && textareaRef.current) {
+      textareaRef.current.focus();
     }
   }, [initialValue]);
 
