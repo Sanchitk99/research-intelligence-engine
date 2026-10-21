@@ -1,6 +1,6 @@
 # Research Intelligence Engine (RIE)
 
-A production-grade, evidence-grounded research intelligence engine that synthesizes answers across scientific literature with verified, page-level citations and strict abstention safeguards.
+An evidence-grounded research intelligence prototype that synthesizes answers across scientific literature with verified, page-level citations and strict abstention safeguards.
 
 ---
 
@@ -44,110 +44,185 @@ flowchart TD
 - **Grounded Answer Synthesis:** Multi-provider LLM support (`gemini`, `openai`, `groq`, `ollama`, `mock`) with structured JSON schema enforcement.
 - **Verified Page-Level Citations:** Every cited claim is validated against the retrieved context; ungrounded or hallucinated citations are strictly rejected.
 - **Abstention Safeguards:** Returns explicit abstention (`insufficient_evidence` or `out_of_scope`) with 0 citations when retrieved evidence does not support an answer.
-- **Interactive Web Interface:** Streamlit UI for querying the corpus, inspecting verified citations, browsing retrieved context passages, and ingesting new papers.
+- **Modern Next.js & FastAPI Web Interface:** Clean web frontend built with Next.js 15, Tailwind CSS, Lucide icons, and a RESTful FastAPI backend with verified citation serialization.
+- **Legacy Streamlit Dashboard:** Lightweight single-process fallback interface for standalone local execution.
 
 ---
 
-## Quickstart
+## Quickstart & Portfolio Demo Guide
 
-### 1. Environment Setup
+### 1. Prerequisites & Environment Setup
 
-Ensure Python 3.10+ is installed with PyTorch and dependencies:
+- **Python:** 3.10 or higher with PyTorch support
+- **Node.js:** 18.0 or higher with `npm`
+- **RAM:** 4GB+ (for local SBERT embeddings and Okapi BM25 index)
 
 ```bash
 # Clone the repository
 git clone https://github.com/your-username/research-intelligence-engine.git
 cd research-intelligence-engine
 
-# Install project dependencies
+# 1. Install Python backend dependencies
 pip install -r requirements.txt
+
+# 2. Install Next.js frontend dependencies
+cd frontend
+npm install
+cd ..
 ```
 
 ### 2. Provider Configuration
 
-The engine supports both offline deterministic simulation and live cloud LLM providers:
+The engine supports zero-cost offline evaluation and live cloud LLM providers:
 
-#### Option A: Offline Deterministic Mock Mode (Recommended for Testing & Portfolios)
-No external API key or internet access is required. The mock provider executes reproducible semantic retrieval, answer synthesis, and citation verification locally with zero API cost:
+#### Option A: Offline Deterministic Mock Mode (Recommended for Demos & Reviewers)
+No external API keys or cloud connections required. The deterministic mock provider executes genuine hybrid retrieval, extracts real verbatim passages from indexed PDFs, validates page citations, and enforces strict abstention with zero API cost:
 ```bash
-# No .env configuration required
+# No configuration required; 'mock' is the default provider
 ```
 
-#### Option B: Live Google Gemini Provider
-Create a `.env` file in the project root:
+#### Option B: Live Cloud Providers (Optional)
+To test with real cloud LLMs, add your credentials to a `.env` file in the project root:
 ```ini
 GEMINI_API_KEY="your_actual_gemini_api_key_here"
+OPENAI_API_KEY="your_actual_openai_api_key_here"
+GROQ_API_KEY="your_actual_groq_api_key_here"
 ```
-*(All API keys and credentials are automatically sanitized, masked in logs, and never exposed in the UI or evaluation artifacts.)*
+*(All API keys are strictly sanitized, masked in logs, and never sent to the browser.)*
 
 ---
 
-## Interactive Streamlit Web Application
+## Running the Application
 
-### Launching the Dashboard
+### Option 1: Modern Web Application (Next.js + FastAPI) — *Primary*
 
-Launch the Streamlit web application from the terminal:
+Start the backend and frontend in separate terminals:
+
+```bash
+# Terminal 1: Launch FastAPI Backend Server
+python server.py
+# Running on http://127.0.0.1:8000 (OpenAPI docs at http://127.0.0.1:8000/docs)
+
+# Terminal 2: Launch Next.js Web Frontend
+cd frontend
+npm run dev
+# Running on http://localhost:3000
+```
+
+Once running, navigate to **`http://localhost:3000`** in your browser.
+
+### Option 2: Standalone Streamlit Interface — *Fallback*
+
+For single-process local demonstrations without Node.js:
 
 ```bash
 streamlit run app.py
 ```
-*(Alternatively: `python -m streamlit run app.py`)*
-
-Once started, open your desktop browser at `http://localhost:8501`.
+Open **`http://localhost:8501`** in your browser.
 
 ---
 
-## Desktop Browser Verification Walkthrough
+## Reproducible Portfolio Demonstration Walkthrough
 
 > [!NOTE]
-> Automated browser drivers (`playwright` or `selenium`) are intentionally omitted from standard requirements to maintain lightweight local dependencies. Reviewers can follow the manual step-by-step verification below to validate all UI journeys.
+> **Locally Verified vs. Unverified Production/Browser Behavior:**
+> - **Locally Verified:** Automated backend unit tests (10/10), live HTTP API tests (7/7), core retrieval & routing regression tests (74/74), Next.js production builds (`npm run build`), dry-run non-mutation, and API response contracts have been programmatically executed and passed 100% in the local development environment.
+> - **Browser & Responsive Behavior:** Evaluated via static DOM structure, component unit checks, and Tailwind responsive CSS classes. Because automated headless browser drivers (`playwright` / `puppeteer`) are not bundled with standard dependencies, visual rendering across physical devices should be verified manually following the step-by-step walkthrough below.
+> - **Prototype Scope:** This application is an experimental research prototype built for evaluation, technical portfolio demonstration, and architectural exploration. It is not an enterprise multi-tenant cloud service (see [Technical Constraints & Scope Limitations](#technical-constraints--scope-limitations)).
 
-### Step 1: Grounded Q&A Journey
-1. Open `http://localhost:8501` in your browser.
-2. In the sidebar under **Provider & Model Settings**, select **`mock`** (or **`gemini`** if configured).
-3. Under **Retrieval Settings**, leave the mode as **Hybrid (Dense + BM25 Fusion)** and Top-k as **5**.
-4. In the **Grounded Q&A** tab, click the sample question button:
-   - `RAG: Sequence vs Token (P1)`
-5. Verify that the query `"How do RAG-Sequence and RAG-Token differ in generating sequences?"` populates the text area.
-6. Click **Generate Answer**.
-7. Observe the output:
-   - Status badge displays **`ANSWERED GROUNDED`** (green pill).
-   - Synthesized answer explaining sequence-level vs. token-level marginalization.
-   - **Verified Citations (1)** card displaying:
-     - Document Title: *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*
-     - Document ID: `P1`
-     - Physical Page: **`3`** (Printed p. 3) or **`4`** (Printed p. 4)
-     - Chunk ID: `P1_p03_c03` or `P1_p04_c01`
-     - Quoted verbatim excerpt.
-   - Click the collapsible expander **"Inspect Retrieved Context Passages (5)"** to inspect the 5 retrieved chunk texts, similarity scores, and physical page indices.
+Follow these steps on `http://localhost:3000` using the offline **Mock Provider** to evaluate the engine:
 
-### Step 2: Abstention Safeguard Journey
-1. Click the sample button **`Out-of-Scope (Abstention)`**:
-   - Query: `"Who won the 2024 ICC Men's T20 World Cup?"`
-2. Click **Generate Answer**.
-3. Observe the output:
-   - Status badge displays **`ABSTAINED: INSUFFICIENT EVIDENCE`** or **`ABSTAINED: OUT OF SCOPE`** (indigo pill).
-   - Clear abstention notice confirming the corpus does not contain this information.
-   - Citations count is strictly **0** (no hallucinated sources).
+### Step 1: Pristine First-Run Workspace
+1. Open `http://localhost:3000` in your browser.
+2. Observe the **Editorial Research Workspace**:
+   - Hero header indicates **396 Indexed Chunks** and evidence-grounded synthesis.
+   - Central reading column presents 5 **Curated Benchmark Inquiry** cards.
+   - Textarea is clear and ready for input with keyboard shortcut guidance (`Enter` to submit).
 
-### Step 3: Paper Ingestion Journey
-1. Switch to the **Paper Ingestion** tab.
-2. In the dropdown, select `P5_RAGAS_Es_2023.pdf`.
-3. Check the **Dry run (extract & chunk without persisting to Qdrant)** checkbox.
-4. Click **Ingest & Index Document**.
-5. Observe the extraction banner showing 8 extracted pages, 39 created chunks, and chunk previews with physical page provenance.
+### Step 2: Grounded Q&A with Verified Citations
+1. Click the first benchmark card:
+   - **Comparative Architecture (P1: RAG):** *"How do RAG-Sequence and RAG-Token differ in generating sequences?"*
+2. Watch the loading skeleton cycle through retrieval stages (SentenceTransformers encoding, dense + BM25 retrieval, RRF fusion, and citation verification).
+3. Observe the synthesized answer:
+   - **Status Badge:** Displays `ANSWERED GROUNDED` (green badge).
+   - **Grounded Answer:** Explains sequence-level vs. token-level latent variable marginalization over retrieved documents.
+   - **Verified Citation Card:**
+     - Paper Title: *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*
+     - Paper ID: `P1`
+     - Physical Page: `3` (Printed p. 3)
+     - Chunk ID: `P1_p03_c03`
+     - Quoted Verbatim Excerpt: Exact text matched against the source PDF passage.
+     - Badge: `Verified against retrieved context`.
+4. Click **Inspect Retrieved Context Passages (5)**:
+   - Expands all 5 retrieved candidate passages with Reciprocal Rank Fusion scores (`score ~ 0.032`), document provenance, and one-click copy buttons.
+5. Review the telemetry footer: Displays model (`mock-model`), latency (~110ms), and token counts.
 
-### Step 4: System Status & Security Hygiene
-1. Switch to the **System Status** tab.
-2. Inspect the **Vector Database (Qdrant)** card: confirms `396` points indexed in `research_corpus`.
-3. Inspect the **LLM Providers Status** card: verifies credential statuses (`Configured (AQ.A...[REDACTED])` or `Not Configured`).
-4. Confirm that **zero secret keys, passwords, or raw tokens** are visible anywhere in the UI.
+### Step 3: Safety & Abstention Safeguard
+1. Click **New Inquiry** in the sidebar (or submit via the composer).
+2. Click the safety benchmark card:
+   - **Safety & Abstention Safeguard:** *"Who won the 2024 ICC Men's T20 World Cup?"*
+3. Observe the defensive abstention behavior:
+   - **Status Badge:** Displays `ABSTAINED: INSUFFICIENT EVIDENCE` (indigo badge).
+   - **Answer:** *"The provided research evidence does not contain sufficient factual information to answer this question."*
+   - **Citations:** Strictly **0 citations** displayed (no hallucinated sources or unverified claims).
+
+### Step 4: Session History & Workspace Management
+1. In the sidebar under **Inquiry History**, observe your previous questions saved automatically.
+2. Click on a past inquiry: the exact question, synthesized answer, verified citations, and retrieved passages reload instantly.
+3. Hover over any historical session and click the **Trash icon** to delete it from local storage.
+4. Click **New Inquiry**: resets the active workspace back to the curated benchmark cards without clearing your remaining session history.
+
+### Step 5: Paper Library & Ingestion
+1. Click **Paper Library** in the sidebar.
+2. Review the **Indexed Literature Corpus**:
+   - Lists 5 seminal research papers (`P1` RAG, `P2` DPR, `P3` REALM, `P4` Self-RAG, `P5` Ragas) with exact page counts and chunk distributions totaling 396 chunks.
+3. Scroll to **Benchmark Evaluation Corpus (PDF Documents)**:
+   - Click **Dry Run** on `P5_RAGAS_Es_2023.pdf`.
+   - Generates an in-memory extraction report (8 pages extracted, 39 chunks created) without altering vector database points.
+4. Click **Upload & Ingest PDF** in the top action bar:
+   - Drag-and-drop custom PDF papers with safe dry-run preview before committing to vector storage.
+
+### Step 6: System Architecture & Telemetry
+1. Click **System Telemetry** in the sidebar.
+2. Inspect the **Qdrant Vector Points** card: confirms active collection `research_corpus` with 396 vector points.
+3. Inspect **Synthesizer Provider Readiness**: shows active configuration state and default models for `mock`, `gemini`, `openai`, `groq`, and `ollama`.
+4. Inspect the **Engine Architectural Pipeline**: 4-stage pipeline diagram illustrating PyMuPDF extraction, dual Qdrant + BM25 indexing, RRF fusion ($k=60$) with intent routing, and citation validation.
+5. Click **Config** in the header: modify retrieval mode (`hybrid` vs. `dense`), top-k passage slider (1–10), and toggle **Query-Intent Routing**.
+
+---
+
+## Troubleshooting & FAQ
+
+### Port Conflicts (Port 8000 or 3000 in use)
+- **FastAPI (8000):** If port 8000 is occupied, run:
+  ```powershell
+  # Windows PowerShell
+  Get-Process -Id (Get-NetTCPConnection -LocalPort 8000).OwningProcess | Stop-Process -Force
+  ```
+- **Next.js (3000):** If port 3000 is occupied, Next.js will automatically suggest `http://localhost:3001`, or you can specify a port:
+  ```bash
+  cd frontend
+  npm run dev -- -p 3005
+  ```
+
+### Windows Qdrant Storage Lock (`portalocker.exceptions.AlreadyLocked`)
+Local Qdrant operates in embedded mode on `data/qdrant/` using exclusive file locking.
+- When `python server.py` is running, it holds the lock to serve API requests concurrently.
+- If you run standalone scripts (e.g. `pytest tests/test_demo_workflow.py` or `python scripts/run_demo.py`) simultaneously, they cannot acquire the local lock.
+- **Solution:** Send requests through the running FastAPI server (`http://127.0.0.1:8000`) or stop `server.py` before executing offline database maintenance scripts.
+
+### Node.js Version Incompatibility
+Next.js 15 requires Node.js version 18.18.0 or newer. Check your installed version:
+```bash
+node -v
+```
+If you encounter errors during `npm run build`, upgrade Node.js via [nodejs.org](https://nodejs.org/) or `nvm`.
 
 ---
 
 ## End-to-End CLI Demonstration
 
-For non-browser environments or automated CI pipelines, run the demonstrable CLI script:
+For headless environments or CI pipelines:
 
 ```bash
 # Deterministic offline mock demonstration:
@@ -204,8 +279,9 @@ When synthesizing answers across multiple papers (e.g. cross-paper comparisons o
 
 ## Automated Test Suites
 
-The repository includes **74 focused automated tests** covering retrieval fusion, query routing, document diversification, service orchestration, and Streamlit UI behavior:
+The repository contains **91 automated tests** covering retrieval fusion, query routing, document diversification, service orchestration, FastAPI endpoints, live HTTP integration, and Streamlit UI behavior:
 
+### 1. Core Engine & Legacy UI Regression Suite (74 tests)
 ```bash
 # 1. Query-Intent Routing & Diversification Tests (42 tests)
 pytest tests/test_query_intent_routing.py tests/test_diversified_retrieval.py -v
@@ -216,17 +292,33 @@ pytest tests/test_hybrid_retrieval.py -v
 # 3. End-to-End Workflow & Streamlit UI Tests (14 tests)
 pytest tests/test_demo_workflow.py tests/test_ui_app.py -v
 
-# Run All 74 Focused Tests (Passes 100% deterministically)
+# Run All 74 Core Engine Tests
 pytest tests/test_query_intent_routing.py tests/test_diversified_retrieval.py tests/test_hybrid_retrieval.py tests/test_demo_workflow.py tests/test_ui_app.py -v
 ```
 
-All 74 tests execute deterministically and verify:
+### 2. FastAPI REST Layer Suite (17 tests)
+```bash
+# 4. API Endpoint Unit Tests (10 tests)
+pytest tests/test_api_endpoints.py -v
+
+# 5. Live HTTP Integration Tests (7 tests, executed against running server)
+pytest tests/test_api_live_integration.py -v
+```
+
+### 3. Frontend Production Build & TypeScript Verification
+```bash
+cd frontend
+npm run build
+```
+
+All 91 tests execute deterministically and verify:
 - Vector store initialization, hybrid fusion, and metadata tracking.
 - Boundary-aware chunking and physical page mapping.
 - Conservative query-intent routing and document diversification without ground-truth leakage.
 - Evidence-grounded Q&A with page-level citations.
 - Abstention and unanswerable query handling.
 - Sanitized error handling with zero secret leaks.
+- FastAPI schema validation, error response codes, and verified citation serialization.
 - Streamlit interactive controls, tabs, and full user journey via `AppTest`.
 
 ---
@@ -236,8 +328,8 @@ All 74 tests execute deterministically and verify:
 > [!WARNING]
 > This application is an **experimental research prototype** developed for portfolio demonstration, academic evaluation, and architectural validation. It is **not** intended for multi-tenant enterprise production deployment without the following architectural enhancements:
 
-1. **Storage Concurrency:** Local Qdrant operates in embedded filesystem mode (`data/qdrant`), which uses exclusive filesystem locking. Concurrent writes across multiple processes require deploying Qdrant as a standalone containerized service (`qdrant/qdrant:latest`).
-2. **Session Isolation:** Streamlit maintains in-memory session states. Concurrent users sharing a single server instance do not have isolated authentication or multi-tenant database partitioning.
+1. **Storage Concurrency:** Local Qdrant operates in embedded filesystem mode (`data/qdrant`), which uses exclusive filesystem locking (`portalocker`). Client processes query via the FastAPI REST server, or run offline tests when the server daemon is idle. For concurrent writes across multiple independent worker nodes, deploy Qdrant as a standalone containerized service (`qdrant/qdrant:latest`).
+2. **Session Isolation:** Next.js manages client sessions in browser `localStorage`. Multi-tenant cloud deployments would attach sessions to authenticated user accounts backed by a relational database (PostgreSQL).
 3. **Authentication & RBAC:** There is no user login, role-based access control (RBAC), or rate-limiting gateway in front of the LLM endpoints.
 4. **Model Execution:** Dense embedding computation (`all-MiniLM-L6-v2`) runs on the host CPU/GPU directly via PyTorch without an asynchronous task queue (e.g., Celery/Redis).
 
@@ -247,7 +339,8 @@ All 74 tests execute deterministically and verify:
 
 ```
 research-intelligence-engine/
-├── app.py                      # Root entrypoint for Streamlit UI
+├── app.py                      # Root entrypoint for Streamlit UI (fallback)
+├── server.py                   # Root entrypoint for FastAPI backend daemon
 ├── data/
 │   ├── chunked/                # Corpus chunks repository (JSON)
 │   ├── ingested/               # Extracted page records
@@ -256,12 +349,17 @@ research-intelligence-engine/
 │   ├── corpus/papers/          # Benchmark research PDFs (P1-P5)
 │   ├── questions/              # 28-question gold standard evaluation set
 │   └── results/                # Quantitative benchmark evaluation artifacts
+├── frontend/                   # Modern Next.js 15 Web Application
+│   ├── src/app/                # App Router (layout, globals.css, page)
+│   ├── src/components/         # Research, Papers, System, and Layout components
+│   └── src/lib/                # API client, TypeScript schemas, formatting utilities
 ├── scripts/
 │   ├── run_demo.py             # Demonstrable end-to-end workflow runner
 │   ├── run_qa.py               # Question answering CLI
 │   ├── run_smoke_test.py       # Controlled provider integration test
 │   └── run_query_intent_routing_evaluation.py  # 37-query intent routing evaluation
 ├── src/
+│   ├── api/                    # FastAPI routes, schemas, and lifecycle dependencies
 │   ├── chunking/               # Boundary-preserving text chunker
 │   ├── generation/             # LLM synthesizer, citations & providers
 │   ├── indexing/               # Embeddings & Qdrant vector storage
@@ -271,6 +369,8 @@ research-intelligence-engine/
 │       ├── app.py              # Streamlit dashboard implementation
 │       └── service.py          # Unified service coordinating UI workflows
 └── tests/
+    ├── test_api_endpoints.py   # FastAPI route unit tests (10 tests)
+    ├── test_api_live_integration.py # Live HTTP API integration tests (7 tests)
     ├── test_demo_workflow.py   # Integration tests for end-to-end workflow (6 tests)
     ├── test_diversified_retrieval.py # Document-diversification unit tests (10 tests)
     ├── test_hybrid_retrieval.py # Hybrid RRF retrieval unit tests (18 tests)

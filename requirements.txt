@@ -1,0 +1,28 @@
+# Research Intelligence Engine (RIE) - Python Dependencies
+
+# Core Deep Learning & Embeddings
+torch>=2.0.0
+sentence-transformers>=2.2.2
+
+# Vector Database & Lexical Indexing
+qdrant-client>=1.7.0
+rank-bm25>=0.2.2
+portalocker>=2.8.0
+
+# Document Ingestion & Pagination
+pymupdf>=1.23.0
+
+# API & Web Backend (FastAPI Layer)
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+httpx>=0.24.0
+python-multipart>=0.0.6
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+
+# Standalone UI & Fallback
+streamlit>=1.30.0
+
+# Testing & Quality Assurance
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
