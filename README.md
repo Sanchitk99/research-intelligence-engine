@@ -49,6 +49,20 @@ flowchart TD
 
 ---
 
+## Visual Interface Preview
+
+| Research Workspace & Grounded Answer | Safety Abstention Safeguard |
+| :---: | :---: |
+| ![Grounded Answer](docs/assets/02_grounded_answer.png) | ![Abstention Safeguard](docs/assets/03_abstention.png) |
+| *Evidence-grounded synthesis with page-level citations & inspectable retrieved context* | *Deterministic abstention with 0 citations when evidence is insufficient* |
+
+| Literature Corpus & Ingestion | Real-Time System Telemetry |
+| :---: | :---: |
+| ![Paper Library](docs/assets/04_paper_library.png) | ![System Status](docs/assets/05_system_status.png) |
+| *Indexed research paper corpus with dry-run chunk inspection* | *Vector database status (396 points), model providers & retrieval configuration* |
+
+---
+
 ## Quickstart & Portfolio Demo Guide
 
 ### 1. Prerequisites & Environment Setup
@@ -59,7 +73,7 @@ flowchart TD
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/research-intelligence-engine.git
+git clone https://github.com/Sanchitk99/research-intelligence-engine.git
 cd research-intelligence-engine
 
 # 1. Install Python backend dependencies
@@ -254,7 +268,7 @@ Retrieval was quantitatively evaluated against an annotated gold standard corpus
 | **Hybrid Fusion** (Dense + BM25, RRF $k=60$) | 22.2% | 72.2% | **83.3%** | **0.4509** | **100.0%** | **49.1%** |
 | **Absolute Improvement** | -5.6% | +16.6% | **+16.6%** | **+0.0342** | **+37.5%** | **+7.0%** |
 
-**Key Finding:** Hybrid Reciprocal Rank Fusion significantly outperforms dense vector search alone, achieving **83.3% Recall@5** (vs. 66.7%) and **100% multi-document coverage** (vs. 62.5%), demonstrating the critical importance of lexical-semantic fusion for technical scientific terminology.
+**Key Finding:** Hybrid Reciprocal Rank Fusion significantly outperforms dense vector search alone, achieving **83.3% Recall@5** (vs. 66.7%) and **100% multi-document coverage** (vs. 62.5%), demonstrating the critical importance of lexical-semantic fusion for technical scientific terminology. (See [`evaluation/results/hybrid_vs_dense_comparison_report.md`](evaluation/results/hybrid_vs_dense_comparison_report.md) and [`evaluation/results/retrieval_evaluation_report.md`](evaluation/results/retrieval_evaluation_report.md) for full question-by-question metrics and baseline methodology).
 
 ### 2. Qualitative Answer Synthesis & Citation Fidelity
 
@@ -262,6 +276,7 @@ While retrieval is benchmarked quantitatively against annotated ground-truth pas
 - **Grounding Fidelity:** Every generated answer is evaluated on whether cited chunk IDs exist within the top-k retrieved context.
 - **Citation Excerpt Validation:** Quoted excerpts must match verbatim substrings in the retrieved chunk text.
 - **Abstention Integrity:** Questions lacking supporting context must return an explicit abstention with zero citations rather than hallucinating an unsupported answer.
+*(See [`evaluation/results/answer_quality_error_analysis.md`](evaluation/results/answer_quality_error_analysis.md) for detailed qualitative error analysis across LLM backends).*
 
 ### 3. Query-Intent Routing & Document Diversification (Task 4.4.19 Evaluation)
 
@@ -279,7 +294,7 @@ When synthesizing answers across multiple papers (e.g. cross-paper comparisons o
 
 ## Automated Test Suites
 
-The repository contains **91 automated tests** covering retrieval fusion, query routing, document diversification, service orchestration, FastAPI endpoints, live HTTP integration, and Streamlit UI behavior:
+The repository contains **287 automated tests** across the pipeline, with **91 tests** serving as the core fast regression and API test suites:
 
 ### 1. Core Engine & Legacy UI Regression Suite (74 tests)
 ```bash
@@ -345,6 +360,8 @@ research-intelligence-engine/
 │   ├── chunked/                # Corpus chunks repository (JSON)
 │   ├── ingested/               # Extracted page records
 │   └── qdrant/                 # Local persistent Qdrant vector database
+├── docs/
+│   └── assets/                 # Verified interface screenshots & diagrams
 ├── evaluation/
 │   ├── corpus/papers/          # Benchmark research PDFs (P1-P5)
 │   ├── questions/              # 28-question gold standard evaluation set
