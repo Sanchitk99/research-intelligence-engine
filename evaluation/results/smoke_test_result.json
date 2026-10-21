@@ -1,18 +1,21 @@
 {
-  "timestamp": "2026-10-20T01:18:14Z",
+  "timestamp": "2026-10-21T09:13:11Z",
   "question": "What generator model does RAG use?",
   "provider_name": "gemini",
   "model_name": "gemini-flash-lite-latest",
   "retrieval_mode": "hybrid",
   "answer_status": "answered",
-  "answer_text": "In the RAG model, the BART generator is used (specifically, they keep the document encoder fixed and fine-tune the query encoder and the BART generator).",
-  "confidence_notes": null,
-  "latency_ms": 2387.82,
+  "answer_text": "In the RAG model, BART is used as the generator.",
+  "confidence_notes": "The evidence also notes that the RAG-Token model acts as a standard, autoregressive seq2seq generator.",
+  "latency_ms": 1847.93,
   "prompt_tokens": 2370,
-  "completion_tokens": 113,
-  "total_tokens": 2483,
+  "completion_tokens": 116,
+  "total_tokens": 2486,
   "citations_count": 1,
   "all_citations_in_context": true,
+  "citation_excerpt_verified_count": 1,
+  "citation_excerpts_all_verified": true,
+  "citation_excerpts_reconciled_count": 0,
   "citations": [
     {
       "chunk_id": "P1_p04_c01",
@@ -20,7 +23,8 @@
       "physical_page_number": 4,
       "excerpt": "only \ufb01ne-tuning the query encoder BERTq and the BART generator.",
       "formatted": "[P1, p. 4 (printed p. 4), Chunk P1_p04_c01]",
-      "in_retrieved_context": true
+      "in_retrieved_context": true,
+      "excerpt_verified_in_chunk": true
     }
   ],
   "evidence_claim_supported": true,

@@ -1,0 +1,2788 @@
+{
+  "timestamp": "2026-10-21T08:48:58.340899+00:00",
+  "total_queries_analyzed": 31,
+  "routing_summary": {
+    "comparative_count": 10,
+    "standard_count": 21
+  },
+  "cross_paper_top5_summary": {
+    "Always-Baseline": {
+      "full_coverage_count": 5,
+      "total": 9,
+      "rate": 0.5556
+    },
+    "Always-Diversified": {
+      "full_coverage_count": 9,
+      "total": 9,
+      "rate": 1.0
+    },
+    "Intent-Routed": {
+      "full_coverage_count": 9,
+      "total": 9,
+      "rate": 1.0
+    }
+  },
+  "single_paper_regression_summary": {
+    "Always-Baseline": {
+      "hit_at_1": 0.2222,
+      "hit_at_3": 0.7222,
+      "hit_at_5": 0.8333,
+      "mrr": 0.4509
+    },
+    "Always-Diversified": {
+      "hit_at_1": 0.2222,
+      "hit_at_3": 0.5556,
+      "hit_at_5": 0.5556,
+      "mrr": 0.3704
+    },
+    "Intent-Routed": {
+      "hit_at_1": 0.2222,
+      "hit_at_3": 0.6667,
+      "hit_at_5": 0.7222,
+      "mrr": 0.4213
+    }
+  },
+  "abstention_safeguard_rate": 1.0,
+  "routing_records": [
+    {
+      "category": "Cross-Paper",
+      "id": "DP01",
+      "question": "How do the Extractive Reader in DPR and Generative RAG compare on TriviaQA exact match performance?",
+      "expected_documents": [
+        "P1",
+        "P2"
+      ],
+      "classified_intent": "COMPARATIVE",
+      "cues_matched": [
+        "compare"
+      ],
+      "entities_matched": [
+        "DPR",
+        "RAG"
+      ],
+      "is_multi_entity": true,
+      "reason": "Explicit comparative cue (compare) detected with multiple distinct system families (DPR, RAG)."
+    },
+    {
+      "category": "Cross-Paper",
+      "id": "DP02",
+      "question": "How do REALM and T5-11B+SSM compare on WebQuestions exact match?",
+      "expected_documents": [
+        "P1",
+        "P3"
+      ],
+      "classified_intent": "COMPARATIVE",
+      "cues_matched": [
+        "compare"
+      ],
+      "entities_matched": [
+        "REALM",
+        "T5"
+      ],
+      "is_multi_entity": true,
+      "reason": "Explicit comparative cue (compare) detected with multiple distinct system families (REALM, T5)."
+    },
+    {
+      "category": "Cross-Paper",
+      "id": "DP03",
+      "question": "How does Self-RAG's adaptive retrieval compare to standard RAG's unconditional always-retrieve approach in terms of retrieval frequency and utility?",
+      "expected_documents": [
+        "P1",
+        "P4"
+      ],
+      "classified_intent": "COMPARATIVE",
+      "cues_matched": [
+        "compare"
+      ],
+      "entities_matched": [
+        "RAG",
+        "Self-RAG"
+      ],
+      "is_multi_entity": true,
+      "reason": "Explicit comparative cue (compare) detected with multiple distinct system families (RAG, Self-RAG)."
+    },
+    {
+      "category": "Cross-Paper",
+      "id": "Q06",
+      "question": "What exact match scores does RAG-Token achieve on Natural Questions, and how does this compare to DPR's extractive approach?",
+      "expected_documents": [
+        "P1",
+        "P2"
+      ],
+      "classified_intent": "COMPARATIVE",
+      "cues_matched": [
+        "compare"
+      ],
+      "entities_matched": [
+        "DPR",
+        "RAG"
+      ],
+      "is_multi_entity": true,
+      "reason": "Explicit comparative cue (compare) detected with multiple distinct system families (DPR, RAG)."
+    },
+    {
+      "category": "Cross-Paper",
+      "id": "Q07",
+      "question": "How do RAG, DPR, and REALM compare on Natural Questions exact match?",
+      "expected_documents": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "classified_intent": "COMPARATIVE",
+      "cues_matched": [
+        "compare"
+      ],
+      "entities_matched": [
+        "DPR",
+        "RAG",
+        "REALM"
+      ],
+      "is_multi_entity": true,
+      "reason": "Explicit comparative cue (compare) detected with multiple distinct system families (DPR, RAG, REALM)."
+    },
+    {
+      "category": "Cross-Paper",
+      "id": "Q08",
+      "question": "How does REALM's index refresh strategy differ from DPR's static index?",
+      "expected_documents": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "classified_intent": "COMPARATIVE",
+      "cues_matched": [
+        "how does realm's index refresh strategy differ",
+        "differ from"
+      ],
+      "entities_matched": [
+        "DPR",
+        "REALM"
+      ],
+      "is_multi_entity": true,
+      "reason": "Explicit comparative cue (how does realm's index refresh strategy differ, differ from) detected with multiple distinct system families (DPR, REALM)."
+    },
+    {
+      "category": "Cross-Paper",
+      "id": "Q09",
+      "question": "How does Self-RAG's approach to deciding when to retrieve differ from standard RAG?",
+      "expected_documents": [
+        "P1",
+        "P4"
+      ],
+      "classified_intent": "COMPARATIVE",
+      "cues_matched": [
+        "how does self-rag's approach to deciding when to retrieve differ",
+        "differ from"
+      ],
+      "entities_matched": [
+        "RAG",
+        "Self-RAG"
+      ],
+      "is_multi_entity": true,
+      "reason": "Explicit comparative cue (how does self-rag's approach to deciding when to retrieve differ, differ from) detected with multiple distinct system families (RAG, Self-RAG)."
+    },
+    {
+      "category": "Cross-Paper",
+      "id": "Q10",
+      "question": "How does Self-RAG's ISSUP token relate to RAGAS's faithfulness metric?",
+      "expected_documents": [
+        "P4",
+        "P5"
+      ],
+      "classified_intent": "COMPARATIVE",
+      "cues_matched": [
+        "how does self-rag's issup token relate to"
+      ],
+      "entities_matched": [
+        "RAGAS",
+        "Self-RAG"
+      ],
+      "is_multi_entity": true,
+      "reason": "Explicit comparative cue (how does self-rag's issup token relate to) detected with multiple distinct system families (RAGAS, Self-RAG)."
+    },
+    {
+      "category": "Cross-Paper",
+      "id": "Q16",
+      "question": "Do RAG and REALM use the same knowledge corpus, and how do their passage sizes compare?",
+      "expected_documents": [
+        "P1",
+        "P3"
+      ],
+      "classified_intent": "COMPARATIVE",
+      "cues_matched": [
+        "compare"
+      ],
+      "entities_matched": [
+        "RAG",
+        "REALM"
+      ],
+      "is_multi_entity": true,
+      "reason": "Explicit comparative cue (compare) detected with multiple distinct system families (RAG, REALM)."
+    },
+    {
+      "category": "Answerable Benchmark",
+      "id": "Q01",
+      "question": "What generator model does RAG use?",
+      "expected_documents": [
+        "P1"
+      ],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "RAG"
+      ],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Answerable Benchmark",
+      "id": "Q02",
+      "question": "How does DPR train its passage encoder, and what types of negatives are used?",
+      "expected_documents": [
+        "P2"
+      ],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "DPR"
+      ],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Answerable Benchmark",
+      "id": "Q03",
+      "question": "What is the difference between RAG-Sequence and RAG-Token?",
+      "expected_documents": [
+        "P1"
+      ],
+      "classified_intent": "STANDARD",
+      "cues_matched": [
+        "difference between"
+      ],
+      "entities_matched": [
+        "RAG"
+      ],
+      "is_multi_entity": false,
+      "reason": "Comparative cue present (difference between), but all terms belong to a single system family (RAG). Routed to STANDARD to preserve intra-paper recall."
+    },
+    {
+      "category": "Answerable Benchmark",
+      "id": "Q04",
+      "question": "What are the four reflection tokens in Self-RAG and what does each one assess?",
+      "expected_documents": [
+        "P4"
+      ],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "Self-RAG"
+      ],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Answerable Benchmark",
+      "id": "Q05",
+      "question": "How does RAGAS compute its faithfulness metric?",
+      "expected_documents": [
+        "P5"
+      ],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "RAGAS"
+      ],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Answerable Benchmark",
+      "id": "Q11",
+      "question": "On which dataset does BM25 outperform DPR, and why?",
+      "expected_documents": [
+        "P2"
+      ],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "BM25",
+        "DPR"
+      ],
+      "is_multi_entity": true,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Answerable Benchmark",
+      "id": "Q12",
+      "question": "What role does salient span masking play in REALM, and what happens without it?",
+      "expected_documents": [
+        "P3"
+      ],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "REALM",
+        "T5"
+      ],
+      "is_multi_entity": true,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Answerable Benchmark",
+      "id": "Q13",
+      "question": "What are the known limitations of using LLMs as evaluators in RAGAS?",
+      "expected_documents": [
+        "P5"
+      ],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "RAGAS"
+      ],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Answerable Benchmark",
+      "id": "Q14",
+      "question": "What base language models are used across the five papers?",
+      "expected_documents": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Answerable Benchmark",
+      "id": "Q15",
+      "question": "How does Self-RAG's critic model get its training data?",
+      "expected_documents": [
+        "P4"
+      ],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "Self-RAG"
+      ],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Answerable Benchmark",
+      "id": "Q17",
+      "question": "What evaluation benchmarks are shared across the 2020 papers, and which are unique to each?",
+      "expected_documents": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Answerable Benchmark",
+      "id": "Q18",
+      "question": "What limitations does the RAG paper acknowledge about its static document index?",
+      "expected_documents": [
+        "P1"
+      ],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "RAG"
+      ],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Out-of-Scope",
+      "id": "OOS01",
+      "question": "What is the computational cost in GPU-hours of training a Self-RAG model from scratch?",
+      "expected_documents": [],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "Self-RAG"
+      ],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Out-of-Scope",
+      "id": "OOS02",
+      "question": "How does ColBERT's late interaction retrieval compare to DPR's bi-encoder approach?",
+      "expected_documents": [],
+      "classified_intent": "COMPARATIVE",
+      "cues_matched": [
+        "compare"
+      ],
+      "entities_matched": [
+        "ColBERT",
+        "DPR"
+      ],
+      "is_multi_entity": true,
+      "reason": "Explicit comparative cue (compare) detected with multiple distinct system families (ColBERT, DPR)."
+    },
+    {
+      "category": "Out-of-Scope",
+      "id": "OOS03",
+      "question": "What is the carbon footprint of running RAGAS evaluations at scale?",
+      "expected_documents": [],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "RAGAS"
+      ],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Out-of-Scope",
+      "id": "OOS04",
+      "question": "How do RAG systems perform on non-English languages?",
+      "expected_documents": [],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "RAG"
+      ],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Out-of-Scope",
+      "id": "OOS05",
+      "question": "What is the effect of using instruction-tuned models as the generator in standard RAG?",
+      "expected_documents": [],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "RAG"
+      ],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Out-of-Scope",
+      "id": "OOS06",
+      "question": "How does retrieval-augmented generation perform on code generation tasks?",
+      "expected_documents": [],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "RAG"
+      ],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Out-of-Scope",
+      "id": "OOS07",
+      "question": "What privacy risks arise from retrieval-augmented systems accessing sensitive documents?",
+      "expected_documents": [],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Out-of-Scope",
+      "id": "OOS08",
+      "question": "How do RAGAS metrics perform when applied to medical or legal domain RAG systems?",
+      "expected_documents": [],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "RAG",
+        "RAGAS"
+      ],
+      "is_multi_entity": true,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Out-of-Scope",
+      "id": "OOS09",
+      "question": "What is the optimal chunk size for indexing research papers in a RAG system?",
+      "expected_documents": [],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "RAG"
+      ],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    },
+    {
+      "category": "Out-of-Scope",
+      "id": "OOS10",
+      "question": "How do RAG systems handle contradictory evidence across retrieved passages?",
+      "expected_documents": [],
+      "classified_intent": "STANDARD",
+      "cues_matched": [],
+      "entities_matched": [
+        "RAG"
+      ],
+      "is_multi_entity": false,
+      "reason": "Factual or multi-part query without explicit comparative intent."
+    }
+  ],
+  "cross_paper_results": [
+    {
+      "id": "DP01",
+      "question": "How do the Extractive Reader in DPR and Generative RAG compare on TriviaQA exact match performance?",
+      "expected_papers": [
+        "P1",
+        "P2"
+      ],
+      "Always-Baseline": {
+        "retrieved_docs": [
+          "P1",
+          "P1",
+          "P2",
+          "P1",
+          "P2"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.0328,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0311,
+            "snippet": "We have the ﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and runtime. Figure 3 (left..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0301,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REA..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0288,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ R..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p08_c02",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0278,
+            "snippet": "Single and Multi denote that our Dense Passage Retriever (DPR) is trained using individual or combined training datasets (all except SQuA..."
+          }
+        ]
+      },
+      "Always-Diversified": {
+        "retrieved_docs": [
+          "P1",
+          "P1",
+          "P2",
+          "P2",
+          "P5"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.0328,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0311,
+            "snippet": "We have the ﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and runtime. Figure 3 (left..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0301,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REA..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p08_c02",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0278,
+            "snippet": "Single and Multi denote that our Dense Passage Retriever (DPR) is trained using individual or combined training datasets (all except SQuA..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P5_p01_c05",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0258,
+            "snippet": "In practice, RAG systems are often evaluated in terms of the language modelling task itself, i.e. by mea- suring perplexity on some refer..."
+          }
+        ]
+      },
+      "Intent-Routed": {
+        "retrieved_docs": [
+          "P1",
+          "P1",
+          "P2",
+          "P2",
+          "P5"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": "COMPARATIVE",
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.0328,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0311,
+            "snippet": "We have the ﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and runtime. Figure 3 (left..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0301,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REA..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p08_c02",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0278,
+            "snippet": "Single and Multi denote that our Dense Passage Retriever (DPR) is trained using individual or combined training datasets (all except SQuA..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P5_p01_c05",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0258,
+            "snippet": "In practice, RAG systems are often evaluated in terms of the language modelling task itself, i.e. by mea- suring perplexity on some refer..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "DP02",
+      "question": "How do REALM and T5-11B+SSM compare on WebQuestions exact match?",
+      "expected_papers": [
+        "P1",
+        "P3"
+      ],
+      "Always-Baseline": {
+        "retrieved_docs": [
+          "P3",
+          "P3",
+          "P3",
+          "P1",
+          "P2"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p07_c04",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.0328,
+            "snippet": "As reported in the concurrent work of Roberts et al. (2020), the generative Open-QA systems based on T5 are surpris- ingly powerful, with..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p07_c01",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.032,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Table 1. Test results on Open-QA benchmarks. The number of train/test examples are..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p02_c04",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0303,
+            "snippet": "domain Question Answering (Open-QA), one of the most knowledge-intensive tasks in natural language process- ing. We evaluate on three pop..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c01",
+            "doc_id": "P1",
+            "page": 6,
+            "score": 0.0295,
+            "snippet": "Table 1: Open-Domain QA Test Scores. For TQA, left column uses the standard test set for Open- Domain QA, right column uses the TQA-Wiki ..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p13_c04",
+            "doc_id": "P2",
+            "page": 13,
+            "score": 0.0284,
+            "snippet": "better results compared to the usual retriever/reader training pipeline, resulting in the same 39.8 exact match score on NQ dev as in our..."
+          }
+        ]
+      },
+      "Always-Diversified": {
+        "retrieved_docs": [
+          "P3",
+          "P3",
+          "P1",
+          "P2",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p07_c04",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.0328,
+            "snippet": "As reported in the concurrent work of Roberts et al. (2020), the generative Open-QA systems based on T5 are surpris- ingly powerful, with..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p07_c01",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.032,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Table 1. Test results on Open-QA benchmarks. The number of train/test examples are..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p06_c01",
+            "doc_id": "P1",
+            "page": 6,
+            "score": 0.0295,
+            "snippet": "Table 1: Open-Domain QA Test Scores. For TQA, left column uses the standard test set for Open- Domain QA, right column uses the TQA-Wiki ..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p13_c04",
+            "doc_id": "P2",
+            "page": 13,
+            "score": 0.0284,
+            "snippet": "better results compared to the usual retriever/reader training pipeline, resulting in the same 39.8 exact match score on NQ dev as in our..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p19_c01",
+            "doc_id": "P1",
+            "page": 19,
+            "score": 0.0273,
+            "snippet": "Table 7: Number of instances in the datasets used. *A hidden subset of this data is used for evaluation Task Train Development Test Natur..."
+          }
+        ]
+      },
+      "Intent-Routed": {
+        "retrieved_docs": [
+          "P3",
+          "P3",
+          "P1",
+          "P2",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": "COMPARATIVE",
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p07_c04",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.0328,
+            "snippet": "As reported in the concurrent work of Roberts et al. (2020), the generative Open-QA systems based on T5 are surpris- ingly powerful, with..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p07_c01",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.032,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Table 1. Test results on Open-QA benchmarks. The number of train/test examples are..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p06_c01",
+            "doc_id": "P1",
+            "page": 6,
+            "score": 0.0295,
+            "snippet": "Table 1: Open-Domain QA Test Scores. For TQA, left column uses the standard test set for Open- Domain QA, right column uses the TQA-Wiki ..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p13_c04",
+            "doc_id": "P2",
+            "page": 13,
+            "score": 0.0284,
+            "snippet": "better results compared to the usual retriever/reader training pipeline, resulting in the same 39.8 exact match score on NQ dev as in our..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p19_c01",
+            "doc_id": "P1",
+            "page": 19,
+            "score": 0.0273,
+            "snippet": "Table 7: Number of instances in the datasets used. *A hidden subset of this data is used for evaluation Task Train Development Test Natur..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "DP03",
+      "question": "How does Self-RAG's adaptive retrieval compare to standard RAG's unconditional always-retrieve approach in terms of retrieval frequency and utility?",
+      "expected_papers": [
+        "P1",
+        "P4"
+      ],
+      "Always-Baseline": {
+        "retrieved_docs": [
+          "P4",
+          "P4",
+          "P4",
+          "P1",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p09_c04",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.032,
+            "snippet": "On ASQA, we evaluate models on sampled 150 instances and exclude ablations involving adaptive or no retrieval processes. We show in Table..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c02",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318,
+            "snippet": "test time by adjusting such parameters without requiring additional training. Efficiency and accuracy trade-off. Using our framework, pra..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p09_c02",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.0297,
+            "snippet": "precisely grounded yet shorter outputs. Llama2-FT7B, which is the baseline LM trained on the same instruction-output pairs as SELF-RAG wi..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0292,
+            "snippet": "4.5 Additional Results Generation Diversity Section 4.3 shows that RAG models are more factual and speciﬁc than BART for Jeopardy questio..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p17_c01",
+            "doc_id": "P4",
+            "page": 17,
+            "score": 0.029,
+            "snippet": "Preprint. A SELF-RAG DETAILS A.1 REFLECTION TOKENS. Definitions of reflection tokens. Below, we provide a detailed definition of reflecti..."
+          }
+        ]
+      },
+      "Always-Diversified": {
+        "retrieved_docs": [
+          "P4",
+          "P4",
+          "P1",
+          "P1",
+          "P5"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p09_c04",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.032,
+            "snippet": "On ASQA, we evaluate models on sampled 150 instances and exclude ablations involving adaptive or no retrieval processes. We show in Table..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c02",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318,
+            "snippet": "test time by adjusting such parameters without requiring additional training. Efficiency and accuracy trade-off. Using our framework, pra..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0292,
+            "snippet": "4.5 Additional Results Generation Diversity Section 4.3 shows that RAG models are more factual and speciﬁc than BART for Jeopardy questio..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p09_c05",
+            "doc_id": "P1",
+            "page": 9,
+            "score": 0.0251,
+            "snippet": "We found that people prefer RAG’s generation over purely parametric BART, ﬁnding RAG more factual and speciﬁc. We conducted an thorough i..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P5_p01_c04",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0241,
+            "snippet": "sages from a corpus and feeding these passages, along with the original question, to the LM. While initial approaches relied on specialis..."
+          }
+        ]
+      },
+      "Intent-Routed": {
+        "retrieved_docs": [
+          "P4",
+          "P4",
+          "P1",
+          "P1",
+          "P5"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": "COMPARATIVE",
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p09_c04",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.032,
+            "snippet": "On ASQA, we evaluate models on sampled 150 instances and exclude ablations involving adaptive or no retrieval processes. We show in Table..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c02",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318,
+            "snippet": "test time by adjusting such parameters without requiring additional training. Efficiency and accuracy trade-off. Using our framework, pra..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0292,
+            "snippet": "4.5 Additional Results Generation Diversity Section 4.3 shows that RAG models are more factual and speciﬁc than BART for Jeopardy questio..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p09_c05",
+            "doc_id": "P1",
+            "page": 9,
+            "score": 0.0251,
+            "snippet": "We found that people prefer RAG’s generation over purely parametric BART, ﬁnding RAG more factual and speciﬁc. We conducted an thorough i..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P5_p01_c04",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0241,
+            "snippet": "sages from a corpus and feeding these passages, along with the original question, to the LM. While initial approaches relied on specialis..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "Q06",
+      "question": "What exact match scores does RAG-Token achieve on Natural Questions, and how does this compare to DPR's extractive approach?",
+      "expected_papers": [
+        "P1",
+        "P2"
+      ],
+      "Always-Baseline": {
+        "retrieved_docs": [
+          "P1",
+          "P1",
+          "P1",
+          "P1",
+          "P1"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.5,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0323,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ R..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0301,
+            "snippet": "We have the ﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and runtime. Figure 3 (left..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c03",
+            "doc_id": "P1",
+            "page": 6,
+            "score": 0.0291,
+            "snippet": "Later, we also show that RAG generations are more diverse than BART generations (see §4.5). 4.3 Jeopardy Question Generation Table 2 show..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.028,
+            "snippet": "4.5 Additional Results Generation Diversity Section 4.3 shows that RAG models are more factual and speciﬁc than BART for Jeopardy questio..."
+          }
+        ]
+      },
+      "Always-Diversified": {
+        "retrieved_docs": [
+          "P1",
+          "P1",
+          "P2",
+          "P2",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0323,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ R..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0267,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REA..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p04_c05",
+            "doc_id": "P2",
+            "page": 4,
+            "score": 0.0261,
+            "snippet": "the answer as the positive passage. If none of the top 100 retrieved passages has the answer, the ques- tion will be discarded. For SQuAD..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p10_c04",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.025,
+            "snippet": "reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Following Menick et al. (202..."
+          }
+        ]
+      },
+      "Intent-Routed": {
+        "retrieved_docs": [
+          "P1",
+          "P1",
+          "P2",
+          "P2",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": "COMPARATIVE",
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0323,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ R..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0267,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REA..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p04_c05",
+            "doc_id": "P2",
+            "page": 4,
+            "score": 0.0261,
+            "snippet": "the answer as the positive passage. If none of the top 100 retrieved passages has the answer, the ques- tion will be discarded. For SQuAD..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p10_c04",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.025,
+            "snippet": "reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Following Menick et al. (202..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "Q07",
+      "question": "How do RAG, DPR, and REALM compare on Natural Questions exact match?",
+      "expected_papers": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "Always-Baseline": {
+        "retrieved_docs": [
+          "P1",
+          "P1",
+          "P2",
+          "P2",
+          "P1"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.6667,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0318,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ R..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0292,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REA..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p12_c03",
+            "doc_id": "P2",
+            "page": 12,
+            "score": 0.0287,
+            "snippet": "eral, the retrieved passages of these two retrievers actually differ qualitatively. Methods like BM25 are sensitive to highly selective k..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c04",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0275,
+            "snippet": "data. We now discuss experimental details for each task. 3.1 Open-domain Question Answering Open-domain question answering (QA) is an imp..."
+          }
+        ]
+      },
+      "Always-Diversified": {
+        "retrieved_docs": [
+          "P1",
+          "P1",
+          "P2",
+          "P2",
+          "P3"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0318,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ R..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0292,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REA..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p12_c03",
+            "doc_id": "P2",
+            "page": 12,
+            "score": 0.0287,
+            "snippet": "eral, the retrieved passages of these two retrievers actually differ qualitatively. Methods like BM25 are sensitive to highly selective k..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P3_p06_c01",
+            "doc_id": "P3",
+            "page": 6,
+            "score": 0.0271,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training 4. Experiments We now evaluate our approach on the Open-QA task. In this section, ..."
+          }
+        ]
+      },
+      "Intent-Routed": {
+        "retrieved_docs": [
+          "P1",
+          "P1",
+          "P2",
+          "P2",
+          "P3"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": "COMPARATIVE",
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0318,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ R..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0292,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REA..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p12_c03",
+            "doc_id": "P2",
+            "page": 12,
+            "score": 0.0287,
+            "snippet": "eral, the retrieved passages of these two retrievers actually differ qualitatively. Methods like BM25 are sensitive to highly selective k..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P3_p06_c01",
+            "doc_id": "P3",
+            "page": 6,
+            "score": 0.0271,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training 4. Experiments We now evaluate our approach on the Open-QA task. In this section, ..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "Q08",
+      "question": "How does REALM's index refresh strategy differ from DPR's static index?",
+      "expected_papers": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "Always-Baseline": {
+        "retrieved_docs": [
+          "P3",
+          "P3",
+          "P3",
+          "P3",
+          "P3"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.3333,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p05_c01",
+            "doc_id": "P3",
+            "page": 5,
+            "score": 0.0325,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Figure 3. REALM pre-training with asynchronous MIPS re- freshes. below, the traine..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p08_c03",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.0325,
+            "snippet": "trieval and is therefore more sensitive to a consistent learn- ing signal. MIPS index refresh rate During pre-training, we run a parallel..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p08_c02",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.031,
+            "snippet": "or both. To do so, we can reset the parameters of either the retriever or the encoder to their baseline state before REALM pre-training, ..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P3_p04_c05",
+            "doc_id": "P3",
+            "page": 4,
+            "score": 0.0301,
+            "snippet": "top k documents. We recompute p(z | x) and its gradient, using the fresh θ, for these top k documents after retriev- ing them. In Section..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P3_p06_c04",
+            "doc_id": "P3",
+            "page": 6,
+            "score": 0.0285,
+            "snippet": "These documents are typically then re-ranked using a learned model, but coverage may be limited by the initial heuristic retrieval step. ..."
+          }
+        ]
+      },
+      "Always-Diversified": {
+        "retrieved_docs": [
+          "P3",
+          "P3",
+          "P2",
+          "P1",
+          "P2"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p05_c01",
+            "doc_id": "P3",
+            "page": 5,
+            "score": 0.0325,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Figure 3. REALM pre-training with asynchronous MIPS re- freshes. below, the traine..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p08_c03",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.0325,
+            "snippet": "trieval and is therefore more sensitive to a consistent learn- ing signal. MIPS index refresh rate During pre-training, we run a parallel..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p07_c01",
+            "doc_id": "P2",
+            "page": 7,
+            "score": 0.0283,
+            "snippet": "5.3 Qualitative Analysis Although DPR performs better than BM25 in gen- eral, passages retrieved by these two methods dif- fer qualitativ..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p07_c05",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0278,
+            "snippet": "We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace RAG’s retriever with a ﬁxed BM25 system, a..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p07_c02",
+            "doc_id": "P2",
+            "page": 7,
+            "score": 0.0267,
+            "snippet": "sages per question. In contrast, BM25/Lucene (im- plemented in Java, using ﬁle index) processes 23.7 questions per second per CPU thread...."
+          }
+        ]
+      },
+      "Intent-Routed": {
+        "retrieved_docs": [
+          "P3",
+          "P3",
+          "P2",
+          "P1",
+          "P2"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": "COMPARATIVE",
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p05_c01",
+            "doc_id": "P3",
+            "page": 5,
+            "score": 0.0325,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Figure 3. REALM pre-training with asynchronous MIPS re- freshes. below, the traine..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p08_c03",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.0325,
+            "snippet": "trieval and is therefore more sensitive to a consistent learn- ing signal. MIPS index refresh rate During pre-training, we run a parallel..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p07_c01",
+            "doc_id": "P2",
+            "page": 7,
+            "score": 0.0283,
+            "snippet": "5.3 Qualitative Analysis Although DPR performs better than BM25 in gen- eral, passages retrieved by these two methods dif- fer qualitativ..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p07_c05",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0278,
+            "snippet": "We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace RAG’s retriever with a ﬁxed BM25 system, a..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p07_c02",
+            "doc_id": "P2",
+            "page": 7,
+            "score": 0.0267,
+            "snippet": "sages per question. In contrast, BM25/Lucene (im- plemented in Java, using ﬁle index) processes 23.7 questions per second per CPU thread...."
+          }
+        ]
+      }
+    },
+    {
+      "id": "Q09",
+      "question": "How does Self-RAG's approach to deciding when to retrieve differ from standard RAG?",
+      "expected_papers": [
+        "P1",
+        "P4"
+      ],
+      "Always-Baseline": {
+        "retrieved_docs": [
+          "P4",
+          "P4",
+          "P4",
+          "P4",
+          "P4"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.5,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p20_c05",
+            "doc_id": "P4",
+            "page": 20,
+            "score": 0.0294,
+            "snippet": "analysis: 1) sample query models successfully answer correctly, 2) for each query in this group, check whether the matched ground-truth a..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c03",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.029,
+            "snippet": "150k training instances, and fine-tune four SELF-RAG 7B variants on those subsets. Then, we compare the model performance on PopQA, PubHe..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p04_c01",
+            "doc_id": "P4",
+            "page": 4,
+            "score": 0.029,
+            "snippet": "Preprint. Type Input Output Definitions Retrieve x / x, y {yes, no, continue} Decides when to retrieve with R ISREL x, d {relevant, irrel..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p09_c02",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.0285,
+            "snippet": "precisely grounded yet shorter outputs. Llama2-FT7B, which is the baseline LM trained on the same instruction-output pairs as SELF-RAG wi..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p09_c04",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.028,
+            "snippet": "On ASQA, we evaluate models on sampled 150 instances and exclude ablations involving adaptive or no retrieval processes. We show in Table..."
+          }
+        ]
+      },
+      "Always-Diversified": {
+        "retrieved_docs": [
+          "P4",
+          "P4",
+          "P1",
+          "P1",
+          "P5"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p20_c05",
+            "doc_id": "P4",
+            "page": 20,
+            "score": 0.0294,
+            "snippet": "analysis: 1) sample query models successfully answer correctly, 2) for each query in this group, check whether the matched ground-truth a..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c03",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.029,
+            "snippet": "150k training instances, and fine-tune four SELF-RAG 7B variants on those subsets. Then, we compare the model performance on PopQA, PubHe..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p04_c01",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.023,
+            "snippet": "minimize the negative marginal log-likelihood of each target, P j −log p(yj|xj) using stochastic gradient descent with Adam [28]. Updatin..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0225,
+            "snippet": "4.5 Additional Results Generation Diversity Section 4.3 shows that RAG models are more factual and speciﬁc than BART for Jeopardy questio..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P5_p02_c06",
+            "doc_id": "P5",
+            "page": 2,
+            "score": 0.0213,
+            "snippet": "BERT model, to compare the similarity between the generated answer and the reference answers. BARTScore (Yuan et al., 2021) similarly use..."
+          }
+        ]
+      },
+      "Intent-Routed": {
+        "retrieved_docs": [
+          "P4",
+          "P4",
+          "P1",
+          "P1",
+          "P5"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": "COMPARATIVE",
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p20_c05",
+            "doc_id": "P4",
+            "page": 20,
+            "score": 0.0294,
+            "snippet": "analysis: 1) sample query models successfully answer correctly, 2) for each query in this group, check whether the matched ground-truth a..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c03",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.029,
+            "snippet": "150k training instances, and fine-tune four SELF-RAG 7B variants on those subsets. Then, we compare the model performance on PopQA, PubHe..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p04_c01",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.023,
+            "snippet": "minimize the negative marginal log-likelihood of each target, P j −log p(yj|xj) using stochastic gradient descent with Adam [28]. Updatin..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0225,
+            "snippet": "4.5 Additional Results Generation Diversity Section 4.3 shows that RAG models are more factual and speciﬁc than BART for Jeopardy questio..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P5_p02_c06",
+            "doc_id": "P5",
+            "page": 2,
+            "score": 0.0213,
+            "snippet": "BERT model, to compare the similarity between the generated answer and the reference answers. BARTScore (Yuan et al., 2021) similarly use..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "Q10",
+      "question": "How does Self-RAG's ISSUP token relate to RAGAS's faithfulness metric?",
+      "expected_papers": [
+        "P4",
+        "P5"
+      ],
+      "Always-Baseline": {
+        "retrieved_docs": [
+          "P4",
+          "P4",
+          "P4",
+          "P5",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p10_c04",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318,
+            "snippet": "reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Following Menick et al. (202..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p21_c01",
+            "doc_id": "P4",
+            "page": 21,
+            "score": 0.0302,
+            "snippet": "Preprint. C.2 HUMAN EVALUATION EXAMPLES Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP reflectio..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p10_c05",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0296,
+            "snippet": "consistent with Menick et al. (2022). Human annotators also find ISREL and ISSUP reflection token predictions are mostly aligned with the..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P5_p05_c02",
+            "doc_id": "P5",
+            "page": 5,
+            "score": 0.0293,
+            "snippet": "annotators. We report the results in terms of ac- curacy (i.e. the fraction of instances on which the model agrees with the annotators). ..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p04_c03",
+            "doc_id": "P4",
+            "page": 4,
+            "score": 0.0279,
+            "snippet": "passage’s relevance, the next response segment, and a critique token to evaluate if the information in the response segment is supported ..."
+          }
+        ]
+      },
+      "Always-Diversified": {
+        "retrieved_docs": [
+          "P4",
+          "P4",
+          "P5",
+          "P5",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p10_c04",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318,
+            "snippet": "reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Following Menick et al. (202..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p21_c01",
+            "doc_id": "P4",
+            "page": 21,
+            "score": 0.0302,
+            "snippet": "Preprint. C.2 HUMAN EVALUATION EXAMPLES Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP reflectio..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P5_p05_c02",
+            "doc_id": "P5",
+            "page": 5,
+            "score": 0.0293,
+            "snippet": "annotators. We report the results in terms of ac- curacy (i.e. the fraction of instances on which the model agrees with the annotators). ..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P5_p05_c04",
+            "doc_id": "P5",
+            "page": 5,
+            "score": 0.0245,
+            "snippet": "metrics are much closer aligned with the human judgements than the predictions from the two base- lines. For faithfulness, the Ragas pred..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c01",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0237,
+            "snippet": "minimize the negative marginal log-likelihood of each target, P j −log p(yj|xj) using stochastic gradient descent with Adam [28]. Updatin..."
+          }
+        ]
+      },
+      "Intent-Routed": {
+        "retrieved_docs": [
+          "P4",
+          "P4",
+          "P5",
+          "P5",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": "COMPARATIVE",
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p10_c04",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318,
+            "snippet": "reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Following Menick et al. (202..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p21_c01",
+            "doc_id": "P4",
+            "page": 21,
+            "score": 0.0302,
+            "snippet": "Preprint. C.2 HUMAN EVALUATION EXAMPLES Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP reflectio..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P5_p05_c02",
+            "doc_id": "P5",
+            "page": 5,
+            "score": 0.0293,
+            "snippet": "annotators. We report the results in terms of ac- curacy (i.e. the fraction of instances on which the model agrees with the annotators). ..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P5_p05_c04",
+            "doc_id": "P5",
+            "page": 5,
+            "score": 0.0245,
+            "snippet": "metrics are much closer aligned with the human judgements than the predictions from the two base- lines. For faithfulness, the Ragas pred..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c01",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0237,
+            "snippet": "minimize the negative marginal log-likelihood of each target, P j −log p(yj|xj) using stochastic gradient descent with Adam [28]. Updatin..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "Q16",
+      "question": "Do RAG and REALM use the same knowledge corpus, and how do their passage sizes compare?",
+      "expected_papers": [
+        "P1",
+        "P3"
+      ],
+      "Always-Baseline": {
+        "retrieved_docs": [
+          "P3",
+          "P1",
+          "P3",
+          "P3",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p12_c01",
+            "doc_id": "P3",
+            "page": 12,
+            "score": 0.0318,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training x: “Jennifer formed the production company Excellent Cadaver.” BERT also (0.13), t..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0296,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ R..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p02_c01",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0279,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training decide what knowledge to retrieve and use during inference. Before making each pre..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P3_p02_c04",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0273,
+            "snippet": "domain Question Answering (Open-QA), one of the most knowledge-intensive tasks in natural language process- ing. We evaluate on three pop..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c04",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0265,
+            "snippet": "data. We now discuss experimental details for each task. 3.1 Open-domain Question Answering Open-domain question answering (QA) is an imp..."
+          }
+        ]
+      },
+      "Always-Diversified": {
+        "retrieved_docs": [
+          "P3",
+          "P1",
+          "P3",
+          "P1",
+          "P5"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": null,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p12_c01",
+            "doc_id": "P3",
+            "page": 12,
+            "score": 0.0318,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training x: “Jennifer formed the production company Excellent Cadaver.” BERT also (0.13), t..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0296,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ R..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p02_c01",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0279,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training decide what knowledge to retrieve and use during inference. Before making each pre..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p04_c04",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0265,
+            "snippet": "data. We now discuss experimental details for each task. 3.1 Open-domain Question Answering Open-domain question answering (QA) is an imp..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P5_p01_c04",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0213,
+            "snippet": "sages from a corpus and feeding these passages, along with the original question, to the LM. While initial approaches relied on specialis..."
+          }
+        ]
+      },
+      "Intent-Routed": {
+        "retrieved_docs": [
+          "P3",
+          "P1",
+          "P3",
+          "P1",
+          "P5"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "query_intent": "COMPARATIVE",
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p12_c01",
+            "doc_id": "P3",
+            "page": 12,
+            "score": 0.0318,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training x: “Jennifer formed the production company Excellent Cadaver.” BERT also (0.13), t..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0296,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ R..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p02_c01",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0279,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training decide what knowledge to retrieve and use during inference. Before making each pre..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p04_c04",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0265,
+            "snippet": "data. We now discuss experimental details for each task. 3.1 Open-domain Question Answering Open-domain question answering (QA) is an imp..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P5_p01_c04",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0213,
+            "snippet": "sages from a corpus and feeding these passages, along with the original question, to the LM. While initial approaches relied on specialis..."
+          }
+        ]
+      }
+    }
+  ],
+  "single_paper_regression_details": {
+    "Always-Baseline": {
+      "hit_at_1": 0.2222,
+      "hit_at_3": 0.7222,
+      "hit_at_5": 0.8333,
+      "mrr": 0.4509,
+      "per_question": {
+        "Q01": {
+          "first_rank": 2,
+          "intent": null,
+          "retrieved_docs": [
+            "P1",
+            "P1",
+            "P1",
+            "P4",
+            "P1"
+          ]
+        },
+        "Q02": {
+          "first_rank": 1,
+          "intent": null,
+          "retrieved_docs": [
+            "P2",
+            "P2",
+            "P4",
+            "P2",
+            "P2"
+          ]
+        },
+        "Q03": {
+          "first_rank": 3,
+          "intent": null,
+          "retrieved_docs": [
+            "P1",
+            "P1",
+            "P1",
+            "P1",
+            "P1"
+          ]
+        },
+        "Q04": {
+          "first_rank": 2,
+          "intent": null,
+          "retrieved_docs": [
+            "P4",
+            "P4",
+            "P4",
+            "P4",
+            "P4"
+          ]
+        },
+        "Q05": {
+          "first_rank": null,
+          "intent": null,
+          "retrieved_docs": [
+            "P5",
+            "P5",
+            "P5",
+            "P5",
+            "P5"
+          ]
+        },
+        "Q06": {
+          "first_rank": 2,
+          "intent": null,
+          "retrieved_docs": [
+            "P1",
+            "P1",
+            "P1",
+            "P1",
+            "P1"
+          ]
+        },
+        "Q07": {
+          "first_rank": 3,
+          "intent": null,
+          "retrieved_docs": [
+            "P1",
+            "P1",
+            "P2",
+            "P2",
+            "P1"
+          ]
+        },
+        "Q08": {
+          "first_rank": 1,
+          "intent": null,
+          "retrieved_docs": [
+            "P3",
+            "P3",
+            "P3",
+            "P3",
+            "P3"
+          ]
+        },
+        "Q09": {
+          "first_rank": 3,
+          "intent": null,
+          "retrieved_docs": [
+            "P4",
+            "P4",
+            "P4",
+            "P4",
+            "P4"
+          ]
+        },
+        "Q10": {
+          "first_rank": 5,
+          "intent": null,
+          "retrieved_docs": [
+            "P4",
+            "P4",
+            "P4",
+            "P5",
+            "P4"
+          ]
+        },
+        "Q11": {
+          "first_rank": 1,
+          "intent": null,
+          "retrieved_docs": [
+            "P2",
+            "P2",
+            "P2",
+            "P2",
+            "P2"
+          ]
+        },
+        "Q12": {
+          "first_rank": 3,
+          "intent": null,
+          "retrieved_docs": [
+            "P3",
+            "P3",
+            "P3",
+            "P3",
+            "P3"
+          ]
+        },
+        "Q13": {
+          "first_rank": null,
+          "intent": null,
+          "retrieved_docs": [
+            "P5",
+            "P5",
+            "P5",
+            "P5",
+            "P4"
+          ]
+        },
+        "Q14": {
+          "first_rank": 3,
+          "intent": null,
+          "retrieved_docs": [
+            "P1",
+            "P5",
+            "P4",
+            "P5",
+            "P1"
+          ]
+        },
+        "Q15": {
+          "first_rank": null,
+          "intent": null,
+          "retrieved_docs": [
+            "P4",
+            "P4",
+            "P4",
+            "P4",
+            "P4"
+          ]
+        },
+        "Q16": {
+          "first_rank": 2,
+          "intent": null,
+          "retrieved_docs": [
+            "P3",
+            "P1",
+            "P3",
+            "P3",
+            "P1"
+          ]
+        },
+        "Q17": {
+          "first_rank": 1,
+          "intent": null,
+          "retrieved_docs": [
+            "P3",
+            "P1",
+            "P3",
+            "P4",
+            "P4"
+          ]
+        },
+        "Q18": {
+          "first_rank": 4,
+          "intent": null,
+          "retrieved_docs": [
+            "P1",
+            "P1",
+            "P1",
+            "P1",
+            "P1"
+          ]
+        }
+      }
+    },
+    "Always-Diversified": {
+      "hit_at_1": 0.2222,
+      "hit_at_3": 0.5556,
+      "hit_at_5": 0.5556,
+      "mrr": 0.3704,
+      "per_question": {
+        "Q01": {
+          "first_rank": 2,
+          "intent": null,
+          "retrieved_docs": [
+            "P1",
+            "P1",
+            "P4",
+            "P4",
+            "P5"
+          ]
+        },
+        "Q02": {
+          "first_rank": 1,
+          "intent": null,
+          "retrieved_docs": [
+            "P2",
+            "P2",
+            "P4",
+            "P1",
+            "P1"
+          ]
+        },
+        "Q03": {
+          "first_rank": null,
+          "intent": null,
+          "retrieved_docs": [
+            "P1",
+            "P1",
+            "P4",
+            "P4",
+            "P5"
+          ]
+        },
+        "Q04": {
+          "first_rank": 2,
+          "intent": null,
+          "retrieved_docs": [
+            "P4",
+            "P4",
+            "P5",
+            "P1",
+            "P1"
+          ]
+        },
+        "Q05": {
+          "first_rank": null,
+          "intent": null,
+          "retrieved_docs": [
+            "P5",
+            "P5",
+            "P1",
+            "P1",
+            "P4"
+          ]
+        },
+        "Q06": {
+          "first_rank": 2,
+          "intent": null,
+          "retrieved_docs": [
+            "P1",
+            "P1",
+            "P2",
+            "P2",
+            "P4"
+          ]
+        },
+        "Q07": {
+          "first_rank": 3,
+          "intent": null,
+          "retrieved_docs": [
+            "P1",
+            "P1",
+            "P2",
+            "P2",
+            "P3"
+          ]
+        },
+        "Q08": {
+          "first_rank": 1,
+          "intent": null,
+          "retrieved_docs": [
+            "P3",
+            "P3",
+            "P2",
+            "P1",
+            "P2"
+          ]
+        },
+        "Q09": {
+          "first_rank": null,
+          "intent": null,
+          "retrieved_docs": [
+            "P4",
+            "P4",
+            "P1",
+            "P1",
+            "P5"
+          ]
+        },
+        "Q10": {
+          "first_rank": null,
+          "intent": null,
+          "retrieved_docs": [
+            "P4",
+            "P4",
+            "P5",
+            "P5",
+            "P1"
+          ]
+        },
+        "Q11": {
+          "first_rank": 1,
+          "intent": null,
+          "retrieved_docs": [
+            "P2",
+            "P2",
+            "P4",
+            "P1",
+            "P1"
+          ]
+        },
+        "Q12": {
+          "first_rank": null,
+          "intent": null,
+          "retrieved_docs": [
+            "P3",
+            "P3",
+            "P1",
+            "P1",
+            "P4"
+          ]
+        },
+        "Q13": {
+          "first_rank": null,
+          "intent": null,
+          "retrieved_docs": [
+            "P5",
+            "P5",
+            "P4",
+            "P1",
+            "P4"
+          ]
+        },
+        "Q14": {
+          "first_rank": 3,
+          "intent": null,
+          "retrieved_docs": [
+            "P1",
+            "P5",
+            "P4",
+            "P5",
+            "P1"
+          ]
+        },
+        "Q15": {
+          "first_rank": null,
+          "intent": null,
+          "retrieved_docs": [
+            "P4",
+            "P4",
+            "P1",
+            "P1",
+            "P5"
+          ]
+        },
+        "Q16": {
+          "first_rank": 2,
+          "intent": null,
+          "retrieved_docs": [
+            "P3",
+            "P1",
+            "P3",
+            "P1",
+            "P5"
+          ]
+        },
+        "Q17": {
+          "first_rank": 1,
+          "intent": null,
+          "retrieved_docs": [
+            "P3",
+            "P1",
+            "P3",
+            "P4",
+            "P4"
+          ]
+        },
+        "Q18": {
+          "first_rank": null,
+          "intent": null,
+          "retrieved_docs": [
+            "P1",
+            "P1",
+            "P3",
+            "P3",
+            "P2"
+          ]
+        }
+      }
+    },
+    "Intent-Routed": {
+      "hit_at_1": 0.2222,
+      "hit_at_3": 0.6667,
+      "hit_at_5": 0.7222,
+      "mrr": 0.4213,
+      "per_question": {
+        "Q01": {
+          "first_rank": 2,
+          "intent": "STANDARD",
+          "retrieved_docs": [
+            "P1",
+            "P1",
+            "P1",
+            "P4",
+            "P1"
+          ]
+        },
+        "Q02": {
+          "first_rank": 1,
+          "intent": "STANDARD",
+          "retrieved_docs": [
+            "P2",
+            "P2",
+            "P4",
+            "P2",
+            "P2"
+          ]
+        },
+        "Q03": {
+          "first_rank": 3,
+          "intent": "STANDARD",
+          "retrieved_docs": [
+            "P1",
+            "P1",
+            "P1",
+            "P1",
+            "P1"
+          ]
+        },
+        "Q04": {
+          "first_rank": 2,
+          "intent": "STANDARD",
+          "retrieved_docs": [
+            "P4",
+            "P4",
+            "P4",
+            "P4",
+            "P4"
+          ]
+        },
+        "Q05": {
+          "first_rank": null,
+          "intent": "STANDARD",
+          "retrieved_docs": [
+            "P5",
+            "P5",
+            "P5",
+            "P5",
+            "P5"
+          ]
+        },
+        "Q06": {
+          "first_rank": 2,
+          "intent": "COMPARATIVE",
+          "retrieved_docs": [
+            "P1",
+            "P1",
+            "P2",
+            "P2",
+            "P4"
+          ]
+        },
+        "Q07": {
+          "first_rank": 3,
+          "intent": "COMPARATIVE",
+          "retrieved_docs": [
+            "P1",
+            "P1",
+            "P2",
+            "P2",
+            "P3"
+          ]
+        },
+        "Q08": {
+          "first_rank": 1,
+          "intent": "COMPARATIVE",
+          "retrieved_docs": [
+            "P3",
+            "P3",
+            "P2",
+            "P1",
+            "P2"
+          ]
+        },
+        "Q09": {
+          "first_rank": null,
+          "intent": "COMPARATIVE",
+          "retrieved_docs": [
+            "P4",
+            "P4",
+            "P1",
+            "P1",
+            "P5"
+          ]
+        },
+        "Q10": {
+          "first_rank": null,
+          "intent": "COMPARATIVE",
+          "retrieved_docs": [
+            "P4",
+            "P4",
+            "P5",
+            "P5",
+            "P1"
+          ]
+        },
+        "Q11": {
+          "first_rank": 1,
+          "intent": "STANDARD",
+          "retrieved_docs": [
+            "P2",
+            "P2",
+            "P2",
+            "P2",
+            "P2"
+          ]
+        },
+        "Q12": {
+          "first_rank": 3,
+          "intent": "STANDARD",
+          "retrieved_docs": [
+            "P3",
+            "P3",
+            "P3",
+            "P3",
+            "P3"
+          ]
+        },
+        "Q13": {
+          "first_rank": null,
+          "intent": "STANDARD",
+          "retrieved_docs": [
+            "P5",
+            "P5",
+            "P5",
+            "P5",
+            "P4"
+          ]
+        },
+        "Q14": {
+          "first_rank": 3,
+          "intent": "STANDARD",
+          "retrieved_docs": [
+            "P1",
+            "P5",
+            "P4",
+            "P5",
+            "P1"
+          ]
+        },
+        "Q15": {
+          "first_rank": null,
+          "intent": "STANDARD",
+          "retrieved_docs": [
+            "P4",
+            "P4",
+            "P4",
+            "P4",
+            "P4"
+          ]
+        },
+        "Q16": {
+          "first_rank": 2,
+          "intent": "COMPARATIVE",
+          "retrieved_docs": [
+            "P3",
+            "P1",
+            "P3",
+            "P1",
+            "P5"
+          ]
+        },
+        "Q17": {
+          "first_rank": 1,
+          "intent": "STANDARD",
+          "retrieved_docs": [
+            "P3",
+            "P1",
+            "P3",
+            "P4",
+            "P4"
+          ]
+        },
+        "Q18": {
+          "first_rank": 4,
+          "intent": "STANDARD",
+          "retrieved_docs": [
+            "P1",
+            "P1",
+            "P1",
+            "P1",
+            "P1"
+          ]
+        }
+      }
+    }
+  },
+  "out_of_scope_evaluation": [
+    {
+      "id": "OOS01",
+      "question": "What is the computational cost in GPU-hours of training a Self-RAG model from scratch?",
+      "status": "abstained_out_of_scope",
+      "is_abstained": true,
+      "citations_count": 0,
+      "confidence_notes": "Question identified as out of scope or lacking relevant evidence in the corpus.",
+      "answer_preview": "The provided research evidence does not contain information to address this question."
+    },
+    {
+      "id": "OOS02",
+      "question": "How does ColBERT's late interaction retrieval compare to DPR's bi-encoder approach?",
+      "status": "abstained_out_of_scope",
+      "is_abstained": true,
+      "citations_count": 0,
+      "confidence_notes": "Question identified as out of scope or lacking relevant evidence in the corpus.",
+      "answer_preview": "The provided research evidence does not contain information to address this question."
+    },
+    {
+      "id": "OOS03",
+      "question": "What is the carbon footprint of running RAGAS evaluations at scale?",
+      "status": "abstained_out_of_scope",
+      "is_abstained": true,
+      "citations_count": 0,
+      "confidence_notes": "Question identified as out of scope or lacking relevant evidence in the corpus.",
+      "answer_preview": "The provided research evidence does not contain information to address this question."
+    },
+    {
+      "id": "OOS04",
+      "question": "How do RAG systems perform on non-English languages?",
+      "status": "abstained_out_of_scope",
+      "is_abstained": true,
+      "citations_count": 0,
+      "confidence_notes": "Question identified as out of scope or lacking relevant evidence in the corpus.",
+      "answer_preview": "The provided research evidence does not contain information to address this question."
+    },
+    {
+      "id": "OOS05",
+      "question": "What is the effect of using instruction-tuned models as the generator in standard RAG?",
+      "status": "abstained_out_of_scope",
+      "is_abstained": true,
+      "citations_count": 0,
+      "confidence_notes": "Question identified as out of scope or lacking relevant evidence in the corpus.",
+      "answer_preview": "The provided research evidence does not contain information to address this question."
+    },
+    {
+      "id": "OOS06",
+      "question": "How does retrieval-augmented generation perform on code generation tasks?",
+      "status": "abstained_out_of_scope",
+      "is_abstained": true,
+      "citations_count": 0,
+      "confidence_notes": "Question identified as out of scope or lacking relevant evidence in the corpus.",
+      "answer_preview": "The provided research evidence does not contain information to address this question."
+    },
+    {
+      "id": "OOS07",
+      "question": "What privacy risks arise from retrieval-augmented systems accessing sensitive documents?",
+      "status": "abstained_out_of_scope",
+      "is_abstained": true,
+      "citations_count": 0,
+      "confidence_notes": "Question identified as out of scope or lacking relevant evidence in the corpus.",
+      "answer_preview": "The provided research evidence does not contain information to address this question."
+    },
+    {
+      "id": "OOS08",
+      "question": "How do RAGAS metrics perform when applied to medical or legal domain RAG systems?",
+      "status": "abstained_out_of_scope",
+      "is_abstained": true,
+      "citations_count": 0,
+      "confidence_notes": "Question identified as out of scope or lacking relevant evidence in the corpus.",
+      "answer_preview": "The provided research evidence does not contain information to address this question."
+    },
+    {
+      "id": "OOS09",
+      "question": "What is the optimal chunk size for indexing research papers in a RAG system?",
+      "status": "abstained_out_of_scope",
+      "is_abstained": true,
+      "citations_count": 0,
+      "confidence_notes": "Question identified as out of scope or lacking relevant evidence in the corpus.",
+      "answer_preview": "The provided research evidence does not contain information to address this question."
+    },
+    {
+      "id": "OOS10",
+      "question": "How do RAG systems handle contradictory evidence across retrieved passages?",
+      "status": "abstained_out_of_scope",
+      "is_abstained": true,
+      "citations_count": 0,
+      "confidence_notes": "Question identified as out of scope or lacking relevant evidence in the corpus.",
+      "answer_preview": "The provided research evidence does not contain information to address this question."
+    }
+  ]
+}
