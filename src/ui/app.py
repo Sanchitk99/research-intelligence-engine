@@ -11,6 +11,7 @@ Demonstrates the complete end-to-end user workflow:
 import os
 import sys
 import tempfile
+import time
 from pathlib import Path
 from typing import Optional, List, Dict, Any
 
@@ -245,32 +246,30 @@ with tab_qa:
     st.markdown("**Sample Questions:**")
     col_s1, col_s2, col_s3, col_s4 = st.columns(4)
 
-    default_q = ""
-    if "current_question" not in st.session_state:
-        st.session_state["current_question"] = "What generator model does RAG use?"
+    if "user_query_input" not in st.session_state:
+        st.session_state["user_query_input"] = "How do RAG-Sequence and RAG-Token differ in generating sequences?"
 
     with col_s1:
-        if st.button("Q01: RAG Generator (P1)", use_container_width=True):
-            st.session_state["current_question"] = "What generator model does RAG use?"
+        if st.button("RAG: Sequence vs Token (P1)", use_container_width=True):
+            st.session_state["user_query_input"] = "How do RAG-Sequence and RAG-Token differ in generating sequences?"
     with col_s2:
-        if st.button("Q02: DPR Retrieval Accuracy (P2)", use_container_width=True):
-            st.session_state["current_question"] = "What is the passage retrieval accuracy of DPR on Natural Questions?"
+        if st.button("Self-RAG: Adaptive Retrieval (P4)", use_container_width=True):
+            st.session_state["user_query_input"] = "How does Self-RAG decide when to retrieve?"
     with col_s3:
-        if st.button("Q03: REALM Knowledge Retriever (P3)", use_container_width=True):
-            st.session_state["current_question"] = "How does REALM pre-train its neural knowledge retriever?"
+        if st.button("DPR: BM25 on SQuAD (P2)", use_container_width=True):
+            st.session_state["user_query_input"] = "Why does BM25 outperform DPR on SQuAD?"
     with col_s4:
-        if st.button("Out-of-Scope Query (Abstention)", use_container_width=True):
-            st.session_state["current_question"] = "Who won the 2024 ICC Men's T20 World Cup?"
+        if st.button("Out-of-Scope (Abstention)", use_container_width=True):
+            st.session_state["user_query_input"] = "Who won the 2024 ICC Men's T20 World Cup?"
 
-    # Query Input Form
-    with st.form("qa_form", clear_on_submit=False):
-        user_query = st.text_area(
-            "Enter your research question:",
-            value=st.session_state["current_question"],
-            height=85,
-            placeholder="e.g., What are the key evaluation metrics proposed by Ragas?",
-        )
-        submit_btn = st.form_submit_button("Generate Answer", type="primary", use_container_width=False)
+    # Query Input & Submit
+    user_query = st.text_area(
+        "Enter your research question:",
+        key="user_query_input",
+        height=85,
+        placeholder="e.g., What are the key evaluation metrics proposed by Ragas?",
+    )
+    submit_btn = st.button("Generate Answer", type="primary", use_container_width=False)
 
     if submit_btn and user_query.strip():
         with st.spinner("Retrieving evidence and synthesizing grounded answer..."):
@@ -386,7 +385,11 @@ with tab_ingest:
             st.warning(f"No PDF files found in {papers_dir}.")
         else:
             file_options = {f.name: f for f in available_files}
-            selected_file_name = st.selectbox("Select Paper from Repository:", options=list(file_options.keys()))
+            selected_file_name = st.selectbox(
+                "Select Paper from Repository:",
+                options=list(file_options.keys()),
+                key="selected_corpus_file",
+            )
             target_pdf_path = file_options[selected_file_name]
             default_doc_id = target_pdf_path.stem.split("_")[0] if "_" in target_pdf_path.stem else target_pdf_path.stem
             default_doc_title = target_pdf_path.stem.replace("_", " ")
@@ -403,11 +406,12 @@ with tab_ingest:
             default_doc_id = target_pdf_path.stem[:8].upper()
             default_doc_title = target_pdf_path.stem.replace("_", " ").title()
 
+    paper_ctx_key = selected_file_name if source_type == "Select Corpus Paper" and available_files else "uploaded_doc"
     col_id, col_title = st.columns([1, 3])
     with col_id:
-        doc_id_input = st.text_input("Document Identifier:", value=default_doc_id, placeholder="e.g. P6")
+        doc_id_input = st.text_input("Document Identifier:", value=default_doc_id, key=f"doc_id_{paper_ctx_key}", placeholder="e.g. P6")
     with col_title:
-        doc_title_input = st.text_input("Paper Title:", value=default_doc_title, placeholder="e.g. Constitutional AI")
+        doc_title_input = st.text_input("Paper Title:", value=default_doc_title, key=f"doc_title_{paper_ctx_key}", placeholder="e.g. Constitutional AI")
 
     dry_run_opt = st.checkbox("Dry Run (Validate extraction & chunking without writing to vector database)", value=False)
 

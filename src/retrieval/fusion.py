@@ -13,6 +13,7 @@ def reciprocal_rank_fusion(
     dense_weight: float = 1.0,
     bm25_weight: float = 1.0,
     top_k: int = 5,
+    max_chunks_per_doc: Optional[int] = None,
 ) -> List[RetrievedChunk]:
     """Fuse dense vector search and BM25 keyword search rankings using Reciprocal Rank Fusion.
 
@@ -21,6 +22,8 @@ def reciprocal_rank_fusion(
 
     Chunks appearing in only one candidate list receive the single reciprocal rank term.
     Preserves all citation provenance and metadata while recording individual subsystem ranks.
+    Supports optional document diversification to prevent a single document from monopolizing
+    the final context, with graceful score-ordered backfill.
 
     Args:
         dense_chunks: Ranked list of chunks from dense retrieval.
@@ -29,6 +32,8 @@ def reciprocal_rank_fusion(
         dense_weight: Multiplier weight for dense retrieval reciprocal ranks.
         bm25_weight: Multiplier weight for BM25 retrieval reciprocal ranks.
         top_k: Maximum number of fused chunks to return.
+        max_chunks_per_doc: Optional limit on chunks from a single document. If None,
+            standard RRF truncation is used.
 
     Returns:
         List of fused RetrievedChunk items ordered descending by RRF score.
@@ -37,6 +42,8 @@ def reciprocal_rank_fusion(
         raise ValueError(f"rrf_k must be an integer >= 1, got {rrf_k}")
     if top_k < 1:
         raise ValueError(f"top_k must be an integer >= 1, got {top_k}")
+    if max_chunks_per_doc is not None and max_chunks_per_doc < 1:
+        raise ValueError(f"max_chunks_per_doc must be an integer >= 1 or None, got {max_chunks_per_doc}")
 
     rrf_scores: Dict[str, float] = defaultdict(float)
     chunk_prototypes: Dict[str, RetrievedChunk] = {}
@@ -71,9 +78,37 @@ def reciprocal_rank_fusion(
         key=lambda cid: (-rrf_scores[cid], cid),
     )
 
-    # 4. Construct fused RetrievedChunk instances
+    # 4. Select candidate chunk IDs (applying optional document diversification)
+    if max_chunks_per_doc is None or max_chunks_per_doc < 1:
+        selected_chunk_ids = sorted_chunk_ids[:top_k]
+    else:
+        selected_chunk_ids: List[str] = []
+        selected_set = set()
+        doc_counts: Dict[str, int] = defaultdict(int)
+
+        # Pass 1: Select up to max_chunks_per_doc chunks per document in score order
+        for cid in sorted_chunk_ids:
+            proto = chunk_prototypes[cid]
+            doc_id = proto.document_id
+            if doc_counts[doc_id] < max_chunks_per_doc:
+                selected_chunk_ids.append(cid)
+                selected_set.add(cid)
+                doc_counts[doc_id] += 1
+                if len(selected_chunk_ids) == top_k:
+                    break
+
+        # Pass 2: Backfill remaining slots in score order from unselected candidates
+        if len(selected_chunk_ids) < top_k:
+            for cid in sorted_chunk_ids:
+                if cid not in selected_set:
+                    selected_chunk_ids.append(cid)
+                    selected_set.add(cid)
+                    if len(selected_chunk_ids) == top_k:
+                        break
+
+    # 5. Construct fused RetrievedChunk instances
     fused_chunks: List[RetrievedChunk] = []
-    for cid in sorted_chunk_ids[:top_k]:
+    for cid in selected_chunk_ids:
         proto = chunk_prototypes[cid]
         final_score = round(rrf_scores[cid], 6)
 

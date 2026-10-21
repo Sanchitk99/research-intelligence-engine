@@ -24,7 +24,7 @@ from src.indexing.models import IndexingConfig
 from src.retrieval.retriever import DenseRetriever
 from src.retrieval.bm25 import BM25Retriever
 from src.retrieval.hybrid import HybridRetriever
-from src.retrieval.models import RetrievedChunk
+from src.retrieval.models import RetrievedChunk, HybridRetrievalConfig
 from src.generation.generator import AnswerGenerator
 from src.generation.models import GeneratedAnswer, AnswerStatus, GenerationConfig
 from src.generation.providers.factory import get_llm_provider
@@ -352,6 +352,7 @@ class ResearchEngineService:
         retrieval_mode: str = "hybrid",
         top_k: int = 5,
         min_score: Optional[float] = None,
+        enable_intent_routing: bool = False,
     ) -> GeneratedAnswer:
         """Ask a research question and generate an evidence-grounded answer with citations.
 
@@ -362,6 +363,7 @@ class ResearchEngineService:
             retrieval_mode: 'hybrid' or 'dense'.
             top_k: Number of chunks to retrieve (default: 5).
             min_score: Optional similarity cutoff.
+            enable_intent_routing: Whether to enable automatic query-intent routing for retrieval (default: False).
 
         Returns:
             GeneratedAnswer with verified citations, answer status, and latency.
@@ -398,6 +400,7 @@ class ResearchEngineService:
             if retrieval_mode.lower() == "hybrid":
                 retriever = HybridRetriever(
                     dense_retriever=dense_retriever,
+                    config=HybridRetrievalConfig(enable_intent_routing=enable_intent_routing),
                 )
             else:
                 retriever = dense_retriever

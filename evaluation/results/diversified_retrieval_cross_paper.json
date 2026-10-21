@@ -1,0 +1,4091 @@
+{
+  "timestamp": "2026-10-20T15:24:12.533927+00:00",
+  "total_cross_paper_questions": 9,
+  "cross_paper_summary": {
+    "baseline_top5": {
+      "full_coverage_count": 5,
+      "total_questions": 9,
+      "full_coverage_rate": 0.5556
+    },
+    "diversified_top5": {
+      "full_coverage_count": 9,
+      "total_questions": 9,
+      "full_coverage_rate": 1.0
+    },
+    "baseline_top10": {
+      "full_coverage_count": 8,
+      "total_questions": 9,
+      "full_coverage_rate": 0.8889
+    },
+    "diversified_top10": {
+      "full_coverage_count": 9,
+      "total_questions": 9,
+      "full_coverage_rate": 1.0
+    }
+  },
+  "cross_paper_per_question": [
+    {
+      "id": "DP01",
+      "category": "Disagreement Pair",
+      "topic": "TriviaQA exact match performance: Extractive Reader vs. Generative RAG",
+      "question": "How do the Extractive Reader in DPR and Generative RAG compare on TriviaQA exact match performance?",
+      "expected_papers": [
+        "P1",
+        "P2"
+      ],
+      "target_pages": {
+        "P1": [
+          6
+        ],
+        "P2": [
+          8
+        ]
+      },
+      "expected_distinction": "DPR extractive reader holds modest advantage (57.9 vs 56.8) on standard open-domain split, but RAG-Sequence dominates (68.0 vs 56.8) on TQA-Wiki split.",
+      "baseline_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P2",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P1",
+          "P1",
+          "P2",
+          "P1",
+          "P2"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.0328,
+            "dense_rank": 1,
+            "bm25_rank": 1,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ﬂexibility of the “c..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0311,
+            "dense_rank": 2,
+            "bm25_rank": 7,
+            "snippet": "We have the ﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and runtime. Figure 3 (left) shows that retriev..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0301,
+            "dense_rank": 4,
+            "bm25_rank": 9,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REALM (Guu et al., 2020..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0288,
+            "dense_rank": 19,
+            "bm25_rank": 2,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG model. We use the..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p08_c02",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0278,
+            "dense_rank": 22,
+            "bm25_rank": 4,
+            "snippet": "Single and Multi denote that our Dense Passage Retriever (DPR) is trained using individual or combined training datasets (all except SQuAD). For WQ and TREC ..."
+          }
+        ]
+      },
+      "diversified_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": 2,
+        "covered_docs": [
+          "P5",
+          "P2",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P1",
+          "P1",
+          "P2",
+          "P2",
+          "P5"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.0328,
+            "dense_rank": 1,
+            "bm25_rank": 1,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ﬂexibility of the “c..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0311,
+            "dense_rank": 2,
+            "bm25_rank": 7,
+            "snippet": "We have the ﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and runtime. Figure 3 (left) shows that retriev..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0301,
+            "dense_rank": 4,
+            "bm25_rank": 9,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REALM (Guu et al., 2020..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p08_c02",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0278,
+            "dense_rank": 22,
+            "bm25_rank": 4,
+            "snippet": "Single and Multi denote that our Dense Passage Retriever (DPR) is trained using individual or combined training datasets (all except SQuAD). For WQ and TREC ..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P5_p01_c05",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0258,
+            "dense_rank": 24,
+            "bm25_rank": 12,
+            "snippet": "In practice, RAG systems are often evaluated in terms of the language modelling task itself, i.e. by mea- suring perplexity on some reference corpus. How- ev..."
+          }
+        ]
+      },
+      "baseline_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P5",
+          "P2",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P1",
+          "P1",
+          "P2",
+          "P1",
+          "P2",
+          "P2",
+          "P2",
+          "P2",
+          "P5",
+          "P2"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.0328,
+            "dense_rank": 1,
+            "bm25_rank": 1,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ﬂexibility of the “c..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0311,
+            "dense_rank": 2,
+            "bm25_rank": 7,
+            "snippet": "We have the ﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and runtime. Figure 3 (left) shows that retriev..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0301,
+            "dense_rank": 4,
+            "bm25_rank": 9,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REALM (Guu et al., 2020..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0288,
+            "dense_rank": 19,
+            "bm25_rank": 2,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG model. We use the..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p08_c02",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0278,
+            "dense_rank": 22,
+            "bm25_rank": 4,
+            "snippet": "Single and Multi denote that our Dense Passage Retriever (DPR) is trained using individual or combined training datasets (all except SQuAD). For WQ and TREC ..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P2_p04_c05",
+            "doc_id": "P2",
+            "page": 4,
+            "score": 0.0277,
+            "dense_rank": 8,
+            "bm25_rank": 17,
+            "snippet": "the answer as the positive passage. If none of the top 100 retrieved passages has the answer, the ques- tion will be discarded. For SQuAD and Natural Questio..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P2_p08_c04",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0272,
+            "dense_rank": 23,
+            "bm25_rank": 6,
+            "snippet": "trained, following Lee et al. (2019). This approach obtains a score of 39.8 EM, which suggests that our strategy of training a strong retriever and reader in..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P2_p13_c04",
+            "doc_id": "P2",
+            "page": 13,
+            "score": 0.0269,
+            "dense_rank": 27,
+            "bm25_rank": 5,
+            "snippet": "better results compared to the usual retriever/reader training pipeline, resulting in the same 39.8 exact match score on NQ dev as in our regular reader mode..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P5_p01_c05",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0258,
+            "dense_rank": 24,
+            "bm25_rank": 12,
+            "snippet": "In practice, RAG systems are often evaluated in terms of the language modelling task itself, i.e. by mea- suring perplexity on some reference corpus. How- ev..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P2_p07_c01",
+            "doc_id": "P2",
+            "page": 7,
+            "score": 0.025,
+            "dense_rank": 3,
+            "bm25_rank": 50,
+            "snippet": "5.3 Qualitative Analysis Although DPR performs better than BM25 in gen- eral, passages retrieved by these two methods dif- fer qualitatively. Term-matching m..."
+          }
+        ]
+      },
+      "diversified_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": 3,
+        "covered_docs": [
+          "P4",
+          "P5",
+          "P2",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P1",
+          "P1",
+          "P2",
+          "P1",
+          "P2",
+          "P2",
+          "P5",
+          "P4",
+          "P4",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.0328,
+            "dense_rank": 1,
+            "bm25_rank": 1,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ﬂexibility of the “c..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0311,
+            "dense_rank": 2,
+            "bm25_rank": 7,
+            "snippet": "We have the ﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and runtime. Figure 3 (left) shows that retriev..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0301,
+            "dense_rank": 4,
+            "bm25_rank": 9,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REALM (Guu et al., 2020..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0288,
+            "dense_rank": 19,
+            "bm25_rank": 2,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG model. We use the..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p08_c02",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0278,
+            "dense_rank": 22,
+            "bm25_rank": 4,
+            "snippet": "Single and Multi denote that our Dense Passage Retriever (DPR) is trained using individual or combined training datasets (all except SQuAD). For WQ and TREC ..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P2_p04_c05",
+            "doc_id": "P2",
+            "page": 4,
+            "score": 0.0277,
+            "dense_rank": 8,
+            "bm25_rank": 17,
+            "snippet": "the answer as the positive passage. If none of the top 100 retrieved passages has the answer, the ques- tion will be discarded. For SQuAD and Natural Questio..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P5_p01_c05",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0258,
+            "dense_rank": 24,
+            "bm25_rank": 12,
+            "snippet": "In practice, RAG systems are often evaluated in terms of the language modelling task itself, i.e. by mea- suring perplexity on some reference corpus. How- ev..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P4_p07_c01",
+            "doc_id": "P4",
+            "page": 7,
+            "score": 0.0223,
+            "dense_rank": 39,
+            "bm25_rank": 22,
+            "snippet": "Preprint. Challenge; Clark et al. 2018). We use accuracy as an evaluation metric and report on the test set. We aggregate the answer probabilities of target ..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P4_p08_c04",
+            "doc_id": "P4",
+            "page": 8,
+            "score": 0.0206,
+            "dense_rank": 36,
+            "bm25_rank": 38,
+            "snippet": "As shown in Tables 2 (bottom), our SELF-RAG also outperforms existing RAG in many tasks, obtaining the best performance among non-proprietary LM-based models..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P4_p10_c02",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0147,
+            "dense_rank": null,
+            "bm25_rank": 8,
+            "snippet": "test time by adjusting such parameters without requiring additional training. Efficiency and accuracy trade-off. Using our framework, practitioners can adjus..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "DP02",
+      "category": "Disagreement Pair",
+      "topic": "WebQuestions exact match: REALM (40.7) vs. T5-11B+SSM (44.7)",
+      "question": "How do REALM and T5-11B+SSM compare on WebQuestions exact match?",
+      "expected_papers": [
+        "P1",
+        "P3"
+      ],
+      "target_pages": {
+        "P1": [
+          6
+        ],
+        "P3": [
+          7
+        ]
+      },
+      "expected_distinction": "Non-comparable due to 34x parameter disparity (11.3B vs 330M), T5 supervised pre-training on 100k+ SQuAD examples, and entity-targeted Salient Span Masking.",
+      "baseline_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P2",
+          "P3",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P3",
+          "P3",
+          "P3",
+          "P1",
+          "P2"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p07_c04",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.0328,
+            "dense_rank": 1,
+            "bm25_rank": 1,
+            "snippet": "As reported in the concurrent work of Roberts et al. (2020), the generative Open-QA systems based on T5 are surpris- ingly powerful, with the largest T5-11B ..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p07_c01",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.032,
+            "dense_rank": 2,
+            "bm25_rank": 3,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Table 1. Test results on Open-QA benchmarks. The number of train/test examples are shown in paretheses..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p02_c04",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0303,
+            "dense_rank": 4,
+            "bm25_rank": 8,
+            "snippet": "domain Question Answering (Open-QA), one of the most knowledge-intensive tasks in natural language process- ing. We evaluate on three popular Open-QA bench- ..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c01",
+            "doc_id": "P1",
+            "page": 6,
+            "score": 0.0295,
+            "dense_rank": 15,
+            "bm25_rank": 2,
+            "snippet": "Table 1: Open-Domain QA Test Scores. For TQA, left column uses the standard test set for Open- Domain QA, right column uses the TQA-Wiki test set. See Append..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p13_c04",
+            "doc_id": "P2",
+            "page": 13,
+            "score": 0.0284,
+            "dense_rank": 7,
+            "bm25_rank": 14,
+            "snippet": "better results compared to the usual retriever/reader training pipeline, resulting in the same 39.8 exact match score on NQ dev as in our regular reader mode..."
+          }
+        ]
+      },
+      "diversified_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": 2,
+        "covered_docs": [
+          "P2",
+          "P3",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P3",
+          "P3",
+          "P1",
+          "P2",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p07_c04",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.0328,
+            "dense_rank": 1,
+            "bm25_rank": 1,
+            "snippet": "As reported in the concurrent work of Roberts et al. (2020), the generative Open-QA systems based on T5 are surpris- ingly powerful, with the largest T5-11B ..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p07_c01",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.032,
+            "dense_rank": 2,
+            "bm25_rank": 3,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Table 1. Test results on Open-QA benchmarks. The number of train/test examples are shown in paretheses..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p06_c01",
+            "doc_id": "P1",
+            "page": 6,
+            "score": 0.0295,
+            "dense_rank": 15,
+            "bm25_rank": 2,
+            "snippet": "Table 1: Open-Domain QA Test Scores. For TQA, left column uses the standard test set for Open- Domain QA, right column uses the TQA-Wiki test set. See Append..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p13_c04",
+            "doc_id": "P2",
+            "page": 13,
+            "score": 0.0284,
+            "dense_rank": 7,
+            "bm25_rank": 14,
+            "snippet": "better results compared to the usual retriever/reader training pipeline, resulting in the same 39.8 exact match score on NQ dev as in our regular reader mode..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p19_c01",
+            "doc_id": "P1",
+            "page": 19,
+            "score": 0.0273,
+            "dense_rank": 24,
+            "bm25_rank": 5,
+            "snippet": "Table 7: Number of instances in the datasets used. *A hidden subset of this data is used for evaluation Task Train Development Test Natural Questions 79169 8..."
+          }
+        ]
+      },
+      "baseline_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P2",
+          "P3",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P3",
+          "P3",
+          "P3",
+          "P1",
+          "P2",
+          "P3",
+          "P1",
+          "P3",
+          "P3",
+          "P3"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p07_c04",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.0328,
+            "dense_rank": 1,
+            "bm25_rank": 1,
+            "snippet": "As reported in the concurrent work of Roberts et al. (2020), the generative Open-QA systems based on T5 are surpris- ingly powerful, with the largest T5-11B ..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p07_c01",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.032,
+            "dense_rank": 2,
+            "bm25_rank": 3,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Table 1. Test results on Open-QA benchmarks. The number of train/test examples are shown in paretheses..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p02_c04",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0303,
+            "dense_rank": 4,
+            "bm25_rank": 8,
+            "snippet": "domain Question Answering (Open-QA), one of the most knowledge-intensive tasks in natural language process- ing. We evaluate on three popular Open-QA bench- ..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c01",
+            "doc_id": "P1",
+            "page": 6,
+            "score": 0.0295,
+            "dense_rank": 15,
+            "bm25_rank": 2,
+            "snippet": "Table 1: Open-Domain QA Test Scores. For TQA, left column uses the standard test set for Open- Domain QA, right column uses the TQA-Wiki test set. See Append..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p13_c04",
+            "doc_id": "P2",
+            "page": 13,
+            "score": 0.0284,
+            "dense_rank": 7,
+            "bm25_rank": 14,
+            "snippet": "better results compared to the usual retriever/reader training pipeline, resulting in the same 39.8 exact match score on NQ dev as in our regular reader mode..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P3_p08_c02",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.0279,
+            "dense_rank": 8,
+            "bm25_rank": 16,
+            "snippet": "or both. To do so, we can reset the parameters of either the retriever or the encoder to their baseline state before REALM pre-training, and feed that into ﬁ..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P1_p19_c01",
+            "doc_id": "P1",
+            "page": 19,
+            "score": 0.0273,
+            "dense_rank": 24,
+            "bm25_rank": 5,
+            "snippet": "Table 7: Number of instances in the datasets used. *A hidden subset of this data is used for evaluation Task Train Development Test Natural Questions 79169 8..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P3_p08_c01",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.0271,
+            "dense_rank": 3,
+            "bm25_rank": 29,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Table 3. An example where REALM utilizes retrieved documents to better predict masked tokens. It assig..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P3_p05_c01",
+            "doc_id": "P3",
+            "page": 5,
+            "score": 0.0269,
+            "dense_rank": 10,
+            "bm25_rank": 19,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Figure 3. REALM pre-training with asynchronous MIPS re- freshes. below, the trainer sends the index bu..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P3_p06_c02",
+            "doc_id": "P3",
+            "page": 6,
+            "score": 0.0263,
+            "dense_rank": 28,
+            "bm25_rank": 7,
+            "snippet": "The NaturalQuestions dataset (Kwiatkowski et al., 2019) consists of naturally occurring Google queries and their answers. Each answer also comes with an “ans..."
+          }
+        ]
+      },
+      "diversified_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": 3,
+        "covered_docs": [
+          "P4",
+          "P2",
+          "P3",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P3",
+          "P3",
+          "P3",
+          "P1",
+          "P2",
+          "P1",
+          "P2",
+          "P2",
+          "P1",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p07_c04",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.0328,
+            "dense_rank": 1,
+            "bm25_rank": 1,
+            "snippet": "As reported in the concurrent work of Roberts et al. (2020), the generative Open-QA systems based on T5 are surpris- ingly powerful, with the largest T5-11B ..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p07_c01",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.032,
+            "dense_rank": 2,
+            "bm25_rank": 3,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Table 1. Test results on Open-QA benchmarks. The number of train/test examples are shown in paretheses..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p02_c04",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0303,
+            "dense_rank": 4,
+            "bm25_rank": 8,
+            "snippet": "domain Question Answering (Open-QA), one of the most knowledge-intensive tasks in natural language process- ing. We evaluate on three popular Open-QA bench- ..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c01",
+            "doc_id": "P1",
+            "page": 6,
+            "score": 0.0295,
+            "dense_rank": 15,
+            "bm25_rank": 2,
+            "snippet": "Table 1: Open-Domain QA Test Scores. For TQA, left column uses the standard test set for Open- Domain QA, right column uses the TQA-Wiki test set. See Append..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p13_c04",
+            "doc_id": "P2",
+            "page": 13,
+            "score": 0.0284,
+            "dense_rank": 7,
+            "bm25_rank": 14,
+            "snippet": "better results compared to the usual retriever/reader training pipeline, resulting in the same 39.8 exact match score on NQ dev as in our regular reader mode..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P1_p19_c01",
+            "doc_id": "P1",
+            "page": 19,
+            "score": 0.0273,
+            "dense_rank": 24,
+            "bm25_rank": 5,
+            "snippet": "Table 7: Number of instances in the datasets used. *A hidden subset of this data is used for evaluation Task Train Development Test Natural Questions 79169 8..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P2_p06_c06",
+            "doc_id": "P2",
+            "page": 6,
+            "score": 0.0263,
+            "dense_rank": 9,
+            "bm25_rank": 25,
+            "snippet": "DPR on Natural Questions only and test it directly on the smaller WebQuestions and CuratedTREC datasets. We ﬁnd that DPR generalizes well, with 3-5 points lo..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P2_p08_c02",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0235,
+            "dense_rank": 19,
+            "bm25_rank": 32,
+            "snippet": "Single and Multi denote that our Dense Passage Retriever (DPR) is trained using individual or combined training datasets (all except SQuAD). For WQ and TREC ..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P1_p07_c05",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0227,
+            "dense_rank": 34,
+            "bm25_rank": 23,
+            "snippet": "We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace RAG’s retriever with a ﬁxed BM25 system, and use BM25 retrieva..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P4_p10_c02",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0125,
+            "dense_rank": null,
+            "bm25_rank": 20,
+            "snippet": "test time by adjusting such parameters without requiring additional training. Efficiency and accuracy trade-off. Using our framework, practitioners can adjus..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "DP03",
+      "category": "Disagreement Pair",
+      "topic": "Retrieval Frequency and Utility: Adaptive Retrieval vs. Unconditional Always-Retrieve",
+      "question": "How does Self-RAG's adaptive retrieval compare to standard RAG's unconditional always-retrieve approach in terms of retrieval frequency and utility?",
+      "expected_papers": [
+        "P1",
+        "P4"
+      ],
+      "target_pages": {
+        "P1": [
+          3
+        ],
+        "P4": [
+          8,
+          9
+        ]
+      },
+      "expected_distinction": "Standard RAG unconditionally retrieves for every query; Self-RAG dynamically predicts Retrieve reflection token, preventing noisy context from degrading performance.",
+      "baseline_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P4",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P4",
+          "P4",
+          "P4",
+          "P1",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p09_c04",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.032,
+            "dense_rank": 2,
+            "bm25_rank": 3,
+            "snippet": "On ASQA, we evaluate models on sampled 150 instances and exclude ablations involving adaptive or no retrieval processes. We show in Table 3a the ablation res..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c02",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318,
+            "dense_rank": 5,
+            "bm25_rank": 1,
+            "snippet": "test time by adjusting such parameters without requiring additional training. Efficiency and accuracy trade-off. Using our framework, practitioners can adjus..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p09_c02",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.0297,
+            "dense_rank": 10,
+            "bm25_rank": 5,
+            "snippet": "precisely grounded yet shorter outputs. Llama2-FT7B, which is the baseline LM trained on the same instruction-output pairs as SELF-RAG without retrieval or s..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0292,
+            "dense_rank": 3,
+            "bm25_rank": 15,
+            "snippet": "4.5 Additional Results Generation Diversity Section 4.3 shows that RAG models are more factual and speciﬁc than BART for Jeopardy question generation. Follow..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p17_c01",
+            "doc_id": "P4",
+            "page": 17,
+            "score": 0.029,
+            "dense_rank": 12,
+            "bm25_rank": 6,
+            "snippet": "Preprint. A SELF-RAG DETAILS A.1 REFLECTION TOKENS. Definitions of reflection tokens. Below, we provide a detailed definition of reflection type and output t..."
+          }
+        ]
+      },
+      "diversified_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": 2,
+        "covered_docs": [
+          "P5",
+          "P4",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P4",
+          "P4",
+          "P1",
+          "P1",
+          "P5"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p09_c04",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.032,
+            "dense_rank": 2,
+            "bm25_rank": 3,
+            "snippet": "On ASQA, we evaluate models on sampled 150 instances and exclude ablations involving adaptive or no retrieval processes. We show in Table 3a the ablation res..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c02",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318,
+            "dense_rank": 5,
+            "bm25_rank": 1,
+            "snippet": "test time by adjusting such parameters without requiring additional training. Efficiency and accuracy trade-off. Using our framework, practitioners can adjus..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0292,
+            "dense_rank": 3,
+            "bm25_rank": 15,
+            "snippet": "4.5 Additional Results Generation Diversity Section 4.3 shows that RAG models are more factual and speciﬁc than BART for Jeopardy question generation. Follow..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p09_c05",
+            "doc_id": "P1",
+            "page": 9,
+            "score": 0.0251,
+            "dense_rank": 13,
+            "bm25_rank": 28,
+            "snippet": "We found that people prefer RAG’s generation over purely parametric BART, ﬁnding RAG more factual and speciﬁc. We conducted an thorough investigation of the ..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P5_p01_c04",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0241,
+            "dense_rank": 9,
+            "bm25_rank": 44,
+            "snippet": "sages from a corpus and feeding these passages, along with the original question, to the LM. While initial approaches relied on specialised LMs for retrieval..."
+          }
+        ]
+      },
+      "baseline_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P4",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P4",
+          "P4",
+          "P4",
+          "P1",
+          "P4",
+          "P4",
+          "P4",
+          "P4",
+          "P4",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p09_c04",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.032,
+            "dense_rank": 2,
+            "bm25_rank": 3,
+            "snippet": "On ASQA, we evaluate models on sampled 150 instances and exclude ablations involving adaptive or no retrieval processes. We show in Table 3a the ablation res..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c02",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318,
+            "dense_rank": 5,
+            "bm25_rank": 1,
+            "snippet": "test time by adjusting such parameters without requiring additional training. Efficiency and accuracy trade-off. Using our framework, practitioners can adjus..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p09_c02",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.0297,
+            "dense_rank": 10,
+            "bm25_rank": 5,
+            "snippet": "precisely grounded yet shorter outputs. Llama2-FT7B, which is the baseline LM trained on the same instruction-output pairs as SELF-RAG without retrieval or s..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0292,
+            "dense_rank": 3,
+            "bm25_rank": 15,
+            "snippet": "4.5 Additional Results Generation Diversity Section 4.3 shows that RAG models are more factual and speciﬁc than BART for Jeopardy question generation. Follow..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p17_c01",
+            "doc_id": "P4",
+            "page": 17,
+            "score": 0.029,
+            "dense_rank": 12,
+            "bm25_rank": 6,
+            "snippet": "Preprint. A SELF-RAG DETAILS A.1 REFLECTION TOKENS. Definitions of reflection tokens. Below, we provide a detailed definition of reflection type and output t..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P4_p01_c05",
+            "doc_id": "P4",
+            "page": 1,
+            "score": 0.0278,
+            "dense_rank": 4,
+            "bm25_rank": 22,
+            "snippet": "If so, it outputs a retrieval token that calls a retriever model on demand (Step 1). Subsequently, SELF-RAG concurrently processes multiple retrieved passage..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P4_p09_c01",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.0277,
+            "dense_rank": 18,
+            "bm25_rank": 7,
+            "snippet": "Preprint. PQA Med AS (acc) (acc) (em) SELF-RAG (50k) 45.5 73.5 32.1 Training No Retriever R 43.6 67.8 31.0 No Critic C 42.6 72.0 18.1 Test No retrieval 24.7 ..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P4_p08_c03",
+            "doc_id": "P4",
+            "page": 8,
+            "score": 0.0267,
+            "dense_rank": 14,
+            "bm25_rank": 16,
+            "snippet": "56.6 2.0 3.8 Our SELF-RAG 7B 54.9 66.4 72.4 67.3 81.2 30.0 35.7 74.3 66.9 67.8 Our SELF-RAG 13B 55.8 69.3 74.5 73.1 80.2 31.7 37.0 71.6 70.3 71.3 5 RESULTS A..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P4_p01_c04",
+            "doc_id": "P4",
+            "page": 1,
+            "score": 0.0265,
+            "dense_rank": 19,
+            "bm25_rank": 12,
+            "snippet": "the models are not explicitly trained to leverage and follow facts from provided passages. This work introduces Self-Reflective Retrieval-augmented Generatio..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P4_p03_c05",
+            "doc_id": "P4",
+            "page": 3,
+            "score": 0.0263,
+            "dense_rank": 34,
+            "bm25_rank": 4,
+            "snippet": "Recent work on LLM refinement (Dhuliawala et al., 2023; Madaan et al., 2023; Paul et al., 2023) prompts a model to generate task output, natural language fee..."
+          }
+        ]
+      },
+      "diversified_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": 3,
+        "covered_docs": [
+          "P3",
+          "P5",
+          "P4",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P4",
+          "P4",
+          "P4",
+          "P1",
+          "P1",
+          "P1",
+          "P5",
+          "P5",
+          "P3",
+          "P5"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p09_c04",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.032,
+            "dense_rank": 2,
+            "bm25_rank": 3,
+            "snippet": "On ASQA, we evaluate models on sampled 150 instances and exclude ablations involving adaptive or no retrieval processes. We show in Table 3a the ablation res..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c02",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318,
+            "dense_rank": 5,
+            "bm25_rank": 1,
+            "snippet": "test time by adjusting such parameters without requiring additional training. Efficiency and accuracy trade-off. Using our framework, practitioners can adjus..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p09_c02",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.0297,
+            "dense_rank": 10,
+            "bm25_rank": 5,
+            "snippet": "precisely grounded yet shorter outputs. Llama2-FT7B, which is the baseline LM trained on the same instruction-output pairs as SELF-RAG without retrieval or s..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0292,
+            "dense_rank": 3,
+            "bm25_rank": 15,
+            "snippet": "4.5 Additional Results Generation Diversity Section 4.3 shows that RAG models are more factual and speciﬁc than BART for Jeopardy question generation. Follow..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p09_c05",
+            "doc_id": "P1",
+            "page": 9,
+            "score": 0.0251,
+            "dense_rank": 13,
+            "bm25_rank": 28,
+            "snippet": "We found that people prefer RAG’s generation over purely parametric BART, ﬁnding RAG more factual and speciﬁc. We conducted an thorough investigation of the ..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P1_p19_c02",
+            "doc_id": "P1",
+            "page": 19,
+            "score": 0.0243,
+            "dense_rank": 6,
+            "bm25_rank": 49,
+            "snippet": "The non-parametric memory index does not consist of trainable parameters, but does consists of 21M 728 dimensional vectors, consisting of 15.3B values. These..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P5_p01_c04",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0241,
+            "dense_rank": 9,
+            "bm25_rank": 44,
+            "snippet": "sages from a corpus and feeding these passages, along with the original question, to the LM. While initial approaches relied on specialised LMs for retrieval..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P5_p01_c05",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0209,
+            "dense_rank": 42,
+            "bm25_rank": 30,
+            "snippet": "In practice, RAG systems are often evaluated in terms of the language modelling task itself, i.e. by mea- suring perplexity on some reference corpus. How- ev..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P3_p12_c02",
+            "doc_id": "P3",
+            "page": 12,
+            "score": 0.0132,
+            "dense_rank": 16,
+            "bm25_rank": null,
+            "snippet": "Figure 4. The Retrieval Utility (RU, described in Eq. 2) vs the number of pre-training steps. RU roughly estimates the “usefulness” of retrieval. RU is impac..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P5_p01_c01",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0123,
+            "dense_rank": 21,
+            "bm25_rank": null,
+            "snippet": "Ragas: Automated Evaluation of Retrieval Augmented Generation Shahul Es†, Jithin James†, Luis Espinosa-Anke∗♢, Steven Schockaert∗ †Exploding Gradients ∗Cardi..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "Q06",
+      "category": "Benchmark Multi-Paper",
+      "topic": "RAG vs DPR Exact Match on NQ and TriviaQA",
+      "question": "What exact match scores does RAG-Token achieve on Natural Questions, and how does this compare to DPR's extractive approach?",
+      "expected_papers": [
+        "P1",
+        "P2"
+      ],
+      "target_pages": {
+        "P1": [
+          5,
+          6
+        ],
+        "P2": [
+          8
+        ]
+      },
+      "expected_distinction": "RAG-Token achieves 44.1 EM (RAG-Seq 44.5) outperforming DPR extractive (41.5) on NQ, while DPR achieves 57.9 EM on TriviaQA open-domain.",
+      "baseline_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P1",
+          "P1",
+          "P1",
+          "P1",
+          "P1"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.5,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0323,
+            "dense_rank": 3,
+            "bm25_rank": 1,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG model. We use the..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031,
+            "dense_rank": 4,
+            "bm25_rank": 5,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ﬂexibility of the “c..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0301,
+            "dense_rank": 5,
+            "bm25_rank": 8,
+            "snippet": "We have the ﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and runtime. Figure 3 (left) shows that retriev..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c03",
+            "doc_id": "P1",
+            "page": 6,
+            "score": 0.0291,
+            "dense_rank": 2,
+            "bm25_rank": 17,
+            "snippet": "Later, we also show that RAG generations are more diverse than BART generations (see §4.5). 4.3 Jeopardy Question Generation Table 2 shows that RAG-Token per..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.028,
+            "dense_rank": 6,
+            "bm25_rank": 18,
+            "snippet": "4.5 Additional Results Generation Diversity Section 4.3 shows that RAG models are more factual and speciﬁc than BART for Jeopardy question generation. Follow..."
+          }
+        ]
+      },
+      "diversified_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": 2,
+        "covered_docs": [
+          "P4",
+          "P2",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P1",
+          "P1",
+          "P2",
+          "P2",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0323,
+            "dense_rank": 3,
+            "bm25_rank": 1,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG model. We use the..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031,
+            "dense_rank": 4,
+            "bm25_rank": 5,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ﬂexibility of the “c..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0267,
+            "dense_rank": 22,
+            "bm25_rank": 9,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REALM (Guu et al., 2020..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p04_c05",
+            "doc_id": "P2",
+            "page": 4,
+            "score": 0.0261,
+            "dense_rank": 11,
+            "bm25_rank": 23,
+            "snippet": "the answer as the positive passage. If none of the top 100 retrieved passages has the answer, the ques- tion will be discarded. For SQuAD and Natural Questio..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p10_c04",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.025,
+            "dense_rank": 12,
+            "bm25_rank": 30,
+            "snippet": "reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Following Menick et al. (2022), human annotators..."
+          }
+        ]
+      },
+      "baseline_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P2",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P1",
+          "P1",
+          "P1",
+          "P1",
+          "P1",
+          "P1",
+          "P1",
+          "P1",
+          "P2",
+          "P2"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0323,
+            "dense_rank": 3,
+            "bm25_rank": 1,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG model. We use the..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031,
+            "dense_rank": 4,
+            "bm25_rank": 5,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ﬂexibility of the “c..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0301,
+            "dense_rank": 5,
+            "bm25_rank": 8,
+            "snippet": "We have the ﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and runtime. Figure 3 (left) shows that retriev..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c03",
+            "doc_id": "P1",
+            "page": 6,
+            "score": 0.0291,
+            "dense_rank": 2,
+            "bm25_rank": 17,
+            "snippet": "Later, we also show that RAG generations are more diverse than BART generations (see §4.5). 4.3 Jeopardy Question Generation Table 2 shows that RAG-Token per..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.028,
+            "dense_rank": 6,
+            "bm25_rank": 18,
+            "snippet": "4.5 Additional Results Generation Diversity Section 4.3 shows that RAG models are more factual and speciﬁc than BART for Jeopardy question generation. Follow..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P1_p04_c01",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0278,
+            "dense_rank": 26,
+            "bm25_rank": 2,
+            "snippet": "minimize the negative marginal log-likelihood of each target, P j −log p(yj|xj) using stochastic gradient descent with Adam [28]. Updating the document encod..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P1_p03_c03",
+            "doc_id": "P1",
+            "page": 3,
+            "score": 0.0271,
+            "dense_rank": 8,
+            "bm25_rank": 21,
+            "snippet": "pRAG-Token(y|x) ≈ N Y i X z∈top-k(p(·|x)) pη(z|x)pθ(yi|x, z, y1:i−1) Finally, we note that RAG can be used for sequence classiﬁcation tasks by considering th..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P1_p08_c01",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0268,
+            "dense_rank": 15,
+            "bm25_rank": 14,
+            "snippet": "Table 4: Human assessments for the Jeopardy Question Generation Task. Factuality Speciﬁcity BART better 7.1% 16.8% RAG better 42.7% 37.4% Both good 11.7% 11...."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0267,
+            "dense_rank": 22,
+            "bm25_rank": 9,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REALM (Guu et al., 2020..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P2_p04_c05",
+            "doc_id": "P2",
+            "page": 4,
+            "score": 0.0261,
+            "dense_rank": 11,
+            "bm25_rank": 23,
+            "snippet": "the answer as the positive passage. If none of the top 100 retrieved passages has the answer, the ques- tion will be discarded. For SQuAD and Natural Questio..."
+          }
+        ]
+      },
+      "diversified_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": 3,
+        "covered_docs": [
+          "P4",
+          "P5",
+          "P2",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P1",
+          "P1",
+          "P1",
+          "P2",
+          "P2",
+          "P4",
+          "P5",
+          "P2",
+          "P4",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0323,
+            "dense_rank": 3,
+            "bm25_rank": 1,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG model. We use the..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031,
+            "dense_rank": 4,
+            "bm25_rank": 5,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ﬂexibility of the “c..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0301,
+            "dense_rank": 5,
+            "bm25_rank": 8,
+            "snippet": "We have the ﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and runtime. Figure 3 (left) shows that retriev..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0267,
+            "dense_rank": 22,
+            "bm25_rank": 9,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REALM (Guu et al., 2020..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p04_c05",
+            "doc_id": "P2",
+            "page": 4,
+            "score": 0.0261,
+            "dense_rank": 11,
+            "bm25_rank": 23,
+            "snippet": "the answer as the positive passage. If none of the top 100 retrieved passages has the answer, the ques- tion will be discarded. For SQuAD and Natural Questio..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P4_p10_c04",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.025,
+            "dense_rank": 12,
+            "bm25_rank": 30,
+            "snippet": "reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Following Menick et al. (2022), human annotators..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P5_p01_c05",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0247,
+            "dense_rank": 7,
+            "bm25_rank": 42,
+            "snippet": "In practice, RAG systems are often evaluated in terms of the language modelling task itself, i.e. by mea- suring perplexity on some reference corpus. How- ev..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P2_p12_c01",
+            "doc_id": "P2",
+            "page": 12,
+            "score": 0.0222,
+            "dense_rank": 33,
+            "bm25_rank": 27,
+            "snippet": "A Distant Supervision When training our ﬁnal DPR model using Natural Questions, we use the passages in our collection that best match the gold context as the..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P4_p04_c03",
+            "doc_id": "P4",
+            "page": 4,
+            "score": 0.0216,
+            "dense_rank": 38,
+            "bm25_rank": 28,
+            "snippet": "passage’s relevance, the next response segment, and a critique token to evaluate if the information in the response segment is supported by the passage. Fina..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P4_p04_c01",
+            "doc_id": "P4",
+            "page": 4,
+            "score": 0.0145,
+            "dense_rank": 9,
+            "bm25_rank": null,
+            "snippet": "Preprint. Type Input Output Definitions Retrieve x / x, y {yes, no, continue} Decides when to retrieve with R ISREL x, d {relevant, irrelevant} d provides us..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "Q07",
+      "category": "Benchmark Multi-Paper",
+      "topic": "RAG, DPR, and REALM on Natural Questions Exact Match",
+      "question": "How do RAG, DPR, and REALM compare on Natural Questions exact match?",
+      "expected_papers": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "target_pages": {
+        "P1": [
+          6
+        ],
+        "P2": [
+          8
+        ],
+        "P3": [
+          7
+        ]
+      },
+      "expected_distinction": "RAG-Sequence (44.5) > RAG-Token (44.1) > DPR (41.5) > REALM CC-News (40.4) > REALM Wikipedia (39.2).",
+      "baseline_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P2",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P1",
+          "P1",
+          "P2",
+          "P2",
+          "P1"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.6667,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0318,
+            "dense_rank": 5,
+            "bm25_rank": 1,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG model. We use the..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031,
+            "dense_rank": 6,
+            "bm25_rank": 3,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ﬂexibility of the “c..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0292,
+            "dense_rank": 11,
+            "bm25_rank": 6,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REALM (Guu et al., 2020..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p12_c03",
+            "doc_id": "P2",
+            "page": 12,
+            "score": 0.0287,
+            "dense_rank": 3,
+            "bm25_rank": 18,
+            "snippet": "eral, the retrieved passages of these two retrievers actually differ qualitatively. Methods like BM25 are sensitive to highly selective keywords and phrases,..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c04",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0275,
+            "dense_rank": 28,
+            "bm25_rank": 2,
+            "snippet": "data. We now discuss experimental details for each task. 3.1 Open-domain Question Answering Open-domain question answering (QA) is an important real-world ap..."
+          }
+        ]
+      },
+      "diversified_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": 2,
+        "covered_docs": [
+          "P3",
+          "P2",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P1",
+          "P1",
+          "P2",
+          "P2",
+          "P3"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0318,
+            "dense_rank": 5,
+            "bm25_rank": 1,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG model. We use the..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031,
+            "dense_rank": 6,
+            "bm25_rank": 3,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ﬂexibility of the “c..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0292,
+            "dense_rank": 11,
+            "bm25_rank": 6,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REALM (Guu et al., 2020..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p12_c03",
+            "doc_id": "P2",
+            "page": 12,
+            "score": 0.0287,
+            "dense_rank": 3,
+            "bm25_rank": 18,
+            "snippet": "eral, the retrieved passages of these two retrievers actually differ qualitatively. Methods like BM25 are sensitive to highly selective keywords and phrases,..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P3_p06_c01",
+            "doc_id": "P3",
+            "page": 6,
+            "score": 0.0271,
+            "dense_rank": 27,
+            "bm25_rank": 4,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training 4. Experiments We now evaluate our approach on the Open-QA task. In this section, we describe in detai..."
+          }
+        ]
+      },
+      "baseline_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P3",
+          "P2",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P1",
+          "P1",
+          "P2",
+          "P2",
+          "P1",
+          "P2",
+          "P2",
+          "P3",
+          "P1",
+          "P2"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0318,
+            "dense_rank": 5,
+            "bm25_rank": 1,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG model. We use the..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031,
+            "dense_rank": 6,
+            "bm25_rank": 3,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ﬂexibility of the “c..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0292,
+            "dense_rank": 11,
+            "bm25_rank": 6,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REALM (Guu et al., 2020..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p12_c03",
+            "doc_id": "P2",
+            "page": 12,
+            "score": 0.0287,
+            "dense_rank": 3,
+            "bm25_rank": 18,
+            "snippet": "eral, the retrieved passages of these two retrievers actually differ qualitatively. Methods like BM25 are sensitive to highly selective keywords and phrases,..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c04",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0275,
+            "dense_rank": 28,
+            "bm25_rank": 2,
+            "snippet": "data. We now discuss experimental details for each task. 3.1 Open-domain Question Answering Open-domain question answering (QA) is an important real-world ap..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P2_p06_c06",
+            "doc_id": "P2",
+            "page": 6,
+            "score": 0.0272,
+            "dense_rank": 13,
+            "bm25_rank": 14,
+            "snippet": "DPR on Natural Questions only and test it directly on the smaller WebQuestions and CuratedTREC datasets. We ﬁnd that DPR generalizes well, with 3-5 points lo..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P2_p04_c05",
+            "doc_id": "P2",
+            "page": 4,
+            "score": 0.0271,
+            "dense_rank": 25,
+            "bm25_rank": 5,
+            "snippet": "the answer as the positive passage. If none of the top 100 retrieved passages has the answer, the ques- tion will be discarded. For SQuAD and Natural Questio..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P3_p06_c01",
+            "doc_id": "P3",
+            "page": 6,
+            "score": 0.0271,
+            "dense_rank": 27,
+            "bm25_rank": 4,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training 4. Experiments We now evaluate our approach on the Open-QA task. In this section, we describe in detai..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0267,
+            "dense_rank": 14,
+            "bm25_rank": 16,
+            "snippet": "We have the ﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and runtime. Figure 3 (left) shows that retriev..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P2_p04_c03",
+            "doc_id": "P2",
+            "page": 4,
+            "score": 0.0262,
+            "dense_rank": 18,
+            "bm25_rank": 15,
+            "snippet": "questions with answers that were originally scraped from the Web. WebQuestions (WQ) (Berant et al., 2013) consists of questions selected using Google Suggest..."
+          }
+        ]
+      },
+      "diversified_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": 3,
+        "covered_docs": [
+          "P3",
+          "P4",
+          "P2",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P1",
+          "P1",
+          "P2",
+          "P2",
+          "P1",
+          "P2",
+          "P3",
+          "P3",
+          "P3",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0318,
+            "dense_rank": 5,
+            "bm25_rank": 1,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG model. We use the..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031,
+            "dense_rank": 6,
+            "bm25_rank": 3,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ﬂexibility of the “c..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0292,
+            "dense_rank": 11,
+            "bm25_rank": 6,
+            "snippet": "accuracy. It is interesting to contrast our results to those of ORQA (Lee et al., 2019) and also the concurrently developed approach, REALM (Guu et al., 2020..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p12_c03",
+            "doc_id": "P2",
+            "page": 12,
+            "score": 0.0287,
+            "dense_rank": 3,
+            "bm25_rank": 18,
+            "snippet": "eral, the retrieved passages of these two retrievers actually differ qualitatively. Methods like BM25 are sensitive to highly selective keywords and phrases,..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c04",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0275,
+            "dense_rank": 28,
+            "bm25_rank": 2,
+            "snippet": "data. We now discuss experimental details for each task. 3.1 Open-domain Question Answering Open-domain question answering (QA) is an important real-world ap..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P2_p06_c06",
+            "doc_id": "P2",
+            "page": 6,
+            "score": 0.0272,
+            "dense_rank": 13,
+            "bm25_rank": 14,
+            "snippet": "DPR on Natural Questions only and test it directly on the smaller WebQuestions and CuratedTREC datasets. We ﬁnd that DPR generalizes well, with 3-5 points lo..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P3_p06_c01",
+            "doc_id": "P3",
+            "page": 6,
+            "score": 0.0271,
+            "dense_rank": 27,
+            "bm25_rank": 4,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training 4. Experiments We now evaluate our approach on the Open-QA task. In this section, we describe in detai..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P3_p02_c04",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0239,
+            "dense_rank": 19,
+            "bm25_rank": 29,
+            "snippet": "domain Question Answering (Open-QA), one of the most knowledge-intensive tasks in natural language process- ing. We evaluate on three popular Open-QA bench- ..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P3_p06_c02",
+            "doc_id": "P3",
+            "page": 6,
+            "score": 0.0231,
+            "dense_rank": 48,
+            "bm25_rank": 12,
+            "snippet": "The NaturalQuestions dataset (Kwiatkowski et al., 2019) consists of naturally occurring Google queries and their answers. Each answer also comes with an “ans..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P4_p10_c04",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0212,
+            "dense_rank": 37,
+            "bm25_rank": 32,
+            "snippet": "reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Following Menick et al. (2022), human annotators..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "Q08",
+      "category": "Benchmark Comparison",
+      "topic": "Index Refresh Strategy: REALM vs DPR",
+      "question": "How does REALM's index refresh strategy differ from DPR's static index?",
+      "expected_papers": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "target_pages": {
+        "P1": [
+          4
+        ],
+        "P2": [
+          3
+        ],
+        "P3": [
+          4,
+          5
+        ]
+      },
+      "expected_distinction": "DPR keeps index static offline; REALM refreshes MIPS index asynchronously in background every few hundred steps; RAG explicitly avoids REALM's refresh to save cost.",
+      "baseline_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P3"
+        ],
+        "retrieved_doc_sequence": [
+          "P3",
+          "P3",
+          "P3",
+          "P3",
+          "P3"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.3333,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p05_c01",
+            "doc_id": "P3",
+            "page": 5,
+            "score": 0.0325,
+            "dense_rank": 1,
+            "bm25_rank": 2,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Figure 3. REALM pre-training with asynchronous MIPS re- freshes. below, the trainer sends the index bu..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p08_c03",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.0325,
+            "dense_rank": 2,
+            "bm25_rank": 1,
+            "snippet": "trieval and is therefore more sensitive to a consistent learn- ing signal. MIPS index refresh rate During pre-training, we run a parallel process to re-embed..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p08_c02",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.031,
+            "dense_rank": 3,
+            "bm25_rank": 6,
+            "snippet": "or both. To do so, we can reset the parameters of either the retriever or the encoder to their baseline state before REALM pre-training, and feed that into ﬁ..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P3_p04_c05",
+            "doc_id": "P3",
+            "page": 4,
+            "score": 0.0301,
+            "dense_rank": 8,
+            "bm25_rank": 5,
+            "snippet": "top k documents. We recompute p(z | x) and its gradient, using the fresh θ, for these top k documents after retriev- ing them. In Section 4.5, we empirically..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P3_p06_c04",
+            "doc_id": "P3",
+            "page": 6,
+            "score": 0.0285,
+            "dense_rank": 5,
+            "bm25_rank": 16,
+            "snippet": "These documents are typically then re-ranked using a learned model, but coverage may be limited by the initial heuristic retrieval step. Approaches such as D..."
+          }
+        ]
+      },
+      "diversified_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": 2,
+        "covered_docs": [
+          "P1",
+          "P3",
+          "P2"
+        ],
+        "retrieved_doc_sequence": [
+          "P3",
+          "P3",
+          "P2",
+          "P1",
+          "P2"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p05_c01",
+            "doc_id": "P3",
+            "page": 5,
+            "score": 0.0325,
+            "dense_rank": 1,
+            "bm25_rank": 2,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Figure 3. REALM pre-training with asynchronous MIPS re- freshes. below, the trainer sends the index bu..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p08_c03",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.0325,
+            "dense_rank": 2,
+            "bm25_rank": 1,
+            "snippet": "trieval and is therefore more sensitive to a consistent learn- ing signal. MIPS index refresh rate During pre-training, we run a parallel process to re-embed..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p07_c01",
+            "doc_id": "P2",
+            "page": 7,
+            "score": 0.0283,
+            "dense_rank": 15,
+            "bm25_rank": 7,
+            "snippet": "5.3 Qualitative Analysis Although DPR performs better than BM25 in gen- eral, passages retrieved by these two methods dif- fer qualitatively. Term-matching m..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p07_c05",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0278,
+            "dense_rank": 24,
+            "bm25_rank": 3,
+            "snippet": "We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace RAG’s retriever with a ﬁxed BM25 system, and use BM25 retrieva..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p07_c02",
+            "doc_id": "P2",
+            "page": 7,
+            "score": 0.0267,
+            "dense_rank": 12,
+            "bm25_rank": 18,
+            "snippet": "sages per question. In contrast, BM25/Lucene (im- plemented in Java, using ﬁle index) processes 23.7 questions per second per CPU thread. On the other hand, ..."
+          }
+        ]
+      },
+      "baseline_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P1",
+          "P3",
+          "P2"
+        ],
+        "retrieved_doc_sequence": [
+          "P3",
+          "P3",
+          "P3",
+          "P3",
+          "P3",
+          "P2",
+          "P1",
+          "P3",
+          "P2",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p05_c01",
+            "doc_id": "P3",
+            "page": 5,
+            "score": 0.0325,
+            "dense_rank": 1,
+            "bm25_rank": 2,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Figure 3. REALM pre-training with asynchronous MIPS re- freshes. below, the trainer sends the index bu..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p08_c03",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.0325,
+            "dense_rank": 2,
+            "bm25_rank": 1,
+            "snippet": "trieval and is therefore more sensitive to a consistent learn- ing signal. MIPS index refresh rate During pre-training, we run a parallel process to re-embed..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p08_c02",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.031,
+            "dense_rank": 3,
+            "bm25_rank": 6,
+            "snippet": "or both. To do so, we can reset the parameters of either the retriever or the encoder to their baseline state before REALM pre-training, and feed that into ﬁ..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P3_p04_c05",
+            "doc_id": "P3",
+            "page": 4,
+            "score": 0.0301,
+            "dense_rank": 8,
+            "bm25_rank": 5,
+            "snippet": "top k documents. We recompute p(z | x) and its gradient, using the fresh θ, for these top k documents after retriev- ing them. In Section 4.5, we empirically..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P3_p06_c04",
+            "doc_id": "P3",
+            "page": 6,
+            "score": 0.0285,
+            "dense_rank": 5,
+            "bm25_rank": 16,
+            "snippet": "These documents are typically then re-ranked using a learned model, but coverage may be limited by the initial heuristic retrieval step. Approaches such as D..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P2_p07_c01",
+            "doc_id": "P2",
+            "page": 7,
+            "score": 0.0283,
+            "dense_rank": 15,
+            "bm25_rank": 7,
+            "snippet": "5.3 Qualitative Analysis Although DPR performs better than BM25 in gen- eral, passages retrieved by these two methods dif- fer qualitatively. Term-matching m..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P1_p07_c05",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0278,
+            "dense_rank": 24,
+            "bm25_rank": 3,
+            "snippet": "We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace RAG’s retriever with a ﬁxed BM25 system, and use BM25 retrieva..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P3_p04_c04",
+            "doc_id": "P3",
+            "page": 4,
+            "score": 0.027,
+            "dense_rank": 20,
+            "bm25_rank": 9,
+            "snippet": "inner product. Thus, we can employ Maximum Inner Prod- uct Search (MIPS) algorithms to ﬁnd the approximate top k documents, using running time and storage sp..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P2_p07_c02",
+            "doc_id": "P2",
+            "page": 7,
+            "score": 0.0267,
+            "dense_rank": 12,
+            "bm25_rank": 18,
+            "snippet": "sages per question. In contrast, BM25/Lucene (im- plemented in Java, using ﬁle index) processes 23.7 questions per second per CPU thread. On the other hand, ..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P1_p08_c02",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0265,
+            "dense_rank": 16,
+            "bm25_rank": 15,
+            "snippet": "52.1 41.8 52.6 11.8 19.6 56.7 47.3 RAG-Token 43.5 54.8 46.5 51.9 17.9 22.6 56.2 49.4 74.5 90.6 RAG-Sequence 44.0 55.8 44.9 53.4 15.3 21.5 57.2 47.5 between t..."
+          }
+        ]
+      },
+      "diversified_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": 3,
+        "covered_docs": [
+          "P4",
+          "P1",
+          "P3",
+          "P2"
+        ],
+        "retrieved_doc_sequence": [
+          "P3",
+          "P3",
+          "P3",
+          "P2",
+          "P1",
+          "P2",
+          "P1",
+          "P4",
+          "P2",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p05_c01",
+            "doc_id": "P3",
+            "page": 5,
+            "score": 0.0325,
+            "dense_rank": 1,
+            "bm25_rank": 2,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Figure 3. REALM pre-training with asynchronous MIPS re- freshes. below, the trainer sends the index bu..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p08_c03",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.0325,
+            "dense_rank": 2,
+            "bm25_rank": 1,
+            "snippet": "trieval and is therefore more sensitive to a consistent learn- ing signal. MIPS index refresh rate During pre-training, we run a parallel process to re-embed..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p08_c02",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.031,
+            "dense_rank": 3,
+            "bm25_rank": 6,
+            "snippet": "or both. To do so, we can reset the parameters of either the retriever or the encoder to their baseline state before REALM pre-training, and feed that into ﬁ..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p07_c01",
+            "doc_id": "P2",
+            "page": 7,
+            "score": 0.0283,
+            "dense_rank": 15,
+            "bm25_rank": 7,
+            "snippet": "5.3 Qualitative Analysis Although DPR performs better than BM25 in gen- eral, passages retrieved by these two methods dif- fer qualitatively. Term-matching m..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p07_c05",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0278,
+            "dense_rank": 24,
+            "bm25_rank": 3,
+            "snippet": "We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace RAG’s retriever with a ﬁxed BM25 system, and use BM25 retrieva..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P2_p07_c02",
+            "doc_id": "P2",
+            "page": 7,
+            "score": 0.0267,
+            "dense_rank": 12,
+            "bm25_rank": 18,
+            "snippet": "sages per question. In contrast, BM25/Lucene (im- plemented in Java, using ﬁle index) processes 23.7 questions per second per CPU thread. On the other hand, ..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P1_p08_c02",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0265,
+            "dense_rank": 16,
+            "bm25_rank": 15,
+            "snippet": "52.1 41.8 52.6 11.8 19.6 56.7 47.3 RAG-Token 43.5 54.8 46.5 51.9 17.9 22.6 56.2 49.4 74.5 90.6 RAG-Sequence 44.0 55.8 44.9 53.4 15.3 21.5 57.2 47.5 between t..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P4_p10_c02",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0234,
+            "dense_rank": 28,
+            "bm25_rank": 23,
+            "snippet": "test time by adjusting such parameters without requiring additional training. Efficiency and accuracy trade-off. Using our framework, practitioners can adjus..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P2_p12_c03",
+            "doc_id": "P2",
+            "page": 12,
+            "score": 0.0232,
+            "dense_rank": 19,
+            "bm25_rank": 35,
+            "snippet": "eral, the retrieved passages of these two retrievers actually differ qualitatively. Methods like BM25 are sensitive to highly selective keywords and phrases,..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P1_p19_c02",
+            "doc_id": "P1",
+            "page": 19,
+            "score": 0.0211,
+            "dense_rank": 38,
+            "bm25_rank": 32,
+            "snippet": "The non-parametric memory index does not consist of trainable parameters, but does consists of 21M 728 dimensional vectors, consisting of 15.3B values. These..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "Q09",
+      "category": "Benchmark Comparison",
+      "topic": "Adaptive Retrieval: Self-RAG vs Standard RAG",
+      "question": "How does Self-RAG's approach to deciding when to retrieve differ from standard RAG?",
+      "expected_papers": [
+        "P1",
+        "P4"
+      ],
+      "target_pages": {
+        "P1": [
+          2,
+          3
+        ],
+        "P4": [
+          4
+        ]
+      },
+      "expected_distinction": "RAG retrieves fixed top-k unconditionally; Self-RAG predicts Retrieve token {yes, no, continue} on demand.",
+      "baseline_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P4"
+        ],
+        "retrieved_doc_sequence": [
+          "P4",
+          "P4",
+          "P4",
+          "P4",
+          "P4"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.5,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p20_c05",
+            "doc_id": "P4",
+            "page": 20,
+            "score": 0.0294,
+            "dense_rank": 3,
+            "bm25_rank": 14,
+            "snippet": "analysis: 1) sample query models successfully answer correctly, 2) for each query in this group, check whether the matched ground-truth answer is a sub-strin..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c03",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.029,
+            "dense_rank": 9,
+            "bm25_rank": 9,
+            "snippet": "150k training instances, and fine-tune four SELF-RAG 7B variants on those subsets. Then, we compare the model performance on PopQA, PubHealth, and ASQA (cita..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p04_c01",
+            "doc_id": "P4",
+            "page": 4,
+            "score": 0.029,
+            "dense_rank": 4,
+            "bm25_rank": 15,
+            "snippet": "Preprint. Type Input Output Definitions Retrieve x / x, y {yes, no, continue} Decides when to retrieve with R ISREL x, d {relevant, irrelevant} d provides us..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p09_c02",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.0285,
+            "dense_rank": 16,
+            "bm25_rank": 5,
+            "snippet": "precisely grounded yet shorter outputs. Llama2-FT7B, which is the baseline LM trained on the same instruction-output pairs as SELF-RAG without retrieval or s..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p09_c04",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.028,
+            "dense_rank": 13,
+            "bm25_rank": 10,
+            "snippet": "On ASQA, we evaluate models on sampled 150 instances and exclude ablations involving adaptive or no retrieval processes. We show in Table 3a the ablation res..."
+          }
+        ]
+      },
+      "diversified_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": 2,
+        "covered_docs": [
+          "P5",
+          "P4",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P4",
+          "P4",
+          "P1",
+          "P1",
+          "P5"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p20_c05",
+            "doc_id": "P4",
+            "page": 20,
+            "score": 0.0294,
+            "dense_rank": 3,
+            "bm25_rank": 14,
+            "snippet": "analysis: 1) sample query models successfully answer correctly, 2) for each query in this group, check whether the matched ground-truth answer is a sub-strin..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c03",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.029,
+            "dense_rank": 9,
+            "bm25_rank": 9,
+            "snippet": "150k training instances, and fine-tune four SELF-RAG 7B variants on those subsets. Then, we compare the model performance on PopQA, PubHealth, and ASQA (cita..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p04_c01",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.023,
+            "dense_rank": 29,
+            "bm25_rank": 25,
+            "snippet": "minimize the negative marginal log-likelihood of each target, P j −log p(yj|xj) using stochastic gradient descent with Adam [28]. Updating the document encod..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0225,
+            "dense_rank": 18,
+            "bm25_rank": 43,
+            "snippet": "4.5 Additional Results Generation Diversity Section 4.3 shows that RAG models are more factual and speciﬁc than BART for Jeopardy question generation. Follow..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P5_p02_c06",
+            "doc_id": "P5",
+            "page": 2,
+            "score": 0.0213,
+            "dense_rank": 31,
+            "bm25_rank": 37,
+            "snippet": "BERT model, to compare the similarity between the generated answer and the reference answers. BARTScore (Yuan et al., 2021) similarly uses refer- ence answer..."
+          }
+        ]
+      },
+      "baseline_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P4"
+        ],
+        "retrieved_doc_sequence": [
+          "P4",
+          "P4",
+          "P4",
+          "P4",
+          "P4",
+          "P4",
+          "P4",
+          "P4",
+          "P4",
+          "P4"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.5,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p20_c05",
+            "doc_id": "P4",
+            "page": 20,
+            "score": 0.0294,
+            "dense_rank": 3,
+            "bm25_rank": 14,
+            "snippet": "analysis: 1) sample query models successfully answer correctly, 2) for each query in this group, check whether the matched ground-truth answer is a sub-strin..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c03",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.029,
+            "dense_rank": 9,
+            "bm25_rank": 9,
+            "snippet": "150k training instances, and fine-tune four SELF-RAG 7B variants on those subsets. Then, we compare the model performance on PopQA, PubHealth, and ASQA (cita..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p04_c01",
+            "doc_id": "P4",
+            "page": 4,
+            "score": 0.029,
+            "dense_rank": 4,
+            "bm25_rank": 15,
+            "snippet": "Preprint. Type Input Output Definitions Retrieve x / x, y {yes, no, continue} Decides when to retrieve with R ISREL x, d {relevant, irrelevant} d provides us..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p09_c02",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.0285,
+            "dense_rank": 16,
+            "bm25_rank": 5,
+            "snippet": "precisely grounded yet shorter outputs. Llama2-FT7B, which is the baseline LM trained on the same instruction-output pairs as SELF-RAG without retrieval or s..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p09_c04",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.028,
+            "dense_rank": 13,
+            "bm25_rank": 10,
+            "snippet": "On ASQA, we evaluate models on sampled 150 instances and exclude ablations involving adaptive or no retrieval processes. We show in Table 3a the ablation res..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P4_p17_c01",
+            "doc_id": "P4",
+            "page": 17,
+            "score": 0.0277,
+            "dense_rank": 8,
+            "bm25_rank": 17,
+            "snippet": "Preprint. A SELF-RAG DETAILS A.1 REFLECTION TOKENS. Definitions of reflection tokens. Below, we provide a detailed definition of reflection type and output t..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P4_p01_c05",
+            "doc_id": "P4",
+            "page": 1,
+            "score": 0.0269,
+            "dense_rank": 1,
+            "bm25_rank": 35,
+            "snippet": "If so, it outputs a retrieval token that calls a retriever model on demand (Step 1). Subsequently, SELF-RAG concurrently processes multiple retrieved passage..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P4_p08_c05",
+            "doc_id": "P4",
+            "page": 8,
+            "score": 0.0263,
+            "dense_rank": 14,
+            "bm25_rank": 18,
+            "snippet": "models except ChatGPT. Gao et al. (2023) found that ChatGPT consistently exhibits superior efficacy in this particular task, surpassing smaller LMs. Our SELF..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P4_p08_c03",
+            "doc_id": "P4",
+            "page": 8,
+            "score": 0.0262,
+            "dense_rank": 20,
+            "bm25_rank": 13,
+            "snippet": "56.6 2.0 3.8 Our SELF-RAG 7B 54.9 66.4 72.4 67.3 81.2 30.0 35.7 74.3 66.9 67.8 Our SELF-RAG 13B 55.8 69.3 74.5 73.1 80.2 31.7 37.0 71.6 70.3 71.3 5 RESULTS A..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P4_p03_c05",
+            "doc_id": "P4",
+            "page": 3,
+            "score": 0.0261,
+            "dense_rank": 43,
+            "bm25_rank": 1,
+            "snippet": "Recent work on LLM refinement (Dhuliawala et al., 2023; Madaan et al., 2023; Paul et al., 2023) prompts a model to generate task output, natural language fee..."
+          }
+        ]
+      },
+      "diversified_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": 3,
+        "covered_docs": [
+          "P3",
+          "P5",
+          "P4",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P4",
+          "P4",
+          "P4",
+          "P1",
+          "P1",
+          "P1",
+          "P5",
+          "P5",
+          "P5",
+          "P3"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p20_c05",
+            "doc_id": "P4",
+            "page": 20,
+            "score": 0.0294,
+            "dense_rank": 3,
+            "bm25_rank": 14,
+            "snippet": "analysis: 1) sample query models successfully answer correctly, 2) for each query in this group, check whether the matched ground-truth answer is a sub-strin..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c03",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.029,
+            "dense_rank": 9,
+            "bm25_rank": 9,
+            "snippet": "150k training instances, and fine-tune four SELF-RAG 7B variants on those subsets. Then, we compare the model performance on PopQA, PubHealth, and ASQA (cita..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p04_c01",
+            "doc_id": "P4",
+            "page": 4,
+            "score": 0.029,
+            "dense_rank": 4,
+            "bm25_rank": 15,
+            "snippet": "Preprint. Type Input Output Definitions Retrieve x / x, y {yes, no, continue} Decides when to retrieve with R ISREL x, d {relevant, irrelevant} d provides us..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p04_c01",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.023,
+            "dense_rank": 29,
+            "bm25_rank": 25,
+            "snippet": "minimize the negative marginal log-likelihood of each target, P j −log p(yj|xj) using stochastic gradient descent with Adam [28]. Updating the document encod..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0225,
+            "dense_rank": 18,
+            "bm25_rank": 43,
+            "snippet": "4.5 Additional Results Generation Diversity Section 4.3 shows that RAG models are more factual and speciﬁc than BART for Jeopardy question generation. Follow..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.0224,
+            "dense_rank": 17,
+            "bm25_rank": 46,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ﬂexibility of the “c..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P5_p02_c06",
+            "doc_id": "P5",
+            "page": 2,
+            "score": 0.0213,
+            "dense_rank": 31,
+            "bm25_rank": 37,
+            "snippet": "BERT model, to compare the similarity between the generated answer and the reference answers. BARTScore (Yuan et al., 2021) similarly uses refer- ence answer..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P5_p01_c05",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0123,
+            "dense_rank": 21,
+            "bm25_rank": null,
+            "snippet": "In practice, RAG systems are often evaluated in terms of the language modelling task itself, i.e. by mea- suring perplexity on some reference corpus. How- ev..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P5_p05_c04",
+            "doc_id": "P5",
+            "page": 5,
+            "score": 0.0115,
+            "dense_rank": 27,
+            "bm25_rank": null,
+            "snippet": "metrics are much closer aligned with the human judgements than the predictions from the two base- lines. For faithfulness, the Ragas prediction are in genera..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P3_p03_c02",
+            "doc_id": "P3",
+            "page": 3,
+            "score": 0.0093,
+            "dense_rank": null,
+            "bm25_rank": 48,
+            "snippet": "art systems from both paradigms in our experiments. 3. Approach We start by formalizing REALM’s pre-training and ﬁne- tuning tasks as a retrieve-then-predict..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "Q10",
+      "category": "Benchmark Comparison",
+      "topic": "Faithfulness Evaluation: Self-RAG ISSUP vs RAGAS Faithfulness",
+      "question": "How does Self-RAG's ISSUP token relate to RAGAS's faithfulness metric?",
+      "expected_papers": [
+        "P4",
+        "P5"
+      ],
+      "target_pages": {
+        "P4": [
+          4
+        ],
+        "P5": [
+          3
+        ]
+      },
+      "expected_distinction": "Both verify passage support, but ISSUP operates inline at generation time to guide search, while Ragas is post-hoc LLM evaluation across decomposed statements.",
+      "baseline_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P5",
+          "P4"
+        ],
+        "retrieved_doc_sequence": [
+          "P4",
+          "P4",
+          "P4",
+          "P5",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p10_c04",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318,
+            "dense_rank": 5,
+            "bm25_rank": 1,
+            "snippet": "reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Following Menick et al. (2022), human annotators..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p21_c01",
+            "doc_id": "P4",
+            "page": 21,
+            "score": 0.0302,
+            "dense_rank": 2,
+            "bm25_rank": 11,
+            "snippet": "Preprint. C.2 HUMAN EVALUATION EXAMPLES Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP reflection tokens. C.3 QUALIT..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p10_c05",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0296,
+            "dense_rank": 8,
+            "bm25_rank": 7,
+            "snippet": "consistent with Menick et al. (2022). Human annotators also find ISREL and ISSUP reflection token predictions are mostly aligned with their assessments. Appe..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P5_p05_c02",
+            "doc_id": "P5",
+            "page": 5,
+            "score": 0.0293,
+            "dense_rank": 4,
+            "bm25_rank": 13,
+            "snippet": "annotators. We report the results in terms of ac- curacy (i.e. the fraction of instances on which the model agrees with the annotators). To put the results i..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p04_c03",
+            "doc_id": "P4",
+            "page": 4,
+            "score": 0.0279,
+            "dense_rank": 23,
+            "bm25_rank": 3,
+            "snippet": "passage’s relevance, the next response segment, and a critique token to evaluate if the information in the response segment is supported by the passage. Fina..."
+          }
+        ]
+      },
+      "diversified_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": 2,
+        "covered_docs": [
+          "P5",
+          "P4",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P4",
+          "P4",
+          "P5",
+          "P5",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p10_c04",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318,
+            "dense_rank": 5,
+            "bm25_rank": 1,
+            "snippet": "reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Following Menick et al. (2022), human annotators..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p21_c01",
+            "doc_id": "P4",
+            "page": 21,
+            "score": 0.0302,
+            "dense_rank": 2,
+            "bm25_rank": 11,
+            "snippet": "Preprint. C.2 HUMAN EVALUATION EXAMPLES Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP reflection tokens. C.3 QUALIT..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P5_p05_c02",
+            "doc_id": "P5",
+            "page": 5,
+            "score": 0.0293,
+            "dense_rank": 4,
+            "bm25_rank": 13,
+            "snippet": "annotators. We report the results in terms of ac- curacy (i.e. the fraction of instances on which the model agrees with the annotators). To put the results i..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P5_p05_c04",
+            "doc_id": "P5",
+            "page": 5,
+            "score": 0.0245,
+            "dense_rank": 31,
+            "bm25_rank": 14,
+            "snippet": "metrics are much closer aligned with the human judgements than the predictions from the two base- lines. For faithfulness, the Ragas prediction are in genera..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c01",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0237,
+            "dense_rank": 11,
+            "bm25_rank": 44,
+            "snippet": "minimize the negative marginal log-likelihood of each target, P j −log p(yj|xj) using stochastic gradient descent with Adam [28]. Updating the document encod..."
+          }
+        ]
+      },
+      "baseline_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P5",
+          "P4"
+        ],
+        "retrieved_doc_sequence": [
+          "P4",
+          "P4",
+          "P4",
+          "P5",
+          "P4",
+          "P4",
+          "P4",
+          "P4",
+          "P4",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p10_c04",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318,
+            "dense_rank": 5,
+            "bm25_rank": 1,
+            "snippet": "reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Following Menick et al. (2022), human annotators..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p21_c01",
+            "doc_id": "P4",
+            "page": 21,
+            "score": 0.0302,
+            "dense_rank": 2,
+            "bm25_rank": 11,
+            "snippet": "Preprint. C.2 HUMAN EVALUATION EXAMPLES Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP reflection tokens. C.3 QUALIT..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p10_c05",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0296,
+            "dense_rank": 8,
+            "bm25_rank": 7,
+            "snippet": "consistent with Menick et al. (2022). Human annotators also find ISREL and ISSUP reflection token predictions are mostly aligned with their assessments. Appe..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P5_p05_c02",
+            "doc_id": "P5",
+            "page": 5,
+            "score": 0.0293,
+            "dense_rank": 4,
+            "bm25_rank": 13,
+            "snippet": "annotators. We report the results in terms of ac- curacy (i.e. the fraction of instances on which the model agrees with the annotators). To put the results i..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p04_c03",
+            "doc_id": "P4",
+            "page": 4,
+            "score": 0.0279,
+            "dense_rank": 23,
+            "bm25_rank": 3,
+            "snippet": "passage’s relevance, the next response segment, and a critique token to evaluate if the information in the response segment is supported by the passage. Fina..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P4_p01_c05",
+            "doc_id": "P4",
+            "page": 1,
+            "score": 0.0266,
+            "dense_rank": 1,
+            "bm25_rank": 38,
+            "snippet": "If so, it outputs a retrieval token that calls a retriever model on demand (Step 1). Subsequently, SELF-RAG concurrently processes multiple retrieved passage..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P4_p17_c01",
+            "doc_id": "P4",
+            "page": 17,
+            "score": 0.0262,
+            "dense_rank": 12,
+            "bm25_rank": 21,
+            "snippet": "Preprint. A SELF-RAG DETAILS A.1 REFLECTION TOKENS. Definitions of reflection tokens. Below, we provide a detailed definition of reflection type and output t..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P4_p03_c05",
+            "doc_id": "P4",
+            "page": 3,
+            "score": 0.0257,
+            "dense_rank": 29,
+            "bm25_rank": 9,
+            "snippet": "Recent work on LLM refinement (Dhuliawala et al., 2023; Madaan et al., 2023; Paul et al., 2023) prompts a model to generate task output, natural language fee..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P4_p04_c01",
+            "doc_id": "P4",
+            "page": 4,
+            "score": 0.0257,
+            "dense_rank": 7,
+            "bm25_rank": 33,
+            "snippet": "Preprint. Type Input Output Definitions Retrieve x / x, y {yes, no, continue} Decides when to retrieve with R ISREL x, d {relevant, irrelevant} d provides us..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P4_p08_c05",
+            "doc_id": "P4",
+            "page": 8,
+            "score": 0.0255,
+            "dense_rank": 17,
+            "bm25_rank": 20,
+            "snippet": "models except ChatGPT. Gao et al. (2023) found that ChatGPT consistently exhibits superior efficacy in this particular task, surpassing smaller LMs. Our SELF..."
+          }
+        ]
+      },
+      "diversified_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": 3,
+        "covered_docs": [
+          "P5",
+          "P4",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P4",
+          "P4",
+          "P4",
+          "P5",
+          "P5",
+          "P1",
+          "P1",
+          "P5",
+          "P1",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p10_c04",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318,
+            "dense_rank": 5,
+            "bm25_rank": 1,
+            "snippet": "reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Following Menick et al. (2022), human annotators..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p21_c01",
+            "doc_id": "P4",
+            "page": 21,
+            "score": 0.0302,
+            "dense_rank": 2,
+            "bm25_rank": 11,
+            "snippet": "Preprint. C.2 HUMAN EVALUATION EXAMPLES Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP reflection tokens. C.3 QUALIT..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p10_c05",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0296,
+            "dense_rank": 8,
+            "bm25_rank": 7,
+            "snippet": "consistent with Menick et al. (2022). Human annotators also find ISREL and ISSUP reflection token predictions are mostly aligned with their assessments. Appe..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P5_p05_c02",
+            "doc_id": "P5",
+            "page": 5,
+            "score": 0.0293,
+            "dense_rank": 4,
+            "bm25_rank": 13,
+            "snippet": "annotators. We report the results in terms of ac- curacy (i.e. the fraction of instances on which the model agrees with the annotators). To put the results i..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P5_p05_c04",
+            "doc_id": "P5",
+            "page": 5,
+            "score": 0.0245,
+            "dense_rank": 31,
+            "bm25_rank": 14,
+            "snippet": "metrics are much closer aligned with the human judgements than the predictions from the two base- lines. For faithfulness, the Ragas prediction are in genera..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P1_p04_c01",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0237,
+            "dense_rank": 11,
+            "bm25_rank": 44,
+            "snippet": "minimize the negative marginal log-likelihood of each target, P j −log p(yj|xj) using stochastic gradient descent with Adam [28]. Updating the document encod..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P1_p06_c05",
+            "doc_id": "P1",
+            "page": 6,
+            "score": 0.0227,
+            "dense_rank": 33,
+            "bm25_rank": 24,
+            "snippet": "Also Rises\" indicating the title \"The Sun Also Rises\" is stored in BART’s parameters. Similarly, BART will complete the partial decoding \"The Sun Also Rises\"..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P5_p05_c01",
+            "doc_id": "P5",
+            "page": 5,
+            "score": 0.0224,
+            "dense_rank": 28,
+            "bm25_rank": 31,
+            "snippet": "Faith. Ans. Rel. Cont. Rel. Ragas 0.95 0.78 0.70 GPT Score 0.72 0.52 0.63 GPT Ranking 0.54 0.40 0.52 Table 1: Agreement with human annotators in pairwise com..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0213,
+            "dense_rank": 32,
+            "bm25_rank": 36,
+            "snippet": "4.5 Additional Results Generation Diversity Section 4.3 shows that RAG models are more factual and speciﬁc than BART for Jeopardy question generation. Follow..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P4_p04_c03",
+            "doc_id": "P4",
+            "page": 4,
+            "score": 0.0279,
+            "dense_rank": 23,
+            "bm25_rank": 3,
+            "snippet": "passage’s relevance, the next response segment, and a critique token to evaluate if the information in the response segment is supported by the passage. Fina..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "Q16",
+      "category": "Benchmark Comparison",
+      "topic": "Knowledge Corpus & Passage Size: RAG vs REALM",
+      "question": "Do RAG and REALM use the same knowledge corpus, and how do their passage sizes compare?",
+      "expected_papers": [
+        "P1",
+        "P3"
+      ],
+      "target_pages": {
+        "P1": [
+          4
+        ],
+        "P3": [
+          6
+        ]
+      },
+      "expected_distinction": "Both use Dec 20, 2018 English Wikipedia dump, but RAG uses 100-word passages (~21M passages) while REALM uses 288-wordpiece chunks (~13M passages).",
+      "baseline_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P3",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P3",
+          "P1",
+          "P3",
+          "P3",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p12_c01",
+            "doc_id": "P3",
+            "page": 12,
+            "score": 0.0318,
+            "dense_rank": 1,
+            "bm25_rank": 5,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training x: “Jennifer formed the production company Excellent Cadaver.” BERT also (0.13), then (0.08), later (0..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0296,
+            "dense_rank": 16,
+            "bm25_rank": 1,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG model. We use the..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p02_c01",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0279,
+            "dense_rank": 5,
+            "bm25_rank": 20,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training decide what knowledge to retrieve and use during inference. Before making each prediction, the languag..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P3_p02_c04",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0273,
+            "dense_rank": 7,
+            "bm25_rank": 21,
+            "snippet": "domain Question Answering (Open-QA), one of the most knowledge-intensive tasks in natural language process- ing. We evaluate on three popular Open-QA bench- ..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c04",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0265,
+            "dense_rank": 28,
+            "bm25_rank": 6,
+            "snippet": "data. We now discuss experimental details for each task. 3.1 Open-domain Question Answering Open-domain question answering (QA) is an important real-world ap..."
+          }
+        ]
+      },
+      "diversified_top5": {
+        "top_k": 5,
+        "max_chunks_per_doc": 2,
+        "covered_docs": [
+          "P5",
+          "P3",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P3",
+          "P1",
+          "P3",
+          "P1",
+          "P5"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p12_c01",
+            "doc_id": "P3",
+            "page": 12,
+            "score": 0.0318,
+            "dense_rank": 1,
+            "bm25_rank": 5,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training x: “Jennifer formed the production company Excellent Cadaver.” BERT also (0.13), then (0.08), later (0..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0296,
+            "dense_rank": 16,
+            "bm25_rank": 1,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG model. We use the..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p02_c01",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0279,
+            "dense_rank": 5,
+            "bm25_rank": 20,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training decide what knowledge to retrieve and use during inference. Before making each prediction, the languag..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p04_c04",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0265,
+            "dense_rank": 28,
+            "bm25_rank": 6,
+            "snippet": "data. We now discuss experimental details for each task. 3.1 Open-domain Question Answering Open-domain question answering (QA) is an important real-world ap..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P5_p01_c04",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0213,
+            "dense_rank": 23,
+            "bm25_rank": 48,
+            "snippet": "sages from a corpus and feeding these passages, along with the original question, to the LM. While initial approaches relied on specialised LMs for retrieval..."
+          }
+        ]
+      },
+      "baseline_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": null,
+        "covered_docs": [
+          "P3",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P3",
+          "P1",
+          "P3",
+          "P3",
+          "P1",
+          "P1",
+          "P3",
+          "P1",
+          "P3",
+          "P3"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p12_c01",
+            "doc_id": "P3",
+            "page": 12,
+            "score": 0.0318,
+            "dense_rank": 1,
+            "bm25_rank": 5,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training x: “Jennifer formed the production company Excellent Cadaver.” BERT also (0.13), then (0.08), later (0..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0296,
+            "dense_rank": 16,
+            "bm25_rank": 1,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG model. We use the..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p02_c01",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0279,
+            "dense_rank": 5,
+            "bm25_rank": 20,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training decide what knowledge to retrieve and use during inference. Before making each prediction, the languag..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P3_p02_c04",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0273,
+            "dense_rank": 7,
+            "bm25_rank": 21,
+            "snippet": "domain Question Answering (Open-QA), one of the most knowledge-intensive tasks in natural language process- ing. We evaluate on three popular Open-QA bench- ..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c04",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0265,
+            "dense_rank": 28,
+            "bm25_rank": 6,
+            "snippet": "data. We now discuss experimental details for each task. 3.1 Open-domain Question Answering Open-domain question answering (QA) is an important real-world ap..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P1_p07_c05",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0263,
+            "dense_rank": 18,
+            "bm25_rank": 14,
+            "snippet": "We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace RAG’s retriever with a ﬁxed BM25 system, and use BM25 retrieva..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P3_p09_c01",
+            "doc_id": "P3",
+            "page": 9,
+            "score": 0.0262,
+            "dense_rank": 14,
+            "bm25_rank": 19,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training text is generated with latent selection of relevant tokens. This results in a set of model-centric uns..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.0258,
+            "dense_rank": 8,
+            "bm25_rank": 30,
+            "snippet": "On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ﬂexibility of the “c..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P3_p08_c01",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.0256,
+            "dense_rank": 24,
+            "bm25_rank": 13,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training Table 3. An example where REALM utilizes retrieved documents to better predict masked tokens. It assig..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P3_p07_c05",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.0256,
+            "dense_rank": 2,
+            "bm25_rank": 46,
+            "snippet": "The improvement of REALM over ORQA is purely due to bet- ter pre-training methods. The results also indicate that our method of pre-training can be applied b..."
+          }
+        ]
+      },
+      "diversified_top10": {
+        "top_k": 10,
+        "max_chunks_per_doc": 3,
+        "covered_docs": [
+          "P4",
+          "P5",
+          "P3",
+          "P1"
+        ],
+        "retrieved_doc_sequence": [
+          "P3",
+          "P1",
+          "P3",
+          "P3",
+          "P1",
+          "P1",
+          "P5",
+          "P5",
+          "P4",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p12_c01",
+            "doc_id": "P3",
+            "page": 12,
+            "score": 0.0318,
+            "dense_rank": 1,
+            "bm25_rank": 5,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training x: “Jennifer formed the production company Excellent Cadaver.” BERT also (0.13), then (0.08), later (0..."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0296,
+            "dense_rank": 16,
+            "bm25_rank": 1,
+            "snippet": "WebQuestions (WQ) [3] and CuratedTrec (CT) [2]. As CT and WQ are small, we follow DPR [26] by initializing CT and WQ models with our NQ RAG model. We use the..."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p02_c01",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0279,
+            "dense_rank": 5,
+            "bm25_rank": 20,
+            "snippet": "REALM: Retrieval-Augmented Language Model Pre-Training decide what knowledge to retrieve and use during inference. Before making each prediction, the languag..."
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P3_p02_c04",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0273,
+            "dense_rank": 7,
+            "bm25_rank": 21,
+            "snippet": "domain Question Answering (Open-QA), one of the most knowledge-intensive tasks in natural language process- ing. We evaluate on three popular Open-QA bench- ..."
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c04",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0265,
+            "dense_rank": 28,
+            "bm25_rank": 6,
+            "snippet": "data. We now discuss experimental details for each task. 3.1 Open-domain Question Answering Open-domain question answering (QA) is an important real-world ap..."
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P1_p07_c05",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0263,
+            "dense_rank": 18,
+            "bm25_rank": 14,
+            "snippet": "We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace RAG’s retriever with a ﬁxed BM25 system, and use BM25 retrieva..."
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P5_p01_c04",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0213,
+            "dense_rank": 23,
+            "bm25_rank": 48,
+            "snippet": "sages from a corpus and feeding these passages, along with the original question, to the LM. While initial approaches relied on specialised LMs for retrieval..."
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P5_p01_c02",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0152,
+            "dense_rank": 6,
+            "bm25_rank": null,
+            "snippet": "consider: the ability of the retrieval system to identify relevant and focused context passages, the ability of the LLM to exploit such passages in a faithfu..."
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P4_p18_c02",
+            "doc_id": "P4",
+            "page": 18,
+            "score": 0.0147,
+            "dense_rank": null,
+            "bm25_rank": 8,
+            "snippet": "Instruction-following Open-Instruct 25,153 FLAN-V2 Instruction-following Open-Instruct 17,817 ShareGPT Instruction-following Open-Instruct 13,406 Open Assist..."
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P4_p17_c03",
+            "doc_id": "P4",
+            "page": 17,
+            "score": 0.0143,
+            "dense_rank": null,
+            "bm25_rank": 10,
+            "snippet": "whether it is in fact factual or not. This can be also viewed as plausibility in Menick et al. (2022). For usefulness, we use a five-scale evaluation (1 is t..."
+          }
+        ]
+      }
+    }
+  ],
+  "single_paper_regression": {
+    "baseline_top5": {
+      "top_k": 5,
+      "max_chunks_per_doc": null,
+      "hit_at_1": 0.2222,
+      "hit_at_3": 0.7222,
+      "hit_at_5": 0.8333,
+      "mrr": 0.4509,
+      "per_question_first_rank": {
+        "Q01": 2,
+        "Q02": 1,
+        "Q03": 3,
+        "Q04": 2,
+        "Q05": null,
+        "Q06": 2,
+        "Q07": 3,
+        "Q08": 1,
+        "Q09": 3,
+        "Q10": 5,
+        "Q11": 1,
+        "Q12": 3,
+        "Q13": null,
+        "Q14": 3,
+        "Q15": null,
+        "Q16": 2,
+        "Q17": 1,
+        "Q18": 4
+      }
+    },
+    "diversified_top5_cap2": {
+      "top_k": 5,
+      "max_chunks_per_doc": 2,
+      "hit_at_1": 0.2222,
+      "hit_at_3": 0.5556,
+      "hit_at_5": 0.5556,
+      "mrr": 0.3704,
+      "per_question_first_rank": {
+        "Q01": 2,
+        "Q02": 1,
+        "Q03": null,
+        "Q04": 2,
+        "Q05": null,
+        "Q06": 2,
+        "Q07": 3,
+        "Q08": 1,
+        "Q09": null,
+        "Q10": null,
+        "Q11": 1,
+        "Q12": null,
+        "Q13": null,
+        "Q14": 3,
+        "Q15": null,
+        "Q16": 2,
+        "Q17": 1,
+        "Q18": null
+      }
+    },
+    "diversified_top5_cap3": {
+      "top_k": 5,
+      "max_chunks_per_doc": 3,
+      "hit_at_1": 0.2222,
+      "hit_at_3": 0.7222,
+      "hit_at_5": 0.7222,
+      "mrr": 0.4259,
+      "per_question_first_rank": {
+        "Q01": 2,
+        "Q02": 1,
+        "Q03": 3,
+        "Q04": 2,
+        "Q05": null,
+        "Q06": 2,
+        "Q07": 3,
+        "Q08": 1,
+        "Q09": 3,
+        "Q10": null,
+        "Q11": 1,
+        "Q12": 3,
+        "Q13": null,
+        "Q14": 3,
+        "Q15": null,
+        "Q16": 2,
+        "Q17": 1,
+        "Q18": null
+      }
+    },
+    "diversified_top5_cap4": {
+      "top_k": 5,
+      "max_chunks_per_doc": 4,
+      "hit_at_1": 0.2222,
+      "hit_at_3": 0.7222,
+      "hit_at_5": 0.8333,
+      "mrr": 0.4509,
+      "per_question_first_rank": {
+        "Q01": 2,
+        "Q02": 1,
+        "Q03": 3,
+        "Q04": 2,
+        "Q05": null,
+        "Q06": 2,
+        "Q07": 3,
+        "Q08": 1,
+        "Q09": 3,
+        "Q10": 5,
+        "Q11": 1,
+        "Q12": 3,
+        "Q13": null,
+        "Q14": 3,
+        "Q15": null,
+        "Q16": 2,
+        "Q17": 1,
+        "Q18": 4
+      }
+    },
+    "baseline_top10": {
+      "top_k": 10,
+      "max_chunks_per_doc": null,
+      "hit_at_1": 0.2222,
+      "hit_at_3": 0.7222,
+      "hit_at_10": 0.8889,
+      "mrr": 0.4579,
+      "per_question_first_rank": {
+        "Q01": 2,
+        "Q02": 1,
+        "Q03": 3,
+        "Q04": 2,
+        "Q05": 8,
+        "Q06": 2,
+        "Q07": 3,
+        "Q08": 1,
+        "Q09": 3,
+        "Q10": 5,
+        "Q11": 1,
+        "Q12": 3,
+        "Q13": null,
+        "Q14": 3,
+        "Q15": null,
+        "Q16": 2,
+        "Q17": 1,
+        "Q18": 4
+      }
+    },
+    "diversified_top10_cap3": {
+      "top_k": 10,
+      "max_chunks_per_doc": 3,
+      "hit_at_1": 0.2222,
+      "hit_at_3": 0.7222,
+      "hit_at_10": 0.7778,
+      "mrr": 0.4315,
+      "per_question_first_rank": {
+        "Q01": 2,
+        "Q02": 1,
+        "Q03": 3,
+        "Q04": 2,
+        "Q05": null,
+        "Q06": 2,
+        "Q07": 3,
+        "Q08": 1,
+        "Q09": 3,
+        "Q10": 10,
+        "Q11": 1,
+        "Q12": 3,
+        "Q13": null,
+        "Q14": 3,
+        "Q15": null,
+        "Q16": 2,
+        "Q17": 1,
+        "Q18": null
+      }
+    },
+    "diversified_top10_cap4": {
+      "top_k": 10,
+      "max_chunks_per_doc": 4,
+      "hit_at_1": 0.2222,
+      "hit_at_3": 0.7222,
+      "hit_at_10": 0.8333,
+      "mrr": 0.4509,
+      "per_question_first_rank": {
+        "Q01": 2,
+        "Q02": 1,
+        "Q03": 3,
+        "Q04": 2,
+        "Q05": null,
+        "Q06": 2,
+        "Q07": 3,
+        "Q08": 1,
+        "Q09": 3,
+        "Q10": 5,
+        "Q11": 1,
+        "Q12": 3,
+        "Q13": null,
+        "Q14": 3,
+        "Q15": null,
+        "Q16": 2,
+        "Q17": 1,
+        "Q18": 4
+      }
+    }
+  },
+  "generation_evaluation": {
+    "mock_generation": [
+      {
+        "id": "DP01",
+        "status": "abstained_insufficient_evidence",
+        "answer_preview": "The provided research evidence does not contain sufficient factual information to answer this question.",
+        "citations_count": 0,
+        "cited_documents": [],
+        "all_expected_papers_cited": false,
+        "citations": []
+      },
+      {
+        "id": "DP02",
+        "status": "abstained_insufficient_evidence",
+        "answer_preview": "The provided research evidence does not contain sufficient factual information to answer this question.",
+        "citations_count": 0,
+        "cited_documents": [],
+        "all_expected_papers_cited": false,
+        "citations": []
+      },
+      {
+        "id": "DP03",
+        "status": "abstained_insufficient_evidence",
+        "answer_preview": "The provided research evidence does not contain sufficient factual information to answer this question.",
+        "citations_count": 0,
+        "cited_documents": [],
+        "all_expected_papers_cited": false,
+        "citations": []
+      },
+      {
+        "id": "Q06",
+        "status": "abstained_insufficient_evidence",
+        "answer_preview": "The provided research evidence does not contain sufficient factual information to answer this question.",
+        "citations_count": 0,
+        "cited_documents": [],
+        "all_expected_papers_cited": false,
+        "citations": []
+      },
+      {
+        "id": "Q07",
+        "status": "abstained_insufficient_evidence",
+        "answer_preview": "The provided research evidence does not contain sufficient factual information to answer this question.",
+        "citations_count": 0,
+        "cited_documents": [],
+        "all_expected_papers_cited": false,
+        "citations": []
+      },
+      {
+        "id": "Q08",
+        "status": "abstained_insufficient_evidence",
+        "answer_preview": "The provided research evidence does not contain sufficient factual information to answer this question.",
+        "citations_count": 0,
+        "cited_documents": [],
+        "all_expected_papers_cited": false,
+        "citations": []
+      },
+      {
+        "id": "Q09",
+        "status": "abstained_insufficient_evidence",
+        "answer_preview": "The retrieved passages do not contain evidence regarding how Self-RAG dynamically decides when to retrieve.",
+        "citations_count": 0,
+        "cited_documents": [],
+        "all_expected_papers_cited": false,
+        "citations": []
+      },
+      {
+        "id": "Q10",
+        "status": "answered",
+        "answer_preview": "Both Self-RAG's ISSUP reflection token and RAGAS's faithfulness metric evaluate whether generated output is supported by retrieved context to prevent hallucinat...",
+        "citations_count": 2,
+        "cited_documents": [
+          "P5",
+          "P4"
+        ],
+        "all_expected_papers_cited": true,
+        "citations": [
+          {
+            "doc_id": "P4",
+            "page": 10,
+            "chunk_id": "P4_p10_c04",
+            "excerpt": "We then ask our annotators whether the model-predicted\nreflection tokens about\nI"
+          },
+          {
+            "doc_id": "P5",
+            "page": 5,
+            "chunk_id": "P5_p05_c02",
+            "excerpt": "For instance, for evaluating faithfulness,\nwe used the following prompt:\nFaithfu"
+          }
+        ]
+      },
+      {
+        "id": "Q16",
+        "status": "abstained_insufficient_evidence",
+        "answer_preview": "The provided research evidence does not contain sufficient factual information to answer this question.",
+        "citations_count": 0,
+        "cited_documents": [],
+        "all_expected_papers_cited": false,
+        "citations": []
+      }
+    ],
+    "live_generation": [
+      {
+        "id": "Q06",
+        "provider": "groq",
+        "model": "openai/gpt-oss-20b",
+        "status": "partially_answered",
+        "answer": "The provided evidence does not report an Exact Match (EM) score for RAG‑Token on the Natural Questions (NQ) dataset. In contrast, the DPR extractive system, when jointly trained on retriever and reader, achieves an EM of 39.8 on NQ.",
+        "citations_count": 1,
+        "cited_documents": [
+          "P2"
+        ],
+        "all_expected_papers_cited": false,
+        "citations": [
+          {
+            "doc_id": "P2",
+            "page": 8,
+            "chunk_id": "P2_p08_c03",
+            "excerpt": "This approach obtains a score of 39.8 EM"
+          }
+        ]
+      },
+      {
+        "id": "Q07",
+        "provider": "groq",
+        "model": "openai/gpt-oss-20b",
+        "status": "partially_answered",
+        "answer": "On the Natural Questions benchmark, the Dense Passage Retrieval (DPR) system achieved an Exact Match (EM) score of 39.8. The Exact Match scores for Retrieval-Augmented Generation (RAG) and REALM on Natural Questions are not reported in the provided evidence.",
+        "citations_count": 1,
+        "cited_documents": [
+          "P2"
+        ],
+        "all_expected_papers_cited": false,
+        "citations": [
+          {
+            "doc_id": "P2",
+            "page": 8,
+            "chunk_id": "P2_p08_c03",
+            "excerpt": "This approach obtains a score of 39.8 EM"
+          }
+        ]
+      },
+      {
+        "id": "Q08",
+        "provider": "groq",
+        "model": "openai/gpt-oss-20b",
+        "status": "error",
+        "answer": "LLM provider error encountered: Groq API returned error HTTP 400: {\"error\":{\"message\":\"max completion tokens reached before generating a valid document: the output was truncated to fit max_completion_tokens and is missing required content. Increase max_completion_tokens. See 'failed_generation' for the truncated output. Error: jsonschema: '' does not validate with /required: missing properties: 'confidence_notes'\",\"type\":\"invalid_request_error\",\"code\":\"json_validate_failed\",\"failed_generation\":\"{\\\"status\\\":\\\"answered\\\",\\\"answer\\\":\\\"REALM refreshes its MIPS index continuously during pre‑training, rebuilding a new index every ~500 training steps by running an asynchronous background process that re‑embeds the corpus. In contrast, DPR builds a FAISS index once (after computing dense embeddings for the entire corpus) and uses that static index for all retrievals without further updates during training or inference.\\\",\\\"citations\\\":[{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"During pre-training, we run a parallel process to re-embed corpus documents and rebuild the MIPS index. This results in one index refresh per approximately 500 training steps.\\\"},{\\\"chunk_id\\\":\\\"P3_p05_c01\\\",\\\"excerpt\\\":\\\"the trainer sends the index builder a snapshot of its parameters, θ′. The trainer then continues to train while the index builder uses θ′ to construct a new index in the background.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"MIPS index refresh rate\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"During pre-training, we run a parallel process to re-embed corpus documents and rebuild the MIPS index.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"This results in one index refresh per approximately 500 training steps.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"MIPS index refresh rate\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"During pre-training, we run a parallel process to re-embed corpus documents and rebuild the MIPS index.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"This results in one index refresh per approximately 500 training steps.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"MIPS index refresh rate\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"During pre-training, we run a parallel process to re-embed corpus documents and rebuild the MIPS index.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"This results in one index refresh per approximately 500 training steps.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"MIPS index refresh rate\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"During pre-training, we run a parallel process to re-embed corpus documents and rebuild the MIPS index.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"This results in one index refresh per approximately 500 training steps.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"MIPS index refresh rate\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"During pre-training, we run a parallel process to re-embed corpus documents and rebuild the MIPS index.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"This results in one index refresh per approximately 500 training steps.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"MIPS index refresh rate\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"During pre-training, we run a parallel process to re-embed corpus documents and rebuild the MIPS index.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"This results in one index refresh per approximately 500 training steps.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"MIPS index refresh rate\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"During pre-training, we run a parallel process to re-embed corpus documents and rebuild the MIPS index.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"This results in one index refresh per approximately 500 training steps.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"MIPS index refresh rate\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"During pre-training, we run a parallel process to re-embed corpus documents and rebuild the MIPS index.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"This results in one index refresh per approximately 500 training steps.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"MIPS index refresh rate\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"During pre-training, we run a parallel process to re-embed corpus documents and rebuild the MIPS index.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"This results in one index refresh per approximately 500 training steps.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"MIPS index refresh rate\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"During pre-training, we run a parallel process to re-embed corpus documents and rebuild the MIPS index.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"This results in one index refresh per approximately 500 training steps.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"MIPS index refresh rate\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"During pre-training, we run a parallel process to re-embed corpus documents and rebuild the MIPS index.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"This results in one index refresh per approximately 500 training steps.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"MIPS index refresh rate\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"During pre-training, we run a parallel process to re-embed corpus documents and rebuild the MIPS index.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"This results in one index refresh per approximately 500 training steps.\\\"},{\\\"chunk_id\\\":\\\"P3_p08_c03\\\",\\\"excerpt\\\":\\\"MIPS index refresh rate\\\"}]}\"}}\n",
+        "citations_count": 0,
+        "cited_documents": [],
+        "all_expected_papers_cited": false,
+        "citations": []
+      },
+      {
+        "id": "Q09",
+        "provider": "groq",
+        "model": "openai/gpt-oss-20b",
+        "status": "answered",
+        "answer": "Self‑RAG learns to decide whether to rely on retrieved evidence by generating a self‑reflection token (e.g., ISREL) that flags when the retrieved passages are irrelevant, allowing it to skip or down‑weight retrieval. In contrast, standard RAG always performs retrieval first and then generates the answer based solely on the retrieved context.",
+        "citations_count": 2,
+        "cited_documents": [
+          "P5",
+          "P4"
+        ],
+        "all_expected_papers_cited": false,
+        "citations": [
+          {
+            "doc_id": "P4",
+            "page": 20,
+            "chunk_id": "P4_p20_c05",
+            "excerpt": "analysis: 1) sample query models successfully answer correctly, 2) for each query in this group,\ncheck whether the match..."
+          },
+          {
+            "doc_id": "P5",
+            "page": 2,
+            "chunk_id": "P5_p02_c06",
+            "excerpt": "BERT model, to compare the similarity between\nthe generated answer and the reference answers.\nBARTScore (Yuan et al., 20..."
+          }
+        ]
+      }
+    ]
+  }
+}

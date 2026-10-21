@@ -121,6 +121,20 @@ class HybridRetrievalConfig(BaseModel):
         ge=0.0,
         description="Weight multiplier for BM25 retrieval ranks in RRF"
     )
+    max_chunks_per_doc: Optional[int] = Field(
+        default=None,
+        ge=1,
+        description="Optional maximum chunks allowed per document for diversification (None disables diversification)"
+    )
+    enable_intent_routing: bool = Field(
+        default=False,
+        description="Whether to dynamically route retrieval configuration based on query intent (opt-in)"
+    )
+    comparative_max_chunks_per_doc: int = Field(
+        default=2,
+        ge=1,
+        description="Per-document chunk cap to apply when query intent is COMPARATIVE"
+    )
 
 
 class RetrievedChunk(BaseModel):
@@ -192,5 +206,9 @@ class RetrievalResult(BaseModel):
     execution_time_ms: float = Field(
         default=0.0,
         description="Total query embedding and search execution time in milliseconds"
+    )
+    query_intent: Optional[str] = Field(
+        default=None,
+        description="Classified query intent ('COMPARATIVE' or 'STANDARD') if intent routing was enabled"
     )
 

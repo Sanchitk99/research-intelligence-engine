@@ -1,0 +1,1698 @@
+{
+  "timestamp": "2026-10-20T20:25:56Z",
+  "total_questions": 9,
+  "retrieval_results": [
+    {
+      "id": "DP01",
+      "category": "Disagreement Pair",
+      "topic": "TriviaQA exact match performance: Extractive Reader vs. Generative RAG",
+      "question": "How do the Extractive Reader in DPR and Generative RAG compare on TriviaQA exact match performance?",
+      "expected_papers": [
+        "P2",
+        "P1"
+      ],
+      "target_pages": {
+        "P1": [
+          6
+        ],
+        "P2": [
+          8
+        ]
+      },
+      "expected_distinction": "DPR extractive reader holds modest advantage (57.9 vs 56.8) on standard open-domain split, but RAG-Sequence dominates (68.0 vs 56.8) on TQA-Wiki split.",
+      "hybrid_top5": {
+        "covered_docs": [
+          "P2",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.0328
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0311
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0301
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0288
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p08_c02",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0278
+          }
+        ]
+      },
+      "hybrid_top10": {
+        "covered_docs": [
+          "P5",
+          "P2",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.0328
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0311
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0301
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0288
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p08_c02",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0278
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P2_p04_c05",
+            "doc_id": "P2",
+            "page": 4,
+            "score": 0.0277
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P2_p08_c04",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0272
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P2_p13_c04",
+            "doc_id": "P2",
+            "page": 13,
+            "score": 0.0269
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P5_p01_c05",
+            "doc_id": "P5",
+            "page": 1,
+            "score": 0.0258
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P2_p07_c01",
+            "doc_id": "P2",
+            "page": 7,
+            "score": 0.025
+          }
+        ]
+      },
+      "dense_top5": {
+        "covered_docs": [
+          "P2",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0
+      }
+    },
+    {
+      "id": "DP02",
+      "category": "Disagreement Pair",
+      "topic": "WebQuestions exact match: REALM (40.7) vs. T5-11B+SSM (44.7)",
+      "question": "How do REALM and T5-11B+SSM compare on WebQuestions exact match?",
+      "expected_papers": [
+        "P3",
+        "P1"
+      ],
+      "target_pages": {
+        "P1": [
+          6
+        ],
+        "P3": [
+          7
+        ]
+      },
+      "expected_distinction": "Non-comparable due to 34x parameter disparity (11.3B vs 330M), T5 supervised pre-training on 100k+ SQuAD examples, and entity-targeted Salient Span Masking.",
+      "hybrid_top5": {
+        "covered_docs": [
+          "P2",
+          "P3",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p07_c04",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.0328
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p07_c01",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.032
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p02_c04",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0303
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c01",
+            "doc_id": "P1",
+            "page": 6,
+            "score": 0.0295
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p13_c04",
+            "doc_id": "P2",
+            "page": 13,
+            "score": 0.0284
+          }
+        ]
+      },
+      "hybrid_top10": {
+        "covered_docs": [
+          "P2",
+          "P3",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p07_c04",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.0328
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p07_c01",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.032
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p02_c04",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0303
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c01",
+            "doc_id": "P1",
+            "page": 6,
+            "score": 0.0295
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P2_p13_c04",
+            "doc_id": "P2",
+            "page": 13,
+            "score": 0.0284
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P3_p08_c02",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.0279
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P1_p19_c01",
+            "doc_id": "P1",
+            "page": 19,
+            "score": 0.0273
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P3_p08_c01",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.0271
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P3_p05_c01",
+            "doc_id": "P3",
+            "page": 5,
+            "score": 0.0269
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P3_p06_c02",
+            "doc_id": "P3",
+            "page": 6,
+            "score": 0.0263
+          }
+        ]
+      },
+      "dense_top5": {
+        "covered_docs": [
+          "P3"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.5
+      }
+    },
+    {
+      "id": "DP03",
+      "category": "Disagreement Pair",
+      "topic": "Retrieval Frequency and Utility: Adaptive Retrieval vs. Unconditional Always-Retrieve",
+      "question": "How does Self-RAG's adaptive retrieval compare to standard RAG's unconditional always-retrieve approach in terms of retrieval frequency and utility?",
+      "expected_papers": [
+        "P4",
+        "P1"
+      ],
+      "target_pages": {
+        "P1": [
+          3
+        ],
+        "P4": [
+          8,
+          9
+        ]
+      },
+      "expected_distinction": "Standard RAG unconditionally retrieves for every query; Self-RAG dynamically predicts Retrieve reflection token, preventing noisy context from degrading performance.",
+      "hybrid_top5": {
+        "covered_docs": [
+          "P4",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p09_c04",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.032
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c02",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p09_c02",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.0297
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0292
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p17_c01",
+            "doc_id": "P4",
+            "page": 17,
+            "score": 0.029
+          }
+        ]
+      },
+      "hybrid_top10": {
+        "covered_docs": [
+          "P4",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p09_c04",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.032
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c02",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p09_c02",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.0297
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0292
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p17_c01",
+            "doc_id": "P4",
+            "page": 17,
+            "score": 0.029
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P4_p01_c05",
+            "doc_id": "P4",
+            "page": 1,
+            "score": 0.0278
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P4_p09_c01",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.0277
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P4_p08_c03",
+            "doc_id": "P4",
+            "page": 8,
+            "score": 0.0267
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P4_p01_c04",
+            "doc_id": "P4",
+            "page": 1,
+            "score": 0.0265
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P4_p03_c05",
+            "doc_id": "P4",
+            "page": 3,
+            "score": 0.0263
+          }
+        ]
+      },
+      "dense_top5": {
+        "covered_docs": [
+          "P4",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0
+      }
+    },
+    {
+      "id": "Q06",
+      "category": "Benchmark Multi-Paper",
+      "topic": "RAG vs DPR Exact Match on NQ and TriviaQA",
+      "question": "What exact match scores does RAG-Token achieve on Natural Questions, and how does this compare to DPR's extractive approach?",
+      "expected_papers": [
+        "P2",
+        "P1"
+      ],
+      "target_pages": {
+        "P1": [
+          5,
+          6
+        ],
+        "P2": [
+          8
+        ]
+      },
+      "expected_distinction": "RAG-Token achieves 44.1 EM (RAG-Seq 44.5) outperforming DPR extractive (41.5) on NQ, while DPR achieves 57.9 EM on TriviaQA open-domain.",
+      "hybrid_top5": {
+        "covered_docs": [
+          "P1"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.5,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0323
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0301
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c03",
+            "doc_id": "P1",
+            "page": 6,
+            "score": 0.0291
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.028
+          }
+        ]
+      },
+      "hybrid_top10": {
+        "covered_docs": [
+          "P2",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0323
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0301
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P1_p06_c03",
+            "doc_id": "P1",
+            "page": 6,
+            "score": 0.0291
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p07_c04",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.028
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P1_p04_c01",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0278
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P1_p03_c03",
+            "doc_id": "P1",
+            "page": 3,
+            "score": 0.0271
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P1_p08_c01",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0268
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0267
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P2_p04_c05",
+            "doc_id": "P2",
+            "page": 4,
+            "score": 0.0261
+          }
+        ]
+      },
+      "dense_top5": {
+        "covered_docs": [
+          "P1"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.5
+      }
+    },
+    {
+      "id": "Q07",
+      "category": "Benchmark Multi-Paper",
+      "topic": "RAG, DPR, and REALM on Natural Questions Exact Match",
+      "question": "How do RAG, DPR, and REALM compare on Natural Questions exact match?",
+      "expected_papers": [
+        "P2",
+        "P3",
+        "P1"
+      ],
+      "target_pages": {
+        "P1": [
+          6
+        ],
+        "P2": [
+          8
+        ],
+        "P3": [
+          7
+        ]
+      },
+      "expected_distinction": "RAG-Sequence (44.5) > RAG-Token (44.1) > DPR (41.5) > REALM CC-News (40.4) > REALM Wikipedia (39.2).",
+      "hybrid_top5": {
+        "covered_docs": [
+          "P2",
+          "P1"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.667,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0318
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0292
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p12_c03",
+            "doc_id": "P2",
+            "page": 12,
+            "score": 0.0287
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c04",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0275
+          }
+        ]
+      },
+      "hybrid_top10": {
+        "covered_docs": [
+          "P2",
+          "P3",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0318
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.031
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P2_p08_c03",
+            "doc_id": "P2",
+            "page": 8,
+            "score": 0.0292
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P2_p12_c03",
+            "doc_id": "P2",
+            "page": 12,
+            "score": 0.0287
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c04",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0275
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P2_p06_c06",
+            "doc_id": "P2",
+            "page": 6,
+            "score": 0.0272
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P2_p04_c05",
+            "doc_id": "P2",
+            "page": 4,
+            "score": 0.0271
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P3_p06_c01",
+            "doc_id": "P3",
+            "page": 6,
+            "score": 0.0271
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P1_p08_c03",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0267
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P2_p04_c03",
+            "doc_id": "P2",
+            "page": 4,
+            "score": 0.0262
+          }
+        ]
+      },
+      "dense_top5": {
+        "covered_docs": [
+          "P5",
+          "P2",
+          "P4",
+          "P1"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.667
+      }
+    },
+    {
+      "id": "Q08",
+      "category": "Benchmark Comparison",
+      "topic": "Index Refresh Strategy: REALM vs DPR",
+      "question": "How does REALM's index refresh strategy differ from DPR's static index?",
+      "expected_papers": [
+        "P2",
+        "P3",
+        "P1"
+      ],
+      "target_pages": {
+        "P1": [
+          4
+        ],
+        "P2": [
+          3
+        ],
+        "P3": [
+          4,
+          5
+        ]
+      },
+      "expected_distinction": "DPR keeps index static offline; REALM refreshes MIPS index asynchronously in background every few hundred steps; RAG explicitly avoids REALM's refresh to save cost.",
+      "hybrid_top5": {
+        "covered_docs": [
+          "P3"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.333,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p05_c01",
+            "doc_id": "P3",
+            "page": 5,
+            "score": 0.0325
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p08_c03",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.0325
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p08_c02",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.031
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P3_p04_c05",
+            "doc_id": "P3",
+            "page": 4,
+            "score": 0.0301
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P3_p06_c04",
+            "doc_id": "P3",
+            "page": 6,
+            "score": 0.0285
+          }
+        ]
+      },
+      "hybrid_top10": {
+        "covered_docs": [
+          "P2",
+          "P3",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p05_c01",
+            "doc_id": "P3",
+            "page": 5,
+            "score": 0.0325
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P3_p08_c03",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.0325
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p08_c02",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.031
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P3_p04_c05",
+            "doc_id": "P3",
+            "page": 4,
+            "score": 0.0301
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P3_p06_c04",
+            "doc_id": "P3",
+            "page": 6,
+            "score": 0.0285
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P2_p07_c01",
+            "doc_id": "P2",
+            "page": 7,
+            "score": 0.0283
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P1_p07_c05",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0278
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P3_p04_c04",
+            "doc_id": "P3",
+            "page": 4,
+            "score": 0.027
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P2_p07_c02",
+            "doc_id": "P2",
+            "page": 7,
+            "score": 0.0267
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P1_p08_c02",
+            "doc_id": "P1",
+            "page": 8,
+            "score": 0.0265
+          }
+        ]
+      },
+      "dense_top5": {
+        "covered_docs": [
+          "P3"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.333
+      }
+    },
+    {
+      "id": "Q09",
+      "category": "Benchmark Comparison",
+      "topic": "Adaptive Retrieval: Self-RAG vs Standard RAG",
+      "question": "How does Self-RAG's approach to deciding when to retrieve differ from standard RAG?",
+      "expected_papers": [
+        "P4",
+        "P1"
+      ],
+      "target_pages": {
+        "P1": [
+          2,
+          3
+        ],
+        "P4": [
+          4
+        ]
+      },
+      "expected_distinction": "RAG retrieves fixed top-k unconditionally; Self-RAG predicts Retrieve token {yes, no, continue} on demand.",
+      "hybrid_top5": {
+        "covered_docs": [
+          "P4"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.5,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p20_c05",
+            "doc_id": "P4",
+            "page": 20,
+            "score": 0.0294
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c03",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.029
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p04_c01",
+            "doc_id": "P4",
+            "page": 4,
+            "score": 0.029
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p09_c02",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.0285
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p09_c04",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.028
+          }
+        ]
+      },
+      "hybrid_top10": {
+        "covered_docs": [
+          "P4"
+        ],
+        "all_covered": false,
+        "coverage_ratio": 0.5,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p20_c05",
+            "doc_id": "P4",
+            "page": 20,
+            "score": 0.0294
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p10_c03",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.029
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p04_c01",
+            "doc_id": "P4",
+            "page": 4,
+            "score": 0.029
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P4_p09_c02",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.0285
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p09_c04",
+            "doc_id": "P4",
+            "page": 9,
+            "score": 0.028
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P4_p17_c01",
+            "doc_id": "P4",
+            "page": 17,
+            "score": 0.0277
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P4_p01_c05",
+            "doc_id": "P4",
+            "page": 1,
+            "score": 0.0269
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P4_p08_c05",
+            "doc_id": "P4",
+            "page": 8,
+            "score": 0.0263
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P4_p08_c03",
+            "doc_id": "P4",
+            "page": 8,
+            "score": 0.0262
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P4_p03_c05",
+            "doc_id": "P4",
+            "page": 3,
+            "score": 0.0261
+          }
+        ]
+      },
+      "dense_top5": {
+        "covered_docs": [
+          "P4",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0
+      }
+    },
+    {
+      "id": "Q10",
+      "category": "Benchmark Comparison",
+      "topic": "Faithfulness Evaluation: Self-RAG ISSUP vs RAGAS Faithfulness",
+      "question": "How does Self-RAG's ISSUP token relate to RAGAS's faithfulness metric?",
+      "expected_papers": [
+        "P5",
+        "P4"
+      ],
+      "target_pages": {
+        "P4": [
+          4
+        ],
+        "P5": [
+          3
+        ]
+      },
+      "expected_distinction": "Both verify passage support, but ISSUP operates inline at generation time to guide search, while Ragas is post-hoc LLM evaluation across decomposed statements.",
+      "hybrid_top5": {
+        "covered_docs": [
+          "P5",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p10_c04",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p21_c01",
+            "doc_id": "P4",
+            "page": 21,
+            "score": 0.0302
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p10_c05",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0296
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P5_p05_c02",
+            "doc_id": "P5",
+            "page": 5,
+            "score": 0.0293
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p04_c03",
+            "doc_id": "P4",
+            "page": 4,
+            "score": 0.0279
+          }
+        ]
+      },
+      "hybrid_top10": {
+        "covered_docs": [
+          "P5",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P4_p10_c04",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0318
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P4_p21_c01",
+            "doc_id": "P4",
+            "page": 21,
+            "score": 0.0302
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P4_p10_c05",
+            "doc_id": "P4",
+            "page": 10,
+            "score": 0.0296
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P5_p05_c02",
+            "doc_id": "P5",
+            "page": 5,
+            "score": 0.0293
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P4_p04_c03",
+            "doc_id": "P4",
+            "page": 4,
+            "score": 0.0279
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P4_p01_c05",
+            "doc_id": "P4",
+            "page": 1,
+            "score": 0.0266
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P4_p17_c01",
+            "doc_id": "P4",
+            "page": 17,
+            "score": 0.0262
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P4_p03_c05",
+            "doc_id": "P4",
+            "page": 3,
+            "score": 0.0257
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P4_p04_c01",
+            "doc_id": "P4",
+            "page": 4,
+            "score": 0.0257
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P4_p08_c05",
+            "doc_id": "P4",
+            "page": 8,
+            "score": 0.0255
+          }
+        ]
+      },
+      "dense_top5": {
+        "covered_docs": [
+          "P5",
+          "P4"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0
+      }
+    },
+    {
+      "id": "Q16",
+      "category": "Benchmark Comparison",
+      "topic": "Knowledge Corpus & Passage Size: RAG vs REALM",
+      "question": "Do RAG and REALM use the same knowledge corpus, and how do their passage sizes compare?",
+      "expected_papers": [
+        "P3",
+        "P1"
+      ],
+      "target_pages": {
+        "P1": [
+          4
+        ],
+        "P3": [
+          6
+        ]
+      },
+      "expected_distinction": "Both use Dec 20, 2018 English Wikipedia dump, but RAG uses 100-word passages (~21M passages) while REALM uses 288-wordpiece chunks (~13M passages).",
+      "hybrid_top5": {
+        "covered_docs": [
+          "P3",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p12_c01",
+            "doc_id": "P3",
+            "page": 12,
+            "score": 0.0318
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0296
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p02_c01",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0279
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P3_p02_c04",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0273
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c04",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0265
+          }
+        ]
+      },
+      "hybrid_top10": {
+        "covered_docs": [
+          "P3",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0,
+        "chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "P3_p12_c01",
+            "doc_id": "P3",
+            "page": 12,
+            "score": 0.0318
+          },
+          {
+            "rank": 2,
+            "chunk_id": "P1_p04_c05",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0296
+          },
+          {
+            "rank": 3,
+            "chunk_id": "P3_p02_c01",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0279
+          },
+          {
+            "rank": 4,
+            "chunk_id": "P3_p02_c04",
+            "doc_id": "P3",
+            "page": 2,
+            "score": 0.0273
+          },
+          {
+            "rank": 5,
+            "chunk_id": "P1_p04_c04",
+            "doc_id": "P1",
+            "page": 4,
+            "score": 0.0265
+          },
+          {
+            "rank": 6,
+            "chunk_id": "P1_p07_c05",
+            "doc_id": "P1",
+            "page": 7,
+            "score": 0.0263
+          },
+          {
+            "rank": 7,
+            "chunk_id": "P3_p09_c01",
+            "doc_id": "P3",
+            "page": 9,
+            "score": 0.0262
+          },
+          {
+            "rank": 8,
+            "chunk_id": "P1_p05_c05",
+            "doc_id": "P1",
+            "page": 5,
+            "score": 0.0258
+          },
+          {
+            "rank": 9,
+            "chunk_id": "P3_p08_c01",
+            "doc_id": "P3",
+            "page": 8,
+            "score": 0.0256
+          },
+          {
+            "rank": 10,
+            "chunk_id": "P3_p07_c05",
+            "doc_id": "P3",
+            "page": 7,
+            "score": 0.0256
+          }
+        ]
+      },
+      "dense_top5": {
+        "covered_docs": [
+          "P3",
+          "P1"
+        ],
+        "all_covered": true,
+        "coverage_ratio": 1.0
+      }
+    }
+  ],
+  "mock_results": [
+    {
+      "id": "DP01",
+      "status": "abstained_insufficient_evidence",
+      "answer_preview": "The provided research evidence does not contain sufficient factual information to answer this question.",
+      "citations_count": 0,
+      "cited_documents": [],
+      "all_expected_papers_cited": false,
+      "citations": [],
+      "confidence_notes": "Abstained due to insufficient factual evidence in the retrieved context."
+    },
+    {
+      "id": "DP02",
+      "status": "abstained_insufficient_evidence",
+      "answer_preview": "The provided research evidence does not contain sufficient factual information to answer this question.",
+      "citations_count": 0,
+      "cited_documents": [],
+      "all_expected_papers_cited": false,
+      "citations": [],
+      "confidence_notes": "Abstained due to insufficient factual evidence in the retrieved context."
+    },
+    {
+      "id": "DP03",
+      "status": "abstained_insufficient_evidence",
+      "answer_preview": "The provided research evidence does not contain sufficient factual information to answer this question.",
+      "citations_count": 0,
+      "cited_documents": [],
+      "all_expected_papers_cited": false,
+      "citations": [],
+      "confidence_notes": "Abstained due to insufficient factual evidence in the retrieved context."
+    },
+    {
+      "id": "Q06",
+      "status": "abstained_insufficient_evidence",
+      "answer_preview": "The provided research evidence does not contain sufficient factual information to answer this question.",
+      "citations_count": 0,
+      "cited_documents": [],
+      "all_expected_papers_cited": false,
+      "citations": [],
+      "confidence_notes": "Abstained due to insufficient factual evidence in the retrieved context."
+    },
+    {
+      "id": "Q07",
+      "status": "abstained_insufficient_evidence",
+      "answer_preview": "The provided research evidence does not contain sufficient factual information to answer this question.",
+      "citations_count": 0,
+      "cited_documents": [],
+      "all_expected_papers_cited": false,
+      "citations": [],
+      "confidence_notes": "Abstained due to insufficient factual evidence in the retrieved context."
+    },
+    {
+      "id": "Q08",
+      "status": "abstained_insufficient_evidence",
+      "answer_preview": "The provided research evidence does not contain sufficient factual information to answer this question.",
+      "citations_count": 0,
+      "cited_documents": [],
+      "all_expected_papers_cited": false,
+      "citations": [],
+      "confidence_notes": "Abstained due to insufficient factual evidence in the retrieved context."
+    },
+    {
+      "id": "Q09",
+      "status": "answered",
+      "answer_preview": "Standard RAG unconditionally retrieves a fixed number of passages for every query before generation. In contrast, Self-RAG introduces adaptive on-demand retriev...",
+      "citations_count": 1,
+      "cited_documents": [
+        "P4"
+      ],
+      "all_expected_papers_cited": false,
+      "citations": [
+        {
+          "doc_id": "P4",
+          "page": 4,
+          "chunk_id": "P4_p04_c01",
+          "excerpt": "Type\nInput\nOutput\nDefinitions\nRetrieve\nx / x, y\n{yes, no, continue}\nDecides when"
+        }
+      ],
+      "confidence_notes": "Deterministic answer grounded in chunk P4_p04_c01 describing adaptive on-demand retrieval."
+    },
+    {
+      "id": "Q10",
+      "status": "answered",
+      "answer_preview": "Both Self-RAG's ISSUP reflection token and RAGAS's faithfulness metric evaluate whether generated output is supported by retrieved context to prevent hallucinat...",
+      "citations_count": 2,
+      "cited_documents": [
+        "P5",
+        "P4"
+      ],
+      "all_expected_papers_cited": true,
+      "citations": [
+        {
+          "doc_id": "P4",
+          "page": 4,
+          "chunk_id": "P4_p04_c03",
+          "excerpt": "passage’s relevance, the next response segment, and a critique token to evaluate"
+        },
+        {
+          "doc_id": "P5",
+          "page": 5,
+          "chunk_id": "P5_p05_c02",
+          "excerpt": "For instance, for evaluating faithfulness,\nwe used the following prompt:\nFaithfu"
+        }
+      ],
+      "confidence_notes": "Deterministic answer contrasting Self-RAG generation-time critique with RAGAS post-hoc evaluation."
+    },
+    {
+      "id": "Q16",
+      "status": "abstained_insufficient_evidence",
+      "answer_preview": "The provided research evidence does not contain sufficient factual information to answer this question.",
+      "citations_count": 0,
+      "cited_documents": [],
+      "all_expected_papers_cited": false,
+      "citations": [],
+      "confidence_notes": "Abstained due to insufficient factual evidence in the retrieved context."
+    }
+  ],
+  "gemini_results": [
+    {
+      "id": "DP01",
+      "status": "error",
+      "answer": "Answer generation timed out after 8.0s.",
+      "citations_count": 0,
+      "cited_documents": [],
+      "all_expected_papers_cited": false,
+      "citations": [],
+      "confidence_notes": "Gemini API request timed out after 8.0s: The read operation timed out",
+      "latency_ms": 8694.93,
+      "tokens": null,
+      "mentions_all_expected_papers": false
+    },
+    {
+      "id": "DP02",
+      "status": "error",
+      "answer": "Answer generation timed out after 8.0s.",
+      "citations_count": 0,
+      "cited_documents": [],
+      "all_expected_papers_cited": false,
+      "citations": [],
+      "confidence_notes": "Gemini API request timed out after 8.0s: The read operation timed out",
+      "latency_ms": 8802.6,
+      "tokens": null,
+      "mentions_all_expected_papers": false
+    },
+    {
+      "id": "DP03",
+      "status": "error",
+      "answer": "Answer generation timed out after 8.0s.",
+      "citations_count": 0,
+      "cited_documents": [],
+      "all_expected_papers_cited": false,
+      "citations": [],
+      "confidence_notes": "Gemini API request timed out after 8.0s: The read operation timed out",
+      "latency_ms": 8679.68,
+      "tokens": null,
+      "mentions_all_expected_papers": false
+    },
+    {
+      "id": "Q08",
+      "status": "error",
+      "answer": "Answer generation timed out after 8.0s.",
+      "citations_count": 0,
+      "cited_documents": [],
+      "all_expected_papers_cited": false,
+      "citations": [],
+      "confidence_notes": "Gemini API request timed out after 8.0s: The read operation timed out",
+      "latency_ms": 8639.22,
+      "tokens": null,
+      "mentions_all_expected_papers": false
+    },
+    {
+      "id": "Q09",
+      "status": "error",
+      "answer": "Answer generation timed out after 8.0s.",
+      "citations_count": 0,
+      "cited_documents": [],
+      "all_expected_papers_cited": false,
+      "citations": [],
+      "confidence_notes": "Gemini API request timed out after 8.0s: The read operation timed out",
+      "latency_ms": 8682.33,
+      "tokens": null,
+      "mentions_all_expected_papers": false
+    }
+  ],
+  "groq_results": [
+    {
+      "id": "DP01",
+      "status": "partially_answered",
+      "answer": "On TriviaQA, the generative RAG model attains state‑of‑the‑art exact‑match accuracy, outperforming the DPR pipeline that uses an extractive reader.  DPR also reports strong EM scores, but the evidence does not provide a direct numeric comparison between the two systems on TriviaQA.",
+      "citations_count": 3,
+      "cited_documents": [
+        "P2",
+        "P1"
+      ],
+      "all_expected_papers_cited": true,
+      "citations": [
+        {
+          "doc_id": "P1",
+          "page": 5,
+          "chunk_id": "P1_p05_c05",
+          "excerpt": "On all four open-domain QA\ntasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combine..."
+        },
+        {
+          "doc_id": "P2",
+          "page": 8,
+          "chunk_id": "P2_p08_c03",
+          "excerpt": "accuracy. It is interesting to contrast our results to\nthose of ORQA (Lee et al., 2019) and also the\nconcurrently develo..."
+        },
+        {
+          "doc_id": "P2",
+          "page": 8,
+          "chunk_id": "P2_p08_c02",
+          "excerpt": "Single\nand Multi denote that our Dense Passage Retriever (DPR) is trained using individual or combined training datasets..."
+        }
+      ],
+      "confidence_notes": "The evidence confirms RAG’s superior TriviaQA EM performance and DPR’s strong but unspecified EM scores; no exact numeric EM values for either model on TriviaQA are provided in the passages. (Citation excerpt for 'P1_p05_c05' was not found in passage text; using verified passage prefix. | Citation excerpt for 'P2_p08_c03' was not found in passage text; using verified passage prefix. | Citation excerpt for 'P2_p08_c02' was not found in passage text; using verified passage prefix.)",
+      "latency_ms": 2766.78,
+      "tokens": 3606,
+      "mentions_all_expected_papers": false
+    },
+    {
+      "id": "DP02",
+      "status": "answered",
+      "answer": "On the WebQuestions benchmark, the T5‑11B+SSM model achieves an exact‑match score of 44.7, which is higher than REALM’s score of 40.7.",
+      "citations_count": 1,
+      "cited_documents": [
+        "P1"
+      ],
+      "all_expected_papers_cited": false,
+      "citations": [
+        {
+          "doc_id": "P1",
+          "page": 6,
+          "chunk_id": "P1_p06_c01",
+          "excerpt": "REALM [20] 40.4 - / - 40.7 46.8"
+        }
+      ],
+      "confidence_notes": "The comparison is based solely on the exact‑match scores reported in the same table for both models.",
+      "latency_ms": 2579.58,
+      "tokens": 3781,
+      "mentions_all_expected_papers": false
+    },
+    {
+      "id": "DP03",
+      "status": "answered",
+      "answer": "Self‑RAG’s adaptive retrieval lets the model decide whether to retrieve on a per‑token basis, and the frequency of retrieval can be tuned by a threshold δ – larger δ reduces how often the model pulls evidence.  In contrast, standard RAG always retrieves the top passage(s) regardless of relevance, which keeps retrieval frequency high but can hurt performance, as seen by the large drop in PopQA and ASQA when conventional RAG retrieves the top‑1 passage.  Thus Self‑RAG offers more selective, utility‑oriented retrieval while standard RAG’s unconditional approach yields higher but less useful retrieval frequency.",
+      "citations_count": 2,
+      "cited_documents": [
+        "P4"
+      ],
+      "all_expected_papers_cited": false,
+      "citations": [
+        {
+          "doc_id": "P4",
+          "page": 10,
+          "chunk_id": "P4_p10_c02",
+          "excerpt": "test time by adjusting such parameters without requiring additional training.\nEfficiency and accuracy trade-off. Using o..."
+        },
+        {
+          "doc_id": "P4",
+          "page": 9,
+          "chunk_id": "P4_p09_c04",
+          "excerpt": "Using the top passages regardless of their relevance (Retrieve top 1) as in conventional RAG approaches causes a large drop in PopQA and ASQA."
+        }
+      ],
+      "confidence_notes": "The answer is based solely on the provided excerpts; no additional data about exact retrieval rates or quantitative utility metrics are available in the evidence. (Citation excerpt for 'P4_p10_c02' was not found in passage text; using verified passage prefix.)",
+      "latency_ms": 51633.65,
+      "tokens": 3260,
+      "mentions_all_expected_papers": false
+    },
+    {
+      "id": "Q08",
+      "status": "abstained_out_of_scope",
+      "answer": "I cannot answer this question because the provided evidence does not contain any information about DPR’s static index strategy.",
+      "citations_count": 0,
+      "cited_documents": [],
+      "all_expected_papers_cited": false,
+      "citations": [],
+      "confidence_notes": "The retrieved passages only describe REALM’s asynchronous, frequent index refreshes; there is no mention of DPR or its static index approach.",
+      "latency_ms": 1764.16,
+      "tokens": 2762,
+      "mentions_all_expected_papers": false
+    },
+    {
+      "id": "Q09",
+      "status": "answered",
+      "answer": "Self‑RAG learns to decide whether to retrieve during generation by having the language model predict a \"Retrieve\" token (yes/no/continue) based on the input and the partial output so far.  It then uses additional reflection tokens (ISREL, ISSUP, ISUSE) to judge relevance, support, and usefulness of the retrieved passage, allowing it to retrieve only when the passage is judged helpful.  In contrast, standard RAG simply retrieves the top‑scoring passage(s) before generation and does not condition retrieval on the generation context or perform fine‑grained relevance checks.",
+      "citations_count": 2,
+      "cited_documents": [
+        "P4"
+      ],
+      "all_expected_papers_cited": false,
+      "citations": [
+        {
+          "doc_id": "P4",
+          "page": 4,
+          "chunk_id": "P4_p04_c01",
+          "excerpt": "Preprint.\nType\nInput\nOutput\nDefinitions\nRetrieve\nx / x, y\n{yes, no, continue}\nDecides when to retrieve with R\nISREL\nx, d..."
+        },
+        {
+          "doc_id": "P4",
+          "page": 9,
+          "chunk_id": "P4_p09_c04",
+          "excerpt": "On ASQA, we evaluate models\non sampled 150 instances and exclude ablations involving adaptive or no retrieval processes...."
+        }
+      ],
+      "confidence_notes": "The evidence shows Self‑RAG’s adaptive retrieval decision and use of multiple reflection tokens, whereas standard RAG retrieves top passages without such conditional logic. (Citation excerpt for 'P4_p04_c01' was not found in passage text; using verified passage prefix. | Citation excerpt for 'P4_p09_c04' was not found in passage text; using verified passage prefix.)",
+      "latency_ms": 42724.36,
+      "tokens": 3570,
+      "mentions_all_expected_papers": false
+    }
+  ]
+}
