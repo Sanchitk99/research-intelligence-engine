@@ -14,6 +14,7 @@ import { IngestModal } from '@/components/papers/IngestModal';
 import { SystemOverview } from '@/components/system/SystemOverview';
 import { ProviderGrid } from '@/components/system/ProviderGrid';
 import { ArchitectureCard } from '@/components/system/ArchitectureCard';
+import { ProjectOverview } from '@/components/about/ProjectOverview';
 
 import { api } from '@/lib/api';
 import {
@@ -29,7 +30,7 @@ import { AlertCircle, Upload, RefreshCw } from 'lucide-react';
 
 export default function Home() {
   // Navigation & Modal State
-  const [currentTab, setCurrentTab] = React.useState<'research' | 'papers' | 'status'>('research');
+  const [currentTab, setCurrentTab] = React.useState<'research' | 'papers' | 'status' | 'about'>('research');
   const [isSettingsOpen, setIsSettingsOpen] = React.useState(false);
   const [isIngestModalOpen, setIsIngestModalOpen] = React.useState(false);
 
@@ -408,6 +409,11 @@ export default function Home() {
               {/* Architectural Pipeline Overview */}
               <ArchitectureCard />
             </div>
+          )}
+
+          {/* TAB 4: ABOUT THIS PROJECT */}
+          {currentTab === 'about' && (
+            <ProjectOverview totalPoints={systemStatus?.total_points} />
           )}
         </main>
       </div>

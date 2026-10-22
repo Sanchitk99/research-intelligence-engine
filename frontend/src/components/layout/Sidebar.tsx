@@ -13,12 +13,13 @@ import {
   Trash2,
   ChevronLeft,
   ChevronRight,
+  Info,
 } from 'lucide-react';
 import { ResearchSession } from '@/lib/types';
 
 interface SidebarProps {
-  currentTab: 'research' | 'papers' | 'status';
-  onSelectTab: (tab: 'research' | 'papers' | 'status') => void;
+  currentTab: 'research' | 'papers' | 'status' | 'about';
+  onSelectTab: (tab: 'research' | 'papers' | 'status' | 'about') => void;
   onOpenSettings: () => void;
   onNewSession: () => void;
   sessions: ResearchSession[];
@@ -140,6 +141,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
           >
             <Activity className="w-4 h-4 text-emerald-400 shrink-0" />
             {!isCollapsed && <span>System Telemetry</span>}
+          </button>
+
+          <button
+            onClick={() => onSelectTab('about')}
+            className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium transition cursor-pointer ${
+              currentTab === 'about'
+                ? 'bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 font-semibold'
+                : 'text-[#94a3b8] hover:text-white hover:bg-[#171a21]'
+            } ${isCollapsed ? 'justify-center px-0' : ''}`}
+            title="About This Project"
+          >
+            <Info className="w-4 h-4 text-sky-400 shrink-0" />
+            {!isCollapsed && <span>About This Project</span>}
           </button>
         </nav>
       </div>

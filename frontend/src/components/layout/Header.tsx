@@ -5,7 +5,7 @@ import { Sliders, Database, Layers } from 'lucide-react';
 import { EngineSettings } from '@/lib/types';
 
 interface HeaderProps {
-  currentTab: 'research' | 'papers' | 'status';
+  currentTab: 'research' | 'papers' | 'status' | 'about';
   settings: EngineSettings;
   onOpenSettings: () => void;
   totalPoints?: number;
@@ -33,6 +33,11 @@ export const Header: React.FC<HeaderProps> = ({
         return {
           title: 'Engine Architecture & System Status',
           subtitle: 'Live vector storage metrics, provider readiness, and retrieval health',
+        };
+      case 'about':
+        return {
+          title: 'About This Project',
+          subtitle: 'Architecture flow, empirical retrieval evaluation, and technology stack',
         };
     }
   };
