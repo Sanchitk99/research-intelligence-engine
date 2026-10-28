@@ -12,17 +12,57 @@ class GenerationError(Exception):
 
 class ProviderError(GenerationError):
     """Raised when an external LLM API reports an error."""
-    pass
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        status_code: Optional[int] = None,
+        headers: Optional[Dict[str, str]] = None,
+        response_body: Optional[str] = None,
+    ) -> None:
+        super().__init__(message)
+        self.status_code = status_code
+        self.headers = headers or {}
+        self.response_body = response_body
 
 
 class ProviderAuthError(ProviderError):
     """Raised when API credentials are missing, rejected, or expired."""
-    pass
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        status_code: Optional[int] = None,
+        headers: Optional[Dict[str, str]] = None,
+        response_body: Optional[str] = None,
+    ) -> None:
+        super().__init__(
+            message,
+            status_code=status_code or 401,
+            headers=headers,
+            response_body=response_body,
+        )
 
 
 class ProviderTimeoutError(ProviderError):
     """Raised when an LLM provider request exceeds the timeout limit."""
-    pass
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        status_code: Optional[int] = None,
+        headers: Optional[Dict[str, str]] = None,
+        response_body: Optional[str] = None,
+    ) -> None:
+        super().__init__(
+            message,
+            status_code=status_code or 408,
+            headers=headers,
+            response_body=response_body,
+        )
 
 
 class RateLimitError(ProviderError):
@@ -32,15 +72,15 @@ class RateLimitError(ProviderError):
         self,
         message: str,
         *,
+        status_code: Optional[int] = 429,
         retry_after_seconds: Optional[float] = None,
         reset_tokens_seconds: Optional[float] = None,
         headers: Optional[Dict[str, str]] = None,
         limit_kind: Optional[str] = None,
     ) -> None:
-        super().__init__(message)
+        super().__init__(message, status_code=status_code or 429, headers=headers)
         self.retry_after_seconds = retry_after_seconds
         self.reset_tokens_seconds = reset_tokens_seconds
-        self.headers = headers or {}
         self.limit_kind = limit_kind
 
     @property

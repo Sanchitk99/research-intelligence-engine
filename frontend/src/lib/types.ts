@@ -54,6 +54,9 @@ export interface AskQuestionResponse {
   prompt_tokens?: number | null;
   completion_tokens?: number | null;
   total_tokens?: number | null;
+  failover_occurred?: boolean;
+  primary_provider?: string | null;
+  fallback_attempts?: string[] | null;
 }
 
 export interface PaperSummary {
@@ -95,6 +98,7 @@ export interface SystemStatus {
   indexed_papers_count: number;
   papers: PaperSummary[];
   providers: Record<string, ProviderStatus>;
+  fallback_chain?: string[];
 }
 
 export interface QAPair {

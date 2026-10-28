@@ -32,6 +32,7 @@ class SystemStatusResponse(BaseModel):
     indexed_papers_count: int = Field(description="Number of distinct indexed papers")
     papers: List[PaperSummaryResponse] = Field(default_factory=list, description="Indexed paper records")
     providers: Dict[str, ProviderStatus] = Field(description="Map of provider name to status")
+    fallback_chain: Optional[List[str]] = Field(default=None, description="Active fallback provider order")
 
 
 class CitationResponse(BaseModel):
@@ -66,6 +67,7 @@ class AskQuestionRequest(BaseModel):
     top_k: int = Field(default=5, ge=1, le=20, description="Number of context passages to retrieve")
     min_score: Optional[float] = Field(default=None, description="Optional minimum score cutoff")
     enable_intent_routing: bool = Field(default=False, description="Opt-in query-intent routing for comparative queries")
+    fallback_providers: Optional[List[str]] = Field(default=None, description="Optional ordered list of fallback providers")
 
 
 class AskQuestionResponse(BaseModel):
@@ -83,6 +85,9 @@ class AskQuestionResponse(BaseModel):
     prompt_tokens: Optional[int] = Field(default=None, description="Prompt token count if reported")
     completion_tokens: Optional[int] = Field(default=None, description="Completion token count if reported")
     total_tokens: Optional[int] = Field(default=None, description="Total token count if reported")
+    failover_occurred: bool = Field(default=False, description="Whether automatic provider failover occurred")
+    primary_provider: Optional[str] = Field(default=None, description="Primary provider attempted if failover occurred")
+    fallback_attempts: Optional[List[str]] = Field(default=None, description="Diagnostics of provider attempts during failover")
 
 
 class CorpusPDFResponse(BaseModel):

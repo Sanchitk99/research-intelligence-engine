@@ -109,11 +109,28 @@ class GeminiProvider(BaseLLMProvider):
         elapsed_ms = (time.perf_counter() - start_time) * 1000.0
 
         if response.status_code in (401, 403):
-            raise ProviderAuthError(f"Gemini authentication failed: {response.text}")
+            raise ProviderAuthError(
+                f"Gemini authentication failed: {response.text}",
+                status_code=response.status_code,
+            )
         elif response.status_code == 429:
-            raise RateLimitError(f"Gemini rate limit exceeded: {response.text}")
+            response_headers = dict(getattr(response, "headers", {}))
+            retry_after = response_headers.get("retry-after")
+            try:
+                retry_after_sec = float(retry_after) if retry_after else None
+            except ValueError:
+                retry_after_sec = None
+            raise RateLimitError(
+                f"Gemini rate limit exceeded: {response.text}",
+                status_code=429,
+                retry_after_seconds=retry_after_sec,
+                headers=response_headers,
+            )
         elif response.status_code >= 400:
-            raise ProviderError(f"Gemini API returned error HTTP {response.status_code}: {response.text}")
+            raise ProviderError(
+                f"Gemini API returned error HTTP {response.status_code}: {response.text}",
+                status_code=response.status_code,
+            )
 
         try:
             res_json = response.json()

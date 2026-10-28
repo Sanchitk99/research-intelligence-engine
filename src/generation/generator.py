@@ -4,7 +4,7 @@ import json
 import re
 import time
 import unicodedata
-from typing import Optional, List, Dict, Any, Tuple
+from typing import Optional, List, Dict, Any, Tuple, Union
 
 from src.retrieval.models import RetrievedChunk, RetrievalResult
 from src.retrieval.retriever import DenseRetriever
@@ -24,6 +24,11 @@ from src.generation.providers.base import (
 )
 from src.generation.providers.factory import get_llm_provider
 from src.generation.prompts import build_generation_messages
+from src.generation.failover import (
+    resolve_fallback_chain,
+    classify_provider_error,
+    sanitize_error_message,
+)
 
 
 class AnswerGenerator:
@@ -35,6 +40,7 @@ class AnswerGenerator:
         provider: Optional[BaseLLMProvider] = None,
         config: Optional[GenerationConfig] = None,
         retrieval_mode: Optional[str] = None,
+        fallback_providers: Optional[List[Union[BaseLLMProvider, str]]] = None,
     ) -> None:
         """Initialize AnswerGenerator.
 
@@ -46,6 +52,7 @@ class AnswerGenerator:
             config: GenerationConfig settings.
             retrieval_mode: Optional retrieval mode ('dense' or 'hybrid').
                 Overrides config.retrieval_mode if specified. Defaults to 'dense'.
+            fallback_providers: Optional ordered list of fallback providers or provider names.
         """
         self.config = config or GenerationConfig()
         self._retriever = retriever
@@ -67,6 +74,26 @@ class AnswerGenerator:
             provider_type=self.config.provider_type,
             model_name=self.config.model_name,
         )
+
+        if provider is not None and (config is None or config.model_name == "gpt-4o-mini"):
+            self.config.model_name = self.provider.default_model
+
+        # Resolve fallback providers
+        if getattr(self.config, "enable_fallback", True):
+            fallbacks = (
+                fallback_providers
+                if fallback_providers is not None
+                else getattr(self.config, "fallback_providers", None)
+            )
+            if fallbacks:
+                self.fallback_chain: List[BaseLLMProvider] = resolve_fallback_chain(
+                    primary_provider=self.provider,
+                    fallback_configs=fallbacks,
+                )
+            else:
+                self.fallback_chain = []
+        else:
+            self.fallback_chain = []
 
     @property
     def retriever(self) -> Any:
@@ -484,12 +511,31 @@ class AnswerGenerator:
             system_prompt_override=None,
         )
 
-        # 4. Call LLM provider with comprehensive error handling
+        # 4. Form complete provider sequence: primary + configured fallbacks
+        all_providers: List[BaseLLMProvider] = [self.provider]
+        for fb in getattr(self, "fallback_chain", []):
+            if fb is not self.provider and fb not in all_providers:
+                all_providers.append(fb)
+
         llm_response: Optional[LLMResponse] = None
-        try:
+        successful_provider: Optional[BaseLLMProvider] = None
+        attempt_diagnostics: List[str] = []
+        failover_occurred: bool = False
+        last_exception: Optional[Exception] = None
+        last_category: Optional[str] = None
+        last_msg: Optional[str] = None
+
+        max_same_retries = getattr(self.config, "max_provider_retries", 1)
+        base_backoff = getattr(self.config, "retry_backoff_base_seconds", 0.5)
+        max_retry_delay = getattr(self.config, "max_retry_delay_seconds", 3.0)
+
+        for prov_idx, current_provider in enumerate(all_providers):
+            is_primary = (prov_idx == 0)
+            target_model = self.config.model_name if is_primary else current_provider.default_model
+
             generation_kwargs = {
                 "messages": messages,
-                "model": self.config.model_name,
+                "model": target_model,
                 "temperature": self.config.temperature,
                 "max_tokens": self.config.max_tokens,
                 "timeout": self.config.timeout_seconds,
@@ -498,87 +544,111 @@ class AnswerGenerator:
             completion_limit = (
                 self.config.max_completion_tokens
                 if self.config.max_completion_tokens is not None
-                else getattr(self.provider, "max_completion_tokens", None)
+                else getattr(current_provider, "max_completion_tokens", None)
             )
             if completion_limit is not None:
                 generation_kwargs["max_completion_tokens"] = completion_limit
-            llm_response = self.provider.generate(
-                **generation_kwargs,
-            )
-        except ProviderTimeoutError as e:
+
+            retries_done = 0
+            while retries_done <= max_same_retries:
+                try:
+                    llm_response = current_provider.generate(**generation_kwargs)
+                    successful_provider = current_provider
+                    if not is_primary:
+                        failover_occurred = True
+                    break
+                except Exception as exc:
+                    last_exception = exc
+                    category, status_code, is_retryable_same, can_failover = classify_provider_error(exc)
+                    last_category = category
+                    clean_msg = sanitize_error_message(str(exc)).split("\n")[0][:120]
+                    last_msg = clean_msg
+                    diag_entry = f"{current_provider.name} ({target_model}): {clean_msg}"
+
+                    # Check if retryable on the same provider
+                    if is_retryable_same and retries_done < max_same_retries:
+                        retry_delay = getattr(exc, "retry_delay_seconds", None)
+                        if retry_delay is not None:
+                            if retry_delay <= max_retry_delay:
+                                time.sleep(retry_delay)
+                                retries_done += 1
+                                continue
+                            else:
+                                diag_entry += f" [Retry-After {retry_delay:.1f}s > max {max_retry_delay}s, failing over]"
+                        else:
+                            backoff = min(base_backoff * (2 ** retries_done), 1.0)
+                            time.sleep(backoff)
+                            retries_done += 1
+                            continue
+
+                    attempt_diagnostics.append(diag_entry)
+
+                    if not can_failover:
+                        # Non-retryable client error (e.g. 400 Bad Request) - do not blindly retry across providers
+                        elapsed_ms = (time.perf_counter() - start_time) * 1000.0
+                        return GeneratedAnswer(
+                            question=q_cleaned,
+                            answer=f"Invalid generation request rejected: {clean_msg}",
+                            status=AnswerStatus.ERROR,
+                            citations=[],
+                            retrieved_chunks=chunks,
+                            confidence_notes=f"Non-retryable error on {current_provider.name}: {clean_msg}",
+                            model_name=target_model,
+                            provider_name=current_provider.name,
+                            retrieval_mode=self.retrieval_mode,
+                            latency_ms=round(elapsed_ms, 2),
+                            failover_occurred=failover_occurred,
+                            primary_provider=self.provider.name,
+                            fallback_attempts=attempt_diagnostics,
+                        )
+
+                    # Move to next provider in all_providers
+                    break
+
+            if successful_provider is not None:
+                break
+
+        # 5. Check if all providers failed
+        if successful_provider is None or llm_response is None:
             elapsed_ms = (time.perf_counter() - start_time) * 1000.0
+            chain_summary = " -> ".join(attempt_diagnostics) if attempt_diagnostics else "No responses received."
+
+            if len(all_providers) > 1:
+                answer = (
+                    "All configured LLM providers failed to generate an answer. "
+                    "Please check your API quota or provider network availability."
+                )
+                conf_notes = f"Failover chain exhausted. Attempts: {chain_summary}"
+            else:
+                if last_category == "timeout" or isinstance(last_exception, ProviderTimeoutError):
+                    answer = f"Answer generation timed out after {self.config.timeout_seconds}s."
+                elif last_category == "auth_error" or isinstance(last_exception, ProviderAuthError):
+                    answer = "LLM provider authentication failed. Please check your API key configuration."
+                elif last_category == "rate_limit" or isinstance(last_exception, RateLimitError):
+                    answer = "LLM provider rate limit exceeded. Please wait before retrying."
+                else:
+                    answer = f"LLM provider error encountered: {str(last_exception)}"
+                conf_notes = str(last_exception) if last_exception else chain_summary
+
             return GeneratedAnswer(
                 question=q_cleaned,
-                answer=f"Answer generation timed out after {self.config.timeout_seconds}s.",
+                answer=answer,
                 status=AnswerStatus.ERROR,
                 citations=[],
                 retrieved_chunks=chunks,
-                confidence_notes=str(e),
-                model_name=self.config.model_name,
+                confidence_notes=conf_notes,
+                model_name=self.config.model_name or "none",
                 provider_name=self.provider.name,
                 retrieval_mode=self.retrieval_mode,
                 latency_ms=round(elapsed_ms, 2),
-            )
-        except ProviderAuthError as e:
-            elapsed_ms = (time.perf_counter() - start_time) * 1000.0
-            return GeneratedAnswer(
-                question=q_cleaned,
-                answer="LLM provider authentication failed. Please check your API key configuration.",
-                status=AnswerStatus.ERROR,
-                citations=[],
-                retrieved_chunks=chunks,
-                confidence_notes=str(e),
-                model_name=self.config.model_name,
-                provider_name=self.provider.name,
-                retrieval_mode=self.retrieval_mode,
-                latency_ms=round(elapsed_ms, 2),
-            )
-        except RateLimitError as e:
-            elapsed_ms = (time.perf_counter() - start_time) * 1000.0
-            return GeneratedAnswer(
-                question=q_cleaned,
-                answer="LLM provider rate limit exceeded. Please wait before retrying.",
-                status=AnswerStatus.ERROR,
-                citations=[],
-                retrieved_chunks=chunks,
-                confidence_notes=str(e),
-                model_name=self.config.model_name,
-                provider_name=self.provider.name,
-                retrieval_mode=self.retrieval_mode,
-                latency_ms=round(elapsed_ms, 2),
-            )
-        except ProviderError as e:
-            elapsed_ms = (time.perf_counter() - start_time) * 1000.0
-            return GeneratedAnswer(
-                question=q_cleaned,
-                answer=f"LLM provider error encountered: {e}",
-                status=AnswerStatus.ERROR,
-                citations=[],
-                retrieved_chunks=chunks,
-                confidence_notes=str(e),
-                model_name=self.config.model_name,
-                provider_name=self.provider.name,
-                retrieval_mode=self.retrieval_mode,
-                latency_ms=round(elapsed_ms, 2),
-            )
-        except Exception as e:
-            elapsed_ms = (time.perf_counter() - start_time) * 1000.0
-            return GeneratedAnswer(
-                question=q_cleaned,
-                answer=f"Unexpected generation error: {e}",
-                status=AnswerStatus.ERROR,
-                citations=[],
-                retrieved_chunks=chunks,
-                confidence_notes=str(e),
-                model_name=self.config.model_name,
-                provider_name=self.provider.name,
-                retrieval_mode=self.retrieval_mode,
-                latency_ms=round(elapsed_ms, 2),
+                failover_occurred=True if len(all_providers) > 1 else False,
+                primary_provider=self.provider.name,
+                fallback_attempts=attempt_diagnostics,
             )
 
         elapsed_ms = (time.perf_counter() - start_time) * 1000.0
 
-        # 5. Parse output and validate citations
+        # 6. Parse output and validate citations
         answer_text, status, citations, notes = self._parse_model_output(
             content=llm_response.content,
             chunks_map=chunks_map,
@@ -586,6 +656,10 @@ class AnswerGenerator:
 
         if status == AnswerStatus.ERROR and not answer_text:
             answer_text = notes or "Model response failed strict schema validation."
+
+        if failover_occurred:
+            failover_prefix = f"[Failover from {self.provider.name} to {successful_provider.name}]"
+            notes = f"{failover_prefix} {notes}" if notes else failover_prefix
 
         return GeneratedAnswer(
             question=q_cleaned,
@@ -595,11 +669,14 @@ class AnswerGenerator:
             retrieved_chunks=chunks,
             confidence_notes=notes,
             model_name=llm_response.model,
-            provider_name=self.provider.name,
+            provider_name=successful_provider.name,
             retrieval_mode=self.retrieval_mode,
             latency_ms=round(elapsed_ms, 2),
             prompt_tokens=llm_response.prompt_tokens,
             completion_tokens=llm_response.completion_tokens,
             total_tokens=llm_response.total_tokens,
+            failover_occurred=failover_occurred,
+            primary_provider=self.provider.name,
+            fallback_attempts=attempt_diagnostics,
         )
 

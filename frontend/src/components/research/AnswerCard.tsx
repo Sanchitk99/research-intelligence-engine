@@ -147,9 +147,17 @@ export const AnswerCard: React.FC<AnswerCardProps> = ({ data, onRetry }) => {
       {/* Performance & Execution Diagnostics Bar */}
       <div className="pt-4 border-t border-[#232732] flex flex-wrap items-center justify-between gap-3 text-[11px] text-[#94a3b8]">
         <div className="flex items-center gap-3 flex-wrap">
-          <span className="flex items-center gap-1 px-2.5 py-0.5 rounded bg-[#171a21] border border-[#232732]">
+          <span className="flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-[#171a21] border border-[#232732]">
             <Cpu className="w-3 h-3 text-indigo-400" />
             Provider: <strong className="text-white capitalize">{data.provider_name}</strong>
+            {data.failover_occurred && (
+              <span
+                className="ml-1 text-[10px] text-amber-400 bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/30 font-medium"
+                title={data.primary_provider ? `Failover from ${data.primary_provider}` : "Automatic failover occurred"}
+              >
+                Failover
+              </span>
+            )}
           </span>
           <span className="flex items-center gap-1 px-2.5 py-0.5 rounded bg-[#171a21] border border-[#232732]">
             Model: <strong className="text-white font-mono">{data.model_name}</strong>

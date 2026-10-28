@@ -42,4 +42,5 @@ def get_status(service: ResearchEngineService = Depends(get_research_service)) -
         indexed_papers_count=raw_status.get("indexed_papers_count", 0),
         papers=papers,
         providers=providers,
+        fallback_chain=raw_status.get("fallback_chain"),
     )

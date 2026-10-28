@@ -144,6 +144,13 @@ class ResearchEngineService:
 
         papers = self.get_indexed_papers()
 
+        # Active fallback chain
+        env_fallbacks = os.getenv("LLM_FALLBACK_PROVIDERS")
+        if env_fallbacks:
+            fallback_chain = [p.strip() for p in env_fallbacks.split(",") if p.strip()]
+        else:
+            fallback_chain = []
+
         return {
             "collection_name": self.collection_name,
             "total_points": point_count,
@@ -156,6 +163,7 @@ class ResearchEngineService:
                 "mock": {"configured": True, "default_model": "mock-evaluator"},
                 "ollama": {"configured": True, "default_model": "mistral"},
             },
+            "fallback_chain": fallback_chain,
         }
 
     def get_indexed_papers(self) -> List[PaperSummary]:
@@ -355,6 +363,7 @@ class ResearchEngineService:
         top_k: int = 5,
         min_score: Optional[float] = None,
         enable_intent_routing: bool = False,
+        fallback_providers: Optional[List[str]] = None,
     ) -> GeneratedAnswer:
         """Ask a research question and generate an evidence-grounded answer with citations.
 
@@ -366,6 +375,7 @@ class ResearchEngineService:
             top_k: Number of chunks to retrieve (default: 5).
             min_score: Optional similarity cutoff.
             enable_intent_routing: Whether to enable automatic query-intent routing for retrieval (default: False).
+            fallback_providers: Optional ordered list of fallback provider identifiers.
 
         Returns:
             GeneratedAnswer with verified citations, answer status, and latency.
@@ -408,12 +418,17 @@ class ResearchEngineService:
                 retriever = dense_retriever
 
             # 3. Configure and run AnswerGenerator
+            env_fallbacks_str = os.environ.get("LLM_FALLBACK_PROVIDERS")
+            env_fallbacks = [p.strip() for p in env_fallbacks_str.split(",") if p.strip()] if env_fallbacks_str else None
+            effective_fallbacks = fallback_providers if fallback_providers is not None else env_fallbacks
+
             config = GenerationConfig(
                 provider_type=provider.name,
                 model_name=provider.default_model,
                 retrieval_mode=retrieval_mode,
                 top_k=top_k,
                 min_score=min_score,
+                fallback_providers=effective_fallbacks,
             )
 
             generator = AnswerGenerator(
@@ -421,6 +436,7 @@ class ResearchEngineService:
                 provider=provider,
                 config=config,
                 retrieval_mode=retrieval_mode,
+                fallback_providers=effective_fallbacks,
             )
 
             result = generator.generate(

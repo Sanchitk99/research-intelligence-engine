@@ -141,8 +141,11 @@ class OpenAIProvider(BaseLLMProvider):
 
         elapsed_ms = (time.perf_counter() - start_time) * 1000.0
 
-        if response.status_code == 401:
-            raise ProviderAuthError(f"{display_name} authentication failed: {response.text}")
+        if response.status_code in (401, 403):
+            raise ProviderAuthError(
+                f"{display_name} authentication failed: {response.text}",
+                status_code=response.status_code,
+            )
         elif response.status_code == 429:
             response_headers = getattr(response, "headers", {})
             retry_after, reset_tokens, limit_kind = self._rate_limit_metadata(response_headers, response.text)
@@ -154,13 +157,17 @@ class OpenAIProvider(BaseLLMProvider):
             safe_headers = {key: value for key, value in metadata.items() if value is not None}
             raise RateLimitError(
                 f"{display_name} rate limit exceeded: {response.text}; headers={safe_headers}",
+                status_code=429,
                 retry_after_seconds=retry_after,
                 reset_tokens_seconds=reset_tokens,
                 headers=safe_headers,
                 limit_kind=limit_kind,
             )
         elif response.status_code >= 400:
-            raise ProviderError(f"{display_name} API returned error HTTP {response.status_code}: {response.text}")
+            raise ProviderError(
+                f"{display_name} API returned error HTTP {response.status_code}: {response.text}",
+                status_code=response.status_code,
+            )
 
         try:
             res_json = response.json()

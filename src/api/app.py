@@ -1,8 +1,15 @@
 """FastAPI application factory for the Research Intelligence Engine."""
 
 import logging
+import os
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
+
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware

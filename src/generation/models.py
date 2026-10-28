@@ -91,6 +91,32 @@ class GenerationConfig(BaseModel):
         default="dense",
         description="Retrieval subsystem mode: 'dense' or 'hybrid'"
     )
+    fallback_providers: Optional[List[str]] = Field(
+        default=None,
+        description="Ordered list of fallback providers/models (e.g. ['groq', 'openai', 'mock'])"
+    )
+    enable_fallback: bool = Field(
+        default=True,
+        description="Whether automatic provider failover is enabled across configured providers"
+    )
+    max_provider_retries: int = Field(
+        default=1,
+        ge=0,
+        le=5,
+        description="Max retry attempts on the same provider for retryable errors before failover"
+    )
+    retry_backoff_base_seconds: float = Field(
+        default=0.5,
+        ge=0.0,
+        le=10.0,
+        description="Base backoff delay in seconds for immediate retries"
+    )
+    max_retry_delay_seconds: float = Field(
+        default=3.0,
+        ge=0.0,
+        le=30.0,
+        description="Maximum acceptable retry delay before failing over immediately"
+    )
 
 
 class GeneratedAnswer(BaseModel):
@@ -122,4 +148,16 @@ class GeneratedAnswer(BaseModel):
     prompt_tokens: Optional[int] = Field(default=None, description="Number of tokens in prompt")
     completion_tokens: Optional[int] = Field(default=None, description="Number of tokens in completion")
     total_tokens: Optional[int] = Field(default=None, description="Total tokens consumed")
+    failover_occurred: bool = Field(
+        default=False,
+        description="Whether automatic failover occurred from primary provider"
+    )
+    primary_provider: Optional[str] = Field(
+        default=None,
+        description="Primary provider attempted if failover occurred"
+    )
+    fallback_attempts: Optional[List[str]] = Field(
+        default=None,
+        description="Diagnostics of provider attempts during failover execution"
+    )
 

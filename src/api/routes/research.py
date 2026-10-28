@@ -42,6 +42,7 @@ def ask_research_question(
             top_k=req.top_k,
             min_score=req.min_score,
             enable_intent_routing=req.enable_intent_routing,
+            fallback_providers=req.fallback_providers,
         )
     except Exception as e:
         logger.error(f"Error during question answering: {e}", exc_info=True)
@@ -94,4 +95,7 @@ def ask_research_question(
         prompt_tokens=ans.prompt_tokens,
         completion_tokens=ans.completion_tokens,
         total_tokens=ans.total_tokens,
+        failover_occurred=ans.failover_occurred,
+        primary_provider=ans.primary_provider,
+        fallback_attempts=ans.fallback_attempts,
     )
