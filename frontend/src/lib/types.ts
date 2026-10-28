@@ -81,6 +81,7 @@ export interface IngestionResponse {
   total_collection_points: number;
   error_message?: string | null;
   sample_chunks: Array<{ chunk_id?: string; preview?: string; [key: string]: unknown }>;
+  dry_run?: boolean;
 }
 
 export interface ProviderStatus {

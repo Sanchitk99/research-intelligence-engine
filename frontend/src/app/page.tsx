@@ -429,7 +429,10 @@ export default function Home() {
       {/* Ingestion & Upload Modal */}
       <IngestModal
         isOpen={isIngestModalOpen}
-        onClose={() => setIsIngestModalOpen(false)}
+        onClose={() => {
+          setIsIngestModalOpen(false);
+          loadSystemData();
+        }}
         onUpload={handleUploadPaper}
       />
     </div>

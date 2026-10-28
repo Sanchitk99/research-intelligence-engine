@@ -14,7 +14,7 @@ export const IngestModal: React.FC<IngestModalProps> = ({ isOpen, onClose, onUpl
   const [file, setFile] = React.useState<File | null>(null);
   const [docId, setDocId] = React.useState('');
   const [docTitle, setDocTitle] = React.useState('');
-  const [dryRun, setDryRun] = React.useState(true);
+  const [dryRun, setDryRun] = React.useState(false);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [report, setReport] = React.useState<IngestionResponse | null>(null);
   const [error, setError] = React.useState<string | null>(null);
@@ -183,17 +183,33 @@ export const IngestModal: React.FC<IngestModalProps> = ({ isOpen, onClose, onUpl
           ) : (
             /* Ingestion Report Card */
             <div className="space-y-4 animate-fade-in">
-              <div className="p-3.5 rounded-lg bg-emerald-950/30 border border-emerald-800/40 text-xs text-emerald-300 flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                <div>
-                  <strong className="block text-white font-semibold">
-                    {report.success ? 'Document Processed Successfully' : 'Ingestion Failed'}
-                  </strong>
-                  <p className="text-[11px] text-emerald-300/90 mt-0.5">
-                    {report.title} ({report.document_id})
-                  </p>
+              {report.dry_run ?? dryRun ? (
+                /* Dry Run Preview Notice */
+                <div className="p-3.5 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-300 flex items-start gap-2.5">
+                  <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="block text-white font-semibold">
+                      Dry Run Simulation Completed (Preview Only)
+                    </strong>
+                    <p className="text-[11px] text-amber-300/90 mt-0.5">
+                      {report.title} ({report.document_id}) — Preview only. No chunks were saved to storage.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                /* Ingestion Succeeded Notice */
+                <div className="p-3.5 rounded-lg bg-emerald-950/30 border border-emerald-800/40 text-xs text-emerald-300 flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="block text-white font-semibold">
+                      {report.success ? 'Document Ingested & Indexed Successfully' : 'Ingestion Failed'}
+                    </strong>
+                    <p className="text-[11px] text-emerald-300/90 mt-0.5">
+                      {report.title} ({report.document_id}) is now saved and available in your Paper Library.
+                    </p>
+                  </div>
+                </div>
+              )}
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
                 <div className="p-2.5 rounded-lg bg-[#090a0d] border border-[#232732]">
@@ -206,13 +222,21 @@ export const IngestModal: React.FC<IngestModalProps> = ({ isOpen, onClose, onUpl
                 </div>
                 <div className="p-2.5 rounded-lg bg-[#090a0d] border border-[#232732]">
                   <span className="text-[10px] text-[#64748b] uppercase block">Chunks Indexed</span>
-                  <span className="text-sm font-bold text-emerald-400 font-mono">{report.chunks_indexed}</span>
+                  <span className={`text-sm font-bold font-mono ${(report.dry_run ?? dryRun) ? 'text-amber-400' : 'text-emerald-400'}`}>
+                    {(report.dry_run ?? dryRun) ? '0 (Dry Run)' : report.chunks_indexed}
+                  </span>
                 </div>
                 <div className="p-2.5 rounded-lg bg-[#090a0d] border border-[#232732]">
                   <span className="text-[10px] text-[#64748b] uppercase block">Total Points</span>
                   <span className="text-sm font-bold text-violet-400 font-mono">{report.total_collection_points}</span>
                 </div>
               </div>
+
+              {(report.dry_run ?? dryRun) && (
+                <div className="p-2.5 rounded-lg bg-[#171a21] border border-[#232732] text-[11px] text-[#94a3b8]">
+                  💡 <strong>Tip:</strong> This was a dry run simulation. Uncheck <span className="text-white">Dry Run Mode</span> and click <span className="text-white">Ingest & Index</span> to permanently persist this paper to your Paper Library.
+                </div>
+              )}
 
               {/* Sample Chunks Previews */}
               {report.sample_chunks && report.sample_chunks.length > 0 && (

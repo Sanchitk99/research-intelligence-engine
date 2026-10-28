@@ -3,6 +3,7 @@
 import json
 import re
 import time
+import unicodedata
 from typing import Optional, List, Dict, Any, Tuple
 
 from src.retrieval.models import RetrievedChunk, RetrievalResult
@@ -98,6 +99,77 @@ class AnswerGenerator:
             text = re.sub(r"\s*```$", "", text)
         return text.strip()
 
+    @staticmethod
+    def _normalize_for_matching(text: str) -> str:
+        """Normalize text for excerpt grounding checks.
+
+        Handles:
+        - Unicode ligatures (fi, fl, ffi, ffl, ft, st) via NFKD decomposition.
+        - Unicode dashes, hyphens, and minus signs (-, –, —, −).
+        - Unicode single and double quotes, primes, and apostrophes.
+        - PDF line-break hyphenation (e.g. 'regres-\nsion' -> 'regression').
+        - Remaining hyphens at linebreaks (e.g. '1D-\nCNN' -> '1D-CNN').
+        - Collapsing whitespace.
+        - Lowercasing for case-insensitive comparison.
+        """
+        if not text:
+            return ""
+        # 1. Unicode decomposition (decomposes ligatures like fi, fl)
+        t = unicodedata.normalize("NFKD", text)
+        # 2. Normalize unicode dashes and hyphens to ASCII hyphen
+        t = re.sub(r"[\u2010\u2011\u2012\u2013\u2014\u2015\u2212]", "-", t)
+        # 3. Normalize unicode single and double quotes
+        t = re.sub(r"[\u2018\u2019\u201A\u201B\u2032]", "'", t)
+        t = re.sub(r"[\u201C\u201D\u201E\u201F\u2033]", '"', t)
+        # 4. Handle hyphenated line breaks: 'regres-\nsion' -> 'regression'
+        t = re.sub(r"(\b[a-zA-Z]+)-\s*\n\s*([a-zA-Z]+\b)", r"\1\2", t)
+        # 5. Handle remaining hyphens at line breaks: '1D-\nCNN' -> '1D-CNN'
+        t = re.sub(r"-\s*\n\s*", "-", t)
+        # 6. Normalize whitespace and lowercase
+        return " ".join(t.split()).lower()
+
+    @classmethod
+    def _is_excerpt_grounded(cls, raw_excerpt: str, chunk_text: str) -> bool:
+        """Check if raw excerpt is grounded in chunk text under robust normalization."""
+        if not raw_excerpt or not chunk_text:
+            return False
+
+        # 1. Fast direct check
+        clean_chunk_raw = " ".join(chunk_text.split()).lower()
+        clean_exc_raw = " ".join(raw_excerpt.strip(".\"'\n").split()).lower()
+        if clean_exc_raw and clean_exc_raw in clean_chunk_raw:
+            return True
+
+        # 2. Robust normalized check (ligatures, linebreaks, punctuation)
+        clean_chunk = cls._normalize_for_matching(chunk_text)
+        stripped_exc = raw_excerpt.strip(".\"'\n \t\r\u201c\u201d\u2018\u2019\u2026")
+        clean_exc = cls._normalize_for_matching(stripped_exc)
+
+        if not clean_exc:
+            return False
+
+        if clean_exc in clean_chunk:
+            return True
+
+        # 3. Check for ellipsis-separated fragments (e.g. 'part1 ... part2')
+        fragments = [
+            f.strip() for f in re.split(r"\.{3,}|\u2026|\[\.\.\.\]", clean_exc)
+            if len(f.strip()) >= 8
+        ]
+        if len(fragments) > 1:
+            pos = 0
+            all_found = True
+            for frag in fragments:
+                idx = clean_chunk.find(frag, pos)
+                if idx == -1:
+                    all_found = False
+                    break
+                pos = idx + len(frag)
+            if all_found:
+                return True
+
+        return False
+
     def _validate_and_build_citations(
         self,
         raw_citations: Any,
@@ -158,10 +230,8 @@ class AnswerGenerator:
             seen_chunk_ids.add(matched_chunk.chunk_id)
 
             raw_excerpt = str(raw_cite.get("excerpt", "")).strip()
-            clean_chunk = " ".join(matched_chunk.text.split()).lower()
-            clean_exc = " ".join(raw_excerpt.strip(".\"'\n").split()).lower()
 
-            if clean_exc and clean_exc in clean_chunk:
+            if self._is_excerpt_grounded(raw_excerpt, matched_chunk.text):
                 excerpt = raw_excerpt
             else:
                 if raw_excerpt:
@@ -312,7 +382,7 @@ class AnswerGenerator:
             )
 
         # Check if plain text contains explicit citations to verified chunks
-        found_cids = re.findall(r"P[1-5]_p\d{2}_c\d{2}", cleaned)
+        found_cids = re.findall(r"P\d+_p\d{2}_c\d{2}", cleaned)
         citations: List[Citation] = []
         for cid in found_cids:
             if cid in chunks_map and cid not in [c.chunk_id for c in citations]:

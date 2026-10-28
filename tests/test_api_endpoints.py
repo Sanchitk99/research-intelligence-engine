@@ -230,3 +230,49 @@ def test_upload_non_pdf_fails(client):
     res = client.post("/api/papers/upload", files=files)
     assert res.status_code == 400
     assert "must have a .pdf extension" in res.json()["detail"]
+
+
+def test_upload_pdf_dry_run(client, mock_service):
+    """Verify /api/papers/upload correctly processes dry-run mode and reports 0 chunks indexed."""
+    mock_service.ingest_paper.return_value = IngestionReport(
+        success=True,
+        document_id="P6",
+        title="Test Upload Paper",
+        filename="test_upload.pdf",
+        pages_extracted=5,
+        chunks_created=20,
+        chunks_indexed=0,
+        total_collection_points=396,
+        dry_run=True,
+    )
+    files = {"file": ("test_upload.pdf", b"%PDF-1.4 synthetic content", "application/pdf")}
+    res = client.post("/api/papers/upload", files=files, data={"dry_run": "true"})
+    assert res.status_code == 200
+    data = res.json()
+    assert data["success"] is True
+    assert data["dry_run"] is True
+    assert data["chunks_indexed"] == 0
+    assert data["chunks_created"] == 20
+
+
+def test_upload_pdf_actual_ingestion(client, mock_service):
+    """Verify /api/papers/upload correctly indexes chunks and reports positive indexed count."""
+    mock_service.ingest_paper.return_value = IngestionReport(
+        success=True,
+        document_id="P6",
+        title="Test Upload Paper",
+        filename="test_upload.pdf",
+        pages_extracted=5,
+        chunks_created=20,
+        chunks_indexed=20,
+        total_collection_points=416,
+        dry_run=False,
+    )
+    files = {"file": ("test_upload.pdf", b"%PDF-1.4 synthetic content", "application/pdf")}
+    res = client.post("/api/papers/upload", files=files, data={"dry_run": "false"})
+    assert res.status_code == 200
+    data = res.json()
+    assert data["success"] is True
+    assert data["dry_run"] is False
+    assert data["chunks_indexed"] == 20
+    assert data["total_collection_points"] == 416

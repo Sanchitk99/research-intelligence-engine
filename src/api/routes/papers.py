@@ -130,6 +130,7 @@ def ingest_corpus_paper(
         total_collection_points=report.total_collection_points,
         error_message=report.error_message,
         sample_chunks=report.sample_chunks,
+        dry_run=report.dry_run,
     )
 
 
@@ -203,4 +204,5 @@ async def upload_and_ingest_pdf(
         total_collection_points=report.total_collection_points,
         error_message=report.error_message,
         sample_chunks=report.sample_chunks,
+        dry_run=report.dry_run,
     )

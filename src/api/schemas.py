@@ -113,3 +113,4 @@ class IngestionResponse(BaseModel):
     total_collection_points: int = Field(description="New total points in collection")
     error_message: Optional[str] = Field(default=None, description="Error details if unsuccessful")
     sample_chunks: List[Dict[str, Any]] = Field(default_factory=list, description="Sample chunk previews")
+    dry_run: bool = Field(default=False, description="Whether execution was dry-run only")

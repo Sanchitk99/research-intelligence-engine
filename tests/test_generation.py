@@ -3218,9 +3218,127 @@ class TestStrictResponseValidationAndOllamaConfig:
             assert "Connection refused" in result.confidence_notes
 
 
+# ---------------------------------------------------------------------------
+# 11. Citation Grounding & Normalization Tests (Task 4.7.5)
+# ---------------------------------------------------------------------------
 
+class TestCitationGroundingWithLigaturesAndLinebreaks:
+    """Validate robust excerpt grounding against Unicode ligatures, line-break hyphens, and multi-doc IDs."""
 
+    def test_unicode_ligature_and_hyphen_normalization(self):
+        """Ligatures (fi, fl) and line-break hyphens in chunks match standard ASCII model excerpts."""
+        chunk_text = (
+            "This study investigates the capability of \ufb01ve different machine learning (ML) models "
+            "and one deep learning (DL) model, namely Gaussian gener-\nalised additive model (GAM), "
+            "multivariate adaptive regres-\nsion splines (MARSs), arti\ufb01cial neural network (ANN), "
+            "ran-\ndom forest (RF), and 1D-\nCNN in stream\ufb02ow prediction."
+        )
+        model_excerpt = (
+            "five different machine learning (ML) models and one deep learning (DL) model, "
+            "namely Gaussian generalised additive model (GAM), multivariate adaptive regression splines (MARSs), "
+            "artificial neural network (ANN), random forest (RF), and 1D-CNN in streamflow prediction"
+        )
+        assert AnswerGenerator._is_excerpt_grounded(model_excerpt, chunk_text) is True
 
+    def test_p6_p01_c03_excerpt_grounding_preserves_excerpt_without_warning(self):
+        """P6_p01_c03 chunk text with all six models preserves model excerpt and emits no ungrounded warning."""
+        chunk_text = (
+            "learning-based models to predict stream\ufb02ow patterns in re-\nsponse to climate change, "
+            "very few studies have been un-\ndertaken for a mountainous catchment... This study "
+            "investigates the capability of \ufb01ve different machine learning (ML) models and one "
+            "deep learning (DL) model, namely the Gaussian linear regression model (GLM), Gaussian gener-\n"
+            "alised additive model (GAM), multivariate adaptive regres-\nsion splines (MARSs), arti\ufb01cial "
+            "neural network (ANN), ran-\ndom forest (RF), and 1D convolutional neural network (1D-\nCNN), "
+            "in stream\ufb02ow prediction over the Sutlej River basin."
+        )
+        chunk = RetrievedChunk(
+            chunk_id="P6_p01_c03",
+            document_id="P6",
+            document_title="Machine-learning- and deep-learning-based streamflow prediction",
+            physical_page_index=0,
+            physical_page_number=1,
+            printed_page_number=None,
+            chunk_index_in_page=2,
+            chunk_index_in_doc=2,
+            start_char_idx=0,
+            end_char_idx=len(chunk_text),
+            char_count=len(chunk_text),
+            word_count=len(chunk_text.split()),
+            text=chunk_text,
+            score=0.9,
+        )
 
+        mock_payload = {
+            "status": "answered",
+            "answer": "The researchers compared six models: GLM, GAM, MARSs, ANN, RF, and 1D-CNN.",
+            "citations": [
+                {
+                    "chunk_id": "P6_p01_c03",
+                    "excerpt": (
+                        "the Gaussian linear regression model (GLM), Gaussian generalised additive model (GAM), "
+                        "multivariate adaptive regression splines (MARSs), artificial neural network (ANN), "
+                        "random forest (RF), and 1D convolutional neural network (1D-CNN)"
+                    ),
+                }
+            ],
+            "confidence_notes": "Models verified from paper P6.",
+        }
+
+        mock_provider = MockLLMProvider(default_response=mock_payload)
+        generator = AnswerGenerator(provider=mock_provider)
+        res = RetrievalResult(
+            collection_name="research_corpus",
+            query="Which six models did the researchers compare?",
+            chunks=[chunk],
+            total_retrieved=1,
+            latency_ms=1.0,
+        )
+        ans = generator.generate("Which six models did the researchers compare?", retrieval_result=res)
+
+        assert ans.status == AnswerStatus.ANSWERED
+        assert len(ans.citations) == 1
+        cit = ans.citations[0]
+        assert cit.chunk_id == "P6_p01_c03"
+        assert cit.physical_page_number == 1
+        # The true verbatim excerpt is preserved and not replaced with text[:120]
+        assert "Gaussian linear regression model" in cit.excerpt
+        assert "1D convolutional neural network" in cit.excerpt
+        assert "not found in passage text" not in (ans.confidence_notes or "")
+
+    def test_fabricated_excerpt_still_reconciled_with_warning(self):
+        """Fabricated excerpt that cannot be found in passage text is still flagged and reconciled."""
+        chunk_text = "This is legitimate passage text about hydrology."
+        assert AnswerGenerator._is_excerpt_grounded("Completely invented quotation.", chunk_text) is False
+
+    def test_plain_text_fallback_supports_p6_and_higher_paper_ids(self):
+        """Plain text regex recognizes paper IDs like P6, P7 beyond P5."""
+        plain_response = (
+            "The six models compared in the study are GLM, GAM, MARSs, ANN, RF, and 1D-CNN "
+            "as described in P6_p01_c03."
+        )
+        chunk = RetrievedChunk(
+            chunk_id="P6_p01_c03",
+            document_id="P6",
+            document_title="Machine-learning streamflow",
+            physical_page_index=0,
+            physical_page_number=1,
+            printed_page_number=None,
+            chunk_index_in_page=0,
+            chunk_index_in_doc=0,
+            start_char_idx=0,
+            end_char_idx=100,
+            char_count=100,
+            word_count=15,
+            text="Passage text describing GLM, GAM, MARSs, ANN, RF, and 1D-CNN.",
+            score=0.9,
+        )
+        generator = AnswerGenerator(provider=MockLLMProvider())
+        ans_text, status, cits, notes = generator._parse_model_output(
+            content=plain_response,
+            chunks_map={"P6_p01_c03": chunk},
+        )
+        assert status == AnswerStatus.ANSWERED
+        assert len(cits) == 1
+        assert cits[0].chunk_id == "P6_p01_c03"
 
 

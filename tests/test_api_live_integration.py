@@ -127,5 +127,6 @@ def test_live_paper_dry_run_ingestion(live_client):
     assert data["document_id"] == "P5"
     assert data["pages_extracted"] == 8
     assert data["chunks_created"] == 39
-    assert data["chunks_indexed"] == 39
+    assert data["chunks_indexed"] == 0
+    assert data["dry_run"] is True
     assert len(data["sample_chunks"]) > 0

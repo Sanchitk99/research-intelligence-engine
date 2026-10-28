@@ -7126,5 +7126,2273 @@
       "word_count": 38
     },
     "text": "when optimizing a retrieval component in order to improve performance on downstream tasks.\nI\nNumber of instances per dataset\nThe number of training, development and test datapoints in each of our datasets is shown in Table 7.\n19"
+  },
+  {
+    "chunk_id": "P6_p01_c01",
+    "metadata": {
+      "chunk_id": "P6_p01_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 0,
+      "physical_page_number": 1,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 0,
+      "start_char_idx": 0,
+      "end_char_idx": 912,
+      "char_count": 912,
+      "word_count": 108
+    },
+    "text": "Hydrol. Earth Syst. Sci., 27, 1047–1075, 2023\nhttps://doi.org/10.5194/hess-27-1047-2023\n© Author(s) 2023. This work is distributed under\nthe Creative Commons Attribution 4.0 License.\nMachine-learning- and deep-learning-based streamﬂow prediction\nin a hilly catchment for future scenarios using CMIP6 GCM data\nDharmaveer Singh1,5, Manu Vardhan2, Rakesh Sahu3, Debrupa Chatterjee1, Pankaj Chauhan4, and Shiyin Liu5\n1Symbiosis Institute of Geo-informatics, Symbiosis International (Deemed University), Pune 411016, India\n2Computer Science and Engineering Department, National Institute of Technology Raipur, Raipur 492010, India\n3Computer Science and Engineering Department, Chandigarh University, Mohali 140413, India\n4Geomorphology and Glaciology Department, Wadia Institute of Himalayan Geology, Dehradun 248001, India\n5Institute of International Rivers and Eco-Security, Yunnan University, Kunming 650091, China"
+  },
+  {
+    "chunk_id": "P6_p01_c02",
+    "metadata": {
+      "chunk_id": "P6_p01_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 0,
+      "physical_page_number": 1,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 1,
+      "start_char_idx": 819,
+      "end_char_idx": 1795,
+      "char_count": 976,
+      "word_count": 141
+    },
+    "text": "5Institute of International Rivers and Eco-Security, Yunnan University, Kunming 650091, China\nCorrespondence: Dharmaveer Singh (veermnnit@gmail.com) and Shiyin Liu (shiyin.liu@ynu.edu.cn)\nReceived: 26 September 2022 – Discussion started: 4 October 2022\nRevised: 15 January 2023 – Accepted: 21 February 2023 – Published: 13 March 2023\nAbstract. The alteration in river ﬂow patterns, particularly\nthose that originate in the Himalaya, has been caused by\nthe increased temperature and rainfall variability brought\non by climate change. Due to the impending intensiﬁcation\nof extreme climate events, as predicted by the Intergovern-\nmental Panel on Climate Change (IPCC) in its Sixth As-\nsessment Report, it is more essential than ever to predict\nchanges in streamﬂow for future periods. Despite the fact\nthat some research has utilised machine-learning- and deep-\nlearning-based models to predict streamﬂow patterns in re-\nsponse to climate change, very few studies have been un-"
+  },
+  {
+    "chunk_id": "P6_p01_c03",
+    "metadata": {
+      "chunk_id": "P6_p01_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 0,
+      "physical_page_number": 1,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 2,
+      "start_char_idx": 1680,
+      "end_char_idx": 2679,
+      "char_count": 999,
+      "word_count": 148
+    },
+    "text": "learning-based models to predict streamﬂow patterns in re-\nsponse to climate change, very few studies have been un-\ndertaken for a mountainous catchment, with the number of\nstudies for the western Himalaya being minimal. This study\ninvestigates the capability of ﬁve different machine learning\n(ML) models and one deep learning (DL) model, namely the\nGaussian linear regression model (GLM), Gaussian gener-\nalised additive model (GAM), multivariate adaptive regres-\nsion splines (MARSs), artiﬁcial neural network (ANN), ran-\ndom forest (RF), and 1D convolutional neural network (1D-\nCNN), in streamﬂow prediction over the Sutlej River basin in\nthe western Himalaya during the periods 2041–2070 (2050s)\nand 2071–2100 (2080s). Bias-corrected data downscaled at\na grid resolution of 0.25◦× 0.25◦from six general circu-\nlation models (GCMs) of the Coupled Model Intercompar-\nison Project Phase 6 GCM framework under two green-\nhouse gas (GHG) trajectories (SSP245 and SSP585) were\nused for this purpose."
+  },
+  {
+    "chunk_id": "P6_p01_c04",
+    "metadata": {
+      "chunk_id": "P6_p01_c04",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 0,
+      "physical_page_number": 1,
+      "printed_page_number": null,
+      "chunk_index_in_page": 3,
+      "chunk_index_in_doc": 3,
+      "start_char_idx": 2551,
+      "end_char_idx": 3511,
+      "char_count": 960,
+      "word_count": 161
+    },
+    "text": "ison Project Phase 6 GCM framework under two green-\nhouse gas (GHG) trajectories (SSP245 and SSP585) were\nused for this purpose. Four different rainfall scenarios (R0,\nR1, R2, and R3) were applied to the models trained with\ndaily data (1979–2009) at Kasol (the outlet of the basin)\nin order to better understand how catchment size and the\ngeo-hydromorphological aspects of the basin affect runoff.\nThe predictive power of each model was assessed using\nsix statistical measures, i.e. the coefﬁcient of determina-\ntion (R2), the ratio of the root mean square error to the\nstandard deviation of the measured data (RSR), the mean\nabsolute error (MAE), the Kling–Gupta efﬁciency (KGE),\nthe Nash–Sutcliffe efﬁciency (NSE), and the percent bias\n(PBIAS). The RF model with rainfall scenario R3, which\noutperformed other models during the training (R2 = 0.90;\nRSR = 0.32; KGE = 0.87; NSE = 0.87; PBIAS = 0.03) and\ntesting (R2 = 0.78; RSR = 0.47; KGE = 0.82; NSE = 0.71;"
+  },
+  {
+    "chunk_id": "P6_p01_c05",
+    "metadata": {
+      "chunk_id": "P6_p01_c05",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 0,
+      "physical_page_number": 1,
+      "printed_page_number": null,
+      "chunk_index_in_page": 4,
+      "chunk_index_in_doc": 4,
+      "start_char_idx": 3402,
+      "end_char_idx": 4379,
+      "char_count": 977,
+      "word_count": 192
+    },
+    "text": "RSR = 0.32; KGE = 0.87; NSE = 0.87; PBIAS = 0.03) and\ntesting (R2 = 0.78; RSR = 0.47; KGE = 0.82; NSE = 0.71;\nPBIAS = −0.31) period, therefore was chosen to simulate\nstreamﬂow in the Sutlej River in the 2050s and 2080s un-\nder the SSP245 and SSP585 scenarios. Bias correction was\nfurther applied to the projected daily streamﬂow in order\nto generate a reliable times series of the discharge. The\nmean ensemble of the model results shows that the mean an-\nnual streamﬂow of the Sutlej River is expected to rise be-\ntween 2050s and 2080s by 0.79 % to 1.43 % for SSP585 and\nby 0.87 % to 1.10 % for SSP245. In addition, streamﬂow\nwill increase during the monsoon (9.70 % to 11.41 % and\n11.64 % to 12.70 %) in the 2050s and 2080s under both emis-\nsion scenarios, but it will decrease during the pre-monsoon\n(−10.36 % to −6.12 % and −10.0 % to −9.13 %), post-\nmonsoon (−1.23 % to −0.22 % and −5.59 % to −2.83 %),\nand during the winter (−21.87 % to −21.52 % and −21.87 %\nto −21.11 %)."
+  },
+  {
+    "chunk_id": "P6_p01_c06",
+    "metadata": {
+      "chunk_id": "P6_p01_c06",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 0,
+      "physical_page_number": 1,
+      "printed_page_number": null,
+      "chunk_index_in_page": 5,
+      "chunk_index_in_doc": 5,
+      "start_char_idx": 4256,
+      "end_char_idx": 4569,
+      "char_count": 313,
+      "word_count": 54
+    },
+    "text": "monsoon (−1.23 % to −0.22 % and −5.59 % to −2.83 %),\nand during the winter (−21.87 % to −21.52 % and −21.87 %\nto −21.11 %). This variability in streamﬂow is highly corre-\nlated with the pattern of precipitation and temperature pre-\nPublished by Copernicus Publications on behalf of the European Geosciences Union."
+  },
+  {
+    "chunk_id": "P6_p02_c01",
+    "metadata": {
+      "chunk_id": "P6_p02_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 1,
+      "physical_page_number": 2,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 6,
+      "start_char_idx": 0,
+      "end_char_idx": 985,
+      "char_count": 985,
+      "word_count": 157
+    },
+    "text": "1048\nD. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\ndicted by CMIP6 GCMs for future emission scenarios and\nwith physical processes operating within the catchment. Pre-\ndicted declines in the Sutlej River streamﬂow over the pre-\nmonsoon (April to June) and winter (December to March)\nseasons might have a signiﬁcant impact on agriculture down-\nstream of the river, which is already having problems due to\nwater restrictions at this time of year. The present study will\ntherefore assist in strategy planning to ensure the sustainable\nuse of water resources downstream by acquiring knowledge\nof the nature and causes of unpredictable streamﬂow pat-\nterns.\n1\nIntroduction\nHuman-induced global warming has altered the patterns of\nrainfall worldwide (Goswami et al., 2006; Trenberth, 2011)\nand has also increased the risks of extreme events such as\nthe droughts and ﬂoods (Easterling et al., 2000; Trenberth\net al., 2015; Otto et al., 2017)."
+  },
+  {
+    "chunk_id": "P6_p02_c02",
+    "metadata": {
+      "chunk_id": "P6_p02_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 1,
+      "physical_page_number": 2,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 7,
+      "start_char_idx": 893,
+      "end_char_idx": 1868,
+      "char_count": 975,
+      "word_count": 160
+    },
+    "text": "the droughts and ﬂoods (Easterling et al., 2000; Trenberth\net al., 2015; Otto et al., 2017). It has impacted hydrology of\nmany river basins globally, including the variation in stream-\nﬂow (Gerten et al., 2008; Nepal and Shrestha, 2015; Singh\net al., 2015a; Ali et al., 2018; Lutz et al., 2019; Singh et\nal., 2022). A study of the long-term (1948–2004) streamﬂow\n(discharge) data of the 200 largest rivers of the globe showed\nconsiderable changes in their annual discharge; however, the\nresults were statistically signiﬁcant only for 64 rivers (Dai\net al., 2009). Out of these, 45 were marked with decreas-\ning trends, and the remaining 19 showed increasing trends\nin their annual discharge. Similar decreasing and increasing\ntrends in discharge of the rivers were also reported at the re-\ngional scale, i.e. Asia (Kundzewicz et al., 2009; Krysanova et\nal., 2015), Europe (Stahl et al., 2010; Stahl et al., 2012), and\nNorth America (Pasquini and Depetris, 2007). Moreover, it"
+  },
+  {
+    "chunk_id": "P6_p02_c03",
+    "metadata": {
+      "chunk_id": "P6_p02_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 1,
+      "physical_page_number": 2,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 8,
+      "start_char_idx": 1746,
+      "end_char_idx": 2708,
+      "char_count": 962,
+      "word_count": 153
+    },
+    "text": "al., 2015), Europe (Stahl et al., 2010; Stahl et al., 2012), and\nNorth America (Pasquini and Depetris, 2007). Moreover, it\nhas been established that the effects of rainfall variation and\nextreme events on annual discharge are likely strong com-\npared with other drivers (Kundzewicz et al., 2009; Miller et\nal., 2012; Van der Wiel et al., 2019). Zhao et al. (2021) ex-\namined how precipitation, evapotranspiration, and the tim-\ning of snowmelt impacted runoff in the Kaidu River basin in\nChina. They discovered that, as global warming increased,\nthe timing of snowmelt became less signiﬁcant, while the in-\nﬂuence of precipitation increased comparatively. A projected\nrise of ∼2 to 5 ◦C in the mean annual global temperature\nby 2100 under higher greenhouse gas emission scenarios, as\npredicted by the general circulation models (GCMs; Gao et\nal., 2017), will considerably affect the rainfall pattern (in-\ntensity and amount) and may alter hydrological cycles (Oki"
+  },
+  {
+    "chunk_id": "P6_p02_c04",
+    "metadata": {
+      "chunk_id": "P6_p02_c04",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 1,
+      "physical_page_number": 2,
+      "printed_page_number": null,
+      "chunk_index_in_page": 3,
+      "chunk_index_in_doc": 9,
+      "start_char_idx": 2587,
+      "end_char_idx": 3552,
+      "char_count": 965,
+      "word_count": 146
+    },
+    "text": "al., 2017), will considerably affect the rainfall pattern (in-\ntensity and amount) and may alter hydrological cycles (Oki\nand Kanae, 2006; Haddeland et al., 2014). This could subse-\nquently impact the availability of water resources and present\nchallenges for their management, since a rise in the demand\nof water is also predicted (Lutz et al., 2019). Therefore, it is\nindispensable to know the underlying hydrological dynam-\nics occurring within a basin in the context of climate change\nfor effective management and sustainable use of the water\nresources.\nThe\nunderlying\nhydrological\nprocesses\ncontrolling\nrainfall–runoff generation in a basin can be understood with\nthe use of a hydrological model which is based on complex\nmathematical equations and theoretical laws governing\nphysical processes in the basin (Kirchner, 2006; Singh et al.,\n2019). It simulates/or predicts the response of the basin to\nclimatological forcings such as rainfall (Sood and Smakhtin,"
+  },
+  {
+    "chunk_id": "P6_p02_c05",
+    "metadata": {
+      "chunk_id": "P6_p02_c05",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 1,
+      "physical_page_number": 2,
+      "printed_page_number": null,
+      "chunk_index_in_page": 4,
+      "chunk_index_in_doc": 10,
+      "start_char_idx": 3431,
+      "end_char_idx": 4373,
+      "char_count": 942,
+      "word_count": 144
+    },
+    "text": "2019). It simulates/or predicts the response of the basin to\nclimatological forcings such as rainfall (Sood and Smakhtin,\n2015) and generates a synthetic time series of hydrological\ndata that can be used by water managers and scientists\nfor varied applications ranging from water budgeting and\npartitioning (Conan et al., 2003; Schreiner-McGraw and\nAjami, 2020) to inundation mapping and modelling (Mahato\net al., 2022). A hydrological model is supposed to not only\nhave a good predictive power but also the ability to capture\nrelationships among the forcing factors and catchment\nresponse so that an accurate estimate of the rainfall–runoff\ncould be made (Shortridge et al., 2016). However, until now,\nthere has been no hydrological model that can simulate basin\nbehaviour universally well against all the hydrological chal-\nlenges inﬂicted by climate change and human interventions\n(Yang et al., 2019). As a result, many hydrological models"
+  },
+  {
+    "chunk_id": "P6_p02_c06",
+    "metadata": {
+      "chunk_id": "P6_p02_c06",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 1,
+      "physical_page_number": 2,
+      "printed_page_number": null,
+      "chunk_index_in_page": 5,
+      "chunk_index_in_doc": 11,
+      "start_char_idx": 4257,
+      "end_char_idx": 5213,
+      "char_count": 956,
+      "word_count": 142
+    },
+    "text": "lenges inﬂicted by climate change and human interventions\n(Yang et al., 2019). As a result, many hydrological models\nhave been devised, considering the functioning and robust-\nness of models for explaining the underlying complexity\nin quantifying the basin-scale response to the small-scale\nspatial complexity of physical processes (Shortridge et al.,\n2016; Herath et al., 2021). Broadly, these can be grouped\ninto two categories, i.e. physical or process-based models\nand empirical or data-driven models (Yang et al., 2019;\nKabir et al., 2020). The latter category of models uses a\nmathematical relationship established between runoff and\naffecting factors in the basin for deriving the runoff (Adnan\net al., 2019).\nIt is purported that the data-driven model, despite the in-\nherited limitations in the physical interpretability of the pro-\ncesses, has outperformed the physical models in terms of\nthe prediction accuracy in many hydrological applications"
+  },
+  {
+    "chunk_id": "P6_p02_c07",
+    "metadata": {
+      "chunk_id": "P6_p02_c07",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 1,
+      "physical_page_number": 2,
+      "printed_page_number": null,
+      "chunk_index_in_page": 6,
+      "chunk_index_in_doc": 12,
+      "start_char_idx": 5099,
+      "end_char_idx": 6054,
+      "char_count": 955,
+      "word_count": 150
+    },
+    "text": "cesses, has outperformed the physical models in terms of\nthe prediction accuracy in many hydrological applications\n(Shortridge et al., 2016; Adnan et al., 2019; Kabir et al.,\n2020; Herath et al., 2021). Also, data-driven models are pre-\nferred over the physical models for rainfall–runoff modelling\nand/or streamﬂow prediction modelling due to the limited re-\nquirements of data as input, where the data limitation is the\nmajor challenge (Beven, 2011). These models, in the past,\nwere heavily criticised on the grounds of being incompe-\ntent to model the non-linear behaviour of streamﬂow (Yang\net al., 2019). But recent developments in computational in-\ntelligence, in the areas of machine learning (ML) and deep\nlearning (DL) in particular, have greatly expanded the capa-\nbilities of empirical modelling (Adnan et al., 2020; Fu et al.,\n2020; Rahimzad et al., 2021; Ghobadi and Kang, 2022). This\nhas resulted in the development of many non-linear models"
+  },
+  {
+    "chunk_id": "P6_p02_c08",
+    "metadata": {
+      "chunk_id": "P6_p02_c08",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 1,
+      "physical_page_number": 2,
+      "printed_page_number": null,
+      "chunk_index_in_page": 7,
+      "chunk_index_in_doc": 13,
+      "start_char_idx": 5938,
+      "end_char_idx": 6313,
+      "char_count": 375,
+      "word_count": 53
+    },
+    "text": "2020; Rahimzad et al., 2021; Ghobadi and Kang, 2022). This\nhas resulted in the development of many non-linear models\nsuch as the artiﬁcial neural network (ANN), random forest\n(RF), support vector regression (SVR), and long short-term\nmemory (LSTM) models, which can capture and model the\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023\nhttps://doi.org/10.5194/hess-27-1047-2023"
+  },
+  {
+    "chunk_id": "P6_p03_c01",
+    "metadata": {
+      "chunk_id": "P6_p03_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 2,
+      "physical_page_number": 3,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 14,
+      "start_char_idx": 0,
+      "end_char_idx": 991,
+      "char_count": 991,
+      "word_count": 156
+    },
+    "text": "D. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\n1049\nnon-stationarity of the rainfall–runoff relationships (Yaseen\net al., 2015; Shortridge et al., 2016; Adnan et al., 2019;\nYang et al., 2019; Xiang et al., 2020). Yang et al. (2019)\napplied three machine learning models, namely ANN, SVR,\nand RF, to predict monthly streamﬂow over the Qingliu River\nbasin in China, under changing environmental conditions be-\ntween 1989 and 2010, and compared their results with the six\nprocess-based hydrological models. They concluded that the\nML model performed better than the process-based model\nnot only in terms of prediction accuracy but also in terms of\nﬂexibility when it came to including other runoff-effect fac-\ntors into the model. Similar outcomes for Lake Tana and the\nadjacent rivers in Ethiopia were also reported by Shortridge\net al. (2016), where ML models demonstrated noticeably\nlower streamﬂow prediction errors than the physical models"
+  },
+  {
+    "chunk_id": "P6_p03_c02",
+    "metadata": {
+      "chunk_id": "P6_p03_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 2,
+      "physical_page_number": 3,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 15,
+      "start_char_idx": 878,
+      "end_char_idx": 1832,
+      "char_count": 954,
+      "word_count": 144
+    },
+    "text": "et al. (2016), where ML models demonstrated noticeably\nlower streamﬂow prediction errors than the physical models\ndeveloped for the region. However, they inferred that linear\nmachine learning models, such as the multivariate adaptive\nregression splines (MARSs) and generalised additive model\n(GAM), were sensitive to extreme climate events, so the de-\ngree of uncertainty in their predictions needed to be carefully\nconsidered.\nThe limitations of such data-driven models can be over-\ncome by adopting more advanced ML and DL models (Xiang\net al., 2020). Rasouli et al. (2012) compared the performance\nof the multilinear regression (MLR) model with the Bayesian\nneural network (BNN), SVR, and Gaussian process (GP) in\nterms of the daily streamﬂow prediction for the Stave River, a\nmountainous basin, in British Columbia, Canada, and found\nthat the BNN model performed better than others. According\nto Hussain and Khan (2020), the supervised-learning model"
+  },
+  {
+    "chunk_id": "P6_p03_c03",
+    "metadata": {
+      "chunk_id": "P6_p03_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 2,
+      "physical_page_number": 3,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 16,
+      "start_char_idx": 1716,
+      "end_char_idx": 2711,
+      "char_count": 995,
+      "word_count": 158
+    },
+    "text": "that the BNN model performed better than others. According\nto Hussain and Khan (2020), the supervised-learning model\nRF outperformed the multilayer perceptron (MLP) and SVR,\nin terms of accuracy, while predicting monthly streamﬂow\nfor the Hunza River in Pakistan by 33.6 % and 17.85 %,\nrespectively. Recently, deep neural network (DNN), convo-\nlutional neural network (CNN), and LSTM models, which\nare based on deep learning, have seen a surge in the num-\nber of streamﬂow prediction applications due to their abil-\nities to handle complex stochastic datasets and abstract the\ninternal physical mechanism (Fu et al., 2020; Ghobadi and\nKang, 2022). Based on statistical performance evaluation\ncriteria, Rahimzad et al. (2021) found that the LSTM out-\nperformed the LR, SVR, and MLP models in daily stream-\nﬂow prediction over the Kentucky River basin in the USA.\nHowever, Van et al. (2020) showed that CNN outperformed\nLSTM in streamﬂow modelling in the Vietnamese Mekong\nDelta by a small margin."
+  },
+  {
+    "chunk_id": "P6_p03_c04",
+    "metadata": {
+      "chunk_id": "P6_p03_c04",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 2,
+      "physical_page_number": 3,
+      "printed_page_number": null,
+      "chunk_index_in_page": 3,
+      "chunk_index_in_doc": 17,
+      "start_char_idx": 2578,
+      "end_char_idx": 3572,
+      "char_count": 994,
+      "word_count": 152
+    },
+    "text": "However, Van et al. (2020) showed that CNN outperformed\nLSTM in streamﬂow modelling in the Vietnamese Mekong\nDelta by a small margin. Comparing data-driven models to a\ngiven problem yields a range of results for distinct geograph-\nical and climatic conditions (Hagen et al., 2021). Adnan et\nal. (2020) examined the predictive accuracy of the optimally\npruned extreme learning machine (OP-ELM), least-square\nsupport vector machine (LSSVM), MARSs, and model tree\n(M5Tree) models in order to estimate monthly streamﬂow in\nthe Swat River basin (Hindukush Himalaya), Pakistan. They\ncame to the conclusion that the LSSVM and MARSs are the\nmost effective at forecasting streamﬂow. In contrast, Hussain\net al. (2020) discovered that ELM outperformed 1D-CNN\nwhile forecasting streamﬂow on three timescales, i.e. daily,\nweekly, and monthly in the Gilgit River, Pakistan. This sug-\ngests that it is challenging to ﬁnd a data-driven model that is\neffective across all application domains and scales (Yaseen"
+  },
+  {
+    "chunk_id": "P6_p03_c05",
+    "metadata": {
+      "chunk_id": "P6_p03_c05",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 2,
+      "physical_page_number": 3,
+      "printed_page_number": null,
+      "chunk_index_in_page": 4,
+      "chunk_index_in_doc": 18,
+      "start_char_idx": 3439,
+      "end_char_idx": 4426,
+      "char_count": 987,
+      "word_count": 153
+    },
+    "text": "This sug-\ngests that it is challenging to ﬁnd a data-driven model that is\neffective across all application domains and scales (Yaseen\net al., 2015; Fu et al., 2020).\nThe use of machine-learning- and deep-learning-based\nmodels for streamﬂow simulations within catchments is gen-\nerally limited to observable periods and the resulting fore-\ncasts (Eng and Wolock, 2022). There are very limited studies\nworldwide in which these models were applied for predict-\ning the long-term streamﬂow for future periods in the con-\ntext of climate change (Das and Nanduri, 2018; Thapa et\nal., 2021; Adib and Harun, 2022). This can be attributed to\nthe challenges associated with data assimilation brought on\nby the use of coarse-resolution-scenario data obtained from\ngeneral circulation models (GCMs), which limits their di-\nrect application in regional impact assessment (Hagen et al.,\n2021; Adib and Harun, 2022). Das and Nanduri (2018) inte-\ngrated relevance vector machine (RVM) and support vector"
+  },
+  {
+    "chunk_id": "P6_p03_c06",
+    "metadata": {
+      "chunk_id": "P6_p03_c06",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 2,
+      "physical_page_number": 3,
+      "printed_page_number": null,
+      "chunk_index_in_page": 5,
+      "chunk_index_in_doc": 19,
+      "start_char_idx": 4312,
+      "end_char_idx": 5278,
+      "char_count": 966,
+      "word_count": 154
+    },
+    "text": "2021; Adib and Harun, 2022). Das and Nanduri (2018) inte-\ngrated relevance vector machine (RVM) and support vector\nmachine (SVM) models with the Coupled Model Intercom-\nparison Project Phase (CMIP5) GCMs to project monthly\nmonsoon streamﬂow across the Wainganga basin (India) for\nmonsoon season. Adib and Harun (2022) studied the varia-\ntions in the monthly streamﬂow pattern of the Kurau River\n(Malaysia) from 2021 to 2080 by coupling two ML mod-\nels (RF and SVR) with the Coupled Model Intercompari-\nson Project Phase (CMIP6) GCMs. Despite the signiﬁcance\npotential of the ML and DL models in streamﬂow predic-\ntion, relevant studies assessing the application of these mod-\nels for streamﬂow prediction under future scenarios over the\nmountainous basins are limited due to non-availability of\nlong-term data (Xenarios et al., 2019; Adnan et al., 2020).\nThapa et al. (2021) used a combination of the LSTM model\nand the CMIP5 GCM scenarios to estimate streamﬂow pat-"
+  },
+  {
+    "chunk_id": "P6_p03_c07",
+    "metadata": {
+      "chunk_id": "P6_p03_c07",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 2,
+      "physical_page_number": 3,
+      "printed_page_number": null,
+      "chunk_index_in_page": 6,
+      "chunk_index_in_doc": 20,
+      "start_char_idx": 5167,
+      "end_char_idx": 6130,
+      "char_count": 963,
+      "word_count": 154
+    },
+    "text": "Thapa et al. (2021) used a combination of the LSTM model\nand the CMIP5 GCM scenarios to estimate streamﬂow pat-\nterns in the Langtang basin of the central Himalaya. Their\nanalyses revealed a notable increase in streamﬂow as a re-\nsult of the predicted increase in precipitation. The projec-\ntions from Coupled Model Intercomparison Project Phase 3\n(CMIP3) GCMs and CMIP5 GCMs inherit limitations in the\nsimulation of extreme precipitation (Kim et al., 2020), which\nare the principal drivers for the runoff generation in the catch-\nment. This causes large uncertainty in streamﬂow predictions\n(Wang et al., 2021). Uncertainty in streamﬂow prediction can\nbe minimised by using scenarios from the CMIP6 GCMs,\nwhich are likely to be more realistic than previous genera-\ntions, i.e. CMIP3 GCMs and CMIP5 GCMs, given their sig-\nniﬁcant improvement in simulating rainfall and temperature\nfor historical records (Chen et al., 2020; Gusain et al., 2020;\nKim et al., 2020)."
+  },
+  {
+    "chunk_id": "P6_p03_c08",
+    "metadata": {
+      "chunk_id": "P6_p03_c08",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 2,
+      "physical_page_number": 3,
+      "printed_page_number": null,
+      "chunk_index_in_page": 7,
+      "chunk_index_in_doc": 21,
+      "start_char_idx": 5989,
+      "end_char_idx": 6548,
+      "char_count": 559,
+      "word_count": 80
+    },
+    "text": "niﬁcant improvement in simulating rainfall and temperature\nfor historical records (Chen et al., 2020; Gusain et al., 2020;\nKim et al., 2020). Therefore, projected changes in streamﬂow\npatterns derived from the CMIP6 GCM scenarios would give\na better understanding of the catchment’s future hydrologi-\ncal regime than previous ones. To the authors’ knowledge,\nno work has been published about a mountainous basin that\nintegrates ML and/or DL models with CMIP6 GCMs scenar-\nhttps://doi.org/10.5194/hess-27-1047-2023\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023"
+  },
+  {
+    "chunk_id": "P6_p04_c01",
+    "metadata": {
+      "chunk_id": "P6_p04_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 3,
+      "physical_page_number": 4,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 22,
+      "start_char_idx": 0,
+      "end_char_idx": 988,
+      "char_count": 988,
+      "word_count": 165
+    },
+    "text": "1050\nD. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\nios to predict changes in streamﬂow patterns for future peri-\nods. Hence, it is important to test whether machine learning\napproaches can be effectively used over a mountainous river\nbasin to predict streamﬂow using hydrometeorological vari-\nables and CMIP6 GCM scenarios as the input data.\nWith a catchment area of 56 874 km2 (up to Bhakra Dam),\nthe Sutlej also pronounced as “Satluj”, is an important river\nin the western Himalaya and runs through diverse climatic\nzones. The ﬂow in the upper and middle catchment is pri-\nmarily impacted by glacier melt and snowmelt induced by a\nseasonal temperature shift and the preceding winter precipi-\ntation, while the lower section of the catchment area is mostly\nregulated by rainfall, both in the winter and during the mon-\nsoon season (Singh and Jain, 2002; Archer, 2003; Miller et\nal., 2012). Based on data from the period 1986–1996, Singh"
+  },
+  {
+    "chunk_id": "P6_p04_c02",
+    "metadata": {
+      "chunk_id": "P6_p04_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 3,
+      "physical_page_number": 4,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 23,
+      "start_char_idx": 871,
+      "end_char_idx": 1828,
+      "char_count": 957,
+      "word_count": 159
+    },
+    "text": "soon season (Singh and Jain, 2002; Archer, 2003; Miller et\nal., 2012). Based on data from the period 1986–1996, Singh\nand Jain (2002) estimated the mean yearly contribution of\nsnowmelt and glacier melt and rainfall to the Sutlej River to\nbe 59 % and 41 %, respectively. However, the discharge in the\nriver peaks is directly related to the peak in rainfall during the\nmonsoon (Lutz et al., 2014). Recent studies on this basin has\nraised concerns about the implications of climatic changes\non streamﬂow, since a warming climate has brought changes\nin the amount and spatiotemporal distribution of precipita-\ntion (Singh et al., 2014, 2015b). To date, previous research\nhas only used process-based hydrological models and scenar-\nios from CMIP3 GCMs and CMIP5 GCMs when examining\nthe effects of climate change (past and future) on streamﬂow\npatterns in the region (Singh and Jain, 2002; Singh et al.,\n2015a; Ali et al., 2018; Shukla et al., 2021), which leaves"
+  },
+  {
+    "chunk_id": "P6_p04_c03",
+    "metadata": {
+      "chunk_id": "P6_p04_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 3,
+      "physical_page_number": 4,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 24,
+      "start_char_idx": 1709,
+      "end_char_idx": 2691,
+      "char_count": 982,
+      "word_count": 159
+    },
+    "text": "patterns in the region (Singh and Jain, 2002; Singh et al.,\n2015a; Ali et al., 2018; Shukla et al., 2021), which leaves\na gap in the use of machine and deep learning models and\nscenarios from the latest CMIP6 GCMs. This study, for the\nvery ﬁrst time, examines the potential of ﬁve ML models\nand one DL model, namely the Gaussian linear regression\nmodel (GLM), Gaussian generalised additive model (GAM),\nMARSs, ANN, RF, and 1D-CNN, in streamﬂow prediction\nover the middle Sutlej River basin (rainfall-dominated zone)\nin western Himalaya using different Shared Socioeconomic\nPathway (SSP) scenarios from CMIP6 GCMs. The pattern of\nvariations in the Sutlej River’s monthly, seasonal, and annual\nstreamﬂow is assessed for the future periods of 2041–2070\n(2050s) and 2071–2100 (2080s), with respect to the refer-\nence period of 1979–2009, under SSP245 and SSP585. The\nﬁndings of the study will help to develop a better plan for\nthe operation of hydroelectric power projects and water re-"
+  },
+  {
+    "chunk_id": "P6_p04_c04",
+    "metadata": {
+      "chunk_id": "P6_p04_c04",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 3,
+      "physical_page_number": 4,
+      "printed_page_number": null,
+      "chunk_index_in_page": 3,
+      "chunk_index_in_doc": 25,
+      "start_char_idx": 2568,
+      "end_char_idx": 3530,
+      "char_count": 962,
+      "word_count": 167
+    },
+    "text": "The\nﬁndings of the study will help to develop a better plan for\nthe operation of hydroelectric power projects and water re-\nsources management in the catchment.\n2\nStudy area\nThe selected study area is a sub-catchment within the Satluj\nbasin (Fig. 1), with an area of 2457 km2. Topographically, it\nis very rugged (0–80◦) and is dominated mostly by forests\n(56.20 %), grassland (26.4 %), agricultural lands (17.1 %),\nand glaciers and snow cover (0.3 %; Singh et al., 2015a). The\npresence of mountain barriers in the sub-basin’s north, the\nlarge variation in altitudes (500–5000 m), and the aspect all\ncontribute to the region’s diverse climate. It varies from a hot\nand moist tropical climate in the lower valleys to a cool tem-\nperate climate at about 2000 m and tends towards an alpine\nclimate as the altitude increases beyond 2000 m. The mean\nannual discharge (averaged over the period of 1979–2009) of\nthe river gauged at Kasol was 12 469.43 m3 s−1. There is a"
+  },
+  {
+    "chunk_id": "P6_p04_c05",
+    "metadata": {
+      "chunk_id": "P6_p04_c05",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 3,
+      "physical_page_number": 4,
+      "printed_page_number": null,
+      "chunk_index_in_page": 4,
+      "chunk_index_in_doc": 26,
+      "start_char_idx": 3403,
+      "end_char_idx": 4382,
+      "char_count": 979,
+      "word_count": 166
+    },
+    "text": "The mean\nannual discharge (averaged over the period of 1979–2009) of\nthe river gauged at Kasol was 12 469.43 m3 s−1. There is a\nlarge inter-diurnal and monthly variation in the pattern of the\nriver discharge. The minimum and maximum daily discharge\nrecorded at Kasol was 64.30 and 2891 m3 s−1, respectively.\nThe early months of the year, i.e. starting from January up to\nMarch, are characterised by low streamﬂow. After this, a con-\ntinuous and rapid rise in ﬂow occurs, with the maximum be-\ning in the month of July (∼22 %–23 %). Then, it again starts\ndecreasing, and the ﬂow reaches its minimum in the month\nof December (2 %–3 %). The details of the sub-catchment are\nsummarised in Table 1.\nThe\nsub-basin\nis\nbestowed\nwith\nlarge\nhydropower\npotential.\nThere\nare\nthree\nmajor\nhydroelectric\npower\nprojects, namely the Sunni Dam Hydro Electric Project\nof 1080 MW,Rampur hydroelectric power plant (RHEP) of\n412 MW, and Nathpa Jhakri India Hydroelectric Power Plant\n(NJHEP) of 1500 MW."
+  },
+  {
+    "chunk_id": "P6_p04_c06",
+    "metadata": {
+      "chunk_id": "P6_p04_c06",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 3,
+      "physical_page_number": 4,
+      "printed_page_number": null,
+      "chunk_index_in_page": 5,
+      "chunk_index_in_doc": 27,
+      "start_char_idx": 4251,
+      "end_char_idx": 5217,
+      "char_count": 966,
+      "word_count": 152
+    },
+    "text": "of 1080 MW,Rampur hydroelectric power plant (RHEP) of\n412 MW, and Nathpa Jhakri India Hydroelectric Power Plant\n(NJHEP) of 1500 MW. The sub-basin is climatologically\nsensitive and, at present, facing challenges due to climate\nchange and human interventions (Singh et al., 2015b, c).\nChanges in future climate will alter the patterns of ﬂow in\nthe river and could further affect the water resources and hy-\ndroelectric power production (Singh et al., 2014).\n3\nDescription of the data and methods\nThe methodology involved in predicting streamﬂow for the\nperiod 2041–2100 in the Sutlej River is included in Sect. 3.1,\nwhich is a collection of hydrometeorological data, Sect. 3.2,\nwhich is a selection of machine and deep learning models,\nSect. 3.3, which is a performance evaluation of the devel-\noped models, and Sect. 3.4, which is a bias correction in the\nstreamﬂow projection. These are described in detail under\nfollowing sub-headings.\n3.1\nHydrometeorological data"
+  },
+  {
+    "chunk_id": "P6_p04_c07",
+    "metadata": {
+      "chunk_id": "P6_p04_c07",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 3,
+      "physical_page_number": 4,
+      "printed_page_number": null,
+      "chunk_index_in_page": 6,
+      "chunk_index_in_doc": 28,
+      "start_char_idx": 5068,
+      "end_char_idx": 5995,
+      "char_count": 927,
+      "word_count": 129
+    },
+    "text": "3.4, which is a bias correction in the\nstreamﬂow projection. These are described in detail under\nfollowing sub-headings.\n3.1\nHydrometeorological data\nThe daily rainfall, temperature (Tmax and Tmin), relative hu-\nmidity, solar radiation, wind speed, and discharge data used\nto study the performance of the different machine and deep\nlearning models on streamﬂow modelling were collected for\n31 years, i.e. 1979–2009. Rainfall, temperature, and dis-\ncharge data were obtained from the Bhakra Beas Manage-\nment Board (BBMB), while relative humidity, solar radia-\ntion, and wind data were extracted from the Climate Fore-\ncast System Reanalysis (CFSR) Global Weather Data (http://\nglobalweather.tamu.edu/, last access: 4 October 2020). These\ndata were collected for three hydrometeorological stations,\nnamely Kasol, Sunni, and Rampur (Fig. 1).\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023\nhttps://doi.org/10.5194/hess-27-1047-2023"
+  },
+  {
+    "chunk_id": "P6_p05_c01",
+    "metadata": {
+      "chunk_id": "P6_p05_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 4,
+      "physical_page_number": 5,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 29,
+      "start_char_idx": 0,
+      "end_char_idx": 992,
+      "char_count": 992,
+      "word_count": 151
+    },
+    "text": "D. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\n1051\nFigure 1. The location of the sub-catchment within Sutlej River basin. The three hydrometeorological stations (Kasol, Sunni, and Rampur),\nfrom which this study employed observed data for the years 1979 to 2009, are also shown.\nTable 1. Characteristics of the study catchment over the evaluation period of 1979–2009.\nParameters\nDetails\nDetails of the sub-catchment\nDrainage area of the sub-catchment (km2)\n2457 km2\nAltitude\n∼500–5000 m\nSlope\n0–80◦\nGeology\nGranite, Jutogh formation, and Chail, Salkhala, and Hemanta formations\nSoil\nDystric Cambisols, dystric Regosols, and eutric Fluvisols\nStreamﬂow measured at the outlet (Kasol) of the sub-catchment\nAverage annual streamﬂow\n411.2 m3 s−1\nMinimum streamﬂow (daily)\n64.3 m3 s−1\nMaximum streamﬂow (daily)\n2891 m3 s−1\nStandard deviation (SD) of the annual streamﬂow\n1750.7 m3 s−1\nCoefﬁcient of variation (CV) of the annual streamﬂow\n0.1 m3 s−1"
+  },
+  {
+    "chunk_id": "P6_p05_c02",
+    "metadata": {
+      "chunk_id": "P6_p05_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 4,
+      "physical_page_number": 5,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 30,
+      "start_char_idx": 855,
+      "end_char_idx": 1404,
+      "char_count": 549,
+      "word_count": 73
+    },
+    "text": "2891 m3 s−1\nStandard deviation (SD) of the annual streamﬂow\n1750.7 m3 s−1\nCoefﬁcient of variation (CV) of the annual streamﬂow\n0.1 m3 s−1\nRainfall integrated over the sub-catchment\nAverage annual rainfall\n1001.3 mm\nAverage monsoon rainfall (July–September)\n403.0 mm\nAverage winter rainfall (December–March)\n277.3 mm\nTemperature integrated over the sub-catchment\nAverage annual maximum temperature (Tmax)\n28.3 ◦C\nAverage annual minimum temperature (Tmin)\n13.9 ◦C\nhttps://doi.org/10.5194/hess-27-1047-2023\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023"
+  },
+  {
+    "chunk_id": "P6_p06_c01",
+    "metadata": {
+      "chunk_id": "P6_p06_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 5,
+      "physical_page_number": 6,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 31,
+      "start_char_idx": 0,
+      "end_char_idx": 959,
+      "char_count": 959,
+      "word_count": 151
+    },
+    "text": "1052\nD. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\nThe downscaled outputs from the CMIP6 GCMs, the lat-\nest generation of climate models, were used for streamﬂow\nprediction in the future (2050s and 2080s). This framework\nof CMIP6 GCMs was run to simulate future climate un-\nder four Shared Socioeconomic Pathway (SSP) scenarios,\nwhich are designed to explain potential future greenhouse\ngas (GHG) emissions under various global socioeconomic\nshifts that could occur by 2100 (Riahi et al., 2017; Karan\net. al, 2022). Even when using downscaled outputs, how-\never, the regional climate change projections inherit biases\nfrom the GCM boundary conditions (Jose and Dwarakish,\n2022), which were corrected in the dataset detailed in Mishra\net al. (2020) for South Asia. They used the empirical quan-\ntile mapping (EQM) method to remove bias in the down-\nscaled data. This dataset provides bias-corrected downscaled"
+  },
+  {
+    "chunk_id": "P6_p06_c02",
+    "metadata": {
+      "chunk_id": "P6_p06_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 5,
+      "physical_page_number": 6,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 32,
+      "start_char_idx": 815,
+      "end_char_idx": 1773,
+      "char_count": 958,
+      "word_count": 163
+    },
+    "text": "They used the empirical quan-\ntile mapping (EQM) method to remove bias in the down-\nscaled data. This dataset provides bias-corrected downscaled\nclimate change projections for 13 CMIP6 GCMs and four\nGHG emission scenarios (SSP126, SSP245, SSP370, and\nSSP585), and the latter are brieﬂy summarised in Riahi et\nal. (2017). Climate projections from CMIP6 GCMs that have\nbeen generated under the SSP245 and SSP585 scenarios are\nused in this study. SSP245, a medium scenario, represents\nthe average pathway of future GHG emissions, with a radia-\ntive forcing of 4.5 W m−2 by the year 2100, while SSP585\nis the scenario with an upper limit in the range of scenarios\nwith a radiative forcing of 8.5 W m−2 by the end of this cen-\ntury (O’Neill et al., 2016). The data are available at a daily\ntimescale and horizontal spatial resolution of 0.25◦× 0.25◦.\nSeven grids of the downscaled CMIP6 GCM data cover the\nstudy area. The temperature (Tmax and Tmin) data were ad-"
+  },
+  {
+    "chunk_id": "P6_p06_c03",
+    "metadata": {
+      "chunk_id": "P6_p06_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 5,
+      "physical_page_number": 6,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 33,
+      "start_char_idx": 1661,
+      "end_char_idx": 2644,
+      "char_count": 983,
+      "word_count": 162
+    },
+    "text": "Seven grids of the downscaled CMIP6 GCM data cover the\nstudy area. The temperature (Tmax and Tmin) data were ad-\njusted for topographical bias by separating the study area\ninto a number of homogenous elevation bands spaced by\nat an interval of 1000 m and applying a temperature lapse\nrate of 6.5 ◦C per 1000 m within each grid. A digital eleva-\ntion model (DEM) of 30 m spatial resolution derived from\nCartoSat-1 stereo data (http://www.bhuvan.nrsc.gov.in, last\naccess: 20 November 2020) was used for this purpose. The\nvalues of rainfall and temperature at each grid were then\naveraged over the catchment, using the Thiessen polygon\nmethod, in order to provide daily rainfall data integrated at\nthe catchment scale for assessing changes in the future cli-\nmate with respect to the observed period, i.e. 1979–2009.\nFurthermore, the ranking of CMIP6 GCMs was done to\nﬁnd the most appropriate models that can generate the most\nplausible scenarios of future climate in the catchment and,"
+  },
+  {
+    "chunk_id": "P6_p06_c04",
+    "metadata": {
+      "chunk_id": "P6_p06_c04",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 5,
+      "physical_page_number": 6,
+      "printed_page_number": null,
+      "chunk_index_in_page": 3,
+      "chunk_index_in_doc": 34,
+      "start_char_idx": 2526,
+      "end_char_idx": 3486,
+      "char_count": 960,
+      "word_count": 148
+    },
+    "text": "ﬁnd the most appropriate models that can generate the most\nplausible scenarios of future climate in the catchment and,\nultimately, be employed in the streamﬂow projection. A Tay-\nlor diagram (Taylor, 2001), a robust graphical plot, is widely\nused to rank GCMs due to its effectiveness in determining\nthe relative strengths of the competing models and in eval-\nuating overall performance as a model evolves (Abbasian et\nal., 2019; Ghimire et al., 2021). It integrates three statistical\nmetrics, including the degree of correlation (r), centred root\nmean square error (CRMSE), and ratio of spatial standard\ndeviation (SD). Combining these metrics allows the determi-\nnation of the degree of pattern correspondence and explains\nhow exactly a model represents the observed climate (Taylor,\n2001). Therefore, the performance of 13 CMIP6 GCMs in\nmodelling climatic variables (rainfall, Tmax, and Tmin) in the\nSutlej sub-basin was compared to the observed data (1979–"
+  },
+  {
+    "chunk_id": "P6_p06_c05",
+    "metadata": {
+      "chunk_id": "P6_p06_c05",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 5,
+      "physical_page_number": 6,
+      "printed_page_number": null,
+      "chunk_index_in_page": 4,
+      "chunk_index_in_doc": 35,
+      "start_char_idx": 3366,
+      "end_char_idx": 4343,
+      "char_count": 977,
+      "word_count": 173
+    },
+    "text": "modelling climatic variables (rainfall, Tmax, and Tmin) in the\nSutlej sub-basin was compared to the observed data (1979–\n2009) using a Taylor diagram (Fig. 2a–c). The models were\nthen ranked as a result of this comparison. A high positive\ncorrelation (r = 0.84 to 0.96) and low CRMSE (< 3 ◦C) er-\nror were found in all 13 CMIP6 GCMs for temperature (Tmax\nand Tmin; Fig. 2b–c). Additionally, it was found that the mod-\nels’ standard deviations, which ranged from 5.60 to 6.03 ◦C\nfor Tmax and 6.34 to 6.63 ◦C for Tmin, were close to the SD\nof the observed data (6.01 and 6.07 ◦C). These results imply\nthat all CMIP6 GCMs may be able to predict the most likely\nfuture temperature over the catchment.\nHowever, not all CMIP6 GCMs showed the high degree\nof similarity in predicting rainfall; in fact, 2 (CanESM5 and\nNorESM2-LR) of the 13 models revealed a negative cor-\nrelation (Fig. 2a). In the pool of 13 CMIP6 GCMs, only\nsix models showed relatively higher correlation (r ≥0.56),"
+  },
+  {
+    "chunk_id": "P6_p06_c06",
+    "metadata": {
+      "chunk_id": "P6_p06_c06",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 5,
+      "physical_page_number": 6,
+      "printed_page_number": null,
+      "chunk_index_in_page": 5,
+      "chunk_index_in_doc": 36,
+      "start_char_idx": 4230,
+      "end_char_idx": 5214,
+      "char_count": 984,
+      "word_count": 151
+    },
+    "text": "relation (Fig. 2a). In the pool of 13 CMIP6 GCMs, only\nsix models showed relatively higher correlation (r ≥0.56),\nsmaller CRMSE (< 12 cm) errors, and a high similarity to\nthe standard deviation of the observed data (13.2 cm). They\nwere the (1) Earth Consortium Earth 3 Veg model (EC-\nEarth3-Veg), (2) Russian Institute for Numerical Mathe-\nmatics climate model version 4.8 (INM-CM4-8), (3) Rus-\nsian Institute for Numerical Mathematics climate model ver-\nsion 5.0 (INM-CM5-0), (4) Max Planck Institute for Meteo-\nrology Earth System Model version 1.2 with higher resolu-\ntion (MPI-ESM1-2-HR), (5) Max Planck Institute for Meteo-\nrology Earth System Model version 1.2 with lower resolution\n(MPI-ESM1-2-LR), and (6) Norwegian Earth System Model\nversion 2 with medium resolution (NorESM2-MR). Further-\nmore, within these models, the highest and lowest correla-\ntions between observed and simulated rainfall were found for\nthe INM-CM4-8 (r = 0.69) and NorESM2-MR (r = 0.56),\nrespectively."
+  },
+  {
+    "chunk_id": "P6_p06_c07",
+    "metadata": {
+      "chunk_id": "P6_p06_c07",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 5,
+      "physical_page_number": 6,
+      "printed_page_number": null,
+      "chunk_index_in_page": 6,
+      "chunk_index_in_doc": 37,
+      "start_char_idx": 5088,
+      "end_char_idx": 6035,
+      "char_count": 947,
+      "word_count": 148
+    },
+    "text": "tions between observed and simulated rainfall were found for\nthe INM-CM4-8 (r = 0.69) and NorESM2-MR (r = 0.56),\nrespectively. These six CMIP6 GCMs were ﬁnally selected to\nexamine future patterns in streamﬂow for the periods 2050s\nand 2080s in the Sutlej River basin, as they had also shown\nhigh performance in simulating temperatures (r = 0.90 to\n0.96).\n3.2\nSelection of machine learning and deep learning\nmodels for streamﬂow modelling\nIn this study, ﬁve machine learning models and one deep\nlearning model, namely GLM, GAM, MARSs, ANN, RF and\n1D convolution neural network (1D-CNN), were selected,\nand their performances in predicting streamﬂow in Sutlej\nRiver were compared. These are regression-based models\nwhich capture the relationship between the predictors (de-\npendent variables) and the predictand (independent vari-\nables) and provide the value of the output variables (Adnan\net al., 2019; Kabir et al., 2020). The models were trained"
+  },
+  {
+    "chunk_id": "P6_p06_c08",
+    "metadata": {
+      "chunk_id": "P6_p06_c08",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 5,
+      "physical_page_number": 6,
+      "printed_page_number": null,
+      "chunk_index_in_page": 7,
+      "chunk_index_in_doc": 38,
+      "start_char_idx": 5917,
+      "end_char_idx": 6360,
+      "char_count": 443,
+      "word_count": 65
+    },
+    "text": "ables) and provide the value of the output variables (Adnan\net al., 2019; Kabir et al., 2020). The models were trained\nwith daily observed data recorded during 1979–2009 at Ka-\nsol (the gauging site) and simulated historical projections of\nCMIP6 GCMs. The climatic projections of the grid corre-\nsponding to the Kasol station were taken into consideration\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023\nhttps://doi.org/10.5194/hess-27-1047-2023"
+  },
+  {
+    "chunk_id": "P6_p07_c01",
+    "metadata": {
+      "chunk_id": "P6_p07_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 6,
+      "physical_page_number": 7,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 39,
+      "start_char_idx": 0,
+      "end_char_idx": 995,
+      "char_count": 995,
+      "word_count": 157
+    },
+    "text": "D. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\n1053\nFigure 2. Taylor diagram showing comparative skills of 13CMIP6 GCMs in simulating climatic variables (rainfall, Tmax, and Tmin) over the\nSutlej sub-basin during reference period (1979–2009). The degree of the correlation coefﬁcient (r) between the observed and CMIP6 GCMs,\ncentred root mean square error (CRMSE), and departure of the models’ standard deviation (SD) from the observed data (dashed black arc\nline) are shown in panel (a) for rainfall, panel (b) for Tmax, and panel (c) for Tmin. The units of SD for rainfall and temperature are in\ncentimetres and degrees Celsius, respectively.\nas the input from the CMIP6 GCMs. However, prior to build-\ning the models, all of the data were normalised, using stan-\ndard normalisation techniques, to standardise the features on\na common scale. Furthermore, the entire dataset was split\ninto training and testing datasets, since a cross-validation"
+  },
+  {
+    "chunk_id": "P6_p07_c02",
+    "metadata": {
+      "chunk_id": "P6_p07_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 6,
+      "physical_page_number": 7,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 40,
+      "start_char_idx": 877,
+      "end_char_idx": 1824,
+      "char_count": 947,
+      "word_count": 154
+    },
+    "text": "a common scale. Furthermore, the entire dataset was split\ninto training and testing datasets, since a cross-validation\nmethod was adopted in this study. The training dataset (80 %)\nwas used for ﬁtting the models, whereas a testing dataset was\nused for checking model accuracy (20 %). Under the cross-\nvalidation method, the process was repeated until every part\nof the allocated data was used in testing (Kabir et al., 2020).\nSix different program codes were written in the Python lan-\nguage for ANN, GAM, GLM, MARSs, RF, and 1D-CNN\nsimulations. Out of these six selected models, GLM, GAM,\nand MARSs are linear models, whereas other three i.e. ANN,\nRF, and 1D-CNN, are non-linear in nature (Shortridge et al.,\n2016; Yang et al., 2019; Herath et al., 2021). Additionally,\nexcluding GLM, all of the remaining models are based on\na non-parametric regression approach, where the functional\nrelationship between the predictor and predictand is not pre-"
+  },
+  {
+    "chunk_id": "P6_p07_c03",
+    "metadata": {
+      "chunk_id": "P6_p07_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 6,
+      "physical_page_number": 7,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 41,
+      "start_char_idx": 1704,
+      "end_char_idx": 2702,
+      "char_count": 998,
+      "word_count": 167
+    },
+    "text": "a non-parametric regression approach, where the functional\nrelationship between the predictor and predictand is not pre-\ndetermined but can be adjusted to capture the unusual or un-\nexpected features of the data (Shortridge et al., 2016). A de-\ntailed description of these models can be found elsewhere\n(Shortridge et al., 2016; Adnan et al., 2019; Yang et al., 2019;\nKabir et al., 2020; Ghimire et al., 2021; Herath et al., 2021;\nShu et al.,2021).\nSince the 1D-CNN model is based on weight sharing, it\nneeds fewer training parameters than other models (Kiranyaz\net al., 2021). It has mainly three layers, i.e. a convolution\nlayer, pooling layer, and fully connected layer. The primary\njob of the convolution layer is to non-linearly map input data\ninto a set of feature maps or a series of feature vectors. When\nworking as a visual cortical perceptron, the ﬁlter kernels are\nconvoluted with the input data of their receptive ﬁelds. The\nconvolution results with biases are then passed on to the ac-"
+  },
+  {
+    "chunk_id": "P6_p07_c04",
+    "metadata": {
+      "chunk_id": "P6_p07_c04",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 6,
+      "physical_page_number": 7,
+      "printed_page_number": null,
+      "chunk_index_in_page": 3,
+      "chunk_index_in_doc": 42,
+      "start_char_idx": 2580,
+      "end_char_idx": 3550,
+      "char_count": 970,
+      "word_count": 157
+    },
+    "text": "convoluted with the input data of their receptive ﬁelds. The\nconvolution results with biases are then passed on to the ac-\ntivation function to create feature maps. The pooling layer,\nwhich comes after each convolution layer, primarily serves\nto reduce the dimension of the feature maps and maintain the\ninvariance of characteristic scale. The fully connected layer\nuses a completely connected single layer perceptron to com-\nbine the feature maps that were acquired by the prior con-\nvolution and pooling layers in order to build a higher-level\nfeature (Kiranyaz et al., 2021). In this study, one convolution\nlayer with 64 ﬁlters, a kernel of size 2, and a rectiﬁed lin-\near activation function (ReLU) was employed. This was fol-\nlowed by max pooling layer with pool size of 2 and the falt-\nterm layer. After that, two fully connected layers are applied\nwith ReLU and a linear activation function, respectively.\nHowever, for optimisation, the adaptive moment estimation"
+  },
+  {
+    "chunk_id": "P6_p07_c05",
+    "metadata": {
+      "chunk_id": "P6_p07_c05",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 6,
+      "physical_page_number": 7,
+      "printed_page_number": null,
+      "chunk_index_in_page": 4,
+      "chunk_index_in_doc": 43,
+      "start_char_idx": 3435,
+      "end_char_idx": 4396,
+      "char_count": 961,
+      "word_count": 147
+    },
+    "text": "with ReLU and a linear activation function, respectively.\nHowever, for optimisation, the adaptive moment estimation\n(Adam) algorithm was applied (Ghimire et al., 2021; Shu et\nal., 2021). Six variables, namely rainfall, Tmax, Tmin, relative\nhumidity, solar radiation, and wind speed were used as input\nfor developing the models. Additionally, to understand the\ncontrol of the catchment size and geo-hydromorphological\ncharacteristics of the basin in generating runoff, these mod-\nels were simulated under the following four rainfall scenar-\nios: rainfall on the same day (R0), rainfall lagged by 1 d (R1),\nrainfall lagged by 2 d (R2), and rainfall lagged by 3 d (R3).\nThe remaining meteorological parameters were held constant\nduring the processes.\n3.3\nModel performance evaluation\nIt has been found that overﬁtting in a model may lead to\nlarge errors in out-of-sample predictions (Hastie et al., 2009).\nTherefore, it has been evaded by establishing model param-"
+  },
+  {
+    "chunk_id": "P6_p07_c06",
+    "metadata": {
+      "chunk_id": "P6_p07_c06",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 6,
+      "physical_page_number": 7,
+      "printed_page_number": null,
+      "chunk_index_in_page": 5,
+      "chunk_index_in_doc": 44,
+      "start_char_idx": 4273,
+      "end_char_idx": 4656,
+      "char_count": 383,
+      "word_count": 53
+    },
+    "text": "large errors in out-of-sample predictions (Hastie et al., 2009).\nTherefore, it has been evaded by establishing model param-\neters for GLM, GAM, MARSs, ANN, and RF through au-\ntomated hyperparameter tuning methods. In total, 500 boot-\nstrapped resamples of the training dataset were generated for\nhttps://doi.org/10.5194/hess-27-1047-2023\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023"
+  },
+  {
+    "chunk_id": "P6_p08_c01",
+    "metadata": {
+      "chunk_id": "P6_p08_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 7,
+      "physical_page_number": 8,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 45,
+      "start_char_idx": 0,
+      "end_char_idx": 989,
+      "char_count": 989,
+      "word_count": 160
+    },
+    "text": "1054\nD. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\nTable 2. The information on hyperparameters used for estimating model parameters.\nModel name\nHyperparameter\nValues\nArtiﬁcial neural network\n(ANN)\nbuild_fn\nwarm_start\nrandom_state\noptimizer\nloss\nmetrics\nbatch_size\nvalidation_batch_size\nverbose\ncallbacks\nvalidation_split\nshufﬂe\nrun_eagerly\nepochs\nvalue = build_regressor\nvalue = False\nvalue = None\nvalue = rmsprop\nvalue = None\nvalue = None\nvalue = 64\nvalue = None\nvalue = 1\nvalue = None\nvalue = 0.0\nvalue = True\nvalue = False\nvalue = 500\nGeneralised additive model\n(GAM)\nformula\nfamily\ndata\nweights\nsubset\nna.action offset\nmethod\noptimizer\ncontrol\nscale\nselect\nknots\nsp\nmin.sp\nH\ngamma\nﬁt\nparaPen\nG\ndrop.unused.levels\ndrop.intercept\ndiscrete\nvalue = None\nvalue = gaussian()\nvalue = list()\nvalue = Null\nvalue = Null\nvalue = Null\nvalue = “GCV.Cp”\nvalue = c(“outer”, “newton”)\nvalue = list(),\nvalue = 0\nvalue = False\nvalue = Null\nvalue = Null"
+  },
+  {
+    "chunk_id": "P6_p08_c02",
+    "metadata": {
+      "chunk_id": "P6_p08_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 7,
+      "physical_page_number": 8,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 46,
+      "start_char_idx": 839,
+      "end_char_idx": 1685,
+      "char_count": 846,
+      "word_count": 143
+    },
+    "text": "value = Null\nvalue = Null\nvalue = Null\nvalue = “GCV.Cp”\nvalue = c(“outer”, “newton”)\nvalue = list(),\nvalue = 0\nvalue = False\nvalue = Null\nvalue = Null\nvalue = Null\nvalue – Null,\nvalue = 1\nvalue = True\nvalue = Null\nvalue = Null\nvalue = True\nvalue = Null\nvalue = False\nGeneralised linear model\n(GLM)\nendog\nexog\nfamily\noffset\nexposure\nfreq_weights\nvar_weights\nmissing\nvalue = 1D\nvalue = 1D\nvalue = sm.families.Gaussian(sm.families.links.log())\nvalue = None\nvalue = None\nvalue = None\nvalue = None\nvalue = str\nMultivariate adaptive\nregression splines (MARSs)\nmax_terms\nmax_degree\nallow_missing\npenalty\nendspan_alpha\nendspan\nminspan_alpha\nminspan\nthresh\nvalue = 20\nvalue = 3\nvalue = False\nvalue = 3.0\nvalue = 0.005\nvalue = −1\nvalue = 0.005\nvalue = −1\nvalue = 0.001\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023\nhttps://doi.org/10.5194/hess-27-1047-2023"
+  },
+  {
+    "chunk_id": "P6_p09_c01",
+    "metadata": {
+      "chunk_id": "P6_p09_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 8,
+      "physical_page_number": 9,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 47,
+      "start_char_idx": 0,
+      "end_char_idx": 980,
+      "char_count": 980,
+      "word_count": 155
+    },
+    "text": "D. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\n1055\nTable 2. Continued.\nModel name\nHyperparameter\nValues\nzero_tol\nmin_search_points\ncheck_every\nallow_linear\nuse_fast\nfast_K\nfast_h\nsmooth\nenable_pruning\nfeature_importance_type\nfeature_importance_type\nvalue = 1 × 10−12\nvalue = 100\nvalue = −1\nvalue = True\nvalue = False\nvalue = 5\nvalue = 1\nvalue = False\nvalue = True\nvalue = None\nvalue = 0\nRandom forest (RF)\nn_estimators\ncriterion\nmax_depth\nmin_samples_split\nmin_samples_leaf\nmin_weight_fraction_leaf\nmax_features\nmax_leaf_nodes\nmin_impurity_decrease\nvalue = 500\nvalue = “squared_error”\nvalue = None\nvalue = 2\nvalue = 5\nvalue = 0.0\nvalue = auto\nvalue = None\nvalue = 0.0\n1D convolution\nneural network (1D-CNN)\nConv1D_ﬁlter\nConv1D_kernel_size\nConv1D_pool_size\nLearning rate\nEpoc\nBatch size\nloss\nvalue = 64\nvalue = 2\nvalue = 2\nvalue = 0.0001\nvalue = 30\nvalue = 280\nvalue = MSE\neach parameter value to be assessed. Table 2 presents the"
+  },
+  {
+    "chunk_id": "P6_p09_c02",
+    "metadata": {
+      "chunk_id": "P6_p09_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 8,
+      "physical_page_number": 9,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 48,
+      "start_char_idx": 837,
+      "end_char_idx": 1823,
+      "char_count": 986,
+      "word_count": 155
+    },
+    "text": "loss\nvalue = 64\nvalue = 2\nvalue = 2\nvalue = 0.0001\nvalue = 30\nvalue = 280\nvalue = MSE\neach parameter value to be assessed. Table 2 presents the\ninformation on the speciﬁc parameters evaluated for each\nmodel.\nThe accuracy with which the simulated ﬂow matches the\nobserved ﬂow during the training (calibration) and testing\n(validation) phases determines whether a hydrological model\nis appropriate for a given application (Refsgaard, 1997). Sev-\neral methods, including quantitative statistics and graphical\nmethods, have been developed in the past for assessing the\naccuracy of model predictions (Legates and McCabe, 1999).\nMoriasi et al. (2007) grouped these methods into three cate-\ngories, namely standard regression, dimensionless, and error\nindex, depending on how well each method explains the re-\nlationship between observed and simulated values, compares\nthe relative performance of the models, and quantiﬁes the de-\nviation in the units of the data of interest. Moreover, it has"
+  },
+  {
+    "chunk_id": "P6_p09_c03",
+    "metadata": {
+      "chunk_id": "P6_p09_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 8,
+      "physical_page_number": 9,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 49,
+      "start_char_idx": 1699,
+      "end_char_idx": 2698,
+      "char_count": 999,
+      "word_count": 182
+    },
+    "text": "the relative performance of the models, and quantiﬁes the de-\nviation in the units of the data of interest. Moreover, it has\nbeen established from previous studies that a single metric is\ninadequate to evaluate a model’s performance; hence, multi-\nple metrics should be used (Adnan et al., 2020). Therefore,\nin this study, the prediction accuracy of different models was\ncompared using six statistical measures, out of which one\nwas a standard regression (coefﬁcient of determination, R2),\ntwo of which were dimensionless (Kling–Gupta efﬁciency,\nKGE, and Nash–Sutcliffe efﬁciency, NSE), and the remain-\ning three were the error index (ratio of the root mean square\nerror to the standard deviation of the measured data, RSR,\nthe mean absolute error, MAE, and the percent bias, PBIAS).\nThese metrics are deﬁned below by Eqs. (2)–(7):\nR2 =\n\n\nnP\ni=1\n\u0000Qi −Q\n\u0001\u0000Pi −P\n\u0001\ns\nnP\ni=1\n\u0000Qi −Q\n\u00012 ×\nq\u0000Pi −P\n\u00012\n\n\n(range: 0 to 1) (Van Liew et al., 2003)\n(1)\nKGE = 1 −\ns\n(r −1)2 +\n\u0012 σp\nσob\n−1\n\u00132\n+\n\u0012 Pi\nQi"
+  },
+  {
+    "chunk_id": "P6_p09_c04",
+    "metadata": {
+      "chunk_id": "P6_p09_c04",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 8,
+      "physical_page_number": 9,
+      "printed_page_number": null,
+      "chunk_index_in_page": 3,
+      "chunk_index_in_doc": 50,
+      "start_char_idx": 2551,
+      "end_char_idx": 2936,
+      "char_count": 385,
+      "word_count": 88
+    },
+    "text": "\u0000Qi −Q\n\u0001\u0000Pi −P\n\u0001\ns\nnP\ni=1\n\u0000Qi −Q\n\u00012 ×\nq\u0000Pi −P\n\u00012\n\n\n(range: 0 to 1) (Van Liew et al., 2003)\n(1)\nKGE = 1 −\ns\n(r −1)2 +\n\u0012 σp\nσob\n−1\n\u00132\n+\n\u0012 Pi\nQi\n−1\n\u00132\n(range: 0 to 1) (Gupta et al., 1999)\n(2)\nNSE = 1 −\n\n\nnP\ni=1\n(Qi −Pi)2\nnP\ni=1\n\u0000Qi −Q\n\u00012\n\n\n(range: −∞to 1) (Nash and Sutcliffe, 1970)\n(3)\nhttps://doi.org/10.5194/hess-27-1047-2023\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023"
+  },
+  {
+    "chunk_id": "P6_p10_c01",
+    "metadata": {
+      "chunk_id": "P6_p10_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 9,
+      "physical_page_number": 10,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 51,
+      "start_char_idx": 0,
+      "end_char_idx": 879,
+      "char_count": 879,
+      "word_count": 163
+    },
+    "text": "1056\nD. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\nFigure 3. Evaluation of the models’ (ANN, GAM, GLM, MARSs, RF, and 1D-CNN) performance in simulating streamﬂow under rainfall\nscenarios (a) R0, (b) R1, (c) R2, and (d) R3 at Kasol during the training phase using six statistical metrics (R2, KGE, NSE, RSR, MAE, and\nPBIAS).\nRSR =\nqPn\ni=1(Qi −Pi)2\nσob\n(range: 0 to ∞) (Murphy et al., 2004)\n(4)\nMAE =\nPn\ni=1 |Pi −Oi|\nn\n(range: 0 to ∞) (Adnan et al., 2020)\n(5)\nPBIAS =\n\n\nnP\ni=1\n(Qi −Pi)\nnP\ni=1\n(Qi)\n\n× 100\n(range: −100 % to 100 %) (Gupta et al., 1999),\n(6)\nwhere Pi are the predicted values, and Qi are the observed\nvalues. n accounts for the number of samples, Q represents\nthe mean of the observed data, and P is the mean of the pre-\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023\nhttps://doi.org/10.5194/hess-27-1047-2023"
+  },
+  {
+    "chunk_id": "P6_p11_c01",
+    "metadata": {
+      "chunk_id": "P6_p11_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 10,
+      "physical_page_number": 11,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 52,
+      "start_char_idx": 0,
+      "end_char_idx": 964,
+      "char_count": 964,
+      "word_count": 165
+    },
+    "text": "D. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\n1057\nFigure 4. Evaluation of the models’ (ANN, GAM, GLM, MARSs, RF, and 1D-CNN) performance in simulating streamﬂow under rainfall\nscenarios (a) R0, (b) R1, (c) R2, and (d) R3 at Kasol during the testing phase using six statistical metrics (R2, KGE, NSE, RSR, MAE, and\nPBIAS).\ndicted data. However, r is the Pearson’s correlation coefﬁ-\ncient, whereas σob and σp refer to the standard deviation of\nthe observed and predicted values, respectively.\nR2 evaluates the percentage of the variation in the mea-\nsured data that can be explained by the model, whereas the\nNSE estimates the relative size of the residual variance in\nrelation to the variance in the measured data (Nash and Sut-\ncliffe, 1970; Van-Liew et al., 2003). According to Mazrooei\net al. (2021), the NSE is sensitive to extreme ﬂows; as a re-\nsult, the KGE is also used to evaluate a model’s performance,"
+  },
+  {
+    "chunk_id": "P6_p11_c02",
+    "metadata": {
+      "chunk_id": "P6_p11_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 10,
+      "physical_page_number": 11,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 53,
+      "start_char_idx": 819,
+      "end_char_idx": 1394,
+      "char_count": 575,
+      "word_count": 96
+    },
+    "text": "According to Mazrooei\net al. (2021), the NSE is sensitive to extreme ﬂows; as a re-\nsult, the KGE is also used to evaluate a model’s performance,\nwhile taking extreme ﬂows into account (Adib and Harun,\n2022). Other metrics, like RSR, MAE, and PBIAS, shed light\non the overall inaccuracies in the projected ﬂow relative to\nthe observed. The values of R2, KGE, and NSE should all\nbe 1 in an ideal model, whereas RSR, MAE, and PBIAS\nvalues should be 0 (Nash and Sutcliffe, 1970; Van-Liew et\nhttps://doi.org/10.5194/hess-27-1047-2023\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023"
+  },
+  {
+    "chunk_id": "P6_p12_c01",
+    "metadata": {
+      "chunk_id": "P6_p12_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 11,
+      "physical_page_number": 12,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 54,
+      "start_char_idx": 0,
+      "end_char_idx": 987,
+      "char_count": 987,
+      "word_count": 171
+    },
+    "text": "1058\nD. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\nFigure 5. Comparison of observed and simulated streamﬂow for all six models (ANN, GAM, GLM, MARSs, RF, and 1D-CNN) under\nrainfall scenarios R0.\nal., 2003; Gupta et al., 1999; Adnan et al., 2020). Moriasi et\nal. (2007) developed a guideline for interpreting the results of\nthese metrics and a rank for the hydrological models based on\na thorough review of the available literature. They found that\na model can be classiﬁed as very good, good, satisfactory, or\nunsatisfactory if its NSE value is between 0.75 and 1, 0.65\nand 0.75, 0.50 and 0.65, or less than 0.50, respectively. Simi-\nlarly, R2 values between 0.6 and 0.7 are considered satisfac-\ntory, 0.85 and 1 are very good, and numbers below 0.5 are\nunsatisfactory (Van-Liew et al., 2003). However, for RSR,\nnumbers above 0.7 are considered to be poor, whereas val-\nues between 0 and 0.5 are considered to be in the very good\nrange."
+  },
+  {
+    "chunk_id": "P6_p12_c02",
+    "metadata": {
+      "chunk_id": "P6_p12_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 11,
+      "physical_page_number": 12,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 55,
+      "start_char_idx": 845,
+      "end_char_idx": 1790,
+      "char_count": 945,
+      "word_count": 152
+    },
+    "text": "However, for RSR,\nnumbers above 0.7 are considered to be poor, whereas val-\nues between 0 and 0.5 are considered to be in the very good\nrange. Thus, the lower the RSR value, the better the model.\nThis is also true for PBIAS and MAE, where lower values\nare favourable. According to Moriasi et al. (2007), PBIAS\nvalues of less than ±10 % are considered to be highly ac-\nceptable, while values of more than ±25 % are considered\nto be unsatisfactory. The negative number indicates that the\nmodel has overestimated its bias, whereas the positive value\nindicates that the model has underestimated its bias (Gupta\net al., 1999).\n3.4\nBias correction\nUncertainty in streamﬂow prediction may be caused by the\nGCM shortcomings (e.g. coarse spatial resolution, simpliﬁed\nphysics and thermodynamic processes, numerical methods,\nor poor knowledge of climate system dynamics) in accurately\nreplicating natural climate variability (Sperna Weiland et al.,\n2010)."
+  },
+  {
+    "chunk_id": "P6_p12_c03",
+    "metadata": {
+      "chunk_id": "P6_p12_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 11,
+      "physical_page_number": 12,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 56,
+      "start_char_idx": 1660,
+      "end_char_idx": 2459,
+      "char_count": 799,
+      "word_count": 119
+    },
+    "text": "or poor knowledge of climate system dynamics) in accurately\nreplicating natural climate variability (Sperna Weiland et al.,\n2010). As a result, its quantiﬁcation and correction are crit-\nical for generating a future time series of streamﬂow that is\nreliable and recommended for devising water resource man-\nagement plans in the catchment. This study used the bias cor-\nrection method proposed in Hawkins et al. (2013) to correct\nthe uncertainty (bias) between observed and CMIP6-GCM-\npredicted streamﬂow. The mathematical expression for this\nformula is given below:\nQbc = Qob + σob\nσp\n\u0000Qfuture −Qp\n\u0001\n,\n(7)\nwhere Qbc and Qfuture are the bias-corrected and raw daily\ndischarge for future simulation, respectively.\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023\nhttps://doi.org/10.5194/hess-27-1047-2023"
+  },
+  {
+    "chunk_id": "P6_p13_c01",
+    "metadata": {
+      "chunk_id": "P6_p13_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 12,
+      "physical_page_number": 13,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 57,
+      "start_char_idx": 0,
+      "end_char_idx": 997,
+      "char_count": 997,
+      "word_count": 162
+    },
+    "text": "D. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\n1059\nFigure 6. A comparison of observed and simulated streamﬂow for all six models (ANN, GAM, GLM, MARSs, RF, and 1D-CNN) under\nrainfall scenarios R1.\nQob and Qp are the mean discharge of observed and his-\ntorical simulation for the reference period (1979–2009), re-\nspectively. σo and σp are the standard deviation in the ob-\nserved and historical simulation for the reference period, re-\nspectively. This method captures the variability in both the\nobservation and GCM simulations (Hawkins et al., 2013),\nwhich is the interest of this study.\n4\nResults\n4.1\nStreamﬂow simulation and evaluation of model\nperformance\nThe simulation (1979–2009) results generated under dif-\nferent rainfall scenarios (R0, R1, R2, and R3) on a daily\ntimescale for all six models (GLM, GAM, MARSs, ANN,\nRF, and 1D-CNN) during training and testing are shown in\nFigs. 3 and 4, respectively. The model performed slightly bet-"
+  },
+  {
+    "chunk_id": "P6_p13_c02",
+    "metadata": {
+      "chunk_id": "P6_p13_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 12,
+      "physical_page_number": 13,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 58,
+      "start_char_idx": 878,
+      "end_char_idx": 1876,
+      "char_count": 998,
+      "word_count": 177
+    },
+    "text": "RF, and 1D-CNN) during training and testing are shown in\nFigs. 3 and 4, respectively. The model performed slightly bet-\nter during training than during testing periods. R2, NSE, and\nKGE values across models ranged from 0.69 to 0.90, 0.52 to\n0.87, and 0.69 to 0.91 and from 0.69 to 0.81, 0.49 to 0.74, and\n0.68 to 0.82 during training and testing, respectively. Like-\nwise, it was found that RSR, MAE, and PBIAS varied from\n0.31 to 0.55, from 71.95 to 123.25 m3 s−1, and from −2.11 %\nto +4.31 % during training, as well as from 0.56 to 0.46,\nfrom 123.06 to 106.64 m3 s−1, and from −3.74 % to +2.21 %\nduring testing, respectively. Non-linear models (ANN, 1D-\nCNN, and RF) outperformed linear models (GAM and GLM)\nin runoff prediction under all rainfall scenarios (R0, R1, R2,\nand R3), with the exception of MARSs, which produced re-\nsults that were more or less comparable with those of the\nANN model. Figures 3–4 show that both models (RF and\n1D-CNN) satisfy the performance requirements outlined by"
+  },
+  {
+    "chunk_id": "P6_p13_c03",
+    "metadata": {
+      "chunk_id": "P6_p13_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 12,
+      "physical_page_number": 13,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 59,
+      "start_char_idx": 1767,
+      "end_char_idx": 2492,
+      "char_count": 725,
+      "word_count": 127
+    },
+    "text": "ANN model. Figures 3–4 show that both models (RF and\n1D-CNN) satisfy the performance requirements outlined by\nMoriasi et al. (2007), but RF slightly outperformed CNN in\nterms of the error index. R2, NSE, KGE, RSR, MAE, and\nPBIAS values for the RF model during the training ranged\nfrom 0.88 to 0.90, 0.85 to 0.87, 0.86 to 0.87, 0.32 to 0.34,\n71.95 to 77.49 m3 s−1, and +0.03 % to +0.13 %, respec-\ntively. For the 1D-CNN, however, it varied from 0.87 to 0.89,\n0.85 to 0.87, 0.90 to 0.91, 0.34 to 0.35, 80.29 to 83.14 m3 s−1,\nand −1.25 % to +0.13 %. A similar pattern with slightly\nlower values was revealed during testing for the both mod-\nhttps://doi.org/10.5194/hess-27-1047-2023\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023"
+  },
+  {
+    "chunk_id": "P6_p14_c01",
+    "metadata": {
+      "chunk_id": "P6_p14_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 13,
+      "physical_page_number": 14,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 60,
+      "start_char_idx": 0,
+      "end_char_idx": 960,
+      "char_count": 960,
+      "word_count": 165
+    },
+    "text": "1060\nD. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\nFigure 7. Comparison of observed and simulated streamﬂow for all six models (ANN, GAM, GLM, MARSs, RF, and 1D-CNN) under\nrainfall scenarios R2.\nels. This implies that RF can effectively capture non-linear\ninteractions and can provide insights about actual watershed\nfunctions (Shortridge et al., 2016). On the other hand, GLM\nshowed the poorest results. R2, NSE, KGE, RSR, MAE, and\nPBIAS values for the GLM during the training varied from\n0.69 to 0.71, 0.52 to 0.56, 0.71 to 0.72, 0.54 to 0.55, 134.80 to\n140.56 m3 s−1, and +2.63 % to +2.73 %, respectively. Dur-\ning testing, they varied between 0.69 and 0.71, 0.49 and 0.54,\n0.68 and 0.70, 0.54 and 0.56, 134.35 and 141.26 m3 s−1, and\n+1 % and +1.31 %, respectively. Furthermore, it was ob-\nserved that the models with rainfall scenario R3 revealed\nreasonably better results in comparison to the R0, R1, and"
+  },
+  {
+    "chunk_id": "P6_p14_c02",
+    "metadata": {
+      "chunk_id": "P6_p14_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 13,
+      "physical_page_number": 14,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 61,
+      "start_char_idx": 820,
+      "end_char_idx": 1820,
+      "char_count": 1000,
+      "word_count": 176
+    },
+    "text": "Furthermore, it was ob-\nserved that the models with rainfall scenario R3 revealed\nreasonably better results in comparison to the R0, R1, and\nR2 scenarios, indicating the delayed contribution of rainfall–\nrunoff to the river.\nFigures 5, 6, 7, and 8 show a comparison of the observed\nand simulated streamﬂow under rainfall scenarios of R0, R1,\nR2, and R3 for all the models at Kasol, which is the outlet\nof the basin. As observed in Figs. 5–8, RF was able to fol-\nlow the curve better compared to the other models. It is also\ndeduced from the comparison of scatterplots wherein a rel-\natively smaller deviation in the observed and estimated dis-\ncharge of streamﬂow was found for the RF model. GLM per-\nformed the worst out of the six models with respect to the\ntime variation graphs. A limitation faced by all the six mod-\nels was the simulation of peak values. The models slightly\nunderperformed at the prediction of higher values of stream-\nﬂow. These ﬁndings led to the ultimate decision to use the"
+  },
+  {
+    "chunk_id": "P6_p14_c03",
+    "metadata": {
+      "chunk_id": "P6_p14_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 13,
+      "physical_page_number": 14,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 62,
+      "start_char_idx": 1681,
+      "end_char_idx": 2629,
+      "char_count": 948,
+      "word_count": 145
+    },
+    "text": "The models slightly\nunderperformed at the prediction of higher values of stream-\nﬂow. These ﬁndings led to the ultimate decision to use the\nRF model with rainfall scenario R3 to predict streamﬂow in\nthe Sutlej River in the future (2050s and 2080s) under the\nSSP245 and SSP585 scenarios.\n4.2\nComparison of streamﬂow simulated with observed\nand CMIP6 GCMs data\nThe uncertainty between observed and CMIP6-GCM-\npredicted streamﬂow during the reference period (1979–\n2009) was investigated by comparing the streamﬂow simu-\nlated by the RF model with the observed and CMIP6 GCM\ndata. A large difference in streamﬂow patterns was seen in\nthe box plot of observed and CMIP6-GCM-simulated dis-\ncharge (Fig. 9) derived for various months of the year, par-\nticularly from June through September (monsoon season),\nwhen a pattern of intense daily rainfall was observed over\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023\nhttps://doi.org/10.5194/hess-27-1047-2023"
+  },
+  {
+    "chunk_id": "P6_p15_c01",
+    "metadata": {
+      "chunk_id": "P6_p15_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 14,
+      "physical_page_number": 15,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 63,
+      "start_char_idx": 0,
+      "end_char_idx": 659,
+      "char_count": 659,
+      "word_count": 99
+    },
+    "text": "D. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\n1061\nFigure 8. Comparison of observed and simulated streamﬂow for all six models (ANN, GAM, GLM, MARSs, RF, and 1D-CNN) under\nrainfall scenarios R3.\nFigure 9. Box plot comparing observed and CMIP6-GCM-simulated (mean ensemble of models) streamﬂow for various months of the year,\nas derived over the period 1979–2009. The line inside the box denotes the median values of the streamﬂow, while the upper and lower\nwhiskers indicate the highest and minimum values, respectively.\nhttps://doi.org/10.5194/hess-27-1047-2023\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023"
+  },
+  {
+    "chunk_id": "P6_p16_c01",
+    "metadata": {
+      "chunk_id": "P6_p16_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 15,
+      "physical_page_number": 16,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 64,
+      "start_char_idx": 0,
+      "end_char_idx": 948,
+      "char_count": 948,
+      "word_count": 150
+    },
+    "text": "1062\nD. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\nFigure 10. Probability exceedance curves developed using 10 % of the highest and lowest ﬂows from the observed and CMIP6-GCM-\nsimulated (mean ensemble of models) ﬂows over the time span of 1979–2009 for annual and seasonal (pre-monsoon and monsoon) ﬂows.\nthe catchment. Additionally, it was discovered through the\nanalysis of the probability exceedance curves generated us-\ning 10 % of the time series’ highest ﬂows that, despite the\nstreamﬂow in the two datasets being comparable throughout\nthe pre-monsoon season (Fig. 10c), they differ noticeably for\nhigh ﬂows during the annual (Fig. 10a) and monsoon season\n(Fig. 10c). Similar trends were seen in the comparison of the\nprobability exceedance curves for low ﬂows during the mon-\nsoon season, although there was strong agreement for an-\nnual (Fig. 10b) and pre-monsoon measurements (Fig. 10d)."
+  },
+  {
+    "chunk_id": "P6_p16_c02",
+    "metadata": {
+      "chunk_id": "P6_p16_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 15,
+      "physical_page_number": 16,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 65,
+      "start_char_idx": 835,
+      "end_char_idx": 1824,
+      "char_count": 989,
+      "word_count": 159
+    },
+    "text": "soon season, although there was strong agreement for an-\nnual (Fig. 10b) and pre-monsoon measurements (Fig. 10d).\nThis may be due to the fact that orography has a consider-\nable impact on the regional Indian summer monsoon (ISM)\nclimate, making it challenging for climate models to pre-\ndict daily monsoonal rainfall accurately across the Himalaya\n(Turner and Annamalai, 2012; Niu et al., 2015; Choudhary\net al., 2022). The regional climate model (RCM) based on\nCMIP5 GCMs was used by Sanjay et al. (2017) to study the\npattern of change in precipitation and temperature over the\nHindukush Himalaya region. As a condition of the model’s\ninability to accurately represent complicated feedback mech-\nanisms, the results revealed large uncertainty in the summer\nand winter precipitation over the northwestern Himalaya.\nThis is also supported by the study of Kadel et al. (2018).\nThey evaluated the performance of 38 CMIP5 GCMs in sim-\nulating rainfall over the central Himalaya and came to the"
+  },
+  {
+    "chunk_id": "P6_p16_c03",
+    "metadata": {
+      "chunk_id": "P6_p16_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 15,
+      "physical_page_number": 16,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 66,
+      "start_char_idx": 1710,
+      "end_char_idx": 2570,
+      "char_count": 860,
+      "word_count": 134
+    },
+    "text": "They evaluated the performance of 38 CMIP5 GCMs in sim-\nulating rainfall over the central Himalaya and came to the\nconclusion that the majority of the models studied performed\npoorly when it came to reproducing the spatial distribution of\nmonsoonal rainfall. Although the most recent study by Gu-\nsain et al. (2020) in India reported that an ISM simulation us-\ning CMIP6 GCMs over CMIP5 GCMs had signiﬁcantly im-\nproved, there are discrepancies between the models, and this\nindicated uncertainty in the predictions. Lalande et al. (2021)\nexamined the abilities of 26 CMIP6 GCMs to simulate the\nrate of precipitation across the Himalayan region and con-\ncluded that the models consistently overestimated the rate\nof precipitation by 31 % to 281 %. Additionally, a cold bias\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023\nhttps://doi.org/10.5194/hess-27-1047-2023"
+  },
+  {
+    "chunk_id": "P6_p17_c01",
+    "metadata": {
+      "chunk_id": "P6_p17_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 16,
+      "physical_page_number": 17,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 67,
+      "start_char_idx": 0,
+      "end_char_idx": 945,
+      "char_count": 945,
+      "word_count": 161
+    },
+    "text": "D. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\n1063\nFigure 11. Projected change in the mean monthly rainfall in the sub-basin using different CMIP6 GCMs under the SSP245 and SSP585\nscenarios in the (a, c) 2050s and (b, d) 2080s.\nin temperature estimation was also reported. Therefore, bias\ncorrection, as described in Sect. 3.4, was applied to the pro-\njected streamﬂow for the future periods (2050s and 2080s)\nunder all scenarios and for all six models in order to provide\naccurate times series of the discharge.\n4.3\nProjected change in rainfall and temperatures in\n2050s and 2080s under SSP245 and SSP585\nFigure 11 shows how the catchment’s mean monthly rain-\nfall is expected to change under SSP245 and SSP585 in the\n2050s and 2080s compared to the reference period (1979–\n2009). Within the months and for the CMIP6 GCMs, a size-\nable shift in the rainfall pattern is seen. With the exception"
+  },
+  {
+    "chunk_id": "P6_p17_c02",
+    "metadata": {
+      "chunk_id": "P6_p17_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 16,
+      "physical_page_number": 17,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 68,
+      "start_char_idx": 826,
+      "end_char_idx": 1826,
+      "char_count": 1000,
+      "word_count": 171
+    },
+    "text": "2009). Within the months and for the CMIP6 GCMs, a size-\nable shift in the rainfall pattern is seen. With the exception\nof March, June, and September, the mean ensemble of the\nmodels generally predicts a rise in rainfall throughout the\nyear in the 2050s and 2080s under all scenarios. The models\nalso show a signiﬁcant variation in the seasonal and yearly\nrainfall patterns expected for the catchment in the 2050s and\n2080s under various emission scenarios. However, based on\nthe mean ensemble of the models, it is predicted that sea-\nsonal (Fig. 12) and annual (Fig. 13a) rainfall will generally\nincrease in the 2050s and 2080s under SSP245 and SSP585.\nPre-monsoon, monsoon, post-monsoon, and winter rainfall\nin the 2050s will increase by 8.75 % to 8.85 %, 10 % to\n20.80 %, 85 % to 91.91 %, and 12.48 % to 14.16 %, respec-\ntively, under SSP245 and SSP585. However, under SSP245\nand SSP585 in the 2080s, it will rise by 7.69 % to 17.50 %,\nhttps://doi.org/10.5194/hess-27-1047-2023\nHydrol. Earth Syst."
+  },
+  {
+    "chunk_id": "P6_p17_c03",
+    "metadata": {
+      "chunk_id": "P6_p17_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 16,
+      "physical_page_number": 17,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 69,
+      "start_char_idx": 1683,
+      "end_char_idx": 1852,
+      "char_count": 169,
+      "word_count": 25
+    },
+    "text": "However, under SSP245\nand SSP585 in the 2080s, it will rise by 7.69 % to 17.50 %,\nhttps://doi.org/10.5194/hess-27-1047-2023\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023"
+  },
+  {
+    "chunk_id": "P6_p18_c01",
+    "metadata": {
+      "chunk_id": "P6_p18_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 17,
+      "physical_page_number": 18,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 70,
+      "start_char_idx": 0,
+      "end_char_idx": 988,
+      "char_count": 988,
+      "word_count": 174
+    },
+    "text": "1064\nD. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\nFigure 12. Projected change in the mean seasonal rainfall in the sub-basin using different CMIP6 GCMs under the SSP245 and SSP585\nscenarios in the (a, c) 2050s and (b, d) 2080s.\n21.52 % to 41.43 %, 56.16 % to 89.66 %, and 22.48 % to\n12.43 %, respectively. Under both scenarios in the 2050s\nand 2080s, the pre-monsoon and post-monsoon will have the\nlowest and highest percentage increases in rainfall, respec-\ntively. The monsoon season is, however, anticipated to have\nthe greatest rise in terms of quantity (∼40–167 mm). The\npredicted range for the increase in mean annual rainfall is\n13.85 % to 18.61 % in the 2050s and 17.91 % to 34.31 % in\nthe 2080s. It is observed that the predicted pattern of change\nin rainfall across the sub-basin under various SSPs is con-\nsistent in terms of the direction of change with other stud-\nies conducted over the Sutlej and Himalaya region. Lalande"
+  },
+  {
+    "chunk_id": "P6_p18_c02",
+    "metadata": {
+      "chunk_id": "P6_p18_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 17,
+      "physical_page_number": 18,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 71,
+      "start_char_idx": 869,
+      "end_char_idx": 1858,
+      "char_count": 989,
+      "word_count": 165
+    },
+    "text": "sistent in terms of the direction of change with other stud-\nies conducted over the Sutlej and Himalaya region. Lalande\net al. (2021) reported an overall increase in the mean an-\nnual precipitation over the Himalayan region based on 10\nCMIP6 GCMs. According to their analysis, the mean en-\nsemble of model precipitation is predicted to increase by\n8.6 % to 25.4 % in 2081–2100 under SSP245 and SSP585.\nThe same study also showed an increase in the region’s win-\nter (November to April) and ISM (June to September) rain-\nfall. This contradicts past studies that showed a trend towards\ndeclining ISM rainfall after the 1950s (Sabin et al., 2020).\nThey postulated that the region’s higher winter rainfall would\nhave been caused by the strengthening of the western distur-\nbances; however, the intensiﬁcation of the ISM is responsible\nfor the region’s enhanced summer rainfall.\nThe analysis of the CMIP6 GCM projections leads to the\nconclusion that, for all months and seasons in the 2050s and"
+  },
+  {
+    "chunk_id": "P6_p18_c03",
+    "metadata": {
+      "chunk_id": "P6_p18_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 17,
+      "physical_page_number": 18,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 72,
+      "start_char_idx": 1743,
+      "end_char_idx": 2357,
+      "char_count": 614,
+      "word_count": 99
+    },
+    "text": "The analysis of the CMIP6 GCM projections leads to the\nconclusion that, for all months and seasons in the 2050s and\n2080s, maximum (excluding April and pre-monsoon in the\n2050s under SSP245) and minimum temperatures will rise\nunder both scenarios (Figs. 14a–d and 15a–d). Similarly, in-\ncrease in mean annual Tmin and Tmax is also predicted in the\n2050s and 2080s under all scenarios (Fig. 13b and c). The\nincrease will be relatively higher for the Tmin compared to\nthe Tmax. This is also reported by Singh et al. (2015c). The\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023\nhttps://doi.org/10.5194/hess-27-1047-2023"
+  },
+  {
+    "chunk_id": "P6_p19_c01",
+    "metadata": {
+      "chunk_id": "P6_p19_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 18,
+      "physical_page_number": 19,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 73,
+      "start_char_idx": 0,
+      "end_char_idx": 994,
+      "char_count": 994,
+      "word_count": 166
+    },
+    "text": "D. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\n1065\nFigure 13. Projected changes in the (a) mean annual rainfall, (b) Tmax, and (c) Tmin in the sub-basin using different CMIP6 GCMs under\nthe SSP245 and SSP585 scenarios in the 2050s and 2080s.\nincrease in rainfall and temperature is typically higher under\nSSP585 than SSP245 in both eras (2050s and 2080s), as ex-\npected, due to a larger increase in radiative forcing brought\non by increased greenhouse gas emissions.\n4.4\nAssessment of the change in streamﬂow in 2050s\nand 2080s under SSP245 and SSP585\nThe Sutlej River’s mean monthly streamﬂow change, com-\npared to the reference period’s observed ﬂow (1979–2009),\nis shown in Fig. 16 under scenarios SSP245 and SSP585\nfor the future periods (2050s and 2080s). According to both\nscenarios and all six models, the Sutlej River’s streamﬂow\nwill decrease between January (−33.80 % to −14.38 %),\nFebruary (−32.40 % to −14.15 %), March (−23.55 % to"
+  },
+  {
+    "chunk_id": "P6_p19_c02",
+    "metadata": {
+      "chunk_id": "P6_p19_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 18,
+      "physical_page_number": 19,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 74,
+      "start_char_idx": 889,
+      "end_char_idx": 1887,
+      "char_count": 998,
+      "word_count": 181
+    },
+    "text": "will decrease between January (−33.80 % to −14.38 %),\nFebruary (−32.40 % to −14.15 %), March (−23.55 % to\n−0.84 %), November (−21.06 % to −5.14 %), and Decem-\nber (−29.88 % to −18.38 %) in the 2050s and 2080s. More-\nover, except for MPI-ESM1-2-HR and MPI-ESM1-2-LR,\nwhich show an increase in streamﬂow in the 2080s under\nthe higher-emission scenario, all of the CMIP6 GCMs indi-\ncate a decrease in the river’s discharge in June (−20.24 %\nto −0.57 %) under SSP245 and SSP585 for both the pe-\nriods. Similarly, excluding EC-Earth3-Veg (under SSP245\nin 2050s) and INM-CM5-0 (under SSP245 in the 2050s\nand 2080s and under SSP585 in the 2050s), all of the\nCMIP6 GCMs indicate a decrease in the river’s discharge\nin May (−25 % to −2.85 %) during the study period. In con-\ntrast, under SSP245 and SSP585 in the 2050s and 2080s, all\nof the CMIP6 GCMs predict a rise in the river’s discharge in\nApril (20.24 % to −0.57 %; excluding SSP585 in the 2080s),\nAugust (16.84 % to 5.28 %), and September (55.27 % to"
+  },
+  {
+    "chunk_id": "P6_p19_c03",
+    "metadata": {
+      "chunk_id": "P6_p19_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 18,
+      "physical_page_number": 19,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 75,
+      "start_char_idx": 1775,
+      "end_char_idx": 2746,
+      "char_count": 971,
+      "word_count": 152
+    },
+    "text": "April (20.24 % to −0.57 %; excluding SSP585 in the 2080s),\nAugust (16.84 % to 5.28 %), and September (55.27 % to\n4.35 %). But no clear pattern of streamﬂow change is seen\nfor the remaining months (July and October) of the year,\nmaking results difﬁcult to generalise because the projected\ndecrease and/or increase in streamﬂow over the months is in-\nconsistent among models under various emission scenarios\nin the 2050s and 2080s. The variations in climate-variable\nprojections caused by differing spatial resolutions and pa-\nrameterisation levels in the climate models may be the cause\nof these discrepancies in streamﬂow estimates (Sperna Wei-\nland et al., 2010; Singh et al., 2015a). According to Murphy\net al. (2004), the average of an ensemble of GCMs cancels\nout the errors in each individual model, and as more models\nare used, the ensemble uncertainty decreases. Therefore, in\nhttps://doi.org/10.5194/hess-27-1047-2023\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023"
+  },
+  {
+    "chunk_id": "P6_p20_c01",
+    "metadata": {
+      "chunk_id": "P6_p20_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 19,
+      "physical_page_number": 20,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 76,
+      "start_char_idx": 0,
+      "end_char_idx": 950,
+      "char_count": 950,
+      "word_count": 164
+    },
+    "text": "1066\nD. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\nFigure 14. Projected change in the mean seasonal maximum temperature (Tmax) in the sub-basin using different CMIP6 GCMs under the\nSSP245 and SSP585 scenarios in the (a, c) 2050s and (b, d) 2080s.\norder to reduce the uncertainty in the projection of stream-\nﬂow related to individual CMIP6 GCMs, the streamﬂow pat-\ntern of the Sutlej River was analysed by also using the mean\nensemble of all six GCMs.\nThe mean ensemble of the models predicts that the Sut-\nlej River’s mean monthly streamﬂow (excluding April) will\ndecrease under both scenarios from November (−18.45 %\nto −17.17 %) to June (−10.90 % to −8.06 %) between the\n2050s and 2080s (Fig. 17). The river ﬂow, which would\nhave been expected to increase in April under both scenar-\nios in 2050s, will also decline in the 2080s for the higher\nemission scenarios (SPP585). The maximum and minimum"
+  },
+  {
+    "chunk_id": "P6_p20_c02",
+    "metadata": {
+      "chunk_id": "P6_p20_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 19,
+      "physical_page_number": 20,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 77,
+      "start_char_idx": 838,
+      "end_char_idx": 1826,
+      "char_count": 988,
+      "word_count": 174
+    },
+    "text": "ios in 2050s, will also decline in the 2080s for the higher\nemission scenarios (SPP585). The maximum and minimum\nstreamﬂow declines are predicted to occur in the 2050s un-\nder SSP245 for the months of December (−24.25 %) and\nMay (−7.77 %), respectively. In comparison to SPP245, the\ndecline will generally be slightly higher under SSP585 in\n2050s, and for the 2080s, the projected decrease in stream-\nﬂow will not show much difference under both the scenarios.\nOpposite to this, the mean ensemble of the models predicts\nthat the Sutlej River’s ﬂow will increase from July (5.50 %\nto 5.91 %) to October (3.01 % to 11.42 %) in the 2050s and\n2080s under both scenarios. The maximum and minimum\nstreamﬂow increases are predicted to occur in the 2080s un-\nder SSP245 for the months of September (25.82 %) and July\n(5.50 %), respectively. In all scenarios, the increase will be\nslightly greater in the 2080s than it will be in the 2050s.\nWhen compared to SPP245, it will be higher for SSP585 in"
+  },
+  {
+    "chunk_id": "P6_p20_c03",
+    "metadata": {
+      "chunk_id": "P6_p20_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 19,
+      "physical_page_number": 20,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 78,
+      "start_char_idx": 1710,
+      "end_char_idx": 2270,
+      "char_count": 560,
+      "word_count": 98
+    },
+    "text": "slightly greater in the 2080s than it will be in the 2050s.\nWhen compared to SPP245, it will be higher for SSP585 in\nthe scenarios.\nThe projected change in the seasonal streamﬂow of the\nSutlej River in 2050s and 2080s is shown in Fig. 18. The\n2050s and 2080s would see an increase in streamﬂow during\nthe monsoon (4.46 % to 16.14 %) and a decrease during the\npre-monsoon (−17.40 % to −0.51 %) and winter (−28.81 %\nto −12.42 %) for all six CMIP6 GCMs, with the exception of\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023\nhttps://doi.org/10.5194/hess-27-1047-2023"
+  },
+  {
+    "chunk_id": "P6_p21_c01",
+    "metadata": {
+      "chunk_id": "P6_p21_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 20,
+      "physical_page_number": 21,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 79,
+      "start_char_idx": 0,
+      "end_char_idx": 987,
+      "char_count": 987,
+      "word_count": 167
+    },
+    "text": "D. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\n1067\nFigure 15. Projected changes in the mean seasonal minimum temperature (Tmin) in the sub-basin using different CMIP6 GCMs under the\nSSP245 and SSP585 scenarios in the (a, c) 2050s and (b, d) 2080s.\nINM-CM5-0 in the 2050s under SSP245 and MPI-ESM1-2-\nHR and MPI-ESM1-2-LR in the 2080s under SPP585, which\nindicate an increase rather than a decrease in streamﬂow dur-\ning the pre-monsoon. The predicted streamﬂow for the post-\nmonsoon season, however, does not show a consistent pat-\ntern of change across time within the models under SSP245\nand SSP585 scenarios. But there is a high probability, based\non the mean ensembles of models projections, that stream-\nﬂow will also decline during the post-monsoon in 2050s\n(−1.23 % to −0.22 %) and 2080s (−5.59 % to −2.83 %) un-\nder all scenarios. Similarly, the predicted decline for pre-\nmonsoon and winter will be between −10.36 % and −6.12 %"
+  },
+  {
+    "chunk_id": "P6_p21_c02",
+    "metadata": {
+      "chunk_id": "P6_p21_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 20,
+      "physical_page_number": 21,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 80,
+      "start_char_idx": 871,
+      "end_char_idx": 1814,
+      "char_count": 943,
+      "word_count": 166
+    },
+    "text": "der all scenarios. Similarly, the predicted decline for pre-\nmonsoon and winter will be between −10.36 % and −6.12 %\nand −21.87 % and −21.52 % under SSP245 and between\n−10.0 % and −9.13 % and −21.87 % and −21.11 % under\nSSP585, respectively. With the exception of winter, when\nthere are no signiﬁcant differences in the projected stream-\nﬂow, the decline will be slightly larger in the 2080s than in\nthe 2050s in all scenarios. In addition, the results of the mean\nensemble of the models indicate that the Sutlej River’s ﬂow\nwill increase during the monsoon under both scenarios, from\n9.70 % to 11.41 % in the 2050s and 11.64 % to 12.70 % in\nthe 2080s.\nSimilarly, Fig. 19 lists the projected change in the mean\nannual streamﬂow for the Sutlej River in 2050s and 2080s\nwith respect to the reference period (1979–2009) under dif-\nferent emission scenarios. Although the nature of the di-\nrection of change within models varies, the mean ensemble"
+  },
+  {
+    "chunk_id": "P6_p21_c03",
+    "metadata": {
+      "chunk_id": "P6_p21_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 20,
+      "physical_page_number": 21,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 81,
+      "start_char_idx": 1699,
+      "end_char_idx": 2271,
+      "char_count": 572,
+      "word_count": 95
+    },
+    "text": "ferent emission scenarios. Although the nature of the di-\nrection of change within models varies, the mean ensemble\nof the models reveals a persistent increasing pattern in the\nstreamﬂow for all scenarios in 2050s and 2080s. The Sutlej\nRiver’s annual streamﬂow will rise between 2050 and 2080\nby 0.79 % to 1.43 % for SSP585 and 0.87 % to 1.10 % for\nSSP245, according to the mean ensemble of the models. The\nrise is expected to be higher in the 2080s as compared to\n2050s under SSP585.\nhttps://doi.org/10.5194/hess-27-1047-2023\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023"
+  },
+  {
+    "chunk_id": "P6_p22_c01",
+    "metadata": {
+      "chunk_id": "P6_p22_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 21,
+      "physical_page_number": 22,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 82,
+      "start_char_idx": 0,
+      "end_char_idx": 988,
+      "char_count": 988,
+      "word_count": 164
+    },
+    "text": "1068\nD. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\nFigure 16. Predicted change in monthly streamﬂow pattern of the Sutlej River with respect to the reference period (1979–2009) in (a, b) 2050s\nand (c, d) 2080s under SSP245 and SSP585 scenarios for different CMIP6 GCMs.\n5\nDiscussion\nThis study reveals an increase in the Sutlej River’s mean\nannual and monsoonal streamﬂow in the 2050s and 2080s,\nwhich is in contrast to earlier studies (Singh et al., 2014;\nAli et al., 2018) that reported a reduction based on long-\nterm investigation of station data over historical era. The pat-\ntern of rainfall and temperature predicted by CMIP6 GCMs\nfor the future periods under the SSP245 and SSP585 emis-\nsion scenarios, in addition to the physical processes occur-\nring within the basin, have contributed to this increase in\nthe Sutlej River’s streamﬂow. For instance, it is speculated\nthat the projected increase in the mean streamﬂow during the"
+  },
+  {
+    "chunk_id": "P6_p22_c02",
+    "metadata": {
+      "chunk_id": "P6_p22_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 21,
+      "physical_page_number": 22,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 83,
+      "start_char_idx": 867,
+      "end_char_idx": 1845,
+      "char_count": 978,
+      "word_count": 157
+    },
+    "text": "the Sutlej River’s streamﬂow. For instance, it is speculated\nthat the projected increase in the mean streamﬂow during the\nmonsoon season under both scenarios in the 2050s and 2080\nfor all models is related to the projected percentage increase\nin the rainfall amount over the catchment and the melting of\nglaciers brought on by the increased maximum and minimum\ntemperatures. On the one hand, this increase in river stream-\nﬂow and its propensity to raise the silt load may have an im-\npact on both the capacity of reservoirs and the hydropower\npotential of hydroelectric facilities situated in the sub-basin\nand downstream of it. On the other hand, despite the pre-\ndicted increase in rainfall throughout the pre-monsoon, post-\nmonsoon, and winter seasons, the anticipated decrease in\nstreamﬂow of the Sutlej River during pre-monsoon, post-\nmonsoon, and winter may be explained by the projected rise\nin temperatures, which may have led to increased evaporation\nfrom the surface."
+  },
+  {
+    "chunk_id": "P6_p22_c03",
+    "metadata": {
+      "chunk_id": "P6_p22_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 21,
+      "physical_page_number": 22,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 84,
+      "start_char_idx": 1708,
+      "end_char_idx": 1974,
+      "char_count": 266,
+      "word_count": 36
+    },
+    "text": "monsoon, and winter may be explained by the projected rise\nin temperatures, which may have led to increased evaporation\nfrom the surface. Similar conclusions were reached by Adib\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023\nhttps://doi.org/10.5194/hess-27-1047-2023"
+  },
+  {
+    "chunk_id": "P6_p23_c01",
+    "metadata": {
+      "chunk_id": "P6_p23_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 22,
+      "physical_page_number": 23,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 85,
+      "start_char_idx": 0,
+      "end_char_idx": 984,
+      "char_count": 984,
+      "word_count": 157
+    },
+    "text": "D. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\n1069\nFigure 17. Comparison of monthly observed (1979–2009) and projected discharge of the multimodel ensembles for the 2050s and 2080s\nunder the SSP245 and SSP585 scenarios.\nand Harun (2022), who studied the Kurau River in Malaysia\nand predicted a drop in streamﬂow during the months of\nJanuary, April, and October, despite receiving more rainfall.\nMoreover, during winter and post-monsoon, most of the pre-\ncipitation in upper part of the catchment occurs in the form of\nsnowfall, which has a minimal effect on the runoff generation\nin the catchment. Additionally, the large increase in mon-\nsoonal streamﬂow predicted during study periods is what led\nto the projected increase in the Sutlej River’s mean annual\nﬂow. Predicted decreases in the Sutlej River streamﬂow over\nthe pre-monsoon (April to June) and winter (December to\nMarch) seasons may have a signiﬁcant impact on agriculture"
+  },
+  {
+    "chunk_id": "P6_p23_c02",
+    "metadata": {
+      "chunk_id": "P6_p23_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 22,
+      "physical_page_number": 23,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 86,
+      "start_char_idx": 870,
+      "end_char_idx": 1850,
+      "char_count": 980,
+      "word_count": 154
+    },
+    "text": "the pre-monsoon (April to June) and winter (December to\nMarch) seasons may have a signiﬁcant impact on agriculture\nand hydropower generation downstream of the river, which\nis already struggling due to water shortages at this time of\nyear. Ali et al. (2018) predicted that the hydroelectric produc-\ntion from the Nathpa Jhakri and Bhakra Nangal hydropower\nprojects will decline during May to June in the future due to\na projected decline in the streamﬂow of the Sutlej River.\nThe projected streamﬂow patterns for the Sutlej River un-\nder SSP245 and SSP585 scenarios in the 2050s and 2080s\nshow similar tendencies, but with differing magnitudes, that\nhave been found by past researchers using process-based\nhydrological models. For instance, Singh et al. (2015a)\nused the SWAT (Soil Water Assessment Tool) model, a\nsemi-distributed hydrological model, to simulate streamﬂow\nfor future periods using two CMIP3 GCMs (CGCM3 and\nHadCM3), and they discovered that the Sutlej River’s mean"
+  },
+  {
+    "chunk_id": "P6_p23_c03",
+    "metadata": {
+      "chunk_id": "P6_p23_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 22,
+      "physical_page_number": 23,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 87,
+      "start_char_idx": 1742,
+      "end_char_idx": 2716,
+      "char_count": 974,
+      "word_count": 165
+    },
+    "text": "for future periods using two CMIP3 GCMs (CGCM3 and\nHadCM3), and they discovered that the Sutlej River’s mean\nannual streamﬂow would increase in the range of 0.6 %\nto 7.8 % for the future periods (2050s and 2080s). Simi-\nlar to this, using the variable inﬁltration capacity (VIC) and\nSWAT models, respectively, Ali et al. (2018) and Shukla\net al. (2021) estimated increases in the Sutlej River’s mean\nannual streamﬂow for the 2050s and 2080s under RCP4.5\nand RCP8.5. The study of Shukla et al. (2021) estimated\nthat, under RCP4.5 and RCP8.5, the mean streamﬂow of\nthe river would increase by 14 % and 21 % (at Rampur), re-\nspectively, in the 2080s. The previous studies observed that\na substantially higher increase in projected streamﬂow may\nbe attributable to the overestimation by the CMIP3 GCMs\nand CMIP5 GCMs of monsoonal precipitation over the Hi-\nmalayan region (Choudhary et al., 2022; Sanjay et al., 2017;\nGusain et al., 2020; Lalande et al., 2021). Similar to this,"
+  },
+  {
+    "chunk_id": "P6_p23_c04",
+    "metadata": {
+      "chunk_id": "P6_p23_c04",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 22,
+      "physical_page_number": 23,
+      "printed_page_number": null,
+      "chunk_index_in_page": 3,
+      "chunk_index_in_doc": 88,
+      "start_char_idx": 2595,
+      "end_char_idx": 3592,
+      "char_count": 997,
+      "word_count": 165
+    },
+    "text": "malayan region (Choudhary et al., 2022; Sanjay et al., 2017;\nGusain et al., 2020; Lalande et al., 2021). Similar to this,\nthe results of Singh et al. (2015a), Ali et al. (2018), and\nShukla et al. (2021) corroborated the expected decrease in\nstreamﬂow during pre-monsoon and winter in addition to a\nrise during monsoon. This suggests that the RF model can\naccurately predict runoff and analyse the effects of climate\nchange, while capturing the non-linearity of a hilly catch-\nment.\n6\nConclusion\nThis study compared the performance of the ﬁve machine\nlearning models (GLM, GAM, MARSs, ANN, and RF) and\none deep learning model (1D-CNN), which were further di-\nvided into linear (MARSs, ANN, and RF) and non-linear\n(ANN, 1D-CNN, and RF) models, in simulating rainfall–\nrunoff responses over the hilly Sutlej River basin in order\nto determine the best model for predicting streamﬂow re-\nsponse to future climate change in the 2050s and 2080s under\nSSP245 and SSP585 using CMIP6 GCM data. The important"
+  },
+  {
+    "chunk_id": "P6_p23_c05",
+    "metadata": {
+      "chunk_id": "P6_p23_c05",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 22,
+      "physical_page_number": 23,
+      "printed_page_number": null,
+      "chunk_index_in_page": 4,
+      "chunk_index_in_doc": 89,
+      "start_char_idx": 3478,
+      "end_char_idx": 3723,
+      "char_count": 245,
+      "word_count": 35
+    },
+    "text": "sponse to future climate change in the 2050s and 2080s under\nSSP245 and SSP585 using CMIP6 GCM data. The important\nﬁndings of the study are summarised below.\nhttps://doi.org/10.5194/hess-27-1047-2023\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023"
+  },
+  {
+    "chunk_id": "P6_p24_c01",
+    "metadata": {
+      "chunk_id": "P6_p24_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 23,
+      "physical_page_number": 24,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 90,
+      "start_char_idx": 0,
+      "end_char_idx": 988,
+      "char_count": 988,
+      "word_count": 168
+    },
+    "text": "1070\nD. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\nFigure 18. Predicted change in seasonal streamﬂow pattern of the Sutlej River with respect to the reference period (1979–2009) in the\n(a, c) 2050s and (b, d) 2080s under the SSP245 and SSP585 scenarios for different GCMs.\n– In general, non-linear models (ANN, 1D-CNN, and RF)\noutperformed linear models (GAM, GLM, and MARSs)\nin runoff prediction under all rainfall scenarios (R0,\nR1, R2, and R3). Among all the models, RF and 1D-\nCNN were identiﬁed as being the best models as per the\nmodel evaluation criteria. However, RF outperformed\nCNN in terms of error index (MAE and PBIAS), and\nas a result, it was used to investigate impact of future\nclimate change on the Sutlej River pattern in the 2050s\nand 2080s under the SSP245 and SSP585 emission sce-\nnarios.\n– The developed RF model slightly underperformed at the\nprediction of higher values of streamﬂow during train-\ning and testing."
+  },
+  {
+    "chunk_id": "P6_p24_c02",
+    "metadata": {
+      "chunk_id": "P6_p24_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 23,
+      "physical_page_number": 24,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 91,
+      "start_char_idx": 853,
+      "end_char_idx": 1808,
+      "char_count": 955,
+      "word_count": 150
+    },
+    "text": "narios.\n– The developed RF model slightly underperformed at the\nprediction of higher values of streamﬂow during train-\ning and testing. This implies that it is less effective at\npredicting ﬂash ﬂoods that are caused by intense rain-\nfall in the catchment. However, it was determined that\nthe results produced by RF were comparable to process-\nbased hydrological models for a long-term change study\nin streamﬂow pattern.\n– Signiﬁcant variations in the streamﬂow pattern were\nobserved throughout the periods of months, seasons,\nand years and for the CMIP6 GCMs. The differences\nin the spatial resolution and parameterisation levels of\nCMIP6 GCMs, which caused a noticeable change in\nthe projected amounts of temperature and precipitation\nduring the study periods, may serve as an illustration\nof these variances in streamﬂow prediction. The Sutlej\nRiver’s mean annual streamﬂow, based on the mean en-\nsemble of models, is predicted to rise between the years"
+  },
+  {
+    "chunk_id": "P6_p24_c03",
+    "metadata": {
+      "chunk_id": "P6_p24_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 23,
+      "physical_page_number": 24,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 92,
+      "start_char_idx": 1688,
+      "end_char_idx": 2155,
+      "char_count": 467,
+      "word_count": 79
+    },
+    "text": "The Sutlej\nRiver’s mean annual streamﬂow, based on the mean en-\nsemble of models, is predicted to rise between the years\n2050 and 2080 by 0.79 % to 1.43 % for SSP585 and by\n0.87 % to 1.10 % for SSP245. Additionally, under both\nemission scenarios, streamﬂow will decrease during\nthe pre- and post-monsoon (−1.23 % to −0.22 % and\n−5.59 % to −2.83 %) and during the winter (−21.87 %\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023\nhttps://doi.org/10.5194/hess-27-1047-2023"
+  },
+  {
+    "chunk_id": "P6_p25_c01",
+    "metadata": {
+      "chunk_id": "P6_p25_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 24,
+      "physical_page_number": 25,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 93,
+      "start_char_idx": 0,
+      "end_char_idx": 982,
+      "char_count": 982,
+      "word_count": 170
+    },
+    "text": "D. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\n1071\nFigure 19. Predicted change in the mean annual streamﬂow of the\nSutlej River with respect to the reference period (1979–2009) in the\n2050s and 2080s under SSP245 and SSP585 scenarios for different\nGCMs.\nto −21.52 % and −21.87 % to −21.11 %) but increase\nduring the monsoon (9.70 % to 11.41 % and 11.64 % to\n12.70 %) in the 2050s and 2080s.\n– The increase in the Sutlej River’s streamﬂow (annual\nand monsoon) is due to both physical processes that oc-\ncur within the basin and rainfall and temperature pat-\nterns that are predicted by CMIP6 GCMs for future time\nperiods under the SSP245 and SSP585 emission scenar-\nios. On the one hand, the projected rise in mean stream-\nﬂow during the monsoon season is associated with both\nthe projected percentage increase in rainfall over the\ncatchment and the melting of glaciers brought on by\nthe increasing maximum and minimum temperatures."
+  },
+  {
+    "chunk_id": "P6_p25_c02",
+    "metadata": {
+      "chunk_id": "P6_p25_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 24,
+      "physical_page_number": 25,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 94,
+      "start_char_idx": 882,
+      "end_char_idx": 1838,
+      "char_count": 956,
+      "word_count": 145
+    },
+    "text": "catchment and the melting of glaciers brought on by\nthe increasing maximum and minimum temperatures.\nOn the other hand, the predicted increase in tempera-\ntures, which may have led to increased evaporation from\nthe surface, may be used to explain the anticipated re-\nduction in streamﬂow of the Sutlej River during pre-\nmonsoon, post-monsoon, and winter.\n– Additionally, the projected changes in the mean annual\nand seasonal streamﬂow of the river are consistent with\nearlier research done using process-based physical hy-\ndrological models. Thus, the outcomes of the overall\nstudy indicate that the RF model is efﬁcient for simu-\nlating streamﬂow in the Himalayan catchment and that\nwater availability during monsoon will rise as a result\nof an increase in catchment precipitation, which would\neventually lead to an increased sediment load and affect\nhydropower generation. However, the predicted reduc-\ntion in streamﬂow during pre-monsoon, post-monsoon,"
+  },
+  {
+    "chunk_id": "P6_p25_c03",
+    "metadata": {
+      "chunk_id": "P6_p25_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 24,
+      "physical_page_number": 25,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 95,
+      "start_char_idx": 1734,
+      "end_char_idx": 2729,
+      "char_count": 995,
+      "word_count": 151
+    },
+    "text": "hydropower generation. However, the predicted reduc-\ntion in streamﬂow during pre-monsoon, post-monsoon,\nand winter will put stress on agriculture and hydropower\ngeneration downstream of the river, which is already\nstruggling due to water shortages at this time of year.\nThe administrators of local water resources and the gov-\nernment organisations in charge of maintaining reser-\nvoirs downriver may ﬁnd these details on streamﬂow\npatterns to be of great use.\nCode availability. The codes developed for this study can be made\navailable to the readers on reasonable request to the corresponding\nauthor.\nData availability. The observed station data are conﬁdential, and\nthe authors do not have permission to share the data.\nAuthor contributions. DS and SL conceptualised the problems, su-\npervised the entire research activity from its inception to its com-\npletion, contributed to the data collection, processing, and interpre-\ntation, and wrote the research paper. MV and RS contributed to the"
+  },
+  {
+    "chunk_id": "P6_p25_c04",
+    "metadata": {
+      "chunk_id": "P6_p25_c04",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 24,
+      "physical_page_number": 25,
+      "printed_page_number": null,
+      "chunk_index_in_page": 3,
+      "chunk_index_in_doc": 96,
+      "start_char_idx": 2592,
+      "end_char_idx": 3576,
+      "char_count": 984,
+      "word_count": 141
+    },
+    "text": "pletion, contributed to the data collection, processing, and interpre-\ntation, and wrote the research paper. MV and RS contributed to the\ndevelopment of the model, generation of ﬁgures, and analysis of\ndata. PC and DC contributed to the data analysis and interpretation.\nCompeting interests. The contact author has declared that none of\nthe authors has any competing interests.\nDisclaimer. Publisher’s note: Copernicus Publications remains\nneutral with regard to jurisdictional claims in published maps and\ninstitutional afﬁliations.\nSpecial issue statement. This article is part of the special issue\n“Hydrological response to climatic and cryospheric changes in\nhigh-mountain regions”. It is not associated with a conference.\nAcknowledgements. The authors acknowledge the National Nat-\nural Science Foundation of China (NFSC; grant no. 42171129),\nfor funding this research work, and the Bhakra Beas Management\nBoard (BBMB), India, for the hydrometeorological data used in this\nstudy."
+  },
+  {
+    "chunk_id": "P6_p25_c05",
+    "metadata": {
+      "chunk_id": "P6_p25_c05",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 24,
+      "physical_page_number": 25,
+      "printed_page_number": null,
+      "chunk_index_in_page": 4,
+      "chunk_index_in_doc": 97,
+      "start_char_idx": 3440,
+      "end_char_idx": 4022,
+      "char_count": 582,
+      "word_count": 86
+    },
+    "text": "for funding this research work, and the Bhakra Beas Management\nBoard (BBMB), India, for the hydrometeorological data used in this\nstudy. We thank Pratibha Shrivastava, a fourth-year computer sci-\nence student (B. Tech) at NIT Raipur, for her help in building the\nmodel.\nFinancial support. This research has been supported by the Na-\ntional Natural Science Foundation of China (grant no. 42171129).\nReview statement. This paper was edited by Yue-Ping Xu and re-\nviewed by two anonymous referees.\nhttps://doi.org/10.5194/hess-27-1047-2023\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023"
+  },
+  {
+    "chunk_id": "P6_p26_c01",
+    "metadata": {
+      "chunk_id": "P6_p26_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 25,
+      "physical_page_number": 26,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 98,
+      "start_char_idx": 0,
+      "end_char_idx": 992,
+      "char_count": 992,
+      "word_count": 133
+    },
+    "text": "1072\nD. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\nReferences\nAbbasian, M., Moghim, S., and Abrishamchi, A.: Performance of\nthe general circulation models in simulating temperature and pre-\ncipitation over Iran, Theor. Appl. Climatol., 135, 1465–1483,\nhttps://doi.org/10.1007/s00704-018-2456-y, 2019.\nAdib,\nM.\nN.\nM.\nand\nHarun,\nS.:\nMetalearning\nApproach\nCoupled\nwith\nCMIP6\nMulti-GCM\nfor\nFuture\nMonthly\nStreamﬂow\nForecasting,\nJ.\nHydrol.\nEng.,\n27,\n05022004,\nhttps://doi.org/10.1061/(ASCE)HE.1943-5584.0002176, 2022.\nAdnan, R. M., Yuan, X., Kisi, O., Yuan, Y., Tayyab, M., and Lei, X.:\nApplication of soft computing models in streamﬂow forecasting.\nIn Proceedings of the institution of civil engineers-water, Man-\nage., 172, 123–134, https://doi.org/10.1680/jwama.16.00075,\n2019.\nAdnan, R. M., Liang, Z., Heddam, S., Zounemat-Kermani,\nM., Kisi, O., and\nLi, B.:\nLeast square\nsupport vector\nmachine and multivariate adaptive regression splines for"
+  },
+  {
+    "chunk_id": "P6_p26_c02",
+    "metadata": {
+      "chunk_id": "P6_p26_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 25,
+      "physical_page_number": 26,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 99,
+      "start_char_idx": 882,
+      "end_char_idx": 1859,
+      "char_count": 977,
+      "word_count": 130
+    },
+    "text": "M., Kisi, O., and\nLi, B.:\nLeast square\nsupport vector\nmachine and multivariate adaptive regression splines for\nstreamﬂow prediction in mountainous basin using hydro-\nmeteorological data\nas inputs,\nJ. Hydrol.,\n586, 124371,\nhttps://doi.org/10.1016/j.jhydrol.2019.124371, 2020.\nAli, S. A., Aadhar, S., Shah, H. L., and Mishra, V.: Projected in-\ncrease in hydropower production in India under climate change,\nSci. Rep., 8, 1–12, https://doi.org/10.1038/s41598-018-30489-4,\n2018.\nArcher, D.: Contrasting hydrological regimes in the upper Indus\nBasin, J. Hydrol., 274, 198–210, https://doi.org/10.1016/S0022-\n1694(02)00414-6, 2003.\nBeven, K. J.: Rainfall-runoff modelling: the primer, John Wiley &\nSons, ISBN 978-0-470-71459-1, 2011.\nChen, H., Sun, J., Lin, W., and Xu, H.: Comparison of CMIP6 and\nCMIP5 models in simulating climate extremes, Sci. Bull., 65,\n1415–1418, https://doi.org/10.1016/j.scib.2020.05.015, 2020.\nChoudhury, B. A., Rajesh, P. V., Zahan, Y., and Goswami, B. N.:"
+  },
+  {
+    "chunk_id": "P6_p26_c03",
+    "metadata": {
+      "chunk_id": "P6_p26_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 25,
+      "physical_page_number": 26,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 100,
+      "start_char_idx": 1724,
+      "end_char_idx": 2706,
+      "char_count": 982,
+      "word_count": 124
+    },
+    "text": "Bull., 65,\n1415–1418, https://doi.org/10.1016/j.scib.2020.05.015, 2020.\nChoudhury, B. A., Rajesh, P. V., Zahan, Y., and Goswami, B. N.:\nEvolution of the Indian summer monsoon rainfall simulations\nfrom CMIP3 to CMIP6 models, Clim. Dynam., 58, 2637–2662,\nhttps://doi.org/10.1007/s00382-021-06023-0, 2022.\nConan, C., De Marsily, G., Bouraoui, F., and Bidoglio, G.:\nA long-term hydrological modelling of the Upper Guadiana\nRiver basin (Spain), Phys. Chem. Earth. A/B/C, 28, 193–200,\nhttps://doi.org/10.1016/S1474-7065(03)00025-1 2003.\nDai, A., Qian, T., Trenberth, K. E., and Milliman, J. D.: Changes in\ncontinental freshwater discharge from 1948 to 2004, J. Climate,\n22, 2773–2792, https://doi.org/10.1175/2008JCLI2592.1, 2009.\nDas, J. and Nanduri, U. V.: Assessment and evaluation of potential\nclimate change impact on monsoon ﬂows using machine learning\ntechnique over Wainganga River basin, India, Hydrol. Sci. J., 63,\n1020–1046,\nhttps://doi.org/10.1080/02626667.2018.1469757,\n2018."
+  },
+  {
+    "chunk_id": "P6_p26_c04",
+    "metadata": {
+      "chunk_id": "P6_p26_c04",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 25,
+      "physical_page_number": 26,
+      "printed_page_number": null,
+      "chunk_index_in_page": 3,
+      "chunk_index_in_doc": 101,
+      "start_char_idx": 2577,
+      "end_char_idx": 3572,
+      "char_count": 995,
+      "word_count": 133
+    },
+    "text": "technique over Wainganga River basin, India, Hydrol. Sci. J., 63,\n1020–1046,\nhttps://doi.org/10.1080/02626667.2018.1469757,\n2018.\nEasterling, D. R., Meehl G, A., Parmesan, C., Changnon S,\nA., Karl, T. R., and Mearns, L. O.: Climate extremes: ob-\nservations, modeling, and impacts, Science, 289, 2068–2074,\nhttps://doi.org/10.1126/science.289.5487.2068, 2000.\nEng, K. and Wolock D. M.: Evaluation of machine learning ap-\nproaches for predicting streamﬂow metrics across the conter-\nminous United States, No. 2022-5058, US Geological Survey,\nhttps://doi.org/10.3133/sir20225058, 2022.\nFu, M., Fan, T., Ding Z, A., Salih S, Q., Al-Ansari, N.,\nand Yaseen Z. M.: Deep learning data-intelligence model\nbased on adjusted forecasting window scale: application in\ndaily streamﬂow simulation, IEEE Access., 8, 32632–32651,\nhttps://doi.org/10.1109/ACCESS.2020.2974406, 2020.\nGao, Y., Gao, X., and Zhang, X.: The 2 ◦C global temperature tar-\nget and the evolution of the long-term goal of addressing climate"
+  },
+  {
+    "chunk_id": "P6_p26_c05",
+    "metadata": {
+      "chunk_id": "P6_p26_c05",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 25,
+      "physical_page_number": 26,
+      "printed_page_number": null,
+      "chunk_index_in_page": 4,
+      "chunk_index_in_doc": 102,
+      "start_char_idx": 3441,
+      "end_char_idx": 4427,
+      "char_count": 986,
+      "word_count": 141
+    },
+    "text": "Gao, Y., Gao, X., and Zhang, X.: The 2 ◦C global temperature tar-\nget and the evolution of the long-term goal of addressing climate\nchange – from the United Nations framework convention on cli-\nmate change to the Paris agreement, Engineering, 3, 272–278,\nhttps://doi.org/10.1016/J.ENG.2017.01.022, 2017.\nGerten, D., Rost, S., von Bloh, W., and Lucht, W.: Causes of change\nin 20th century global river discharge, Geophys. Res. Lett., 35,\nL20405, https://doi.org/10.1029/2008GL035258, 2008.\nGhimire, S., Yaseen, Z. M., Farooque, A. A., Deo, R. C.,\nZhang, J., and Tao, X.: Streamﬂow prediction using an in-\ntegrated methodology based on convolutional neural network\nand long short-term memory networks, Sci. Rep., 11, 1–26,\nhttps://doi.org/10.1038/s41598-021-96751-4, 2021.\nGhobadi,\nF.\nand\nKang,\nD.:\nImproving\nlong-term\nstream-\nﬂow\nprediction\nin\na\npoorly\ngauged\nbasin\nusing\ngeo-\nspatiotemporal\nmesoscale\ndata\nand\nattention-based\ndeep\nlearning: A comparative study, J. Hydrol., 615, 128608,"
+  },
+  {
+    "chunk_id": "P6_p26_c06",
+    "metadata": {
+      "chunk_id": "P6_p26_c06",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 25,
+      "physical_page_number": 26,
+      "printed_page_number": null,
+      "chunk_index_in_page": 5,
+      "chunk_index_in_doc": 103,
+      "start_char_idx": 4281,
+      "end_char_idx": 5230,
+      "char_count": 949,
+      "word_count": 126
+    },
+    "text": "in\na\npoorly\ngauged\nbasin\nusing\ngeo-\nspatiotemporal\nmesoscale\ndata\nand\nattention-based\ndeep\nlearning: A comparative study, J. Hydrol., 615, 128608,\nhttps://doi.org/10.1016/j.jhydrol.2022.128608, 2022.\nGoswami, B. N., Venugopal, V., Sengupta, D., Madhusoodanan, M.\nS., and Xavier, P. K.: Increasing trend of extreme rain events\nover India in a warming environment, Science., 314, 1442–1445,\nhttps://doi.org/10.1126/science.1132027, 2006.\nGupta, H. V., Sorooshian, S., and Yapo, P. O.: Status of automatic\ncalibration for hydrologic models: Comparison with multilevel\nexpert calibration, J. Hydrol. Eng., 4, 135–143, 1999.\nGusain,\nA.,\nGhosh,\nS.,\nand\nKarmakar,\nS.:\nAdded\nvalue\nof\nCMIP6\nover\nCMIP5\nmodels\nin\nsimulating\nIndian\nsummer\nmonsoon\nrainfall,\nAtmos.\nRes.,\n232,\n104680,\nhttps://doi.org/10.1016/j.atmosres.2019.104680, 2020.\nHaddeland, I., Heinke, J., Biemans, H., Eisner, S., Flörke, M.,\nHanasaki, N., Konzmann, M., Ludwig, F., Masaki, Y., Schewe,"
+  },
+  {
+    "chunk_id": "P6_p26_c07",
+    "metadata": {
+      "chunk_id": "P6_p26_c07",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 25,
+      "physical_page_number": 26,
+      "printed_page_number": null,
+      "chunk_index_in_page": 6,
+      "chunk_index_in_doc": 104,
+      "start_char_idx": 5107,
+      "end_char_idx": 6105,
+      "char_count": 998,
+      "word_count": 135
+    },
+    "text": "Haddeland, I., Heinke, J., Biemans, H., Eisner, S., Flörke, M.,\nHanasaki, N., Konzmann, M., Ludwig, F., Masaki, Y., Schewe,\nJ., and Stacke, T.: Global water resources affected by human in-\nterventions and climate change, P. Natl. Acad. Sci. USA, 111,\n3251–3256, https://doi.org/10.1073/pnas.1222475110, 2014.\nHagen,\nJ.\nS.,\nLeblois,\nE.,\nLawrence,\nD.,\nSolomatine,\nD.,\nand\nSorteberg,\nA.:\nIdentifying\nmajor\ndrivers\nof\ndaily\nstreamﬂow\nfrom\nlarge-scale\natmospheric\ncircula-\ntion\nwith\nmachine\nlearning,\nJ.\nHydrol.,\n596,\n126086,\nhttps://doi.org/10.1016/j.jhydrol.2021.126086, 2021.\nHastie, T., Tibshirani, R., Friedman, J. H., and Friedman, J. H.:\nThe elements of statistical learning: data mining, inference, and\nprediction, Vol. 2, 1–758, Springer, New York, https://www.sas.\nupenn.edu/~fdiebold/NoHesitations/BookAdvanced.pdf (last ac-\ncess: 24 July 2022), 2009.\nHawkins,\nE.,\nOsborne,\nT.\nM.,\nHo,\nC.\nK.,\nand\nChalli-\nnor,\nA.\nJ.:\nCalibration\nand\nbias\ncorrection\nof\ncli-\nmate\nprojections\nfor\ncrop\nmodelling:"
+  },
+  {
+    "chunk_id": "P6_p26_c08",
+    "metadata": {
+      "chunk_id": "P6_p26_c08",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 25,
+      "physical_page_number": 26,
+      "printed_page_number": null,
+      "chunk_index_in_page": 7,
+      "chunk_index_in_doc": 105,
+      "start_char_idx": 5965,
+      "end_char_idx": 6769,
+      "char_count": 804,
+      "word_count": 100
+    },
+    "text": "Hawkins,\nE.,\nOsborne,\nT.\nM.,\nHo,\nC.\nK.,\nand\nChalli-\nnor,\nA.\nJ.:\nCalibration\nand\nbias\ncorrection\nof\ncli-\nmate\nprojections\nfor\ncrop\nmodelling:\nan\nidealised\ncase\nstudy\nover\nEurope,\nAgr.\nForest\nMeteorol.,\n170,\n19–31,\nhttps://doi.org/10.1016/j.agrformet.2012.04.007, 2013.\nHerath, H. M. V. V., Chadalawada, J., and Babovic, V.: Hydrologi-\ncally informed machine learning for rainfall–runoff modelling:\ntowards distributed modelling, Hydrol. Earth Syst. Sci., 25,\n4373–4401, https://doi.org/10.5194/hess-25-4373-2021, 2021.\nHussain, D. and Khan, A. A.: Machine learning techniques\nfor monthly river ﬂow forecasting of Hunza River, Pakistan,\nEarth. Sci. Inf., 13, 939–949, https://doi.org/10.1007/s12145-\n020-00450-z, 2020.\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023\nhttps://doi.org/10.5194/hess-27-1047-2023"
+  },
+  {
+    "chunk_id": "P6_p27_c01",
+    "metadata": {
+      "chunk_id": "P6_p27_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 26,
+      "physical_page_number": 27,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 106,
+      "start_char_idx": 0,
+      "end_char_idx": 999,
+      "char_count": 999,
+      "word_count": 148
+    },
+    "text": "D. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\n1073\nHussain, D., Hussain, T., Khan, A. A., Naqvi, S. A. A., and Jamil,\nA.: A deep learning approach for hydrological time-series pre-\ndiction: A case study of Gilgit river basin, Earth. Sci. Inf., 13,\n915–927, 2020.\nJose, D. M. and Dwarakish, G. S.: Bias Correction and trend analy-\nsis of temperature data by a high-resolution CMIP6 Model over\na Tropical River Basin, Asia-Pac. J. Atmos. Sci., 58, 97–115,\nhttps://doi.org/10.1007/s13143-021-00240-7, 2022.\nKabir, S., Patidar, S., and Pender, G.: Investigating capabilities of\nmachine learning techniques in forecasting stream ﬂow, in: Pro-\nceedings of the Institution of Civil Engineers-Water Manage.,\n173, 69–86, https://doi.org/10.1680/jwama.19.00001, 2020.\nKadel, I., Yamazaki, T., Iwasaki, T., and Abdillah M, R.: Projection\nof future monsoon precipitation over the central Himalayas by\nCMIP5 models under warming scenarios, Clim. Res., 75, 1–21,"
+  },
+  {
+    "chunk_id": "P6_p27_c02",
+    "metadata": {
+      "chunk_id": "P6_p27_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 26,
+      "physical_page_number": 27,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 107,
+      "start_char_idx": 878,
+      "end_char_idx": 1819,
+      "char_count": 941,
+      "word_count": 130
+    },
+    "text": "of future monsoon precipitation over the central Himalayas by\nCMIP5 models under warming scenarios, Clim. Res., 75, 1–21,\nhttps://doi.org/10.3354/cr01497, 2018.\nKaran, K., Singh, D., Singh, P. K., Bharati, B., Singh, T. P.,\nand Berndtsson, R.: Implications of future climate change on\ncrop and irrigation water requirements in a semi-arid river\nbasin using CMIP6 GCMs, J. Arid. Land., 14, 1234–1257,\nhttps://doi.org/10.1007/s40333-022-0081-1, 2022.\nKim,\nY.\nH.,\nMin,\nS.\nK.,\nand\nZhang,\nX.:\nEvaluation\nof\nthe\nCMIP6\nmulti-model\nensemble\nfor\nclimate\nex-\ntreme\nindices,\nWeat.\nClim.\nExtremes,\n29,\n100269,\nhttps://doi.org/10.1016/j.wace.2020.100269, 2020.\nKiranyaz, S., Avci, O., Abdeljaber, O., Ince, T., Gabbouj, M.,\nand Inman, D. J.: 1D convolutional neural networks and ap-\nplications: A survey, Mech. Syst. Signal Pr., 151, 107398,\nhttps://doi.org/10.1016/j.ymssp.2020.107398, 2021.\nKirchner, J. W.: Getting the right answers for the right rea-"
+  },
+  {
+    "chunk_id": "P6_p27_c03",
+    "metadata": {
+      "chunk_id": "P6_p27_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 26,
+      "physical_page_number": 27,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 108,
+      "start_char_idx": 1676,
+      "end_char_idx": 2664,
+      "char_count": 988,
+      "word_count": 134
+    },
+    "text": "Syst. Signal Pr., 151, 107398,\nhttps://doi.org/10.1016/j.ymssp.2020.107398, 2021.\nKirchner, J. W.: Getting the right answers for the right rea-\nsons: Linking measurements, analyses, and models to advance\nthe science of hydrology, Water. Resour. Res., 42, W03S04,\nhttps://doi.org/10.1029/2005WR004362, 2006.\nKrysanova, V.,Wortmann, M., Bolch, T., Merz, B., Duethmann, D.,\nWalter, J., Huang, S., Tong, J., Buda, S., and Kundzewicz, Z. W.:\nAnalysis of current trends in climate parameters, river discharge\nand glaciers in the Aksu River basin (Central Asia), Hydrol. Sci.\nJ., 60, 566–590, https://doi.org/10.1080/02626667.2014.925559,\n2015.\nKundzewicz, Z. W., Nohara, D., Tong, J., Oki, T., Buda,\nS., and Takeuchi, K.: Discharge of large Asian rivers–\nObservations\nand\nprojections,\nQuat.\nInt.,\n208,\n4–10,\nhttps://doi.org/10.1016/j.quaint.2009.01.011, 2009.\nLalande, M., Ménégoz, M., Krinner, G., Naegeli, K., and Wun-\nderle, S.: Climate change in the High Mountain Asia in CMIP6,\nEarth Syst."
+  },
+  {
+    "chunk_id": "P6_p27_c04",
+    "metadata": {
+      "chunk_id": "P6_p27_c04",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 26,
+      "physical_page_number": 27,
+      "printed_page_number": null,
+      "chunk_index_in_page": 3,
+      "chunk_index_in_doc": 109,
+      "start_char_idx": 2530,
+      "end_char_idx": 3522,
+      "char_count": 992,
+      "word_count": 147
+    },
+    "text": "Lalande, M., Ménégoz, M., Krinner, G., Naegeli, K., and Wun-\nderle, S.: Climate change in the High Mountain Asia in CMIP6,\nEarth Syst. Dynam., 12, 1061–1098, https://doi.org/10.5194/esd-\n12-1061-2021, 2021.\nLegates, D. R. and McCabe Jr., G. J.: Evaluating the use\nof “goodness-of-ﬁt” measures in hydrologic and hydrocli-\nmatic model validation, Water. Resour. Res., 35, 1, 233–241,\nhttps://doi.org/10.1029/1998WR900018, 1999.\nLutz, A. F., Immerzeel, W. W., Shrestha, A. B., and Bierkens, M.\nF. P.: Consistent increase in High Asia’s runoff due to increasing\nglacier melt and precipitation, Nat. Clim. Change., 4, 587–592,\nhttps://doi.org/10.1038/nclimate2237, 2014.\nLutz, A. F., Ter Maat, H. W., Wijngaard, R. R., Biemans, H.,\nSyed, A., Shrestha, A. B., Wester, P., and Immerzeel, W. W.:\nSouth Asian River basins in a 1.5 C warmer world, Reg. En-\nviro. Change., 19, 833–847, https://doi.org/10.1007/s10113-018-\n1433-4, 2019.\nMahato, P. K., Singh, D., Bharati, B., Gagnon, A. S., Singh, B. B.,"
+  },
+  {
+    "chunk_id": "P6_p27_c05",
+    "metadata": {
+      "chunk_id": "P6_p27_c05",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 26,
+      "physical_page_number": 27,
+      "printed_page_number": null,
+      "chunk_index_in_page": 4,
+      "chunk_index_in_doc": 110,
+      "start_char_idx": 3373,
+      "end_char_idx": 4363,
+      "char_count": 990,
+      "word_count": 124
+    },
+    "text": "En-\nviro. Change., 19, 833–847, https://doi.org/10.1007/s10113-018-\n1433-4, 2019.\nMahato, P. K., Singh, D., Bharati, B., Gagnon, A. S., Singh, B. B.,\nand Brema, J.: Assessing the impacts of human interventions\nand climate change on ﬂuvial ﬂooding using CMIP6 data and\nGIS-based hydrologic and hydraulic models, Geocarto. Int., 37,\n11483–11508, https://doi.org/10.1080/10106049.2022.2060311,\n2022.\nMazrooei, A., Sankarasubramanian, A., and Wood, A. W.: Potential\nin improving monthly streamﬂow forecasting through variational\nassimilation of observed streamﬂow, J. Hydrol., 600, 126559,\nhttps://doi.org/10.1016/j.jhydrol.2021.126559, 2021.\nMiller,\nJ.\nD.,\nImmerzeel,\nW.\nW.,\nand\nRees,\nG.:\nClimate\nchange impacts on glacier hydrology and river discharge in\nthe Hindu Kush–Himalayas, Mt. Res. Dev., 32, 461–467,\nhttps://doi.org/10.1659/MRD-JOURNAL-D-12-00027.1, 2012.\nMishra, V., Bhatia, U., and Tiwari, A. D.: Bias-corrected climate\nprojections for South Asia from Coupled Model Intercomparison"
+  },
+  {
+    "chunk_id": "P6_p27_c06",
+    "metadata": {
+      "chunk_id": "P6_p27_c06",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 26,
+      "physical_page_number": 27,
+      "printed_page_number": null,
+      "chunk_index_in_page": 5,
+      "chunk_index_in_doc": 111,
+      "start_char_idx": 4236,
+      "end_char_idx": 5233,
+      "char_count": 997,
+      "word_count": 140
+    },
+    "text": "Mishra, V., Bhatia, U., and Tiwari, A. D.: Bias-corrected climate\nprojections for South Asia from Coupled Model Intercomparison\nProject-6, Sci. Data, 7, 338, https://doi.org/10.1038/s41597-020-\n00681-1, 2020.\nMoriasi, D. N., Arnold, J. G., Van-Liew, M. W., Bingner, R. L.,\nHarmel, R. D., and Veith, T. L.: Model evaluation guidelines for\nsystematic quantiﬁcation of accuracy in watershed simulations,\nT. ASABE, 50, 885–900, https://doi.org/10.13031/2013.23153,\n2007.\nMurphy, J. M., Sexton, D. M., Barnett, D. N., Jones, G. S., Webb, M.\nJ., Collins, M., and Stainforth, D. A.: Quantiﬁcation of modelling\nuncertainties in a large ensemble of climate change simulations,\nNature,\n430,\n768–772,\nhttps://doi.org/10.1038/nature02771,\n2004.\nNash, J. E. and Sutcliffe, J. V.: River ﬂow forecasting through con-\nceptual models part I – A discussion of principles, J. Hydrol., 10,\n282–290, https://doi.org/10.1016/0022-1694(70)90098-3, 1970.\nNepal, S. and Shrestha, A. B.: Impact of climate change on the hy-"
+  },
+  {
+    "chunk_id": "P6_p27_c07",
+    "metadata": {
+      "chunk_id": "P6_p27_c07",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 26,
+      "physical_page_number": 27,
+      "printed_page_number": null,
+      "chunk_index_in_page": 6,
+      "chunk_index_in_doc": 112,
+      "start_char_idx": 5106,
+      "end_char_idx": 6082,
+      "char_count": 976,
+      "word_count": 137
+    },
+    "text": "282–290, https://doi.org/10.1016/0022-1694(70)90098-3, 1970.\nNepal, S. and Shrestha, A. B.: Impact of climate change on the hy-\ndrological regime of the Indus, Ganges and Brahmaputra River\nbasins: a review of the literature, Int. J. Water. Resou. Dev.,\n31, 201–218, https://doi.org/10.1080/07900627.2015.1030494,\n2015.\nNiu, X., Wang, S., Tang, J., Lee, D. K., Gutowski, W., Dairaku, K.,\nMcGregor, J., Katzfey, J., Gao, X., Wu, J., and Hong, S.: Projec-\ntion of Indian summer monsoon climate in 2041–2060 by mul-\ntiregional and global climate models, J. Geophys. Res.-Atmos.,\n120, 1776–1793, https://doi.org/10.1002/2014JD022620, 2015.\nOki,\nT.\nand\nKanae,\nS.:\nGlobal\nhydrological\ncycles\nand\nworld\nwater\nresources,\nScience,\n313,\n1068–1072,\nhttps://doi.org/10.1126/science.1128845, 2006.\nO’Neill, B. C., Tebaldi, C., van Vuuren, D. P., Eyring, V., Friedling-\nstein, P., Hurtt, G., Knutti, R., Kriegler, E., Lamarque, J.-F.,\nLowe, J., Meehl, G. A., Moss, R., Riahi, K., and Sander-"
+  },
+  {
+    "chunk_id": "P6_p27_c08",
+    "metadata": {
+      "chunk_id": "P6_p27_c08",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 26,
+      "physical_page_number": 27,
+      "printed_page_number": null,
+      "chunk_index_in_page": 7,
+      "chunk_index_in_doc": 113,
+      "start_char_idx": 5961,
+      "end_char_idx": 6670,
+      "char_count": 709,
+      "word_count": 97
+    },
+    "text": "stein, P., Hurtt, G., Knutti, R., Kriegler, E., Lamarque, J.-F.,\nLowe, J., Meehl, G. A., Moss, R., Riahi, K., and Sander-\nson, B. M.: The Scenario Model Intercomparison Project (Sce-\nnarioMIP) for CMIP6, Geosci. Model Dev., 9, 3461–3482,\nhttps://doi.org/10.5194/gmd-9-3461-2016, 2016.\nOtto, F. E., Skeie, R. B., Fuglestvedt, J. S., Berntsen, T.,\nand Allen, M. R.: Assigning historic responsibility for ex-\ntreme weather events, Nat. Clim. Change., 7, 757–759,\nhttps://doi.org/10.1038/nclimate3419, 2017.\nPasquini, A. I. and Depetris, P. J.: Discharge trends and ﬂow\ndynamics of South American rivers draining the southern\nhttps://doi.org/10.5194/hess-27-1047-2023\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023"
+  },
+  {
+    "chunk_id": "P6_p28_c01",
+    "metadata": {
+      "chunk_id": "P6_p28_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 27,
+      "physical_page_number": 28,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 114,
+      "start_char_idx": 0,
+      "end_char_idx": 995,
+      "char_count": 995,
+      "word_count": 126
+    },
+    "text": "1074\nD. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\nAtlantic seaboard: An overview, J. Hydrol., 333, 385–399,\nhttps://doi.org/10.1016/j.jhydrol.2006.09.005, 2007.\nRahimzad, M., Moghaddam Nia, A., Zolfonoon, H., Soltani, J.,\nDanandeh Mehr, A., and Kwon, H. H.: Performance comparison\nof an lstm-based deep learning model versus conventional ma-\nchine learning algorithms for streamﬂow forecasting, Water. Re-\nsour. Manage., 35, 4167–4187, https://doi.org/10.1007/s11269-\n021-02937-w, 2021.\nRasouli, K., Hsieh, W. W., and Cannon, A. J.: Daily stream-\nﬂow\nforecasting\nby\nmachine\nlearning\nmethods\nwith\nweather\nand\nclimate\ninputs,\nJ.\nHydrol,\n414,\n284–293,\nhttps://doi.org/10.1016/j.jhydrol.2011.10.039, 2012.\nRefsgaard, J. C.: Parameterisation, calibration and validation\nof distributed hydrological models, J. Hydrol., 198, 69–97,\nhttps://doi.org/10.1016/S0022-1694(96)03329-X, 1997.\nRiahi, K., Van Vuuren, D. P., Kriegler, E., Edmonds, J., O’Neill,"
+  },
+  {
+    "chunk_id": "P6_p28_c02",
+    "metadata": {
+      "chunk_id": "P6_p28_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 27,
+      "physical_page_number": 28,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 115,
+      "start_char_idx": 877,
+      "end_char_idx": 1754,
+      "char_count": 877,
+      "word_count": 130
+    },
+    "text": "https://doi.org/10.1016/S0022-1694(96)03329-X, 1997.\nRiahi, K., Van Vuuren, D. P., Kriegler, E., Edmonds, J., O’Neill,\nB. C., Fujimori, S., Bauer, N., Calvin, K., Dellink, R., Fricko,\nO., Lutz, W., Popp, A., Cuaresma, J. C., Sameer, K. C., Le-\nimbach, M., Jiang, L., Kram, T., Rao, S., Emmerling, J., Ebi,\nK., Hasegawa, T., Havlik, P., Humpenöder, H., Da Silva, L. A.,\nSmith, S., Stehfest, E., Bosetti, V., Eom, J., Gernaat, D., Masui,\nT., Rogelj, J., Streﬂer, J., Drouet, L., Krey, V., Luderer, G., Harm-\nsen, M., Takahashi, K., Baumstark, L., Doelman, J. C., Kainuma,\nM., Klimont, Z., Marangoni, G., Lotze-campen, H., Obersteiner,\nM., Tabeau, A., and Tavoni, M.: The shared socioeconomic path-\nways and their energy, land use, and greenhouse gas emissions\nimplications: an overview, Global Environ. Change, 42, 153–\n168, https://doi.org/10.1016/j.gloenvcha.2016.05.009, 2017."
+  },
+  {
+    "chunk_id": "P6_p28_c03",
+    "metadata": {
+      "chunk_id": "P6_p28_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 27,
+      "physical_page_number": 28,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 116,
+      "start_char_idx": 1635,
+      "end_char_idx": 2588,
+      "char_count": 953,
+      "word_count": 125
+    },
+    "text": "implications: an overview, Global Environ. Change, 42, 153–\n168, https://doi.org/10.1016/j.gloenvcha.2016.05.009, 2017.\nSabin, T. P., Krishnan, R., Vellore, R., Priya, P., Borgaonkar, H.\nP., Singh, B. B., and Sagar, A.: Climate change over the Hi-\nmalayas. In Assessment of climate change over the Indian region,\nSpringer, Singapore, 207–222, https://doi.org/10.1007/978-981-\n15-4327-2_11, 2020.\nSanjay, J., Krishnan, R., Shrestha, A. B., Rajbhandari, R., and\nRen, G. Y.: Downscaled climate change projections for the\nHindu Kush Himalayan region using CORDEX South Asia re-\ngional climate models, Adv. Clim. Change. Res., 8, 185–198,\nhttps://doi.org/10.1016/j.accre.2017.08.003, 2017.\nSchreiner-McGraw, A. P. and Ajami, H.: Impact of uncer-\ntainty\nin\nprecipitation\nforcing\ndata\nsets\non\nthe\nhydro-\nlogic budget of an integrated hydrologic model in moun-\ntainous terrain, Water. Resour. Res., 56, e2020WR027639,\nhttps://doi.org/10.1029/2020WR027639, 2020."
+  },
+  {
+    "chunk_id": "P6_p28_c04",
+    "metadata": {
+      "chunk_id": "P6_p28_c04",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 27,
+      "physical_page_number": 28,
+      "printed_page_number": null,
+      "chunk_index_in_page": 3,
+      "chunk_index_in_doc": 117,
+      "start_char_idx": 2488,
+      "end_char_idx": 3456,
+      "char_count": 968,
+      "word_count": 124
+    },
+    "text": "tainous terrain, Water. Resour. Res., 56, e2020WR027639,\nhttps://doi.org/10.1029/2020WR027639, 2020.\nShortridge, J. E., Guikema, S. D., and Zaitchik, B. F.: Machine\nlearning methods for empirical streamﬂow simulation: a com-\nparison of model accuracy, interpretability, and uncertainty in\nseasonal watersheds, Hydrol. Earth Syst. Sci., 20, 2611–2628,\nhttps://doi.org/10.5194/hess-20-2611-2016, 2016.\nShu, X., Ding, W., Peng, Y., Wang, Z., Wu, J., and Li,\nM.:\nMonthly\nstreamﬂow\nforecasting\nusing\nconvolutional\nneural\nnetwork.\nWater\nResour.\nManag.,\n35,\n5089–5104,\nhttps://doi.org/10.1007/s11269-021-02961-w, 2021.\nShukla, S., Jain, S. K., and Kansal, M. L.: Hydrological mod-\nelling of a snow/glacier-fed western Himalayan basin to\nsimulate the current and future streamﬂows under chang-\ning climate scenarios, Sci. Total. Environ., 795, 148871,\nhttps://doi.org/10.1016/j.scitotenv.2021.148871, 2021.\nSingh, D., Gupta, R. D., and Jain, S. K.: Study of long-term trend in"
+  },
+  {
+    "chunk_id": "P6_p28_c05",
+    "metadata": {
+      "chunk_id": "P6_p28_c05",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 27,
+      "physical_page_number": 28,
+      "printed_page_number": null,
+      "chunk_index_in_page": 4,
+      "chunk_index_in_doc": 118,
+      "start_char_idx": 3309,
+      "end_char_idx": 4256,
+      "char_count": 947,
+      "word_count": 130
+    },
+    "text": "Environ., 795, 148871,\nhttps://doi.org/10.1016/j.scitotenv.2021.148871, 2021.\nSingh, D., Gupta, R. D., and Jain, S. K.: Study of long-term trend in\nriver discharge of Sutlej River (NW Himalayan region), Geogr.\nEnviron. Sustain., 7, 87–96, https://doi.org/10.24057/2071-9388-\n2014-7-3-50-57, 2014.\nSingh, D., Gupta, R. D., and Jain, S. K.: Assessment of impact of\nclimate change on water resources in a hilly river basin, Arabian\nJ. Geosci., 8, 10625–10646, https://doi.org/10.1007/s12517-015-\n1985-2, 2015a.\nSingh, D., Gupta, R. D., and Jain, S. K.: Statistical analysis of\nlong term spatial and temporal trends of temperature parameters\nover Sutlej River basin, India, J. Earth. Syst. Sci., 124, 17–35,\nhttps://doi.org/10.1007/s12517-015-1985-2, 2015b.\nSingh, D., Jain, S. K., and Gupta, R. D.: Statistical downscaling\nand projection of future temperature and precipitation change\nin middle catchment of Sutlej River Basin, India, J. Earth. Syst."
+  },
+  {
+    "chunk_id": "P6_p28_c06",
+    "metadata": {
+      "chunk_id": "P6_p28_c06",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 27,
+      "physical_page_number": 28,
+      "printed_page_number": null,
+      "chunk_index_in_page": 5,
+      "chunk_index_in_doc": 119,
+      "start_char_idx": 4129,
+      "end_char_idx": 5110,
+      "char_count": 981,
+      "word_count": 135
+    },
+    "text": "and projection of future temperature and precipitation change\nin middle catchment of Sutlej River Basin, India, J. Earth. Syst.\nSci., 124, 843–860, https://doi.org/10.1007/s12040-015-0575-8,\n2015c.\nSingh, D., Rai, S. P., and Rai, D.: Application of geospatial\ntechniques in hydrological modelling, in: Sustainable Green\nTechnologies for Environmental Management, edited by: Shah,\nS., Venkatramanan, V., and Prasad, R., Springer, Singapore,\nhttps://doi.org/10.1007/978-981-13-2772-8_8, 2019.\nSingh, D., Zhu, Y., Liu, S., Srivastava, P. K., Dharpure, J. K.,\nChatterjee, D., Sahu, R., and Gagnon, A. S.: Exploring the\nlinks between variations in snow cover area and climatic vari-\nables in a Himalayan catchment using earth observations and\nCMIP6 climate change scenarios, J. Hydrol., 608, 127648,\nhttps://doi.org/10.1016/j.jhydrol.2022.127648, 2022.\nSingh, P. and Jain, S. K.: Snow, and glacier melt in the Satluj River\nat Bhakra Dam in the western Himalayan region, Hydrol. Sci. J.,"
+  },
+  {
+    "chunk_id": "P6_p28_c07",
+    "metadata": {
+      "chunk_id": "P6_p28_c07",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 27,
+      "physical_page_number": 28,
+      "printed_page_number": null,
+      "chunk_index_in_page": 6,
+      "chunk_index_in_doc": 120,
+      "start_char_idx": 4977,
+      "end_char_idx": 5957,
+      "char_count": 980,
+      "word_count": 141
+    },
+    "text": "Singh, P. and Jain, S. K.: Snow, and glacier melt in the Satluj River\nat Bhakra Dam in the western Himalayan region, Hydrol. Sci. J.,\n47, 93–106, https://doi.org/10.1080/02626660209492910, 2002.\nSood,\nA.\nand\nSmakhtin,\nV.:\nGlobal\nhydrological\nmodels:\na\nreview,\nHydrol.\nSci.\nJ.,\n60,\n549–565,\nhttps://doi.org/10.1080/02626667.2014.950580, 2015.\nSperna Weiland, F. C., van Beek, L. P. H., Kwadijk, J. C. J., and\nBierkens, M. F. P.: The ability of a GCM-forced hydrological\nmodel to reproduce global discharge variability, Hydrol. Earth\nSyst. Sci., 14, 1595–1621, https://doi.org/10.5194/hess-14-1595-\n2010, 2010.\nStahl, K., Hisdal, H., Hannaford, J., Tallaksen, L. M., van Lanen,\nH. A. J., Sauquet, E., Demuth, S., Fendekova, M., and Jódar, J.:\nStreamﬂow trends in Europe: evidence from a dataset of near-\nnatural catchments, Hydrol. Earth Syst. Sci., 14, 2367–2382,\nhttps://doi.org/10.5194/hess-14-2367-2010, 2010.\nStahl, K., Tallaksen, L. M., Hannaford, J., and van Lanen, H. A. J.:"
+  },
+  {
+    "chunk_id": "P6_p28_c08",
+    "metadata": {
+      "chunk_id": "P6_p28_c08",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 27,
+      "physical_page_number": 28,
+      "printed_page_number": null,
+      "chunk_index_in_page": 7,
+      "chunk_index_in_doc": 121,
+      "start_char_idx": 5807,
+      "end_char_idx": 6796,
+      "char_count": 989,
+      "word_count": 135
+    },
+    "text": "Earth Syst. Sci., 14, 2367–2382,\nhttps://doi.org/10.5194/hess-14-2367-2010, 2010.\nStahl, K., Tallaksen, L. M., Hannaford, J., and van Lanen, H. A. J.:\nFilling the white space on maps of European runoff trends: esti-\nmates from a multi-model ensemble, Hydrol. Earth Syst. Sci., 16,\n2035–2047, https://doi.org/10.5194/hess-16-2035-2012, 2012.\nTaylor, K. E.: Summarizing multiple aspects of model performance\nin a single diagram, J. Geophys. Res.-Atmos., 106, 7183–7192,\nhttps://doi.org/10.1029/2000JD900719, 2001.\nThapa, S., Li, H., Li, B., Fu, D., Shi, X., Yabo, S., Lu, L., Qi, H.,\nand Zhang, W.: Impact of climate change on snowmelt runoff in\na Himalayan basin, Nepal, Environ. Monit. Assess., 193, 1–17,\nhttps://doi.org/10.1007/s10661-021-09197-6, 2021.\nTrenberth, K. E.: Changes in precipitation with climate change,\nClim. Res., 47, 123–138, https://doi.org/10.3354/cr00953, 2011.\nTrenberth, K. E., Fasullo, J. T., and Shepherd, T. G. Attribu-\ntion of climate extreme events, Nat. Clim."
+  },
+  {
+    "chunk_id": "P6_p28_c09",
+    "metadata": {
+      "chunk_id": "P6_p28_c09",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 27,
+      "physical_page_number": 28,
+      "printed_page_number": null,
+      "chunk_index_in_page": 8,
+      "chunk_index_in_doc": 122,
+      "start_char_idx": 6691,
+      "end_char_idx": 6948,
+      "char_count": 257,
+      "word_count": 31
+    },
+    "text": "Trenberth, K. E., Fasullo, J. T., and Shepherd, T. G. Attribu-\ntion of climate extreme events, Nat. Clim. Change, 5, 725–730,\nhttps://doi.org/10.1038/nclimate2657, 2015.\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023\nhttps://doi.org/10.5194/hess-27-1047-2023"
+  },
+  {
+    "chunk_id": "P6_p29_c01",
+    "metadata": {
+      "chunk_id": "P6_p29_c01",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 28,
+      "physical_page_number": 29,
+      "printed_page_number": null,
+      "chunk_index_in_page": 0,
+      "chunk_index_in_doc": 123,
+      "start_char_idx": 0,
+      "end_char_idx": 934,
+      "char_count": 934,
+      "word_count": 136
+    },
+    "text": "D. Singh et al.: ML- and DL-based streamﬂow prediction in a hilly catchment using CMIP6 GCM data\n1075\nTurner A, G. and Annamalai, H.: Climate change and the South\nAsian summer monsoon, Nat. Clim. Change, 2, 587–595,\nhttps://doi.org/10.1038/nclimate1495, 2012.\nVan, S. P., Le, H. M., Thanh, D. V., Dang, T. D., Loc, H.\nH., and Anh, D. T.: Deep learning convolutional neural net-\nwork in rainfall–runoff modelling, J. Hydroinf., 22, 541–561,\nhttps://doi.org/10.2166/hydro.2020.095, 2020.\nVan der Wiel, K., Wanders, N., Selten, F. M., and Bierkens, M. F. P.:\nAdded value of large ensemble simulations for assessing extreme\nriver discharge in a 2 ◦C warmer world, Geophys. Res. Lett., 46,\n2093–2102, https://doi.org/10.1029/2019GL081967, 2019.\nVan-Liew,\nM.\nW.,\nArnold,\nJ.\nG.,\nand\nGarbrecht,\nJ.\nD.:\nHydrologic\nsimulation\non\nagricultural\nwatersheds:\nChoosing\nbetween\ntwo\nmodels,\nT.\nASAE,\n46,\n1539,\nhttps://doi.org/10.13031/2013.15643, 2003."
+  },
+  {
+    "chunk_id": "P6_p29_c02",
+    "metadata": {
+      "chunk_id": "P6_p29_c02",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 28,
+      "physical_page_number": 29,
+      "printed_page_number": null,
+      "chunk_index_in_page": 1,
+      "chunk_index_in_doc": 124,
+      "start_char_idx": 787,
+      "end_char_idx": 1775,
+      "char_count": 988,
+      "word_count": 130
+    },
+    "text": "J.\nD.:\nHydrologic\nsimulation\non\nagricultural\nwatersheds:\nChoosing\nbetween\ntwo\nmodels,\nT.\nASAE,\n46,\n1539,\nhttps://doi.org/10.13031/2013.15643, 2003.\nWang, T., Zhao, Y., Xu, C., Ciais, P., Liu, D., Yang, H., Piao, S.,\nand Yao, T.: Atmospheric dynamic constraints on Tibetan Plateau\nfreshwater under Paris climate targets, Nat. Clim. Change, 11,\n219–225, https://doi.org/10.1038/s41558-020-00974-8, 2021.\nXenarios, S., Gafurov, A., Schmidt-Vogt, D., Sehring, J., Manand-\nhar, S., Hergarten, C., Shigaeva, J., and Foggin, M.: Climate\nchange and adaptation of mountain societies in Central Asia:\nuncertainties, knowledge gaps, and data constraints, Reg. En-\nviron. Change, 19, 1339–1352, https://doi.org/10.1007/s10113-\n018-1384-9, 2019.\nXiang,\nZ.,\nYan,\nJ.,\nand\nDemir,\nI.:\nA\nrainfall-runoff\nmodel\nwith\nLSTM-based\nsequence-to-sequence\nlearn-\ning,\nWater.\nResour.\nRes.,\n56,\ne2019WR025326,\nhttps://doi.org/10.1029/2019WR025326, 2020.\nYang, Q., Zhang, H., Wang, G., Luo, S., Chen, D., Peng, W., and"
+  },
+  {
+    "chunk_id": "P6_p29_c03",
+    "metadata": {
+      "chunk_id": "P6_p29_c03",
+      "document_id": "P6",
+      "document_title": "Machine-learning- and deep-learning-based streamflow prediction",
+      "physical_page_index": 28,
+      "physical_page_number": 29,
+      "printed_page_number": null,
+      "chunk_index_in_page": 2,
+      "chunk_index_in_doc": 125,
+      "start_char_idx": 1628,
+      "end_char_idx": 2529,
+      "char_count": 901,
+      "word_count": 115
+    },
+    "text": "Water.\nResour.\nRes.,\n56,\ne2019WR025326,\nhttps://doi.org/10.1029/2019WR025326, 2020.\nYang, Q., Zhang, H., Wang, G., Luo, S., Chen, D., Peng, W., and\nShao, J.: Dynamic runoff simulation in a changing environment:\nA data stream approach, Environ. Modell. Soft., 112, 157–165,\nhttps://doi.org/10.1016/j.envsoft.2018.11.007, 2019.\nYaseen, Z. M., El-Shaﬁe, A., Jaafar, O., Afan, H. A., and\nSayl, K. N.: Artiﬁcial intelligence based models for stream-\nﬂow\nforecasting:\n2000–2015,\nJ.\nHydrol.,\n530,\n829–844,\nhttps://doi.org/10.1016/j.jhydrol.2015.10.038, 2015.\nZhao, B., Sun, H., Yan, D., Wei, G., Tuo, Y., and Zhang, W.: Quan-\ntifying changes and drivers of runoff in the Kaidu River Basin as-\nsociated with plausible climate scenarios, J. Hydrol.-Reg. Stud.,\n38, 100968, https://doi.org/10.1016/j.ejrh.2021.100968, 2021.\nhttps://doi.org/10.5194/hess-27-1047-2023\nHydrol. Earth Syst. Sci., 27, 1047–1075, 2023"
   }
 ]

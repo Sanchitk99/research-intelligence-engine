@@ -62,6 +62,7 @@ class IngestionReport:
     total_collection_points: int = 0
     error_message: Optional[str] = None
     sample_chunks: List[Dict[str, Any]] = field(default_factory=list)
+    dry_run: bool = False
 
 
 class ResearchEngineService:
@@ -284,7 +285,7 @@ class ResearchEngineService:
             # Step 4: Synchronize corpus_chunks.json for BM25
             self._sync_chunks_to_file(chunks, resolved_id)
         else:
-            chunks_indexed = len(chunks)
+            chunks_indexed = 0
             total_points = self.store_manager.get_point_count(self.collection_name)
 
         sample_previews = [
@@ -307,6 +308,7 @@ class ResearchEngineService:
             chunks_indexed=chunks_indexed,
             total_collection_points=total_points,
             sample_chunks=sample_previews,
+            dry_run=dry_run,
         )
 
     def _sync_chunks_to_file(self, new_chunks: List[DocumentChunk], doc_id: str) -> None:
