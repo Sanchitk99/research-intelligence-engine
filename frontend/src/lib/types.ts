@@ -50,6 +50,7 @@ export interface AskQuestionResponse {
   provider_name: string;
   retrieval_mode: string;
   latency_ms: number;
+  timing_breakdown?: Record<string, number> | null;
   confidence_notes?: string | null;
   prompt_tokens?: number | null;
   completion_tokens?: number | null;

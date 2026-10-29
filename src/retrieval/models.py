@@ -207,6 +207,14 @@ class RetrievalResult(BaseModel):
         default=0.0,
         description="Total query embedding and search execution time in milliseconds"
     )
+    dense_time_ms: Optional[float] = Field(
+        default=None,
+        description="Dense retrieval execution time in milliseconds"
+    )
+    bm25_time_ms: Optional[float] = Field(
+        default=None,
+        description="BM25 keyword retrieval execution time in milliseconds"
+    )
     query_intent: Optional[str] = Field(
         default=None,
         description="Classified query intent ('COMPARATIVE' or 'STANDARD') if intent routing was enabled"

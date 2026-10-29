@@ -81,6 +81,7 @@ class AskQuestionResponse(BaseModel):
     provider_name: str = Field(description="Provider backend used")
     retrieval_mode: str = Field(description="Retrieval mode applied ('hybrid' or 'dense')")
     latency_ms: float = Field(description="Total end-to-end latency in milliseconds")
+    timing_breakdown: Optional[Dict[str, float]] = Field(default=None, description="Stage-level timing latency breakdown in milliseconds")
     confidence_notes: Optional[str] = Field(default=None, description="Synthesizer confidence notes")
     prompt_tokens: Optional[int] = Field(default=None, description="Prompt token count if reported")
     completion_tokens: Optional[int] = Field(default=None, description="Completion token count if reported")

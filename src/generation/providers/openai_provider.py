@@ -42,6 +42,25 @@ class OpenAIProvider(BaseLLMProvider):
         self._default_model = default_model
         self._default_timeout = default_timeout
         self._provider_name = provider_name
+        self._client: Optional[httpx.Client] = None
+
+    def _get_client(self) -> httpx.Client:
+        """Return or lazily initialize reusable httpx.Client session."""
+        if self._client is None or self._client.is_closed:
+            self._client = httpx.Client(timeout=self._default_timeout)
+        return self._client
+
+    def close(self) -> None:
+        """Close persistent HTTP client session."""
+        if self._client is not None and not self._client.is_closed:
+            self._client.close()
+            self._client = None
+
+    def __enter__(self) -> "OpenAIProvider":
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+        self.close()
 
     @property
     def name(self) -> str:
@@ -126,12 +145,16 @@ class OpenAIProvider(BaseLLMProvider):
         elif response_format == "json_object":
             payload["response_format"] = {"type": "json_object"}
 
+        # For Ollama, send keep_alive to avoid aggressive 5m idle unloads
+        if self.name == "ollama" or "11434" in self._base_url:
+            payload["keep_alive"] = os.environ.get("OLLAMA_KEEP_ALIVE", "30m")
+
         url = f"{self._base_url}/chat/completions"
         start_time = time.perf_counter()
 
         try:
-            with httpx.Client(timeout=req_timeout) as client:
-                response = client.post(url, headers=headers, json=payload)
+            client = self._get_client()
+            response = client.post(url, headers=headers, json=payload, timeout=req_timeout)
         except httpx.TimeoutException as e:
             elapsed_ms = (time.perf_counter() - start_time) * 1000.0
             raise ProviderTimeoutError(f"{display_name} API request timed out after {req_timeout}s: {e}") from e

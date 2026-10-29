@@ -91,6 +91,7 @@ def ask_research_question(
         provider_name=ans.provider_name,
         retrieval_mode=ans.retrieval_mode,
         latency_ms=round(ans.latency_ms, 1),
+        timing_breakdown=ans.timing_breakdown,
         confidence_notes=ans.confidence_notes,
         prompt_tokens=ans.prompt_tokens,
         completion_tokens=ans.completion_tokens,

@@ -237,4 +237,5 @@ class DenseRetriever:
             collection_name=target_collection,
             document_filter=norm_doc_ids,
             execution_time_ms=round(elapsed_ms, 2),
+            dense_time_ms=round(elapsed_ms, 2),
         )

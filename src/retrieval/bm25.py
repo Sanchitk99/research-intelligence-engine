@@ -345,6 +345,7 @@ class BM25Retriever:
             collection_name="bm25_corpus",
             document_filter=norm_doc_ids,
             execution_time_ms=round(elapsed_ms, 2),
+            bm25_time_ms=round(elapsed_ms, 2),
         )
 
     def close(self) -> None:

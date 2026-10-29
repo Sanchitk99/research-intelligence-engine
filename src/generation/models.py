@@ -145,6 +145,10 @@ class GeneratedAnswer(BaseModel):
         description="Retrieval mode used for context: 'dense' or 'hybrid'"
     )
     latency_ms: float = Field(default=0.0, description="Total generation latency in milliseconds")
+    timing_breakdown: Optional[Dict[str, float]] = Field(
+        default=None,
+        description="Stage-level timing latency breakdown in milliseconds"
+    )
     prompt_tokens: Optional[int] = Field(default=None, description="Number of tokens in prompt")
     completion_tokens: Optional[int] = Field(default=None, description="Number of tokens in completion")
     total_tokens: Optional[int] = Field(default=None, description="Total tokens consumed")

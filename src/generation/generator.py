@@ -476,6 +476,7 @@ class AnswerGenerator:
             )
 
         # 1. Execute retrieval if not pre-provided
+        retrieval_start = time.perf_counter()
         if retrieval_result is None:
             k = top_k or self.config.top_k
             score_th = min_score if min_score is not None else self.config.min_score
@@ -484,6 +485,12 @@ class AnswerGenerator:
                 top_k=k,
                 min_score=score_th,
             )
+            retrieval_ms = (time.perf_counter() - retrieval_start) * 1000.0
+        else:
+            retrieval_ms = getattr(retrieval_result, "execution_time_ms", (time.perf_counter() - retrieval_start) * 1000.0)
+
+        dense_ms = getattr(retrieval_result, "dense_time_ms", None)
+        bm25_ms = getattr(retrieval_result, "bm25_time_ms", None)
 
         chunks = retrieval_result.chunks
         chunks_map = {c.chunk_id: c for c in chunks}
@@ -491,6 +498,14 @@ class AnswerGenerator:
         # 2. Check for empty evidence (immediate abstention without calling LLM)
         if not chunks:
             elapsed_ms = (time.perf_counter() - start_time) * 1000.0
+            breakdown = {
+                "retrieval_ms": round(retrieval_ms, 2),
+                "total_latency_ms": round(elapsed_ms, 2),
+            }
+            if dense_ms is not None:
+                breakdown["dense_retrieval_ms"] = round(dense_ms, 2)
+            if bm25_ms is not None:
+                breakdown["bm25_retrieval_ms"] = round(bm25_ms, 2)
             return GeneratedAnswer(
                 question=q_cleaned,
                 answer="The Research Intelligence Engine could not find any relevant passages in the indexed research corpus for this question.",
@@ -502,14 +517,17 @@ class AnswerGenerator:
                 provider_name=self.provider.name,
                 retrieval_mode=self.retrieval_mode,
                 latency_ms=round(elapsed_ms, 2),
+                timing_breakdown=breakdown,
             )
 
         # 3. Format prompt messages
+        prompt_start = time.perf_counter()
         messages = build_generation_messages(
             question=q_cleaned,
             chunks=chunks,
             system_prompt_override=None,
         )
+        prompt_prep_ms = (time.perf_counter() - prompt_start) * 1000.0
 
         # 4. Form complete provider sequence: primary + configured fallbacks
         all_providers: List[BaseLLMProvider] = [self.provider]
@@ -529,6 +547,7 @@ class AnswerGenerator:
         base_backoff = getattr(self.config, "retry_backoff_base_seconds", 0.5)
         max_retry_delay = getattr(self.config, "max_retry_delay_seconds", 3.0)
 
+        llm_start = time.perf_counter()
         for prov_idx, current_provider in enumerate(all_providers):
             is_primary = (prov_idx == 0)
             target_model = self.config.model_name if is_primary else current_provider.default_model
@@ -646,13 +665,16 @@ class AnswerGenerator:
                 fallback_attempts=attempt_diagnostics,
             )
 
-        elapsed_ms = (time.perf_counter() - start_time) * 1000.0
+        llm_generation_ms = (time.perf_counter() - llm_start) * 1000.0
 
         # 6. Parse output and validate citations
+        validation_start = time.perf_counter()
         answer_text, status, citations, notes = self._parse_model_output(
             content=llm_response.content,
             chunks_map=chunks_map,
         )
+        citation_validation_ms = (time.perf_counter() - validation_start) * 1000.0
+        total_latency_ms = (time.perf_counter() - start_time) * 1000.0
 
         if status == AnswerStatus.ERROR and not answer_text:
             answer_text = notes or "Model response failed strict schema validation."
@@ -660,6 +682,22 @@ class AnswerGenerator:
         if failover_occurred:
             failover_prefix = f"[Failover from {self.provider.name} to {successful_provider.name}]"
             notes = f"{failover_prefix} {notes}" if notes else failover_prefix
+
+        timing_breakdown: Dict[str, float] = {
+            "retrieval_ms": round(retrieval_ms, 2),
+            "prompt_prep_ms": round(prompt_prep_ms, 2),
+            "llm_generation_ms": round(llm_generation_ms, 2),
+            "citation_validation_ms": round(citation_validation_ms, 2),
+            "total_latency_ms": round(total_latency_ms, 2),
+        }
+        if dense_ms is not None:
+            timing_breakdown["dense_retrieval_ms"] = round(dense_ms, 2)
+        if bm25_ms is not None:
+            timing_breakdown["bm25_retrieval_ms"] = round(bm25_ms, 2)
+        if llm_response.completion_tokens and llm_generation_ms > 0:
+            timing_breakdown["tokens_per_second"] = round(
+                llm_response.completion_tokens / (llm_generation_ms / 1000.0), 2
+            )
 
         return GeneratedAnswer(
             question=q_cleaned,
@@ -671,7 +709,8 @@ class AnswerGenerator:
             model_name=llm_response.model,
             provider_name=successful_provider.name,
             retrieval_mode=self.retrieval_mode,
-            latency_ms=round(elapsed_ms, 2),
+            latency_ms=round(total_latency_ms, 2),
+            timing_breakdown=timing_breakdown,
             prompt_tokens=llm_response.prompt_tokens,
             completion_tokens=llm_response.completion_tokens,
             total_tokens=llm_response.total_tokens,

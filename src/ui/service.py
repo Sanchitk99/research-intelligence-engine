@@ -87,6 +87,8 @@ class ResearchEngineService:
         self._owns_store = store_manager is None
         self._loader: Optional[PDFLoader] = None
         self._chunker: Optional[TextChunker] = None
+        self._dense_retriever: Optional[DenseRetriever] = None
+        self._bm25_retriever: Optional[BM25Retriever] = None
 
     @property
     def embedder(self) -> BaseEmbedder:
@@ -104,6 +106,46 @@ class ResearchEngineService:
         if self._store_manager is None:
             self._store_manager = QdrantStoreManager(qdrant_path=self.qdrant_path)
         return self._store_manager
+
+    @property
+    def dense_retriever(self) -> DenseRetriever:
+        """Lazily initialize or return shared DenseRetriever."""
+        if self._dense_retriever is None:
+            self._dense_retriever = DenseRetriever(
+                embedder=self.embedder,
+                store_manager=self.store_manager,
+            )
+        return self._dense_retriever
+
+    @property
+    def bm25_retriever(self) -> BM25Retriever:
+        """Lazily initialize or return shared BM25Retriever with cached index."""
+        if self._bm25_retriever is None:
+            from src.retrieval.bm25 import BM25Config
+            cfg = BM25Config(corpus_chunks_path=self.chunks_file)
+            self._bm25_retriever = BM25Retriever(config=cfg)
+        return self._bm25_retriever
+
+    def warmup_subsystems(self) -> Dict[str, float]:
+        """Pre-warm embedding model and BM25 index to avoid cold-start query latency."""
+        timings: Dict[str, float] = {}
+        t0 = time.perf_counter()
+        _ = self.embedder
+        try:
+            self.embedder.embed_text("probe warmup query for tensor and backend initialization")
+        except Exception as e:
+            logger.warning(f"Embedder probe warmup warning: {e}")
+        timings["embedder_warmup_ms"] = round((time.perf_counter() - t0) * 1000.0, 2)
+
+        t1 = time.perf_counter()
+        try:
+            _ = self.bm25_retriever.index
+        except Exception as e:
+            logger.warning(f"BM25 index warmup warning: {e}")
+        timings["bm25_warmup_ms"] = round((time.perf_counter() - t1) * 1000.0, 2)
+
+        logger.info(f"Subsystems warmed up successfully: {timings}")
+        return timings
 
     @property
     def loader(self) -> PDFLoader:
@@ -353,6 +395,8 @@ class ResearchEngineService:
         with open(tmp_path, "w", encoding="utf-8") as f:
             json.dump(combined, f, indent=2, ensure_ascii=False)
         tmp_path.replace(self.chunks_file)
+        # Invalidate cached BM25 index so subsequent queries index newly ingested chunks
+        self._bm25_retriever = None
 
     def ask_question(
         self,
@@ -403,15 +447,13 @@ class ResearchEngineService:
                 model_name=model_name,
             )
 
-            # 2. Build retrieval component sharing pre-loaded embedder and store_manager
-            dense_retriever = DenseRetriever(
-                embedder=self.embedder,
-                store_manager=self.store_manager,
-            )
+            # 2. Build retrieval component sharing pre-loaded embedder, store_manager, and BM25 index
+            dense_retriever = self.dense_retriever
 
             if retrieval_mode.lower() == "hybrid":
                 retriever = HybridRetriever(
                     dense_retriever=dense_retriever,
+                    bm25_retriever=self.bm25_retriever,
                     config=HybridRetrievalConfig(enable_intent_routing=enable_intent_routing),
                 )
             else:

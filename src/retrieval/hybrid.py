@@ -175,6 +175,8 @@ class HybridRetriever:
             collection_name=f"{dense_res.collection_name}+bm25",
             document_filter=dense_res.document_filter,
             execution_time_ms=round(elapsed_ms, 2),
+            dense_time_ms=dense_res.execution_time_ms,
+            bm25_time_ms=bm25_res.execution_time_ms,
             query_intent=detected_intent,
         )
 

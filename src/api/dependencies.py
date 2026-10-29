@@ -38,6 +38,11 @@ def initialize_service(
         collection_name=collection_name,
         chunks_file=resolved_chunks,
     )
+    # Warm up subsystems (embedding model, torch backend, BM25 inverted index) on startup
+    try:
+        _service_instance.warmup_subsystems()
+    except Exception as e:
+        logger.warning(f"Subsystem warmup encountered error (will retry lazily on demand): {e}")
     return _service_instance
 
 
